@@ -1,6 +1,7 @@
 # Active Inference $\Phi$ Network: Maximizing Integrated Information over Time
 
 [![Status: Work in Progress](https://img.shields.io/badge/Status-Work_in_Progress_(Draft)-orange.svg)](https://github.com/Thriebl/active-inference-phi-network)
+[![Paper: PDF Download](https://img.shields.io/badge/Theoretical_Paper-PDF_Download-red.svg)](docs/Feedback_on_IIT4_Expanding_Axiom_0_Will_to_Exist.pdf)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://www.python.org/)
 
@@ -13,6 +14,15 @@
 
 **Author:** Thomas Riebl (Luxembourg)  
 **Theoretical Synthesis:** Active Inference (Karl Friston) $\times$ Integrated Information Theory 4.0 (Giulio Tononi / Larissa Albantakis) $\times$ Autopoietic Causal Persistence / The 6th Axiom (Thomas Riebl).
+
+---
+
+## 📄 Theoretical Working Paper
+
+The foundational theoretical critique and formal proposal accompanying this computational model is available as a full PDF document:
+
+👉 **[Download / View Full PDF: Feedback_on_IIT4_Expanding_Axiom_0_Will_to_Exist.pdf](docs/Feedback_on_IIT4_Expanding_Axiom_0_Will_to_Exist.pdf)**  
+*(Title: "Expanding Axiom 0: Why Integrated Information Theory Needs the Will to Exist — A Constructive Critique and Theoretical Proposal for IIT 4.0")*
 
 ---
 
