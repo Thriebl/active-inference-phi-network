@@ -1,7 +1,15 @@
 # Active Inference $\Phi$ Network: Maximizing Integrated Information over Time
 
+[![Status: Work in Progress](https://img.shields.io/badge/Status-Work_in_Progress_(Draft)-orange.svg)](https://github.com/Thriebl/active-inference-phi-network)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://www.python.org/)
+
+> [!WARNING]
+> ### ⚠️ Working Draft & Work in Progress (WIP)
+> This repository represents an **ongoing exploratory research prototype, working draft, and active investigation** by Thomas Riebl.  
+> The theoretical formalizations, POMDP generative models, and code implementations are actively evolving and subject to iterative testing, refinement, and expansion. Constructive feedback, theoretical critique, and collaborative discussions are warmly welcome.
+
+---
 
 **Author:** Thomas Riebl (Luxembourg)  
 **Theoretical Synthesis:** Active Inference (Karl Friston) $\times$ Integrated Information Theory 4.0 (Giulio Tononi / Larissa Albantakis) $\times$ Autopoietic Causal Persistence / The 6th Axiom (Thomas Riebl).
@@ -75,12 +83,12 @@ jupyter notebook Active_Inference_Phi_Maximization_Network.ipynb
 
 ## 5. Citation & Reference
 
-If you use this model or theoretical framework in your research, please cite:
+If you reference or build upon this working draft and exploratory model, please cite:
 
 ```bibtex
 @misc{riebl2026activephi,
   author = {Riebl, Thomas},
-  title = {Maximizing Integrated Information ($\Phi$) in Recurrent Active Inference Networks: A Realization of the 6th Axiom of Autopoietic Persistence},
+  title = {Maximizing Integrated Information ($\Phi$) in Recurrent Active Inference Networks: A Realization of the 6th Axiom of Autopoietic Persistence (Working Draft / WIP)},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/Thriebl/active-inference-phi-network}
@@ -88,4 +96,4 @@ If you use this model or theoretical framework in your research, please cite:
 ```
 
 ---
-**License:** MIT License
+**License:** MIT License (Working Draft / Research Prototype)
