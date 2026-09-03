@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 export_kdp_book_pdf_epub.py
-Compiles all chapter manuscripts into a unified Amazon KDP-ready 6x9 inch Academic Monograph (PDF & DOCX).
+Compiles English, German, and Bilingual Amazon KDP-ready 6x9 inch Academic Monograph Editions (PDF & DOCX).
 """
 
 import os
@@ -10,94 +10,71 @@ import shutil
 import re
 
 BOOK_DIR = "/home/thr/Documents/active-inference-phi-network/book"
-MANUSCRIPT_DIR = os.path.join(BOOK_DIR, "manuscript")
+MANUSCRIPT_EN_DIR = os.path.join(BOOK_DIR, "manuscript_en")
+MANUSCRIPT_DE_DIR = os.path.join(BOOK_DIR, "manuscript_de")
 BUILD_DIR = os.path.join(BOOK_DIR, "build")
 DOCS_DIR = "/home/thr/Documents/active-inference-phi-network/docs"
 VAULT_DIR = "/home/thr/Documents/ThRNotes/03-professional/braindumps"
 VAULT_PDF_DIR = "/home/thr/Documents/ThRNotes/Alle_Braindumps_PDF"
 
-MERGED_MD = os.path.join(BUILD_DIR, "CIF_Monograph_Complete.md")
-PDF_OUT = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_6x9.pdf")
-DOCX_OUT = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_6x9.docx")
-
-def merge_manuscripts():
-    print("=== 1. Merging Chapter Manuscripts ===")
-    chapter_files = sorted([
-        f for f in os.listdir(MANUSCRIPT_DIR) if f.endswith(".md")
-    ])
-    
+def merge_chapters(source_dir, output_file):
+    chapter_files = sorted([f for f in os.listdir(source_dir) if f.endswith(".md")])
     merged_content = []
     for f in chapter_files:
-        path = os.path.join(MANUSCRIPT_DIR, f)
-        print(f"  • Adding: {f}")
+        path = os.path.join(source_dir, f)
         with open(path, "r", encoding="utf-8") as ch:
-            content = ch.read()
-            merged_content.append(content)
-            
+            merged_content.append(ch.read())
     full_text = "\n\n\\newpage\n\n".join(merged_content)
-    
-    with open(MERGED_MD, "w", encoding="utf-8") as out:
+    with open(output_file, "w", encoding="utf-8") as out:
         out.write(full_text)
-        
-    # Copy to docs and vault
-    shutil.copy(MERGED_MD, os.path.join(DOCS_DIR, "The_Conative_Integrative_Framework_Book_Manuscript_Thomas_Riebl.md"))
-    shutil.copy(MERGED_MD, os.path.join(VAULT_DIR, "2026-09-03-the-conative-integrative-framework-complete-book-manuscript-thomas-riebl-en.md"))
-    print(f"✓ Created complete merged manuscript: {MERGED_MD}")
+    return full_text
 
-def generate_docx():
-    print("\n=== 2. Generating Word (.docx) for Amazon KDP / Review ===")
+def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
+    print(f"\n=======================================================")
+    print(f"=== Compiling Edition: {edition_name} ===")
+    print(f"=======================================================")
+    
+    # 1. Word DOCX
+    print("  • Generating DOCX...")
     cmd_docx = [
         "pandoc",
-        MERGED_MD,
-        "-o", DOCX_OUT,
+        md_file,
+        "-o", docx_out,
         "--from=markdown+tex_math_dollars+yaml_metadata_block",
         "--table-of-contents",
         "--toc-depth=2"
     ]
     subprocess.run(cmd_docx, check=False)
-    if os.path.exists(DOCX_OUT):
-        shutil.copy(DOCX_OUT, os.path.join(DOCS_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_6x9.docx"))
-        print(f"✓ Created Word DOCX: {DOCX_OUT}")
-
-def generate_kdp_pdf():
-    print("\n=== 3. Rendering Amazon KDP Print-Ready 6x9 inch PDF via Headless Chrome ===")
-    html_body_temp = os.path.join(BUILD_DIR, "temp_book_body.html")
     
+    # Copy DOCX to docs
+    docx_basename = os.path.basename(docx_out)
+    shutil.copy(docx_out, os.path.join(DOCS_DIR, docx_basename))
+    
+    # 2. HTML to PDF via Chrome
+    print("  • Generating HTML & rendering 6x9 Print PDF...")
+    temp_html_body = os.path.join(BUILD_DIR, f"temp_{edition_name}_body.html")
     cmd_pandoc = [
         "pandoc",
-        MERGED_MD,
-        "-o", html_body_temp,
+        md_file,
+        "-o", temp_html_body,
         "--from=markdown+tex_math_dollars+tex_math_single_backslash",
         "--to=html5",
         "--mathjax"
     ]
     subprocess.run(cmd_pandoc, check=True)
     
-    with open(html_body_temp, "r", encoding="utf-8") as f:
+    with open(temp_html_body, "r", encoding="utf-8") as f:
         html_body = f.read()
         
-    # Convert Mermaid code blocks into <div class="mermaid">
-    html_body = re.sub(
-        r'<pre class="mermaid"><code>(.*?)</code></pre>',
-        r'<div class="mermaid">\1</div>',
-        html_body,
-        flags=re.DOTALL
-    )
-    html_body = re.sub(
-        r'<pre><code class="language-mermaid">(.*?)</code></pre>',
-        r'<div class="mermaid">\1</div>',
-        html_body,
-        flags=re.DOTALL
-    )
-    
-    # Fix relative image links: ../images/ -> /home/thr/Documents/active-inference-phi-network/images/
+    html_body = re.sub(r'<pre class="mermaid"><code>(.*?)</code></pre>', r'<div class="mermaid">\1</div>', html_body, flags=re.DOTALL)
+    html_body = re.sub(r'<pre><code class="language-mermaid">(.*?)</code></pre>', r'<div class="mermaid">\1</div>', html_body, flags=re.DOTALL)
     html_body = html_body.replace('../images/', '/home/thr/Documents/active-inference-phi-network/images/')
     
     kdp_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Conative-Integrative Framework - Thomas Riebl</title>
+    <title>{title_header} - Thomas Riebl</title>
     <script>
         window.MathJax = {{
             tex: {{
@@ -138,7 +115,7 @@ def generate_kdp_pdf():
             margin-left: 19mm;
             margin-right: 15mm;
             @top-left {{
-                content: "The Conative-Integrative Framework";
+                content: "{title_header}";
                 font-family: 'EB Garamond', serif;
                 font-style: italic;
                 font-size: 8pt;
@@ -311,8 +288,8 @@ def generate_kdp_pdf():
 </html>
 """
     
-    html_render_file = os.path.join(BUILD_DIR, "temp_book_render.html")
-    with open(html_render_file, "w", encoding="utf-8") as f:
+    render_file = os.path.join(BUILD_DIR, f"render_{edition_name}.html")
+    with open(render_file, "w", encoding="utf-8") as f:
         f.write(kdp_html)
         
     cmd_pdf = [
@@ -322,17 +299,64 @@ def generate_kdp_pdf():
         "--no-sandbox",
         "--virtual-time-budget=12000",
         "--run-all-compositor-stages-before-draw",
-        f"--print-to-pdf={PDF_OUT}",
-        html_render_file
+        f"--print-to-pdf={pdf_out}",
+        render_file
     ]
     subprocess.run(cmd_pdf, check=True)
     
-    if os.path.exists(PDF_OUT):
-        shutil.copy(PDF_OUT, os.path.join(DOCS_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_6x9.pdf"))
-        shutil.copy(PDF_OUT, os.path.join(VAULT_PDF_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_6x9.pdf"))
-        print(f"✓ SUCCESS! Created Amazon KDP Print PDF (6x9 in):\n  - {PDF_OUT}")
+    pdf_basename = os.path.basename(pdf_out)
+    shutil.copy(pdf_out, os.path.join(DOCS_DIR, pdf_basename))
+    shutil.copy(pdf_out, os.path.join(VAULT_PDF_DIR, pdf_basename))
+    print(f"✓ Created PDF: {pdf_out}")
+
+def main():
+    # 1. English Edition
+    en_md = os.path.join(BUILD_DIR, "CIF_Monograph_EN.md")
+    en_text = merge_chapters(MANUSCRIPT_EN_DIR, en_md)
+    en_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf")
+    en_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.docx")
+    build_edition("EN", en_md, "The Conative-Integrative Framework", en_pdf, en_docx)
+    
+    # 2. German Edition
+    de_md = os.path.join(BUILD_DIR, "CIF_Monograph_DE.md")
+    de_text = merge_chapters(MANUSCRIPT_DE_DIR, de_md)
+    de_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.pdf")
+    de_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.docx")
+    build_edition("DE", de_md, "Das Konativ-Integrative Framework", de_pdf, de_docx)
+    
+    # 3. Bilingual Master Edition
+    bilingual_md = os.path.join(BUILD_DIR, "CIF_Monograph_Bilingual_EN_DE.md")
+    bilingual_header = """---
+title: "The Conative-Integrative Framework (CIF) / Das Konativ-Integrative Framework"
+subtitle: "Bilingual Complete Edition / Zweisprachige Gesamtausgabe (English & Deutsch)"
+author: "Thomas Riebl"
+date: "2026"
+geometry: "paperwidth=6in,paperheight=9in,margin=0.75in,bindingoffset=0.25in"
+fontsize: "10.5pt"
+linestretch: "1.18"
+documentclass: "book"
+toc: true
+toc-depth: 2
+---
+
+# Bilingual Edition Note / Zweisprachige Edition {-}
+
+*This volume contains the complete unabridged monograph in both English and German.*  
+*Dieser Band enthält die vollständige, ungekürzte Monographie in englischer und deutscher Sprache.*
+
+---
+
+# Part I: English Edition {-}
+
+"""
+    with open(bilingual_md, "w", encoding="utf-8") as f:
+        f.write(bilingual_header + "\n\n" + en_text + "\n\n\\newpage\n\n# Part II: Deutsche Ausgabe {-}\n\n" + de_text)
+        
+    bilingual_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Bilingual_Edition_Thomas_Riebl_6x9.pdf")
+    bilingual_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Bilingual_Edition_Thomas_Riebl_6x9.docx")
+    build_edition("Bilingual", bilingual_md, "The Conative-Integrative Framework (Bilingual)", bilingual_pdf, bilingual_docx)
+    
+    print("\n🎉 ALL THREE EDITIONS SUCCESSFULLY COMPILED!")
 
 if __name__ == "__main__":
-    merge_manuscripts()
-    generate_docx()
-    generate_kdp_pdf()
+    main()
