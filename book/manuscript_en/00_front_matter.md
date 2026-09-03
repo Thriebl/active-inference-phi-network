@@ -18,8 +18,8 @@ toc-depth: 2
 </div>
 
 <div class="title-image-box">
-<img src="/home/thr/Documents/active-inference-phi-network/images/Active_Inference_Phi_Simulation_Results.png" alt="CIF Phase Space & Criticality Architecture" class="title-cover-image" />
-<div class="title-image-caption">Phase Space Convergence, Criticality & Phenomenal Topology</div>
+<img src="/home/thr/Documents/active-inference-phi-network/images/img_9795.jpg" alt="Thomas Riebl" class="title-cover-image" />
+<div class="title-image-caption">The Conative-Integrative Architecture of Mind</div>
 </div>
 
 <div class="master-equivalence-box">

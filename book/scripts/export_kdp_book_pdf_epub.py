@@ -190,29 +190,36 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         
         .title-image-box {{
             margin: 8pt auto;
-            max-width: 92%;
-            border: 0.8px solid #cbd5e1;
-            border-radius: 5pt;
-            padding: 5pt;
-            background: #f8fafc;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            max-width: 88%;
+            border: 1.2px solid #1e3a8a;
+            border-radius: 6pt;
+            padding: 8pt;
+            background: #0b192c; /* Dunkelblauer Hintergrund */
+            box-shadow: 0 3px 10px rgba(11, 25, 44, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }}
         
         .title-cover-image {{
-            max-height: 145pt;
+            max-height: 150pt;
             width: auto;
             max-width: 100%;
             display: block;
             margin: 0 auto;
-            border-radius: 3pt;
+            border-radius: 4pt;
+            border: 0.8px solid #1e40af;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
         }}
         
         .title-image-caption {{
             font-family: 'EB Garamond', serif;
-            font-size: 8.2pt;
+            font-size: 8.3pt;
             font-style: italic;
-            color: #64748b;
-            margin-top: 3pt;
+            color: #93c5fd; /* Sanftes Hellblau auf dunkelblauem Grund */
+            margin-top: 4pt;
+            text-align: center;
         }}
         
         .master-equivalence-box {{
