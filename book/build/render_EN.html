@@ -75,6 +75,127 @@
             text-rendering: optimizeLegibility;
         }
         
+        /* Title Page Layout */
+        .book-title-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            min-height: 86vh;
+            padding: 5pt 0 10pt 0;
+            box-sizing: border-box;
+            page-break-before: avoid;
+            page-break-after: always;
+            break-after: page;
+        }
+        
+        .title-top-group {
+            margin-top: 10pt;
+            margin-bottom: 8pt;
+        }
+        
+        .title-main {
+            font-family: 'Cinzel', serif;
+            font-size: 16.5pt;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            color: #0f172a;
+            line-height: 1.22;
+            margin-bottom: 6pt;
+        }
+        
+        .title-subtitle {
+            font-family: 'EB Garamond', serif;
+            font-style: italic;
+            font-size: 10.8pt;
+            color: #0369a1;
+            line-height: 1.35;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        
+        .title-image-box {
+            margin: 8pt auto;
+            max-width: 92%;
+            border: 0.8px solid #cbd5e1;
+            border-radius: 5pt;
+            padding: 5pt;
+            background: #f8fafc;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .title-cover-image {
+            max-height: 145pt;
+            width: auto;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 3pt;
+        }
+        
+        .title-image-caption {
+            font-family: 'EB Garamond', serif;
+            font-size: 8.2pt;
+            font-style: italic;
+            color: #64748b;
+            margin-top: 3pt;
+        }
+        
+        .master-equivalence-box {
+            background: #f0fdf4;
+            border: 1.2px solid #16a34a;
+            border-radius: 5pt;
+            padding: 6pt 10pt;
+            margin: 8pt auto;
+            width: 96%;
+            box-sizing: border-box;
+        }
+        
+        .master-equivalence-box .mjx-chtml {
+            font-size: 102% !important;
+            margin: 4pt 0 !important;
+        }
+        
+        .eq-label {
+            font-family: 'Cinzel', serif;
+            font-size: 8pt;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #166534;
+            margin-bottom: 2pt;
+        }
+        
+        .eq-subtext {
+            font-family: 'EB Garamond', serif;
+            font-size: 8pt;
+            font-style: italic;
+            color: #15803d;
+            margin-top: 2pt;
+        }
+        
+        .title-author-block {
+            margin-top: auto;
+            padding-top: 8pt;
+            border-top: 0.8px solid #e2e8f0;
+            width: 80%;
+        }
+        
+        .title-author {
+            font-family: 'Cinzel', serif;
+            font-size: 12.5pt;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #0f172a;
+        }
+        
+        .title-meta {
+            font-family: 'EB Garamond', serif;
+            font-size: 8.8pt;
+            color: #64748b;
+            margin-top: 2pt;
+        }
+        
         /* H1 is the ONLY element that triggers a new page (Chapters & Front Matter sections) */
         h1 {
             font-family: 'Cinzel', serif;
@@ -260,6 +381,44 @@
     </style>
 </head>
 <body>
+<div class="book-title-page">
+<div class="title-top-group">
+<div class="title-main">
+THE CONATIVE-INTEGRATIVE FRAMEWORK
+</div>
+<div class="title-subtitle">
+Active Inference, Integrated Information, and the Autopoietic Arrow of
+Mind
+</div>
+</div>
+<div class="title-image-box">
+<img src="/home/thr/Documents/active-inference-phi-network/images/Active_Inference_Phi_Simulation_Results.png" alt="CIF Phase Space & Criticality Architecture" class="title-cover-image" />
+<div class="title-image-caption">
+Phase Space Convergence, Criticality &amp; Phenomenal Topology
+</div>
+</div>
+<div class="master-equivalence-box">
+<div class="eq-label">
+THE FUNDAMENTAL MASTER EQUIVALENCE (6TH AXIOM)
+</div>
+<p><span class="math display">\[\pi^* = \arg\min_{\pi}
+\sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau)
+\quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\;
+\pi^*\Big] \;\ge\; \Phi(t) \quad (\Phi &gt; 0)\]</span></p>
+<div class="eq-subtext">
+The Mathematical Bridge between 3rd-Person Cybernetics &amp; 1st-Person
+Causal Interiority
+</div>
+</div>
+<div class="title-author-block">
+<div class="title-author">
+THOMAS RIEBL
+</div>
+<div class="title-meta">
+Luxembourg · 2026
+</div>
+</div>
+</div>
 <section id="dedication" class="unnumbered dedication-page">
 <h1 class="unnumbered">Dedication</h1>
 <p><em>To all inquiring minds who recognize that consciousness is not an

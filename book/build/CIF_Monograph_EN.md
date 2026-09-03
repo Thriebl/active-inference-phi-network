@@ -11,6 +11,31 @@ toc: true
 toc-depth: 2
 ---
 
+<div class="book-title-page">
+<div class="title-top-group">
+<div class="title-main">THE CONATIVE-INTEGRATIVE FRAMEWORK</div>
+<div class="title-subtitle">Active Inference, Integrated Information, and the Autopoietic Arrow of Mind</div>
+</div>
+
+<div class="title-image-box">
+<img src="/home/thr/Documents/active-inference-phi-network/images/Active_Inference_Phi_Simulation_Results.png" alt="CIF Phase Space & Criticality Architecture" class="title-cover-image" />
+<div class="title-image-caption">Phase Space Convergence, Criticality & Phenomenal Topology</div>
+</div>
+
+<div class="master-equivalence-box">
+<div class="eq-label">THE FUNDAMENTAL MASTER EQUIVALENCE (6TH AXIOM)</div>
+
+$$\pi^* = \arg\min_{\pi} \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \;\ge\; \Phi(t) \quad (\Phi > 0)$$
+
+<div class="eq-subtext">The Mathematical Bridge between 3rd-Person Cybernetics & 1st-Person Causal Interiority</div>
+</div>
+
+<div class="title-author-block">
+<div class="title-author">THOMAS RIEBL</div>
+<div class="title-meta">Luxembourg · 2026</div>
+</div>
+</div>
+
 <div class="dedication-page">
 
 # Dedication {-}
