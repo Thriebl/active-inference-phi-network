@@ -1017,7 +1017,39 @@ class DeepTemporalActiveInferenceAgent:
 
 ---
 
-## Appendix C: Alphabetical Glossary of Technical Terms
+## Appendix C: Open Science, Git Repository & Computational Reproducibility
+
+In alignment with the highest standards of open, transparent, and reproducible science, all simulation source codes, interactive Jupyter Notebooks, foundational treatises, and high-resolution publication assets accompanying this monograph are hosted publicly on GitHub:
+
+* **Primary Project Repository:**  
+  [https://github.com/Thriebl/active-inference-phi-network](https://github.com/Thriebl/active-inference-phi-network)
+
+### 1. Interactive Simulation Notebooks (`notebooks/`):
+* **Recurrent $\Phi$-Maximization Network:**  
+  [`Active_Inference_Phi_Maximization_Network.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Phi_Maximization_Network.ipynb)  
+  *Simulates active inference agent arrays self-organizing at the Edge of Chaos (Criticality) to maximize Integrated Information ($\Phi$).*
+* **Modular Network Scaling ($\Phi(N)$):**  
+  [`Active_Inference_Expanding_Network_Phi_Scaling.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Expanding_Network_Phi_Scaling.ipynb)  
+  *Simulates dynamic modular network expansion from $N=4$ to $N=12$ nodes, demonstrating superlinear $\Phi$ integration.*
+* **Deep Temporal Active Inference & The 6th Axiom:**  
+  [`Deep_Temporal_Active_Inference_Simulation.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb)  
+  *Multi-agent Monte Carlo simulation ($N=30$) proving the Theorem of Minimum Temporal Depth ($H > 1$) and epistemic curiosity.*
+
+### 2. Foundational Treatises & Academic Papers (`docs/`):
+* **The Master Framework Paper:** *The Conative-Integrative Framework (CIF)*  
+  [`The_Conative_Integrative_Framework_Thomas_Riebl.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_Conative_Integrative_Framework_Thomas_Riebl.pdf)
+* **The Ontogenetic Architecture:** *The Composition of the Soul: The 6-Layer Architecture*  
+  [`The_Composition_of_the_Soul_Thomas_Riebl.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_Composition_of_the_Soul_Thomas_Riebl.pdf)
+* **The Temporal Mechanics:** *The Temporal Mechanics of Consciousness (Time & The Specious Present)*  
+  [`The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf)
+* **The Statistical Framework:** *Monte Carlo Methodology in Active Inference & Consciousness*  
+  [`Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf)
+* **The Executive Landscape Poster:** *The 6th Axiom Executive Slide (High-Impact Hero Formula)*  
+  [`The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf)
+
+---
+
+## Appendix D: Alphabetical Glossary of Technical Terms
 
 * **Active Inference:** The normative mathematical framework in theoretical neurobiology stating that living organisms preserve homeostatic existence by executing actions to minimize Expected Free Energy ($\mathbf{G}$), bringing sensory observations into alignment with prior preferences.
 * **Alter (Dissociated Center of Mind):** In Analytic Idealism, an individual living organism formed through the topological dissociation of Mind-at-Large, demarcated by a statistical Markov Blanket.

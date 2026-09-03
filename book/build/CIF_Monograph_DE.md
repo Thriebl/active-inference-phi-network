@@ -545,7 +545,39 @@ $$P(\pi) = \frac{\exp\big(-\gamma \cdot \mathbf{G}(\pi)\big)}{\sum_{\pi'} \exp\b
 
 ---
 
-## Anhang B: Alphabetisches Glossar der Fachbegriffe
+## Anhang B: Open Science, Git-Archiv & Wissenschaftliche Begleitpapiere
+
+Im Einklang mit den höchsten Standards transparenter und reproduzierbarer Wissenschaft sind sämtliche Simulations-Quellcodes, interaktiven Jupyter Notebooks, mathematischen Herleitungen und druckfertigen Begleitpapiere öffentlich auf GitHub zugänglich:
+
+* **Zentrales Projekt-Repository:**  
+  [https://github.com/Thriebl/active-inference-phi-network](https://github.com/Thriebl/active-inference-phi-network)
+
+### 1. Interaktive Simulations-Notebooks (`notebooks/`):
+* **Rekurrente $\Phi$-Maximierung:**  
+  [`Active_Inference_Phi_Maximization_Network.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Phi_Maximization_Network.ipynb)  
+  *Simuliert Active-Inference-Agenten, die sich autonom an der Schwelle zum Chaos (Kritikalität) einpendeln und Integrierte Information ($\Phi$) maximieren.*
+* **Modulare Netzwerkskalierung ($\Phi(N)$):**  
+  [`Active_Inference_Expanding_Network_Phi_Scaling.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Expanding_Network_Phi_Scaling.ipynb)  
+  *Simuliert die dynamische Erweiterung von $N=4$ auf $N=12$ Knoten mit superlinearer $\Phi$-Integration.*
+* **Temporale Tiefen ($H = 0 \to 4$) & 6. Axiom:**  
+  [`Deep_Temporal_Active_Inference_Simulation.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb)  
+  *Multi-Agenten-Monte-Carlo-Simulation ($N=30$) zum Beweis des Theorems der temporalen Mindesttiefe ($H > 1$) und epistemischer Neugier.*
+
+### 2. Wissenschaftliche Grundlagenpapiere & Poster (`docs/`):
+* **Das Master-Framework-Papier:** *The Conative-Integrative Framework (CIF)*  
+  [`The_Conative_Integrative_Framework_Thomas_Riebl.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_Conative_Integrative_Framework_Thomas_Riebl.pdf)
+* **Die 6-Ebenen-Seelenarchitektur:** *The Composition of the Soul*  
+  [`The_Composition_of_the_Soul_Thomas_Riebl.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_Composition_of_the_Soul_Thomas_Riebl.pdf)
+* **Die temporale Mechanik:** *The Temporal Mechanics of Consciousness (Time & The Specious Present)*  
+  [`The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf)
+* **Die statistische Methodik:** *Monte Carlo Methodology in Active Inference & Consciousness*  
+  [`Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf)
+* **Das Executive Poster:** *The 6th Axiom Executive Slide (High-Impact A4 Landscape)*  
+  [`The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf)
+
+---
+
+## Anhang C: Alphabetisches Glossar der Fachbegriffe
 
 * **Active Inference (Aktive Inferenz):** Das normative mathematische Framework der theoretischen Neurobiologie, das besagt, dass lebendige Organismen ihre Existenz sichern, indem sie Handlungen ausführen, die die erwartete freie Energie ($\mathbf{G}$) minimieren, um sensorische Beobachtungen mit angeborenen Präferenzen in Einklang zu bringen.
 * **Alter (Dissoziiertes Bewusstseinszentrum):** Im Analytischen Idealismus ein individueller lebendiger Organismus, der durch die topologische Dissoziation von Mind-at-Large entsteht und durch eine statistische Markov-Decke abgegrenzt ist.
