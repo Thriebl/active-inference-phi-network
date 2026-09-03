@@ -78,7 +78,7 @@
         h1 {
             font-family: 'Cinzel', serif;
             color: #0f172a;
-            font-size: 16pt;
+            font-size: 15.5pt;
             font-weight: 700;
             text-align: center;
             border-bottom: 1.5px solid #0284c7;
@@ -86,8 +86,40 @@
             margin-top: 24pt;
             margin-bottom: 14pt;
             page-break-before: always;
+            break-before: page;
             line-height: 1.25;
             letter-spacing: 0.5px;
+        }
+        
+        .dedication-page {
+            page-break-before: always;
+            page-break-after: always;
+            break-before: page;
+            break-after: page;
+            display: block;
+            margin-top: 35%;
+            text-align: center;
+            padding: 20pt 15pt;
+        }
+        
+        .dedication-page h1 {
+            border-bottom: none;
+            page-break-before: avoid;
+            break-before: avoid;
+            font-size: 14pt;
+            margin-bottom: 25pt;
+            letter-spacing: 1px;
+            color: #0369a1;
+        }
+        
+        .dedication-page p {
+            font-style: italic;
+            text-align: center;
+            font-size: 11pt;
+            line-height: 1.7;
+            max-width: 90%;
+            margin: 0 auto;
+            color: #1e293b;
         }
         
         h2 {
@@ -221,14 +253,18 @@ englischer und deutscher Sprache.</em></p>
 <hr />
 <h1 class="unnumbered" id="part-i-english-edition">Part I: English
 Edition</h1>
-<h1 class="unnumbered" id="front-matter">Front Matter</h1>
-<h2 class="unnumbered" id="dedication">Dedication</h2>
+<section id="dedication" class="unnumbered dedication-page">
+<h1 class="unnumbered">Dedication</h1>
+<p><br><br><br></p>
 <p><em>To all inquiring minds who recognize that consciousness is not an
 incidental byproduct of dead matter, but the fundamental ground of
 reality itself—and to those who strive to unite the mathematical rigor
 of science with the living depth of subjective interiority.</em></p>
-<hr />
-<h2 class="unnumbered" id="authors-preface">Author’s Preface</h2>
+</section>
+<div style="page-break-before: always;">
+
+</div>
+<h1 class="unnumbered" id="authors-preface">Author’s Preface</h1>
 <p>For more than three centuries, the mainstream scientific worldview
 has been gripped by a profound metaphysical presupposition: that
 objective reality is composed fundamentally of inanimate, mindless
@@ -274,12 +310,14 @@ formal answer to the questions: <em>What is an individual soul?</em>,
 <em>Why does time feel like an irreversible flow?</em>, and <em>What is
 the computational threshold between reactive matter and conscious
 agency?</em></p>
-<p><em>Thomas Riebl</em><br />
+<p><br> <em>Thomas Riebl</em><br />
 <em>Luxembourg, September 2026</em></p>
-<hr />
-<h2 class="unnumbered"
+<div style="page-break-before: always;">
+
+</div>
+<h1 class="unnumbered"
 id="the-epistemological-manifesto-beyond-the-cogito">The Epistemological
-Manifesto: Beyond the Cogito</h2>
+Manifesto: Beyond the Cogito</h1>
 <p>Descartes’ famous dictum <em>Cogito, ergo sum</em> (“I think,
 therefore I am”) laid the foundation for modern individualism, but it
 simultaneously planted the seed of Cartesian dualism and the illusion of
@@ -2128,15 +2166,19 @@ System)</strong> (September 2026).</p>
 </blockquote>
 <h1 class="unnumbered" id="part-ii-deutsche-ausgabe">Part II: Deutsche
 Ausgabe</h1>
-<h1 class="unnumbered" id="titelei-vorwort">Titelei &amp; Vorwort</h1>
-<h2 class="unnumbered" id="widmung">Widmung</h2>
+<section id="widmung" class="unnumbered dedication-page">
+<h1 class="unnumbered">Widmung</h1>
+<p><br><br><br></p>
 <p><em>Allen forschenden Geistern gewidmet, die erkennen, dass
 Bewusstsein kein zufälliges Nebenprodukt toter Materie ist, sondern der
 fundamentale Urgrund der Wirklichkeit selbst – und all jenen, die danach
 streben, die mathematische Strenge der Naturwissenschaft mit der
 lebendigen Tiefe subjektiver Innerlichkeit zu vereinen.</em></p>
-<hr />
-<h2 class="unnumbered" id="vorwort-des-autors">Vorwort des Autors</h2>
+</section>
+<div style="page-break-before: always;">
+
+</div>
+<h1 class="unnumbered" id="vorwort-des-autors">Vorwort des Autors</h1>
 <p>Seit mehr als drei Jahrhunderten wird das naturwissenschaftliche
 Weltbild von einer tiefgreifenden metaphysischen Grundannahme
 beherrscht: dass die objektive Wirklichkeit fundamental aus toter,
@@ -2189,12 +2231,14 @@ hat. Es liefert eine formale Antwort auf die fundamentalen Fragen:
 Zeit als gerichteten Fluss?</em> und <em>Wo verläuft die rechnerische
 Schwelle zwischen reaktiven Automaten und echtem bewussten
 Geist?</em></p>
-<p><em>Thomas Riebl</em><br />
+<p><br> <em>Thomas Riebl</em><br />
 <em>Luxemburg, September 2026</em></p>
-<hr />
-<h2 class="unnumbered"
+<div style="page-break-before: always;">
+
+</div>
+<h1 class="unnumbered"
 id="das-epistemologische-manifest-jenseits-des-cogito">Das
-Epistemologische Manifest: Jenseits des Cogito</h2>
+Epistemologische Manifest: Jenseits des Cogito</h1>
 <p>Descartes’ berühmter Satz <em>Cogito, ergo sum</em> („Ich denke, also
 bin ich“) legte das Fundament für den modernen Individualismus, pflanzte
 jedoch zugleich den Keim des cartesianischen Dualismus und die Illusion
@@ -2217,6 +2261,8 @@ Schopenhauer (1819) ist der fundamentale Impuls allen Lebens der
 Bewusstseinszentrums, seine Integrität zu bewahren und dem
 thermodynamischen Zerfall zu widerstehen.</li>
 </ol>
+<p>Dieses Buch liefert das mathematische, neurobiologische und
+rechnerische Gerüst für dieses Weltbild.</p>
 <h1
 id="kapitel-1-die-krise-des-physikalismus-die-architektur-von-mind-at-large">Kapitel
 1: Die Krise des Physikalismus &amp; Die Architektur von

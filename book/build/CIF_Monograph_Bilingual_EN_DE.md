@@ -35,15 +35,19 @@ toc: true
 toc-depth: 2
 ---
 
-# Front Matter {-}
+<div class="dedication-page">
 
-## Dedication {-}
+# Dedication {-}
+
+<br><br><br>
 
 *To all inquiring minds who recognize that consciousness is not an incidental byproduct of dead matter, but the fundamental ground of reality itself—and to those who strive to unite the mathematical rigor of science with the living depth of subjective interiority.*
 
----
+</div>
 
-## Author's Preface {-}
+<div style="page-break-before: always;"></div>
+
+# Author's Preface {-}
 
 For more than three centuries, the mainstream scientific worldview has been gripped by a profound metaphysical presupposition: that objective reality is composed fundamentally of inanimate, mindless physical matter, from which subjective consciousness somehow magically emerges. Despite decades of neuroscientific progress, this physicalist paradigm has run into an impenetrable barrier—the "Hard Problem of Consciousness" (Chalmers, 1995). The more finely we map neural spikes and synaptic neurotransmitters, the wider the explanatory chasm becomes between quantitative objective mechanisms and the qualitative reality of pain, love, the scent of a rose, or the passage of time.
 
@@ -58,12 +62,13 @@ The CIF is not a speculative philosophical retreat into mystification; it is a u
 
 By uniting the 3rd-person cybernetics of Active Inference with the 1st-person causal ontology of Integrated Information Theory under the umbrella of Analytic Idealism, this treatise resolves the dualistic split that has haunted Western philosophy since Descartes. It provides a formal answer to the questions: *What is an individual soul?*, *Why does time feel like an irreversible flow?*, and *What is the computational threshold between reactive matter and conscious agency?*
 
+<br>
 *Thomas Riebl*  
 *Luxembourg, September 2026*
 
----
+<div style="page-break-before: always;"></div>
 
-## The Epistemological Manifesto: Beyond the Cogito {-}
+# The Epistemological Manifesto: Beyond the Cogito {-}
 
 Descartes' famous dictum *Cogito, ergo sum* ("I think, therefore I am") laid the foundation for modern individualism, but it simultaneously planted the seed of Cartesian dualism and the illusion of an isolated thinking ego separate from the cosmos.
 
@@ -1147,15 +1152,19 @@ toc: true
 toc-depth: 2
 ---
 
-# Titelei & Vorwort {-}
+<div class="dedication-page">
 
-## Widmung {-}
+# Widmung {-}
+
+<br><br><br>
 
 *Allen forschenden Geistern gewidmet, die erkennen, dass Bewusstsein kein zufälliges Nebenprodukt toter Materie ist, sondern der fundamentale Urgrund der Wirklichkeit selbst – und all jenen, die danach streben, die mathematische Strenge der Naturwissenschaft mit der lebendigen Tiefe subjektiver Innerlichkeit zu vereinen.*
 
----
+</div>
 
-## Vorwort des Autors {-}
+<div style="page-break-before: always;"></div>
+
+# Vorwort des Autors {-}
 
 Seit mehr als drei Jahrhunderten wird das naturwissenschaftliche Weltbild von einer tiefgreifenden metaphysischen Grundannahme beherrscht: dass die objektive Wirklichkeit fundamental aus toter, geistloser Materie besteht, aus der subjektives Bewusstsein auf magische Weise emergieren soll. Trotz bahnbrechender neurobiologischer Fortschritte ist dieses physikalistische Paradigma an eine unüberwindbare Grenze gestoßen – das sogenannte „Schwere Problem des Bewusstseins“ (*The Hard Problem of Consciousness*, Chalmers, 1995). Je detaillierter wir neuronale Aktionspotenziale und synaptische Transmitterströme kartieren, desto unüberbrückbarer wird die Erklärungslücke zwischen quantitativen objektiven Mechanismen und der qualitativen Wirklichkeit von Schmerz, Freude, Liebe, dem Duft einer Rose oder dem Verstreichen der Zeit.
 
@@ -1170,12 +1179,13 @@ Das CIF ist kein spekulativer Rückzug in philosophischen Mystizismus; es ist ei
 
 Indem dieses Werk die 3.-Person-Kybernetik von Active Inference mit der 1.-Person-Kausalontologie der Integrierten Informationstheorie unter dem Dach des Analytischen Idealismus vereint, löst es den dualistischen Bruch auf, der die westliche Philosophie seit René Descartes gespalten hat. Es liefert eine formale Antwort auf die fundamentalen Fragen: *Was ist eine individuelle Seele?*, *Warum erleben wir die Zeit als gerichteten Fluss?* und *Wo verläuft die rechnerische Schwelle zwischen reaktiven Automaten und echtem bewussten Geist?*
 
+<br>
 *Thomas Riebl*  
 *Luxemburg, September 2026*
 
----
+<div style="page-break-before: always;"></div>
 
-## Das Epistemologische Manifest: Jenseits des Cogito {-}
+# Das Epistemologische Manifest: Jenseits des Cogito {-}
 
 Descartes' berühmter Satz *Cogito, ergo sum* („Ich denke, also bin ich“) legte das Fundament für den modernen Individualismus, pflanzte jedoch zugleich den Keim des cartesianischen Dualismus und die Illusion eines isolierten denkenden Egos, das der Welt fremd gegenübersteht.
 
@@ -1184,6 +1194,8 @@ Im Konativ-Integrativen Framework überwinden wir dieses Fundament durch eine **
 1. **Bewusstsein ist ontologisch primär:** Bewusstsein ist nicht etwas, das ein Gehirn *erzeugt*; vielmehr ist das physische Gehirn das, wie der Prozess lokalisierten Bewusstseins von der Außenseite einer Markov-Decke *erscheint*.
 2. **Das „Ich“ ist ein transparentes Modell:** Nach Thomas Metzinger (2003, 2009) ist das subjektive Ego ein phänomenales Selbstmodell (PSM) – ein hochkomplexes Werkzeug, das durch temporale Active Inference generiert wird, um Handlungen zu steuern und existenzielle Überraschung zu minimieren.
 3. **Conatus als Urantrieb:** Nach Spinoza (1677) und Schopenhauer (1819) ist der fundamentale Impuls allen Lebens der *Conatus* – das unaufhörliche Streben eines dissoziierten Bewusstseinszentrums, seine Integrität zu bewahren und dem thermodynamischen Zerfall zu widerstehen.
+
+Dieses Buch liefert das mathematische, neurobiologische und rechnerische Gerüst für dieses Weltbild.
 
 
 \newpage

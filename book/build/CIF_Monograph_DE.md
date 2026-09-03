@@ -11,15 +11,19 @@ toc: true
 toc-depth: 2
 ---
 
-# Titelei & Vorwort {-}
+<div class="dedication-page">
 
-## Widmung {-}
+# Widmung {-}
+
+<br><br><br>
 
 *Allen forschenden Geistern gewidmet, die erkennen, dass Bewusstsein kein zufälliges Nebenprodukt toter Materie ist, sondern der fundamentale Urgrund der Wirklichkeit selbst – und all jenen, die danach streben, die mathematische Strenge der Naturwissenschaft mit der lebendigen Tiefe subjektiver Innerlichkeit zu vereinen.*
 
----
+</div>
 
-## Vorwort des Autors {-}
+<div style="page-break-before: always;"></div>
+
+# Vorwort des Autors {-}
 
 Seit mehr als drei Jahrhunderten wird das naturwissenschaftliche Weltbild von einer tiefgreifenden metaphysischen Grundannahme beherrscht: dass die objektive Wirklichkeit fundamental aus toter, geistloser Materie besteht, aus der subjektives Bewusstsein auf magische Weise emergieren soll. Trotz bahnbrechender neurobiologischer Fortschritte ist dieses physikalistische Paradigma an eine unüberwindbare Grenze gestoßen – das sogenannte „Schwere Problem des Bewusstseins“ (*The Hard Problem of Consciousness*, Chalmers, 1995). Je detaillierter wir neuronale Aktionspotenziale und synaptische Transmitterströme kartieren, desto unüberbrückbarer wird die Erklärungslücke zwischen quantitativen objektiven Mechanismen und der qualitativen Wirklichkeit von Schmerz, Freude, Liebe, dem Duft einer Rose oder dem Verstreichen der Zeit.
 
@@ -34,12 +38,13 @@ Das CIF ist kein spekulativer Rückzug in philosophischen Mystizismus; es ist ei
 
 Indem dieses Werk die 3.-Person-Kybernetik von Active Inference mit der 1.-Person-Kausalontologie der Integrierten Informationstheorie unter dem Dach des Analytischen Idealismus vereint, löst es den dualistischen Bruch auf, der die westliche Philosophie seit René Descartes gespalten hat. Es liefert eine formale Antwort auf die fundamentalen Fragen: *Was ist eine individuelle Seele?*, *Warum erleben wir die Zeit als gerichteten Fluss?* und *Wo verläuft die rechnerische Schwelle zwischen reaktiven Automaten und echtem bewussten Geist?*
 
+<br>
 *Thomas Riebl*  
 *Luxemburg, September 2026*
 
----
+<div style="page-break-before: always;"></div>
 
-## Das Epistemologische Manifest: Jenseits des Cogito {-}
+# Das Epistemologische Manifest: Jenseits des Cogito {-}
 
 Descartes' berühmter Satz *Cogito, ergo sum* („Ich denke, also bin ich“) legte das Fundament für den modernen Individualismus, pflanzte jedoch zugleich den Keim des cartesianischen Dualismus und die Illusion eines isolierten denkenden Egos, das der Welt fremd gegenübersteht.
 
@@ -48,6 +53,8 @@ Im Konativ-Integrativen Framework überwinden wir dieses Fundament durch eine **
 1. **Bewusstsein ist ontologisch primär:** Bewusstsein ist nicht etwas, das ein Gehirn *erzeugt*; vielmehr ist das physische Gehirn das, wie der Prozess lokalisierten Bewusstseins von der Außenseite einer Markov-Decke *erscheint*.
 2. **Das „Ich“ ist ein transparentes Modell:** Nach Thomas Metzinger (2003, 2009) ist das subjektive Ego ein phänomenales Selbstmodell (PSM) – ein hochkomplexes Werkzeug, das durch temporale Active Inference generiert wird, um Handlungen zu steuern und existenzielle Überraschung zu minimieren.
 3. **Conatus als Urantrieb:** Nach Spinoza (1677) und Schopenhauer (1819) ist der fundamentale Impuls allen Lebens der *Conatus* – das unaufhörliche Streben eines dissoziierten Bewusstseinszentrums, seine Integrität zu bewahren und dem thermodynamischen Zerfall zu widerstehen.
+
+Dieses Buch liefert das mathematische, neurobiologische und rechnerische Gerüst für dieses Weltbild.
 
 
 \newpage

@@ -11,15 +11,19 @@ toc: true
 toc-depth: 2
 ---
 
-# Front Matter {-}
+<div class="dedication-page">
 
-## Dedication {-}
+# Dedication {-}
+
+<br><br><br>
 
 *To all inquiring minds who recognize that consciousness is not an incidental byproduct of dead matter, but the fundamental ground of reality itself—and to those who strive to unite the mathematical rigor of science with the living depth of subjective interiority.*
 
----
+</div>
 
-## Author's Preface {-}
+<div style="page-break-before: always;"></div>
+
+# Author's Preface {-}
 
 For more than three centuries, the mainstream scientific worldview has been gripped by a profound metaphysical presupposition: that objective reality is composed fundamentally of inanimate, mindless physical matter, from which subjective consciousness somehow magically emerges. Despite decades of neuroscientific progress, this physicalist paradigm has run into an impenetrable barrier—the "Hard Problem of Consciousness" (Chalmers, 1995). The more finely we map neural spikes and synaptic neurotransmitters, the wider the explanatory chasm becomes between quantitative objective mechanisms and the qualitative reality of pain, love, the scent of a rose, or the passage of time.
 
@@ -34,12 +38,13 @@ The CIF is not a speculative philosophical retreat into mystification; it is a u
 
 By uniting the 3rd-person cybernetics of Active Inference with the 1st-person causal ontology of Integrated Information Theory under the umbrella of Analytic Idealism, this treatise resolves the dualistic split that has haunted Western philosophy since Descartes. It provides a formal answer to the questions: *What is an individual soul?*, *Why does time feel like an irreversible flow?*, and *What is the computational threshold between reactive matter and conscious agency?*
 
+<br>
 *Thomas Riebl*  
 *Luxembourg, September 2026*
 
----
+<div style="page-break-before: always;"></div>
 
-## The Epistemological Manifesto: Beyond the Cogito {-}
+# The Epistemological Manifesto: Beyond the Cogito {-}
 
 Descartes' famous dictum *Cogito, ergo sum* ("I think, therefore I am") laid the foundation for modern individualism, but it simultaneously planted the seed of Cartesian dualism and the illusion of an isolated thinking ego separate from the cosmos.
 

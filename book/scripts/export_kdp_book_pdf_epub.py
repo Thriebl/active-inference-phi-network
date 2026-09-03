@@ -150,7 +150,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         h1 {{
             font-family: 'Cinzel', serif;
             color: #0f172a;
-            font-size: 16pt;
+            font-size: 15.5pt;
             font-weight: 700;
             text-align: center;
             border-bottom: 1.5px solid #0284c7;
@@ -158,8 +158,40 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             margin-top: 24pt;
             margin-bottom: 14pt;
             page-break-before: always;
+            break-before: page;
             line-height: 1.25;
             letter-spacing: 0.5px;
+        }}
+        
+        .dedication-page {{
+            page-break-before: always;
+            page-break-after: always;
+            break-before: page;
+            break-after: page;
+            display: block;
+            margin-top: 35%;
+            text-align: center;
+            padding: 20pt 15pt;
+        }}
+        
+        .dedication-page h1 {{
+            border-bottom: none;
+            page-break-before: avoid;
+            break-before: avoid;
+            font-size: 14pt;
+            margin-bottom: 25pt;
+            letter-spacing: 1px;
+            color: #0369a1;
+        }}
+        
+        .dedication-page p {{
+            font-style: italic;
+            text-align: center;
+            font-size: 11pt;
+            line-height: 1.7;
+            max-width: 90%;
+            margin: 0 auto;
+            color: #1e293b;
         }}
         
         h2 {{
