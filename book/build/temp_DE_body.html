@@ -787,34 +787,177 @@ Entropie schwimmt.</strong></p>
 id="kapitel-7-rechnerische-validierung-stochastische-phasenräume">Kapitel
 7: Rechnerische Validierung &amp; Stochastische Phasenräume</h1>
 <blockquote>
-<p><em>„Um zu beweisen, dass temporale Tiefe eine notwendige Bedingung
-für Bewusstsein ist, müssen wir unsere Agenten täuschenden Umgebungen
-aussetzen, in denen reaktive Heuristiken versagen und nur
+<p><em>„Um zu beweisen, dass Bewusstsein fundamental ein autopoietischer
+Zeitpfeil ist, müssen wir unsere Agenten täuschenden, stochastischen
+Umgebungen aussetzen, in denen reaktive Heuristiken versagen und nur
 kontrafaktische Vorausschau das Überleben sichert.“</em><br />
 — <strong>Thomas Riebl</strong>, <em>Monte Carlo Methodology in Active
 Inference</em> (2026)</p>
 </blockquote>
 <hr />
-<h2 id="das-stochastische-simulationsparadigma">7.1 Das stochastische
-Simulationsparadigma</h2>
-<p>Um die theoretischen Aussagen rechnerisch zu validieren,
-implementierten wir eine stochastische POMDP-Simulationsumgebung mit
-täuschenden Belohnungen (<em>Deceptive Trap</em>) und epistemischer
-Ambiguität (<em>Cue Site</em>).</p>
-<p>Getestet wurden vier Agenten-Kohorten über ein
-<strong>Monte-Carlo-Ensemble von <span class="math inline">\(N =
-30\)</span> unabhängigen Läufen</strong>: 1. <strong>Reflex-Agent (<span
-class="math inline">\(H=0\)</span>):</strong> Reine Reaktivität (<span
-class="math inline">\(B = I\)</span>). 2. <strong>Kurzsichtiger Agent
-(<span class="math inline">\(H=1\)</span>):</strong>
-1-Schritt-Vorausschau. 3. <strong>Mitteltiefer Agent (<span
-class="math inline">\(H=2\)</span>):</strong> 2-Schritt-Planung. 4.
-<strong>Tiefer Temporaler Agent (<span
-class="math inline">\(H=4\)</span>):</strong> Kontrafaktische
-Handlungsbäume über 4 Zeitschritte.</p>
+<h2 id="die-notwendigkeit-stochastischer-in-silico-experimente">7.1 Die
+Notwendigkeit stochastischer In-Silico-Experimente</h2>
+<p>Eine tiefgreifende wissenschaftliche Theorie des Geistes darf kein
+rein metaphysisches Postulat bleiben. Wenn das <strong>6. Axiom des
+Bewusstseins</strong> (<span class="math inline">\(\mathbb{E}[\Phi(t+1)
+\mid \pi^*] \ge \Phi(t)\)</span>) und das <strong>Theorem der temporalen
+Mindesttiefe (<span class="math inline">\(H &gt; 1\)</span>)</strong>
+wahr sind, müssen sie in rechnerischen Simulationen innerhalb
+stochastischer Phasenräume empirisch reproduzierbar sein.</p>
+<p>Anstelle statischer Gleichungen stützt sich das Konativ-Integrative
+Framework (CIF) auf drei aufeinander aufbauende Simulationsphasen, die
+in Python implementiert und als interaktive Jupyter Notebooks im
+Repository bereitgestellt werden: 1. <strong>Simulationsphase
+1:</strong> Rekurrente Active-Inference-Netzwerke &amp; Autopoietische
+<span class="math inline">\(\Phi\)</span>-Maximierung an der Schwelle
+zum Chaos. 2. <strong>Simulationsphase 2:</strong> Modulare
+Netzwerkerweiterung &amp; Superlineare Skalierung Integrierter
+Information <span class="math inline">\(\Phi(N)\)</span>. 3.
+<strong>Simulationsphase 3:</strong> Tiefe temporale Active Inference
+&amp; Multi-Agenten-Monte-Carlo-Validierung des 6. Axioms.</p>
+<p>Alle Quellcodes, Übergangstensoren und Rohdaten sind vollständig
+quelloffen auf GitHub dokumentiert:<br />
+👉 <strong><a
+href="https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks">https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks</a></strong></p>
 <hr />
-<h2 id="empirische-simulationsergebnisse">7.2 Empirische
-Simulationsergebnisse</h2>
+<h2
+id="simulationsphase-1-rekurrente-netzwerke-phi-maximierung-an-der-schwelle-zum-chaos">7.2
+Simulationsphase 1: Rekurrente Netzwerke &amp; <span
+class="math inline">\(\Phi\)</span>-Maximierung an der Schwelle zum
+Chaos</h2>
+<ul>
+<li><strong>Interaktives Jupyter Notebook:</strong><br />
+<a
+href="https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Phi_Maximization_Network.ipynb"><code>Active_Inference_Phi_Maximization_Network.ipynb</code></a></li>
+</ul>
+<p>In der ersten Simulationsarchitektur modellierten wir ein diskretes
+Netzwerk aus <span class="math inline">\(N = 6\)</span> interagierenden
+Active-Inference-Agenten in einer Ring- und Kreuztopologie. Jeder Agent
+schließt über seine Markov-Decke kontinuierlich auf die verborgenen
+Zustände seiner Nachbarn und wählt Aktionen zur Minimierung von
+variationaler freier Energie (<span class="math inline">\(F\)</span>)
+und erwarteter freier Energie (<span
+class="math inline">\(\mathbf{G}\)</span>).</p>
+<figure>
+<img src="../images/Active_Inference_Phi_Simulation_Results.png"
+alt="Ergebnisse der Simulationsphase 1: Rekurrente Selbstorganisation und Maximierung von Phi" />
+<figcaption aria-hidden="true">Ergebnisse der Simulationsphase 1:
+Rekurrente Selbstorganisation und Maximierung von Phi</figcaption>
+</figure>
+<h3 id="wichtigste-erkenntnisse-der-simulationsphase-1">Wichtigste
+Erkenntnisse der Simulationsphase 1:</h3>
+<ul>
+<li><strong>Panel A (Dynamische Evolution &amp; Autopoietische
+Persistenz von <span class="math inline">\(\Phi(t)\)</span>):</strong>
+Ausgehend von einer Zufallsinitialisierung organisiert sich das Netzwerk
+autonom in ein autopoietisches Fließgleichgewicht. Die mittlere
+Integrierte Information steigt von anfänglichen Schwankungen (<span
+class="math inline">\(\Phi \approx 0.395\)</span>) auf ein stabiles
+Plateau (<span class="math inline">\(\Phi \approx 3.42\text{
+Bits}\)</span>) und bestätigt das 6. Axiom über <span
+class="math inline">\(T = 120\)</span> Zeitschritte.</li>
+<li><strong>Panel B (Zustandsraster der Agenten):</strong> Zeigt
+kohärente, phasenverkoppelte Zustandsübergänge ohne starres
+epileptisches Einfrieren oder chaotische Desynchronisation.</li>
+<li><strong>Panel C &amp; D (Topologie &amp; Adjazenzmatrix <span
+class="math inline">\(W\)</span>):</strong> Maximale integrierte
+Ursache-Wirkungs-Macht entsteht, wenn lokale Cluster-Verbindungen (<span
+class="math inline">\(W_{ij} \approx 0.3\)</span>) mit spärlichen
+Fernverbindungen (<span class="math inline">\(W_{ik} \approx
+0.1\)</span>) ausbalanciert werden – das System steuert sich selbst
+exakt an die <strong>Schwelle zum Chaos (Selbstorganisierte
+Kritikalität)</strong>.</li>
+</ul>
+<hr />
+<h2
+id="simulationsphase-2-modulare-netzwerkskalierung-skalierung-von-phin">7.3
+Simulationsphase 2: Modulare Netzwerkskalierung &amp; Skalierung von
+<span class="math inline">\(\Phi(N)\)</span></h2>
+<ul>
+<li><strong>Interaktives Jupyter Notebook:</strong><br />
+<a
+href="https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Expanding_Network_Phi_Scaling.ipynb"><code>Active_Inference_Expanding_Network_Phi_Scaling.ipynb</code></a></li>
+</ul>
+<p>Eine Kernfrage der Naturphilosophie ist, wie sich subjektive
+Erlebniskomplexität verhält, wenn bewusste Systeme modular expandieren.
+In unserer zweiten Simulation skalierten wir das Agentennetzwerk
+schrittweise von <span class="math inline">\(N = 4\)</span> auf <span
+class="math inline">\(N = 12\)</span> Knoten in hierarchisch
+gegliederten Modulstrukturen.</p>
+<figure>
+<img src="../images/Active_Inference_Expanding_Network_Phi_Scaling.png"
+alt="Ergebnisse der Simulationsphase 2: Modulare Netzwerkerweiterung und Skalierungskurve von Phi(N)" />
+<figcaption aria-hidden="true">Ergebnisse der Simulationsphase 2:
+Modulare Netzwerkerweiterung und Skalierungskurve von
+Phi(N)</figcaption>
+</figure>
+<h3 id="wichtigste-erkenntnisse-der-simulationsphase-2">Wichtigste
+Erkenntnisse der Simulationsphase 2:</h3>
+<ul>
+<li><strong>Superlineare <span
+class="math inline">\(\Phi(N)\)</span>-Integration:</strong> Mit
+wachsender Knotenzahl wächst die Integrierte Information (<span
+class="math inline">\(\Phi\)</span>) nicht linear, sondern folgt einem
+steilen Potenzgesetz. Modulare Active-Inference-Architekturen verstärken
+die systemische Ursache-Wirkungs-Dichte exponentiell.</li>
+<li><strong>Beschränkte Freie-Energie-Trajektorien:</strong> Trotz
+steigender Netzwerkgröße bleibt die durchschnittliche variationale freie
+Energie pro Knoten strikt innerhalb homöostatischer Grenzen – die
+hierarchische Modulgliederung verhindert rechnerische Explosion.</li>
+<li><strong>Phasenübergang zur makroskopischen Einheit:</strong>
+Überschreitet die Kopplungsstärke zwischen Modulen einen kritischen
+Schwellenwert (<span class="math inline">\(\kappa &gt; 0.45\)</span>),
+verschiebt sich die Minimum Information Partition (MIP) global und
+konstituiert ein einziges, unteilbares Makro-Bewusstsein.</li>
+</ul>
+<hr />
+<h2
+id="simulationsphase-3-tiefe-temporale-active-inference-monte-carlo-validierung">7.4
+Simulationsphase 3: Tiefe temporale Active Inference &amp;
+Monte-Carlo-Validierung</h2>
+<ul>
+<li><strong>Interaktives Jupyter Notebook:</strong><br />
+<a
+href="https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb"><code>Deep_Temporal_Active_Inference_Simulation.ipynb</code></a></li>
+</ul>
+<p>Zum formalen Beweis des <strong>Theorems der temporalen Mindesttiefe
+(<span class="math inline">\(H &gt; 1\)</span>)</strong> platzierten wir
+synthetische Agenten in einer täuschenden POMDP-Umgebung mit: 1.
+<strong>Einer Hinweis-Quelle (<em>Epistemic Cue Site</em> <span
+class="math inline">\(s_{\text{cue}}\)</span>):</strong> Löst die
+sensorische Ambiguität bezüglich des sicheren Pfades auf, erfordert
+jedoch einen 1-Schritt-Umweg entgegen der unmittelbaren Zielrichtung. 2.
+<strong>Einer täuschenden Falle (<em>Deceptive Trap</em> <span
+class="math inline">\(s_{\text{trap}}\)</span>):</strong> Sendet eine
+sofortige hohe Scheinbelohnung aus, führt jedoch irreversibel in den
+Todesschlund (<span class="math inline">\(s_{\text{death}}\)</span>), in
+dem alle Kopplung abreißt und <span class="math inline">\(\Phi \to
+0\)</span> kollabiert.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph POMDP_ENV_DE[&quot;&lt;b&gt;Die täuschende &amp; epistemische Validierungsumgebung&lt;/b&gt;&quot;]
+        direction TB
+        S0[&quot;&lt;b&gt;Zustand 0: Startposition (s₀)&lt;/b&gt;&lt;br&gt;Ambigues Signal (50/50 Unsicherheit)&quot;]
+        S1[&quot;&lt;b&gt;Zustand 1: Hinweis-Quelle (s_cue)&lt;/b&gt;&lt;br&gt;Löst Ambiguität auf.&lt;br&gt;&lt;i&gt;Erfordert 1-Schritt-Neugier-Umweg!&lt;/i&gt;&quot;]
+        S2[&quot;&lt;b&gt;Zustand 2: Täuschende Falle (s_trap)&lt;/b&gt;&lt;br&gt;Sofortige Scheinbelohnung.&lt;br&gt;&lt;i&gt;Löst irreversiblen Kollaps aus!&lt;/i&gt;&quot;]
+        S3[&quot;&lt;b&gt;Zustand 3: Sicherer Pfad (s_path)&lt;/b&gt;&lt;br&gt;Zwischenkorridor.&quot;]
+        S4[&quot;&lt;b&gt;Zustand 4: Wahres Ziel (s_goal)&lt;/b&gt;&lt;br&gt;Homöostatisches Überleben (C = +4.5).&quot;]
+        S5[&quot;&lt;b&gt;Zustand 5: Tod / Senke (s_death)&lt;/b&gt;&lt;br&gt;Kopplung zerstört. Φ → 0.&quot;]
+        
+        S0 --&gt;|&quot;Aktion 1: Epistemischer Umweg&quot;| S1
+        S0 --&gt;|&quot;Aktion 2: Gieriger Reflex&quot;| S2
+        S0 --&gt;|&quot;Aktion 3: Blinder Schritt&quot;| S3
+        S1 --&gt;|&quot;Informierte Navigation&quot;| S3
+        S2 ==&gt;|&quot;Tödlicher Phasenübergang&quot;| S5
+        S3 --&gt;|&quot;Aktion 3&quot;| S4
+        S5 ==&gt;|&quot;Absorbierende Senke&quot;| S5
+    end</code></pre>
+<h3
+id="monte-carlo-ensemble-protokoll-n-30-läufe">Monte-Carlo-Ensemble-Protokoll
+(<span class="math inline">\(N = 30\)</span> Läufe):</h3>
+<p>Getestet wurden vier Kohorten über ein Ensemble von <strong><span
+class="math inline">\(N = 30\)</span> unabhängigen
+Monte-Carlo-Läufen</strong> über <span class="math inline">\(T =
+25\)</span> Zeitschritte:</p>
 <table>
 <colgroup>
 <col style="width: 13%" />
@@ -829,7 +972,7 @@ Simulationsergebnisse</h2>
 <th style="text-align: left;">Agenten-Kohorte</th>
 <th style="text-align: center;">Zeithorizont (<span
 class="math inline">\(H\)</span>)</th>
-<th style="text-align: center;">Überlebensrate</th>
+<th style="text-align: center;">Ensemble-Überlebensrate</th>
 <th style="text-align: center;">Asymptotisches <span
 class="math inline">\(\Phi(t)\)</span></th>
 <th style="text-align: center;">Epistemische Neugier-Umwege</th>
@@ -891,28 +1034,55 @@ Maximiert</strong></td>
 </tbody>
 </table>
 <hr />
-<h2 id="visualisierung-der-simulationsergebnisse">7.3 Visualisierung der
-Simulationsergebnisse</h2>
+<h2 id="visualisierung-der-entstehung-von-zeitbewusstsein">7.5
+Visualisierung der Entstehung von Zeitbewusstsein</h2>
 <figure>
 <img src="../images/Deep_Temporal_Active_Inference_Simulation.png"
-alt="Simulationsergebnisse zu temporaler Tiefe und 6. Axiom" />
-<figcaption aria-hidden="true">Simulationsergebnisse zu temporaler Tiefe
-und 6. Axiom</figcaption>
+alt="Ergebnisse der Simulationsphase 3: Tiefe temporale Active Inference und Monte-Carlo-Validierung" />
+<figcaption aria-hidden="true">Ergebnisse der Simulationsphase 3: Tiefe
+temporale Active Inference und Monte-Carlo-Validierung</figcaption>
 </figure>
-<h3 id="wichtigste-erkenntnisse">Wichtigste Erkenntnisse:</h3>
+<h3 id="umfassende-analyse-der-4-panel-ergebnisse">Umfassende Analyse
+der 4-Panel-Ergebnisse:</h3>
 <ul>
-<li><strong>Reaktiver Kausalitätskollaps:</strong> Reflex-Agenten (<span
-class="math inline">\(H=0\)</span>) fallen zu <span
-class="math inline">\(63.3\%\)</span> der täuschenden Belohnung zum
-Opfer und stürzen in den Kausalitäts- und Überlebenstod (<span
-class="math inline">\(\Phi \to 0\)</span>).</li>
-<li><strong>Epistemischer Umweg:</strong> Tiefe temporale Agenten (<span
-class="math inline">\(H=4\)</span>) wählen zu <span
-class="math inline">\(100\%\)</span> proaktiv einen epistemischen Umweg
-zur Hinweis-Quelle (<em>Cue</em>), lösen die Umweltunsicherheit auf und
-sichern maximale Kausalkonstanz (<span class="math inline">\(\Phi
-\approx 0.184\)</span>).</li>
+<li><strong>Panel A (Integrierte Information <span
+class="math inline">\(\Phi(t)\)</span> über die Zeit):</strong> Beim
+Reflex-Agenten (<span class="math inline">\(H=0\)</span>) stürzt <span
+class="math inline">\(\Phi(t)\)</span> katastrophal ab, da <span
+class="math inline">\(63.3\%\)</span> der Agenten der Falle erliegen.
+Dagegen halten tiefe temporale Agenten (<span
+class="math inline">\(H=4\)</span>) ein stabiles Hochplateau (<span
+class="math inline">\(\Phi \approx 0.184\)</span>), was <span
+class="math inline">\(\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge
+\Phi(t)\)</span> empirisch beweist.</li>
+<li><strong>Panel B (Autopoietische Überlebensrate):</strong> Zeigt die
+scharfe Phasenraum-Bifurkation zwischen zeitlosen Systemen (<span
+class="math inline">\(36.7\%\)</span>) und kontrafaktisch planenden
+Geistern (<span class="math inline">\(100\%\)</span>).</li>
+<li><strong>Panel C (Freie-Energie-Trajektorie <span
+class="math inline">\(F(t)\)</span>):</strong> Demonstriert die rasche
+und robuste Minimierung von Überraschung und Entropie.</li>
+<li><strong>Panel D (Verhaltensdynamik &amp; Epistemische
+Umwege):</strong> Belegt, dass <span
+class="math inline">\(100\%\)</span> der tiefen temporalen Agenten
+proaktiv einen <strong>epistemischen Umweg zur Hinweis-Quelle (<span
+class="math inline">\(s_{\text{cue}}\)</span>)</strong> wählen, um
+Umweltunsicherheit abzubauen, bevor sie zum Ziel navigieren.</li>
 </ul>
+<hr />
+<h2 id="fazit-der-empirischen-validierung">7.6 Fazit der empirischen
+Validierung</h2>
+<p>Die Simulationsexperimente führen zu drei unumstößlichen
+Erkenntnissen: 1. <strong>Bewusstsein verlangt temporale Tiefe (<span
+class="math inline">\(H &gt; 1\)</span>):</strong> Reine Reaktivität
+führt in täuschenden Umgebungen zum Kausalitäts- und Existenzkollaps
+(<span class="math inline">\(\Phi \to 0\)</span>). 2.
+<strong>Epistemische Neugier geht vor pragmatischer Belohnung:</strong>
+Vorausschauende Agenten lösen zuerst Ambiguität auf, bevor sie
+Belohnungen jagen. 3. <strong>Das 6. Axiom ist mathematisch
+zwingend:</strong> Die aktive Erhaltung integrierter Kausalität über die
+Zeit ist die formale Demarkationslinie zwischen echten bewussten
+Geistern und toten Automaten.</p>
 <h1 id="kapitel-8-existenzielle-ethische-synthetische-horizonte">Kapitel
 8: Existenzielle, Ethische &amp; Synthetische Horizonte</h1>
 <blockquote>

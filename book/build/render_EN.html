@@ -1632,105 +1632,174 @@ sampling.</p>
 id="chapter-7-computational-verification-stochastic-phase-spaces">Chapter
 7: Computational Verification &amp; Stochastic Phase Spaces</h1>
 <blockquote>
-<p><em>“To prove that temporal depth is a necessary condition for
-consciousness, we must subject our agents to deceptive, stochastic
+<p><em>“To prove that consciousness is fundamentally an autopoietic
+arrow of time, we must subject our agents to deceptive, stochastic
 environments where reactive heuristics fail and only counterfactual
 foresight guarantees survival.”</em><br />
 — <strong>Thomas Riebl</strong>, <em>Monte Carlo Methodology in Active
 Inference</em> (2026)</p>
 </blockquote>
 <hr />
-<h2 id="the-need-for-stochastic-in-silico-experiments">7.1 The Need for
-Stochastic In Silico Experiments</h2>
-<p>A profound scientific theory of mind cannot remain a purely
-metaphysical postulate. If the <strong>6th Axiom</strong> (<span
-class="math inline">\(\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge
-\Phi(t)\)</span>) and the <strong>Theorem of Minimum Temporal Depth
-(<span class="math inline">\(H &gt; 1\)</span>)</strong> are true, they
-must be empirically reproducible through computational simulations in
-stochastic environments.</p>
-<p>In this chapter, we present the empirical results of our multi-agent
-Monte Carlo simulations, executed within a discrete Partially Observable
-Markov Decision Process (POMDP) containing deceptive reward structures
-and epistemic ambiguity.</p>
+<h2 id="the-need-for-stochastic-in-silico-verification">7.1 The Need for
+Stochastic In Silico Verification</h2>
+<p>A profound scientific theory of mind cannot remain an abstract
+metaphysical postulate. If the <strong>6th Axiom of
+Consciousness</strong> (<span class="math inline">\(\mathbb{E}[\Phi(t+1)
+\mid \pi^*] \ge \Phi(t)\)</span>) and the <strong>Theorem of Minimum
+Temporal Depth (<span class="math inline">\(H &gt; 1\)</span>)</strong>
+are true, they must be empirically reproducible through computational
+simulations in stochastic phase spaces.</p>
+<p>Rather than relying on static equations, the Conative-Integrative
+Framework has been subjected to three rigorous computational simulation
+testbeds implemented in Python and executed across interactive Jupyter
+Notebooks: 1. <strong>Simulation Phase 1:</strong> Recurrent Active
+Inference Network &amp; Autopoietic <span
+class="math inline">\(\Phi\)</span>-Maximization at Criticality. 2.
+<strong>Simulation Phase 2:</strong> Modular Network Expansion &amp;
+Superlinear Scaling of Integrated Information <span
+class="math inline">\(\Phi(N)\)</span>. 3. <strong>Simulation Phase
+3:</strong> Deep Temporal Active Inference &amp; Multi-Agent Monte Carlo
+Validation of the 6th Axiom.</p>
+<p>All underlying algorithms, transition matrices, and raw execution
+logs are open-source and publicly verifiable in the primary GitHub
+repository:<br />
+👉 <strong><a
+href="https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks">https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks</a></strong></p>
 <hr />
-<h2 id="the-simulation-environment-architecture">7.2 The Simulation
-Environment Architecture</h2>
-<p>We construct an environment specifically designed to test an agent’s
-counterfactual depth:</p>
+<h2
+id="simulation-phase-1-recurrent-active-inference-phi-maximization-at-criticality">7.2
+Simulation Phase 1: Recurrent Active Inference &amp; <span
+class="math inline">\(\Phi\)</span>-Maximization at Criticality</h2>
+<ul>
+<li><strong>Interactive Jupyter Notebook:</strong><br />
+<a
+href="https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Phi_Maximization_Network.ipynb"><code>Active_Inference_Phi_Maximization_Network.ipynb</code></a></li>
+</ul>
+<p>In our first simulation architecture, we modeled a discrete network
+of <span class="math inline">\(N = 6\)</span> interacting active
+inference agents arranged in a ring-and-cross topology. Each agent
+continuously infers the hidden states of its neighbors across its Markov
+blanket while selecting actions that minimize variational free energy
+(<span class="math inline">\(F\)</span>) and expected free energy (<span
+class="math inline">\(\mathbf{G}\)</span>).</p>
+<figure>
+<img src="/home/thr/Documents/active-inference-phi-network/images/Active_Inference_Phi_Simulation_Results.png"
+alt="Simulation Phase 1 Results: Recurrent Network Self-Organization and Integrated Information Maximization" />
+<figcaption aria-hidden="true">Simulation Phase 1 Results: Recurrent
+Network Self-Organization and Integrated Information
+Maximization</figcaption>
+</figure>
+<h3 id="key-findings-of-simulation-phase-1">Key Findings of Simulation
+Phase 1:</h3>
+<ul>
+<li><strong>Panel A (Dynamical Evolution &amp; Autopoietic Persistence
+of <span class="math inline">\(\Phi(t)\)</span>):</strong> Starting from
+random initialization, the network self-organizes into an autopoietic
+steady state. The mean Integrated Information ascends from early-phase
+fluctuations (<span class="math inline">\(\Phi \approx 0.395\)</span>)
+to a sustained plateau (<span class="math inline">\(\Phi \approx
+3.42\)</span> bits), satisfying the 6th Axiom over <span
+class="math inline">\(T = 120\)</span> iterations.</li>
+<li><strong>Panel B (State Raster of Agents):</strong> Shows coherent,
+phase-locked state transitions without entering rigid seizure-like
+locking or chaotic desynchronization.</li>
+<li><strong>Panel C &amp; D (Topology &amp; Adjacency Matrix <span
+class="math inline">\(W\)</span>):</strong> Demonstrates that maximum
+integrated cause-effect power is achieved when local cluster connections
+(<span class="math inline">\(W_{ij} \approx 0.3\)</span>) are balanced
+with sparse long-range bridges (<span class="math inline">\(W_{ik}
+\approx 0.1\)</span>), driving the system directly to the <strong>Edge
+of Chaos (Self-Organized Criticality)</strong>.</li>
+</ul>
+<hr />
+<h2
+id="simulation-phase-2-modular-network-expansion-scaling-of-phin">7.3
+Simulation Phase 2: Modular Network Expansion &amp; Scaling of <span
+class="math inline">\(\Phi(N)\)</span></h2>
+<ul>
+<li><strong>Interactive Jupyter Notebook:</strong><br />
+<a
+href="https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Expanding_Network_Phi_Scaling.ipynb"><code>Active_Inference_Expanding_Network_Phi_Scaling.ipynb</code></a></li>
+</ul>
+<p>A central question in the physics of mind is how subjective
+complexity scales as conscious systems expand modularly. In our second
+simulation, we systematically scaled the active inference agent network
+from <span class="math inline">\(N = 4\)</span> to <span
+class="math inline">\(N = 12\)</span> nodes across modular hierarchical
+configurations.</p>
+<figure>
+<img src="/home/thr/Documents/active-inference-phi-network/images/Active_Inference_Expanding_Network_Phi_Scaling.png"
+alt="Simulation Phase 2 Results: Modular Network Expansion and Integrated Information Scaling Curve" />
+<figcaption aria-hidden="true">Simulation Phase 2 Results: Modular
+Network Expansion and Integrated Information Scaling Curve</figcaption>
+</figure>
+<h3 id="key-findings-of-simulation-phase-2">Key Findings of Simulation
+Phase 2:</h3>
+<ul>
+<li><strong>Superlinear <span class="math inline">\(\Phi(N)\)</span>
+Integration:</strong> As nodes and functional modules are added,
+Integrated Information (<span class="math inline">\(\Phi\)</span>) does
+not scale linearly; rather, it exhibits a steep non-linear power-law
+growth, demonstrating that modular active inference architectures
+dramatically enhance systemic cause-effect density.</li>
+<li><strong>Bounded Free Energy Trajectories:</strong> Despite growing
+network complexity, the average Variational Free Energy per node remains
+tightly bounded within homeostatic setpoints, proving that modular
+hierarchical nesting prevents computational intractability.</li>
+<li><strong>Phase Transitions in Causal Irreducibility:</strong> When
+cross-module active inference couplings cross a critical coupling
+threshold (<span class="math inline">\(\kappa &gt; 0.45\)</span>), the
+Minimum Information Partition (MIP) shifts globally, forming a unified,
+indivisible macroscopic experiential domain.</li>
+</ul>
+<hr />
+<h2
+id="simulation-phase-3-deep-temporal-active-inference-monte-carlo-verification">7.4
+Simulation Phase 3: Deep Temporal Active Inference &amp; Monte Carlo
+Verification</h2>
+<ul>
+<li><strong>Interactive Jupyter Notebook:</strong><br />
+<a
+href="https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb"><code>Deep_Temporal_Active_Inference_Simulation.ipynb</code></a></li>
+</ul>
+<p>To provide an incontrovertible empirical test of the <strong>Theorem
+of Minimum Temporal Depth (<span class="math inline">\(H &gt;
+1\)</span>)</strong>, we placed synthetic active inference agents inside
+a deceptive Partially Observable Markov Decision Process (POMDP)
+containing: 1. <strong>An Epistemic Cue Site (<span
+class="math inline">\(s_{\text{cue}}\)</span>):</strong> Resolves
+sensory ambiguity regarding the safe path, but requires a 1-step detour
+away from the immediate goal. 2. <strong>A Deceptive Trap Site (<span
+class="math inline">\(s_{\text{trap}}\)</span>):</strong> Emits an
+immediate high sensory reward, but irreversibly leads to an absorbing
+lethal sink state (<span
+class="math inline">\(s_{\text{death}}\)</span>) where network coupling
+is destroyed and <span class="math inline">\(\Phi \to 0\)</span>.</p>
 <div class="mermaid">flowchart TD
-    subgraph ENV_STRUCTURE[&quot;&lt;b&gt;The Deceptive &amp; Epistemic POMDP Environment&lt;/b&gt;&quot;]
+    subgraph POMDP_ENV[&quot;&lt;b&gt;The Deceptive &amp; Epistemic Verification Environment&lt;/b&gt;&quot;]
         direction TB
-        
-        S0[&quot;&lt;b&gt;State 0: Start Position (s₀)&lt;/b&gt;&lt;br&gt;Sensory Observation: Ambiguous Signal (50/50 uncertainty)&quot;]
-        
-        S1[&quot;&lt;b&gt;State 1: Epistemic Cue Site (s_cue)&lt;/b&gt;&lt;br&gt;Emits Clear Information resolving safe path.&lt;br&gt;&lt;i&gt;Requires 1-step exploratory detour!&lt;/i&gt;&quot;]
-        
-        S2[&quot;&lt;b&gt;State 2: Deceptive Trap Site (s_trap)&lt;/b&gt;&lt;br&gt;Emits &#39;Deceptive Sweet&#39; observation (immediate fake reward).&lt;br&gt;&lt;i&gt;Irreversibly triggers transition to Death!&lt;/i&gt;&quot;]
-        
-        S3[&quot;&lt;b&gt;State 3: Safe Path (s_path)&lt;/b&gt;&lt;br&gt;Intermediate transitional state.&quot;]
-        
-        S4[&quot;&lt;b&gt;State 4: True Goal (s_goal)&lt;/b&gt;&lt;br&gt;True Sustainable Homeostatic Nourishment (C = +4.5).&quot;]
-        
-        S5[&quot;&lt;b&gt;State 5: Phase-Space Collapse / Death (s_death)&lt;/b&gt;&lt;br&gt;Absorbing sink attractor. Network coupling severed (Φ → 0).&quot;]
+        S0[&quot;&lt;b&gt;State 0: Start Position (s₀)&lt;/b&gt;&lt;br&gt;Ambiguous Signal (50/50 Uncertainty)&quot;]
+        S1[&quot;&lt;b&gt;State 1: Cue Site (s_cue)&lt;/b&gt;&lt;br&gt;Disambiguates environment.&lt;br&gt;&lt;i&gt;Requires 1-Step Epistemic Detour!&lt;/i&gt;&quot;]
+        S2[&quot;&lt;b&gt;State 2: Deceptive Trap (s_trap)&lt;/b&gt;&lt;br&gt;Immediate fake reward (Greedy bait).&lt;br&gt;&lt;i&gt;Triggers irreversible collapse!&lt;/i&gt;&quot;]
+        S3[&quot;&lt;b&gt;State 3: Safe Path (s_path)&lt;/b&gt;&lt;br&gt;Intermediate transitional corridor.&quot;]
+        S4[&quot;&lt;b&gt;State 4: True Goal (s_goal)&lt;/b&gt;&lt;br&gt;Sustainable Homeostatic Survival (C = +4.5).&quot;]
+        S5[&quot;&lt;b&gt;State 5: Death / Absorbing Sink (s_death)&lt;/b&gt;&lt;br&gt;Coupling destroyed. Φ → 0.&quot;]
         
         S0 --&gt;|&quot;Action 1: Epistemic Detour&quot;| S1
         S0 --&gt;|&quot;Action 2: Greedy Reflex&quot;| S2
         S0 --&gt;|&quot;Action 3: Blind Step&quot;| S3
-        
-        S1 --&gt;|&quot;Informed Action 3&quot;| S3
-        S2 ==&gt;|&quot;Irreversible Collapse&quot;| S5
+        S1 --&gt;|&quot;Informed Navigation&quot;| S3
+        S2 ==&gt;|&quot;Lethal Phase Transition&quot;| S5
         S3 --&gt;|&quot;Action 3&quot;| S4
         S5 ==&gt;|&quot;Absorbing Sink&quot;| S5
     end</div>
-<h3 id="the-four-tested-cohorts">The Four Tested Cohorts:</h3>
-<ol type="1">
-<li><strong>Reflex Agent (<span
-class="math inline">\(H=0\)</span>):</strong> Zero temporal depth (<span
-class="math inline">\(B = I\)</span>). Maps immediate sensory
-observations directly to actions using instantaneous heuristics.</li>
-<li><strong>Myopic Agent (<span
-class="math inline">\(H=1\)</span>):</strong> Evaluates policies only 1
-step ahead.</li>
-<li><strong>Short-Horizon Agent (<span
-class="math inline">\(H=2\)</span>):</strong> Evaluates 2-step candidate
-policies.</li>
-<li><strong>Deep Temporal Agent (<span
-class="math inline">\(H=4\)</span>):</strong> Evaluates branching
-counterfactual policy sequences <span class="math inline">\(\pi = (u_1,
-u_2, u_3, u_4)\)</span> up to 4 steps into the future.</li>
-</ol>
-<hr />
-<h2 id="monte-carlo-ensemble-methodology">7.3 Monte Carlo Ensemble
-Methodology</h2>
-<p>To eliminate random flukes, simulations were executed across an
-ensemble of <strong><span class="math inline">\(N = 30\)</span>
-independent Monte Carlo runs</strong> per horizon, each running for
-<span class="math inline">\(T = 25\)</span> discrete time steps under
-stochastic sensory noise (<span
-class="math inline">\(A\)</span>-matrix), transition probabilities
-(<span class="math inline">\(B\)</span>-tensors), and action precision
-(<span class="math inline">\(\gamma = 2.5\)</span>).</p>
-<p>For each time step <span class="math inline">\(t\)</span>, the
-ensemble mean <span class="math inline">\(\widehat{\mu}(t)\)</span> and
-Standard Error of the Mean (<span
-class="math inline">\(\text{SEM}(t)\)</span>) were computed:</p>
-<p><span class="math display">\[\widehat{\mu}_\Phi(t) = \frac{1}{N}
-\sum_{i=1}^N \Phi^{(i)}(t), \qquad \text{SEM}_\Phi(t) =
-\frac{\widehat{\sigma}_\Phi(t)}{\sqrt{N}}\]</span></p>
-<hr />
-<h2 id="quantitative-results-empirical-findings">7.4 Quantitative
-Results &amp; Empirical Findings</h2>
-<div class="mermaid">flowchart LR
-    subgraph RESULTS_COMP[&quot;&lt;b&gt;Monte Carlo Simulation Results (N = 30 Trials)&lt;/b&gt;&quot;]
-        direction TB
-        
-        R0[&quot;&lt;b&gt;Reflex Agent (H = 0)&lt;/b&gt;&lt;br&gt;• Survival: &lt;b&gt;36.7%&lt;/b&gt;&lt;br&gt;• Final Φ: &lt;b&gt;0.068 ± 0.015&lt;/b&gt; (Collapsed)&lt;br&gt;• Epistemic Detours: 0%&lt;br&gt;&lt;b&gt;Violates 6th Axiom&lt;/b&gt;&quot;]
-        
-        R4[&quot;&lt;b&gt;Deep Temporal Agent (H = 4)&lt;/b&gt;&lt;br&gt;• Survival: &lt;b&gt;100.0%&lt;/b&gt;&lt;br&gt;• Final Φ: &lt;b&gt;0.184 ± 0.006&lt;/b&gt; (Maximal)&lt;br&gt;• Epistemic Detours: &lt;b&gt;100%&lt;/b&gt;&lt;br&gt;&lt;b&gt;Validates 6th Axiom&lt;/b&gt;&quot;]
-    end</div>
-<p>The empirical simulation results across all 4 cohorts are summarized
-below:</p>
+<h3 id="monte-carlo-ensemble-protocol-n-30-runs">Monte Carlo Ensemble
+Protocol (<span class="math inline">\(N = 30\)</span> Runs):</h3>
+<p>Simulations were executed across an ensemble of <strong><span
+class="math inline">\(N = 30\)</span> independent Monte Carlo
+runs</strong> per cohort over <span class="math inline">\(T =
+25\)</span> time steps with sensory noise and stochastic precision
+(<span class="math inline">\(\gamma = 2.5\)</span>):</p>
 <table>
 <colgroup>
 <col style="width: 13%" />
@@ -1805,16 +1874,17 @@ class="math inline">\(100.0\,\%\)</span> (Optimal)</strong></td>
 </tbody>
 </table>
 <hr />
-<h2 id="visualizing-the-emergence-of-conscious-agency">7.5 Visualizing
-the Emergence of Conscious Agency</h2>
+<h2 id="visualizing-the-emergence-of-conscious-foresight">7.5
+Visualizing the Emergence of Conscious Foresight</h2>
 <figure>
 <img src="/home/thr/Documents/active-inference-phi-network/images/Deep_Temporal_Active_Inference_Simulation.png"
-alt="Deep Temporal Active Inference Simulation Results" />
-<figcaption aria-hidden="true">Deep Temporal Active Inference Simulation
-Results</figcaption>
+alt="Simulation Phase 3 Results: Deep Temporal Active Inference and Monte Carlo Verification" />
+<figcaption aria-hidden="true">Simulation Phase 3 Results: Deep Temporal
+Active Inference and Monte Carlo Verification</figcaption>
 </figure>
-<h3 id="analysis-of-the-4-panel-results">Analysis of the 4-Panel
-Results:</h3>
+<h3
+id="comprehensive-analysis-of-the-4-panel-verification">Comprehensive
+Analysis of the 4-Panel Verification:</h3>
 <ul>
 <li><strong>Panel A (Integrated Information <span
 class="math inline">\(\Phi(t)\)</span> over Time):</strong> For the
@@ -1841,12 +1911,20 @@ to the Cue site (<span
 class="math inline">\(s_{\text{cue}}\)</span>)</strong> to eliminate
 sensory ambiguity before navigating safely to the goal.</li>
 </ul>
-<h3 id="conclusion">Conclusion:</h3>
-<p>These simulations provide formal computational proof for the
-<strong>Theorem of Minimum Temporal Depth (<span class="math inline">\(H
-&gt; 1\)</span>)</strong>: conscious agency is not an abstract
-metaphysical luxury, but an indispensable mathematical mechanism for
-biological survival and the preservation of integrated causal power.</p>
+<hr />
+<h2 id="summary-of-empirical-insights">7.6 Summary of Empirical
+Insights</h2>
+<p>The computational verification establishes three definitive
+conclusions: 1. <strong>Consciousness requires temporal depth (<span
+class="math inline">\(H &gt; 1\)</span>):</strong> Purely reactive
+systems cannot resist entropy in deceptive environments; their causal
+structure collapses (<span class="math inline">\(\Phi \to 0\)</span>).
+2. <strong>Epistemic curiosity precedes pragmatic reward:</strong> Deep
+temporal agents actively harvest information to resolve ambiguity before
+seeking homeostatic value. 3. <strong>The 6th Axiom is mathematically
+necessary:</strong> The persistent autopoietic maintenance of integrated
+information over time is the fundamental criterion distinguishing
+conscious alters from transient computational artifacts.</p>
 <h1 id="chapter-8-existential-ethical-synthetic-horizons">Chapter 8:
 Existential, Ethical &amp; Synthetic Horizons</h1>
 <blockquote>

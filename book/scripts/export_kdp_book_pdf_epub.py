@@ -43,6 +43,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         md_file,
         "-o", docx_out,
         "--from=markdown+tex_math_dollars+yaml_metadata_block",
+        "--resource-path=/home/thr/Documents/active-inference-phi-network/images:/home/thr/Documents/active-inference-phi-network",
         "--table-of-contents",
         "--toc-depth=2"
     ]
@@ -59,6 +60,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         md_file,
         "-o", temp_html_body,
         "--from=markdown+tex_math_dollars+tex_math_single_backslash",
+        "--resource-path=/home/thr/Documents/active-inference-phi-network/images:/home/thr/Documents/active-inference-phi-network",
         "--to=html5",
         "--mathjax"
     ]
@@ -70,6 +72,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
     html_body = re.sub(r'<pre class="mermaid"><code>(.*?)</code></pre>', r'<div class="mermaid">\1</div>', html_body, flags=re.DOTALL)
     html_body = re.sub(r'<pre><code class="language-mermaid">(.*?)</code></pre>', r'<div class="mermaid">\1</div>', html_body, flags=re.DOTALL)
     html_body = html_body.replace('../images/', '/home/thr/Documents/active-inference-phi-network/images/')
+    html_body = html_body.replace('src="images/', 'src="/home/thr/Documents/active-inference-phi-network/images/')
     
     kdp_html = f"""<!DOCTYPE html>
 <html lang="en">
