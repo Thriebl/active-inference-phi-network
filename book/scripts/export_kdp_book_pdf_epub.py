@@ -2,6 +2,7 @@
 """
 export_kdp_book_pdf_epub.py
 Compiles English and German standalone Amazon KDP-ready 6x9 inch Academic Monograph Editions (PDF & DOCX).
+Guarantees clean chapter-level page breaks with zero mid-chapter artificial page breaks.
 """
 
 import os
@@ -23,8 +24,9 @@ def merge_chapters(source_dir, output_file):
     for f in chapter_files:
         path = os.path.join(source_dir, f)
         with open(path, "r", encoding="utf-8") as ch:
-            merged_content.append(ch.read())
-    full_text = "\n\n\\newpage\n\n".join(merged_content)
+            merged_content.append(ch.read().strip())
+    # Join with standard double newline - page breaks handled exclusively by h1 in CSS
+    full_text = "\n\n".join(merged_content)
     with open(output_file, "w", encoding="utf-8") as out:
         out.write(full_text)
     return full_text
@@ -46,7 +48,6 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
     ]
     subprocess.run(cmd_docx, check=False)
     
-    # Copy DOCX to docs
     docx_basename = os.path.basename(docx_out)
     shutil.copy(docx_out, os.path.join(DOCS_DIR, docx_basename))
     
@@ -147,6 +148,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             text-rendering: optimizeLegibility;
         }}
         
+        /* H1 is the ONLY element that triggers a new page (Chapters & Front Matter sections) */
         h1 {{
             font-family: 'Cinzel', serif;
             color: #0f172a;
@@ -164,20 +166,14 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         }}
         
         .dedication-page {{
-            page-break-before: always;
-            page-break-after: always;
-            break-before: page;
-            break-after: page;
             display: block;
-            margin-top: 35%;
+            margin-top: 32%;
             text-align: center;
             padding: 20pt 15pt;
         }}
         
         .dedication-page h1 {{
             border-bottom: none;
-            page-break-before: avoid;
-            break-before: avoid;
             font-size: 14pt;
             margin-bottom: 25pt;
             letter-spacing: 1px;
@@ -194,6 +190,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             color: #1e293b;
         }}
         
+        /* Subheadings must NEVER trigger page breaks and must not be orphaned */
         h2 {{
             font-family: 'EB Garamond', serif;
             color: #0369a1;
@@ -203,6 +200,10 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             margin-bottom: 6pt;
             border-bottom: 0.5px solid #e2e8f0;
             padding-bottom: 2pt;
+            page-break-before: auto;
+            break-before: auto;
+            page-break-after: avoid;
+            break-after: avoid;
         }}
         
         h3 {{
@@ -212,6 +213,10 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             font-weight: 600;
             margin-top: 12pt;
             margin-bottom: 4pt;
+            page-break-before: auto;
+            break-before: auto;
+            page-break-after: avoid;
+            break-after: avoid;
         }}
         
         p {{
@@ -219,6 +224,8 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             margin-bottom: 7pt;
             text-align: justify;
             text-justify: inter-word;
+            orphans: 2;
+            widows: 2;
         }}
         
         ul, ol {{
@@ -237,6 +244,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             margin: 10pt 0;
             font-size: 8.2pt;
             page-break-inside: avoid;
+            break-inside: avoid;
         }}
         
         th, td {{
@@ -264,17 +272,20 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             font-size: 9.3pt;
             border-radius: 0 4px 4px 0;
             font-style: italic;
+            page-break-inside: avoid;
+            break-inside: avoid;
         }}
         
         .mermaid {{
             display: flex;
             justify-content: center;
-            margin: 12pt 0;
+            margin: 10pt 0;
             background: #ffffff;
             padding: 6pt;
             border: 0.8px solid #e2e8f0;
             border-radius: 4pt;
             page-break-inside: avoid;
+            break-inside: avoid;
             transform: scale(0.92);
         }}
         
@@ -282,15 +293,21 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 12pt auto;
+            margin: 10pt auto;
             border: 0.8px solid #cbd5e1;
             border-radius: 4pt;
+            page-break-inside: avoid;
+            break-inside: avoid;
         }}
         
         hr {{
             border: none;
             border-top: 0.8px solid #e2e8f0;
-            margin: 12pt 0;
+            margin: 10pt 0;
+            page-break-before: auto;
+            break-before: auto;
+            page-break-after: auto;
+            break-after: auto;
         }}
         
         code {{
@@ -311,6 +328,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             font-size: 7.2pt;
             overflow-x: auto;
             page-break-inside: avoid;
+            break-inside: avoid;
         }}
     </style>
 </head>

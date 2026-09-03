@@ -75,6 +75,7 @@
             text-rendering: optimizeLegibility;
         }
         
+        /* H1 is the ONLY element that triggers a new page (Chapters & Front Matter sections) */
         h1 {
             font-family: 'Cinzel', serif;
             color: #0f172a;
@@ -92,20 +93,14 @@
         }
         
         .dedication-page {
-            page-break-before: always;
-            page-break-after: always;
-            break-before: page;
-            break-after: page;
             display: block;
-            margin-top: 35%;
+            margin-top: 32%;
             text-align: center;
             padding: 20pt 15pt;
         }
         
         .dedication-page h1 {
             border-bottom: none;
-            page-break-before: avoid;
-            break-before: avoid;
             font-size: 14pt;
             margin-bottom: 25pt;
             letter-spacing: 1px;
@@ -122,6 +117,7 @@
             color: #1e293b;
         }
         
+        /* Subheadings must NEVER trigger page breaks and must not be orphaned */
         h2 {
             font-family: 'EB Garamond', serif;
             color: #0369a1;
@@ -131,6 +127,10 @@
             margin-bottom: 6pt;
             border-bottom: 0.5px solid #e2e8f0;
             padding-bottom: 2pt;
+            page-break-before: auto;
+            break-before: auto;
+            page-break-after: avoid;
+            break-after: avoid;
         }
         
         h3 {
@@ -140,6 +140,10 @@
             font-weight: 600;
             margin-top: 12pt;
             margin-bottom: 4pt;
+            page-break-before: auto;
+            break-before: auto;
+            page-break-after: avoid;
+            break-after: avoid;
         }
         
         p {
@@ -147,6 +151,8 @@
             margin-bottom: 7pt;
             text-align: justify;
             text-justify: inter-word;
+            orphans: 2;
+            widows: 2;
         }
         
         ul, ol {
@@ -165,6 +171,7 @@
             margin: 10pt 0;
             font-size: 8.2pt;
             page-break-inside: avoid;
+            break-inside: avoid;
         }
         
         th, td {
@@ -192,17 +199,20 @@
             font-size: 9.3pt;
             border-radius: 0 4px 4px 0;
             font-style: italic;
+            page-break-inside: avoid;
+            break-inside: avoid;
         }
         
         .mermaid {
             display: flex;
             justify-content: center;
-            margin: 12pt 0;
+            margin: 10pt 0;
             background: #ffffff;
             padding: 6pt;
             border: 0.8px solid #e2e8f0;
             border-radius: 4pt;
             page-break-inside: avoid;
+            break-inside: avoid;
             transform: scale(0.92);
         }
         
@@ -210,15 +220,21 @@
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 12pt auto;
+            margin: 10pt auto;
             border: 0.8px solid #cbd5e1;
             border-radius: 4pt;
+            page-break-inside: avoid;
+            break-inside: avoid;
         }
         
         hr {
             border: none;
             border-top: 0.8px solid #e2e8f0;
-            margin: 12pt 0;
+            margin: 10pt 0;
+            page-break-before: auto;
+            break-before: auto;
+            page-break-after: auto;
+            break-after: auto;
         }
         
         code {
@@ -239,22 +255,19 @@
             font-size: 7.2pt;
             overflow-x: auto;
             page-break-inside: avoid;
+            break-inside: avoid;
         }
     </style>
 </head>
 <body>
 <section id="widmung" class="unnumbered dedication-page">
 <h1 class="unnumbered">Widmung</h1>
-<p><br><br><br></p>
 <p><em>Allen forschenden Geistern gewidmet, die erkennen, dass
 Bewusstsein kein zufälliges Nebenprodukt toter Materie ist, sondern der
 fundamentale Urgrund der Wirklichkeit selbst – und all jenen, die danach
 streben, die mathematische Strenge der Naturwissenschaft mit der
 lebendigen Tiefe subjektiver Innerlichkeit zu vereinen.</em></p>
 </section>
-<div style="page-break-before: always;">
-
-</div>
 <h1 class="unnumbered" id="vorwort-des-autors">Vorwort des Autors</h1>
 <p>Seit mehr als drei Jahrhunderten wird das naturwissenschaftliche
 Weltbild von einer tiefgreifenden metaphysischen Grundannahme
@@ -310,9 +323,6 @@ Schwelle zwischen reaktiven Automaten und echtem bewussten
 Geist?</em></p>
 <p><br> <em>Thomas Riebl</em><br />
 <em>Luxemburg, September 2026</em></p>
-<div style="page-break-before: always;">
-
-</div>
 <h1 class="unnumbered"
 id="das-epistemologische-manifest-jenseits-des-cogito">Das
 Epistemologische Manifest: Jenseits des Cogito</h1>

@@ -15,13 +15,9 @@ toc-depth: 2
 
 # Dedication {-}
 
-<br><br><br>
-
 *To all inquiring minds who recognize that consciousness is not an incidental byproduct of dead matter, but the fundamental ground of reality itself—and to those who strive to unite the mathematical rigor of science with the living depth of subjective interiority.*
 
 </div>
-
-<div style="page-break-before: always;"></div>
 
 # Author's Preface {-}
 
@@ -41,8 +37,6 @@ By uniting the 3rd-person cybernetics of Active Inference with the 1st-person ca
 <br>
 *Thomas Riebl*  
 *Luxembourg, September 2026*
-
-<div style="page-break-before: always;"></div>
 
 # The Epistemological Manifesto: Beyond the Cogito {-}
 

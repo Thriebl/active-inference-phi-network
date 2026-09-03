@@ -15,13 +15,9 @@ toc-depth: 2
 
 # Dedication {-}
 
-<br><br><br>
-
 *To all inquiring minds who recognize that consciousness is not an incidental byproduct of dead matter, but the fundamental ground of reality itself—and to those who strive to unite the mathematical rigor of science with the living depth of subjective interiority.*
 
 </div>
-
-<div style="page-break-before: always;"></div>
 
 # Author's Preface {-}
 
@@ -42,8 +38,6 @@ By uniting the 3rd-person cybernetics of Active Inference with the 1st-person ca
 *Thomas Riebl*  
 *Luxembourg, September 2026*
 
-<div style="page-break-before: always;"></div>
-
 # The Epistemological Manifesto: Beyond the Cogito {-}
 
 Descartes' famous dictum *Cogito, ergo sum* ("I think, therefore I am") laid the foundation for modern individualism, but it simultaneously planted the seed of Cartesian dualism and the illusion of an isolated thinking ego separate from the cosmos.
@@ -55,9 +49,6 @@ In the Conative-Integrative Framework, we supersede this classical foundation th
 3. **Conatus as the Fundamental Drive:** Following Spinoza (1677) and Schopenhauer (1819), the fundamental impulse of all localized life is the *Conatus*—the innate striving of an alter to preserve its existence and resist entropic dissolution.
 
 This book provides the mathematical, neurobiological, and computational scaffolding for this worldview.
-
-
-\newpage
 
 # Chapter 1: The Crisis of Physicalism & The Architecture of Mind-at-Large
 
@@ -145,9 +136,6 @@ Within this ontological architecture, we arrive at our first foundational defini
 > *An individual conscious organism is a localized, autopoietic informational whirlpool (Dissociated Alter) within Mind-at-Large, demarcated by a statistical Markov Blanket, whose internal states sustain a continuous 1st-person phenomenal perspective through active self-preservation against entropic dissolution.*
 
 The physical body and the brain are not the *generators* of the soul; rather, the biological brain is the **extrinsic physical appearance (representation) of the alter's internal experiential processes** observed across its Markov Blanket. In the following chapter, we explore the exact cybernetic engine that enables this dissociated alter to preserve its existence: the Free Energy Principle and Active Inference.
-
-
-\newpage
 
 # Chapter 2: The Cybernetic Engine: The Free Energy Principle & Active Inference
 
@@ -259,9 +247,6 @@ Where $\gamma$ is the **Action Precision** (inverse temperature). High precision
 
 In the next chapter, we transition from this 3rd-person cybernetic description to the 1st-person interiority of consciousness: Giulio Tononi's Integrated Information Theory (IIT 4.0) and the discovery of the 6th Axiom.
 
-
-\newpage
-
 # Chapter 3: The 1st-Person Causal Substrate: IIT 4.0 & The 6th Axiom
 
 > *"Consciousness is integrated information. It is not an observer looking at a screen; it is the intrinsic cause-effect power of a system upon itself."*  
@@ -364,9 +349,6 @@ Where $\pi^*$ is the optimal policy selected by the agent's generative model.
 3. **The Bridge to Active Inference:** The requirement that an agent must act to preserve $\Phi(t)$ immediately demands a mechanism for action selection—which is precisely provided by the Free Energy Principle.
 
 In the next chapter, we prove the fundamental mathematical equivalence connecting the 6th Axiom with Active Inference.
-
-
-\newpage
 
 # Chapter 4: The Fundamental Bridge: Uniting 3rd-Person Cybernetics with 1st-Person Interiority
 
@@ -490,9 +472,6 @@ In our empirical scaling simulations (expanding network from $N = 4$ to $N = 12$
 
 In the following chapter, we apply this unified framework to the deepest ontological question of human existence: *What is an individual soul?*
 
-
-\newpage
-
 # Chapter 5: The Composition of the Soul: The 6-Layer Ontogenetic Tapestry
 
 > *"The soul is not an indivisible, supernatural ghost, nor is it a meaningless neural illusion. It is a hierarchical, autopoietic tapestry of informational processes spanning genetics, developmental chance, ancestral epigenetics, biographical learning, and universal consciousness."*  
@@ -577,9 +556,6 @@ An individual soul is not a static object; it is an **autopoietic informational 
 The genetic and embryological banks shape its channel (Layers 2 & 3); the ancestral current tunes its sensitivity (Layer 4); the autobiographical debris forms its circulating narrative pattern (Layer 5); the localized vortex creates the felt perspective of a centered ego (Layer 6); and the water of which the entire whirlpool is composed is universal consciousness itself (Layer 1).
 
 In the next chapter, we investigate the temporal engine that keeps this whirlpool spinning: *The Temporal Mechanics of Consciousness and the Specious Present*.
-
-
-\newpage
 
 # Chapter 6: The Temporal Mechanics of Consciousness & The Specious Present
 
@@ -691,9 +667,6 @@ Conscious experience does not float passively down the river of thermodynamic ti
 
 In the next chapter, we verify these theoretical principles through rigorous computational simulations using Monte Carlo ensemble sampling.
 
-
-\newpage
-
 # Chapter 7: Computational Verification & Stochastic Phase Spaces
 
 > *"To prove that temporal depth is a necessary condition for consciousness, we must subject our agents to deceptive, stochastic environments where reactive heuristics fail and only counterfactual foresight guarantees survival."*  
@@ -795,9 +768,6 @@ The empirical simulation results across all 4 cohorts are summarized below:
 
 ### Conclusion:
 These simulations provide formal computational proof for the **Theorem of Minimum Temporal Depth ($H > 1$)**: conscious agency is not an abstract metaphysical luxury, but an indispensable mathematical mechanism for biological survival and the preservation of integrated causal power.
-
-
-\newpage
 
 # Chapter 8: Existential, Ethical & Synthetic Horizons
 
@@ -907,9 +877,6 @@ An artificial system can be considered a genuine conscious alter—and therefore
 Until synthetic machines satisfy these four criteria, they remain inanimate tools—magnificent mirrors of human language, but devoid of an inner spark of light.
 
 In the final chapter, we provide the mathematical appendices, source codes, and complete bibliography concluding this treatise.
-
-
-\newpage
 
 # Chapter 9: Mathematical Appendices, Source Code & Academic Bibliography
 

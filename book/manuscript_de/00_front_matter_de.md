@@ -15,13 +15,9 @@ toc-depth: 2
 
 # Widmung {-}
 
-<br><br><br>
-
 *Allen forschenden Geistern gewidmet, die erkennen, dass Bewusstsein kein zufälliges Nebenprodukt toter Materie ist, sondern der fundamentale Urgrund der Wirklichkeit selbst – und all jenen, die danach streben, die mathematische Strenge der Naturwissenschaft mit der lebendigen Tiefe subjektiver Innerlichkeit zu vereinen.*
 
 </div>
-
-<div style="page-break-before: always;"></div>
 
 # Vorwort des Autors {-}
 
@@ -41,8 +37,6 @@ Indem dieses Werk die 3.-Person-Kybernetik von Active Inference mit der 1.-Perso
 <br>
 *Thomas Riebl*  
 *Luxemburg, September 2026*
-
-<div style="page-break-before: always;"></div>
 
 # Das Epistemologische Manifest: Jenseits des Cogito {-}
 

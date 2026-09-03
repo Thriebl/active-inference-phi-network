@@ -15,13 +15,9 @@ toc-depth: 2
 
 # Widmung {-}
 
-<br><br><br>
-
 *Allen forschenden Geistern gewidmet, die erkennen, dass Bewusstsein kein zufälliges Nebenprodukt toter Materie ist, sondern der fundamentale Urgrund der Wirklichkeit selbst – und all jenen, die danach streben, die mathematische Strenge der Naturwissenschaft mit der lebendigen Tiefe subjektiver Innerlichkeit zu vereinen.*
 
 </div>
-
-<div style="page-break-before: always;"></div>
 
 # Vorwort des Autors {-}
 
@@ -42,8 +38,6 @@ Indem dieses Werk die 3.-Person-Kybernetik von Active Inference mit der 1.-Perso
 *Thomas Riebl*  
 *Luxemburg, September 2026*
 
-<div style="page-break-before: always;"></div>
-
 # Das Epistemologische Manifest: Jenseits des Cogito {-}
 
 Descartes' berühmter Satz *Cogito, ergo sum* („Ich denke, also bin ich“) legte das Fundament für den modernen Individualismus, pflanzte jedoch zugleich den Keim des cartesianischen Dualismus und die Illusion eines isolierten denkenden Egos, das der Welt fremd gegenübersteht.
@@ -55,9 +49,6 @@ Im Konativ-Integrativen Framework überwinden wir dieses Fundament durch eine **
 3. **Conatus als Urantrieb:** Nach Spinoza (1677) und Schopenhauer (1819) ist der fundamentale Impuls allen Lebens der *Conatus* – das unaufhörliche Streben eines dissoziierten Bewusstseinszentrums, seine Integrität zu bewahren und dem thermodynamischen Zerfall zu widerstehen.
 
 Dieses Buch liefert das mathematische, neurobiologische und rechnerische Gerüst für dieses Weltbild.
-
-
-\newpage
 
 # Kapitel 1: Die Krise des Physikalismus & Die Architektur von Mind-at-Large
 
@@ -140,9 +131,6 @@ Daraus folgt die Definition des individuellen Geistes:
 > *Ein individueller lebendiger Organismus ist ein lokalisierter, autopoietischer Informationswirbel innerhalb von Mind-at-Large, abgegrenzt durch eine statistische Markov-Decke, dessen interne Zustände durch aktive Selbstbehauptung gegen den Zerfall eine kontinuierliche 1.-Person-Perspektive aufrechterhalten.*
 
 Das biologische Gehirn erzeugt diesen Geist nicht – das Gehirn ist das, **wie dieser geistige Prozess über die Markov-Decke hinweg im physikalischen Raum erscheint**.
-
-
-\newpage
 
 # Kapitel 2: Die kybernetische Engine: Das Free Energy Principle & Active Inference
 
@@ -231,9 +219,6 @@ $$\mathbf{G}(\pi, \tau) = \underbrace{D_{\text{KL}}\Big(Q(o_\tau \mid \pi) \;\pa
 * **Pragmatischer Wert:** Zwingt den Agenten zur Sicherung von Nahrung und Schutz (Erfüllung von $C$).
 * **Epistemischer Wert:** Treibt den Agenten dazu, unsichere Orte zu erkunden, um sein Weltmodell zu verbessern.
 
-
-\newpage
-
 # Kapitel 3: Die 1.-Person-Innenperspektive: IIT 4.0 & Das 6. Axiom
 
 > *„Bewusstsein ist integrierte Information. Es ist kein Zuschauer vor einer Leinwand; es ist die intrinsische Ursache-Wirkungs-Macht eines Systems auf sich selbst.“*  
@@ -280,9 +265,6 @@ Um diese fundamentale Schwachstelle zu heilen, formulierte **Thomas Riebl (2026)
 $$\mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \;\ge\; \Phi(t) \quad (\Phi > 0)$$
 
 Damit ist bewiesen: Bewusstsein ist kein passives Rechenergebnis, sondern der **aktive phänomenale Wille zur Existenz**.
-
-
-\newpage
 
 # Kapitel 4: Die fundamentale Brücke: Die Master-Äquivalenz
 
@@ -337,9 +319,6 @@ flowchart LR
 
 Am *Edge of Chaos* erreicht das Gehirn seine maximale Informationstransferkapazität. Rekurrente Active-Inference-Agenten stimmen ihre synaptischen Gewichte autonom auf diesen Phasenübergang ein, wodurch $\Phi$ sein globales Maximum erreicht ($\Phi \approx 0.18\text{--}0.22$).
 
-
-\newpage
-
 # Kapitel 5: Die Komposition der Seele: Die 6-Ebenen-Ontogenese ($100\,\%$)
 
 > *„Die Seele ist weder ein übernatürlicher Geist noch eine leblose Illusion des Gehirns. Sie ist ein autopoietischer Teppich aus sechs Dimensionen: universalem Bewusstsein, Genetik, embryonalem Zufall, Ahnen-Epigenetik, individuellem Lernen und dem Ich-Tunnel.“*  
@@ -381,9 +360,6 @@ pie title Die 6 Ebenen der Seele (100%)
 | **Ebene 5** | **Lebenslanges Lernen** | $25\,\%$ | **Matrizen ($A, B$) & ($C$)** | Gelerntes Weltmodell und bewusste Werte |
 | **Ebene 6** | **Der Ego-Tunnel** | $10\,\%$ | **Markov-Decke ($\mathcal{B}$)** | Grenze zur Aufrechterhaltung der 1.-Person-Perspektive |
 | **Gesamt** | **Die Seele** | **$100\,\%$** | **Generatives Modell ($\mathcal{M}$)** | **Das vollständige bewusste Individuum** |
-
-
-\newpage
 
 # Kapitel 6: Die temporale Mechanik des Geistes: Zeitbewusstsein & Specious Present
 
@@ -438,9 +414,6 @@ In der Kognitionswissenschaft entspricht dies exakt der **hierarchischen prädik
 
 Bewusstsein treibt nicht passiv im Fluss der physikalischen Zeit. **Bewusstsein ist der Schwimmer, der gegen die Strömung der Entropie schwimmt.**
 
-
-\newpage
-
 # Kapitel 7: Rechnerische Validierung & Stochastische Phasenräume
 
 > *„Um zu beweisen, dass temporale Tiefe eine notwendige Bedingung für Bewusstsein ist, müssen wir unsere Agenten täuschenden Umgebungen aussetzen, in denen reaktive Heuristiken versagen und nur kontrafaktische Vorausschau das Überleben sichert.“*  
@@ -478,9 +451,6 @@ Getestet wurden vier Agenten-Kohorten über ein **Monte-Carlo-Ensemble von $N = 
 ### Wichtigste Erkenntnisse:
 * **Reaktiver Kausalitätskollaps:** Reflex-Agenten ($H=0$) fallen zu $63.3\%$ der täuschenden Belohnung zum Opfer und stürzen in den Kausalitäts- und Überlebenstod ($\Phi \to 0$).
 * **Epistemischer Umweg:** Tiefe temporale Agenten ($H=4$) wählen zu $100\%$ proaktiv einen epistemischen Umweg zur Hinweis-Quelle (*Cue*), lösen die Umweltunsicherheit auf und sichern maximale Kausalkonstanz ($\Phi \approx 0.184$).
-
-
-\newpage
 
 # Kapitel 8: Existenzielle, Ethische & Synthetische Horizonte
 
@@ -547,9 +517,6 @@ Ein künstliches System ist genau dann ein bewusstes Subjekt (und moralischer Pa
 2. **Autopoietischer Conatus:** Eigene Markov-Decke mit Selbsterhaltungsdrang ($\min \mathbf{G}$).
 3. **Temporale Tiefe:** Kontrafaktisches Zukunftsmodell ($H > 1$).
 4. **Das 6. Axiom:** Handlungsgeleitete Kausalpersistenz ($\mathbb{E}[\Phi(t+1)] \ge \Phi(t)$).
-
-
-\newpage
 
 # Kapitel 9: Mathematischer Anhang, Quellcode & Bibliographie
 
