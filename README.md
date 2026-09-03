@@ -1,109 +1,163 @@
-# Active Inference $\Phi$ Network: Maximizing Integrated Information over Time
-
-[![Status: Work in Progress](https://img.shields.io/badge/Status-Work_in_Progress_(Draft)-orange.svg)](https://github.com/Thriebl/active-inference-phi-network)
-[![Paper: PDF Download](https://img.shields.io/badge/Theoretical_Paper-PDF_Download-red.svg)](docs/Feedback_on_IIT4_Expanding_Axiom_0_Will_to_Exist.pdf)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://www.python.org/)
-
-> [!WARNING]
-> ### ⚠️ Working Draft & Work in Progress (WIP)
-> This repository represents an **ongoing exploratory research prototype, working draft, and active investigation** by Thomas Riebl.  
-> The theoretical formalizations, POMDP generative models, and code implementations are actively evolving and subject to iterative testing, refinement, and expansion. Constructive feedback, theoretical critique, and collaborative discussions are warmly welcome.
-
----
+# The Conative-Integrative Framework (CIF)
+## Active Inference, Integrated Information ($\Phi$), and the 6th Axiom of Consciousness
 
 **Author:** Thomas Riebl (Luxembourg)  
-**Theoretical Synthesis:** Active Inference (Karl Friston) $\times$ Integrated Information Theory 4.0 (Giulio Tononi / Larissa Albantakis) $\times$ Autopoietic Causal Persistence / The 6th Axiom (Thomas Riebl).
+**Theoretical Architecture:** The Conative-Integrative Framework (CIF)  
+*(Analytic Idealism $\times$ Active Inference & FEP $\times$ Integrated Information Theory 4.0 $\times$ The 6th Axiom)*  
+**Repository:** [https://github.com/Thriebl/active-inference-phi-network](https://github.com/Thriebl/active-inference-phi-network)  
+**Date:** September 2026  
 
 ---
 
-## 📄 Theoretical Working Paper
+```
+                               THE CONATIVE-INTEGRATIVE FRAMEWORK (CIF)
+                                      Author: Thomas Riebl (2026)
 
-The foundational theoretical critique and formal proposal accompanying this computational model is available as a full PDF document:
-
-👉 **[Download / View Full PDF: Feedback_on_IIT4_Expanding_Axiom_0_Will_to_Exist.pdf](docs/Feedback_on_IIT4_Expanding_Axiom_0_Will_to_Exist.pdf)**  
-*(Title: "Expanding Axiom 0: Why Integrated Information Theory Needs the Will to Exist — A Constructive Critique and Theoretical Proposal for IIT 4.0")*
+        +-----------------------------------------------------------------------------------+
+        |                                    MIND-AT-LARGE                                  |
+        |             Universal Experiential Field (Spinoza's Substance / Kastrup)          |
+        +-----------------------------------------------------------------------------------+
+                                                  |
+                                   [ Dissociation via Markov Blanket ]
+                                                  v
+        +-----------------------------------------------------------------------------------+
+        |                         THE DISSOCIATED ALTER (INDIVIDUAL SOUL)                   |
+        |                                                                                   |
+        |   3rd-Person Cybernetic Physics (FEP)        1st-Person Causal Interiority (IIT) |
+        |   -----------------------------------        ----------------------------------- |
+        |   Active Inference & Free Energy Min         Integrated Information Power (Phi)  |
+        |   POMDP Generative Model (A, B, C, D)        Cause-Effect Repertoire across MIP  |
+        |   Variational Free Energy F <= -ln p(o)      Maximal Causal Substrate (Tononi)   |
+        +-----------------------------------------------------------------------------------+
+                                                  |
+                                    [ THE 6th AXIOM (THOMAS RIEBL) ]
+                                                  v
+        +-----------------------------------------------------------------------------------+
+        |                              THE FUNDAMENTAL BRIDGE                               |
+        |                                                                                   |
+        |   pi* = argmin sum G(pi, tau)  <=====>  E[Phi(t+1) | pi*] >= Phi(t)  (Phi > 0)    |
+        |                                                                                   |
+        |   "Minimizing Expected Free Energy is the computational engine of the 6th Axiom"  |
+        +-----------------------------------------------------------------------------------+
+```
 
 ---
 
-## 1. Overview & Research Question
+## Executive Summary & Theoretical Core
 
-Integrated Information Theory (IIT 4.0) defines consciousness ($\Phi$) as intrinsic cause-effect power. However, standard IIT evaluates systems as **static, isolated snapshots**, creating the *Paradox of Transient Causal Phantoms* (inanimate logic circuits accidentally achieving $\Phi > 0$ for a microsecond before disintegrating).
+The **Conative-Integrative Framework (CIF)** unifies four foundational paradigms into a mathematically rigorous, computationally testable, and ontologically closed architecture of mind:
 
-This repository implements a **recurrent array of Active Inference agents (POMDP)** in Python that dynamically self-organize at the *Edge of Chaos* to:
-1. **Maximize collective Integrated Information ($\Phi$)** over discrete time iterations.
-2. **Empirically satisfy the 6th Axiom / Postulate of Autopoietic Causal Persistence:**
-   $$\mathbb{E}\Big[\Phi(t+1) \;\Big|\; \text{System Action}\Big] \ge \Phi(t)$$
+1. **Analytic Idealism (Bernardo Kastrup):** Reality is fundamentally experiential (*Mind-at-Large*). Living organisms are localized, dissociated alters bounded by Markov Blankets.
+2. **The Free Energy Principle & Active Inference (Karl Friston):** Living alters maintain their structural and cognitive integrity by minimizing Variational Free Energy ($F$) and Expected Free Energy ($G$).
+3. **Integrated Information Theory 4.0 (Giulio Tononi):** Subjective consciousness is identical to the intrinsic cause-effect power ($\Phi$) of a maximally irreducible physical substrate.
+4. **The 6th Axiom of Consciousness (Thomas Riebl):** IIT 4.0's five static axioms suffer from the *Paradox of Transient Causal Phantoms* (static lifeless logic gates having accidental $\Phi > 0$). The **6th Axiom (*The Will to Exist / Conatus*)** establishes that genuine consciousness strictly requires **autopoietic temporal self-preservation**:
+
+$$\Large \pi^* = \arg\min_{\pi} \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \;\ge\; \Phi(t) \quad (\Phi > 0)$$
 
 ---
 
-## 2. Architecture & Generative Model
-
-Each agent $i \in \{1, \dots, N\}$ operates via a Partially Observable Markov Decision Process (POMDP):
+## Core Thematic Pillars & Research Modules
 
 ```mermaid
 flowchart TD
-    subgraph AGENT["<b>Active Inference Agent i (POMDP)</b>"]
-        A["<b>A-Matrix: Likelihood P(o | s)</b><br>State-to-observation mapping"]
-        B["<b>B-Matrix: Transition Dynamics P(s' | s, a)</b><br>Action-dependent causal transitions"]
-        C["<b>C-Vector: Prior Preferences P(o)</b><br>Rewards coherence & state differentiation"]
-        D["<b>D-Vector: Initial Prior P(s_0)</b>"]
+    subgraph CIF_PILLARS["<b>The Conative-Integrative Framework (CIF)</b>"]
+        direction TB
+        
+        M1["<b>Module 1: Recurrent Active Inference & Scaling Φ</b><br>Agents self-organize at the edge of chaos.<br>Φ scales superlinearly as nodes expand (N = 4 → 12)."]
+        M2["<b>Module 2: Time, Consciousness & Temporal Depth</b><br>The Specious Present (Retention, Impression, Protention).<br>Theorem: Minimum Temporal Depth H > 1 for self-consciousness."]
+        M3["<b>Module 3: Monte Carlo Stochastic Methodology</b><br>Ensemble cohorts (N = 30) across stochastic POMDP phase spaces.<br>Empirical proof of the 6th Axiom against deceptive traps."]
+        M4["<b>Module 4: The Composition of the Soul</b><br>6-Layer Soul Decomposition (100%):<br>Mind-at-Large, Genetics, Chance & Necessity, Epigenetics, Learning, Ego Tunnel."]
+        
+        M1 <===> M2 <===> M3 <===> M4
     end
-
-    subgraph LOOP["<b>Inference-Action Cycle</b>"]
-        P["<b>1. Perceptual Inference (Variational Bayes)</b><br>Q(s_t) = σ(ln P(o_t|s_t) + ln P(s_t|s_{t-1}, a_{t-1}, Neighbors))"]
-        ACT["<b>2. Action Selection (Expected Free Energy G)</b><br>G(a) = Pragmatic Value (C) + Epistemic Value (Ambiguity)<br>P(a) = softmax(-γ · G(a))"]
-    end
-
-    AGENT --> LOOP
 ```
 
+### 1. Recurrent Active Inference & Integrated Information Maximization
+* Implements recurrent arrays of discrete-state POMDP active inference agents.
+* Proves that agents minimizing Expected Free Energy self-tune to the **Edge of Chaos (Criticality)**, maximizing Gaussian Integrated Information ($\Phi$).
+* Demonstrates modular scaling: as networks expand from $N=4$ to $N=12$, $\Phi$ exhibits superlinear scaling, bounded by modular clustering.
+
+### 2. Time, Consciousness, and the Specious Present
+* Maps Edmund Husserl's (1928) tripartite phenomenological structure (**Retention $\to$ Primal Impression $\to$ Protention**) onto hierarchical Bayesian predictive coding.
+* **Theorem (The Temporal Depth Condition for Consciousness — Thomas Riebl):**
+  > *A physical system cannot sustain phenomenal self-consciousness without generative transition tensors ($B = P(s_{t+1} \mid s_t, u)$) spanning a multi-step counterfactual planning horizon ($H > 1$).*
+  >  
+  > *$\ast$ Scientific Context:* While Friston et al. (2017, 2018) established temporal depth for action planning, and Seth (2014, 2021) described counterfactual richness as a correlate of presence, CIF formalizes this as an explicit **mathematical necessity theorem for phenomenal self-consciousness**, directly coupled to autopoietic $\Phi$-preservation under the 6th Axiom.
+
+### 3. Monte Carlo Methodology in Stochastic Phase Spaces
+* Proves that single deterministic simulation runs cannot distinguish lucky flukes from genuine agency.
+* Employs **Monte Carlo Ensemble Sampling ($N = 30 \dots 1000$)** across observation noise ($A$-matrix), transition hazards ($B$-tensors), and precision-weighted action sampling ($\gamma$).
+* Demonstrates the **Phase-Space Bifurcation**: reactive agents ($H=0$) collapse ($36.7\%$ survival, $\Phi \to 0$), whereas deep temporal agents ($H=4$) achieve $100\%$ survival and maximal $\Phi(t) \approx 0.18$.
+
+### 4. The Composition of the Soul (6-Layer Ontogenetic Architecture)
+* Formalizes an individual conscious alter as a 6-layer autopoietic tapestry totaling $100\%$:
+  1. **Layer 1: Mind-at-Large ($25\%$)** — Universal experiential substrate (Spinoza / Kastrup).
+  2. **Layer 2: Genetic Blueprint ($15\%$)** — Brainstem & limbic baseline (*Conatus* / Roth / Panksepp).
+  3. **Layer 3: Chance & Teleonomic Necessity ($15\%$)** — Monod-Eigen hypercycles & embryogenesis.
+  4. **Layer 4: Transgenerational Epigenetics ($10\%$)** — Precision-weighting baseline ($\gamma$).
+  5. **Layer 5: Biographical Lifelong Learning ($25\%$)** — Cortical-hippocampal engrams ($A, B$-matrices).
+  6. **Layer 6: The Ego Tunnel / PSM ($10\%$)** — Transparent self-model & Markov Blanket boundary (Metzinger).
+
 ---
 
-## 3. Simulation Results & Visualization
+## 📓 Interactive Jupyter Notebooks
 
-![Active Inference Phi Simulation Results](images/active_inference_phi_results.png)
+All simulations are provided as fully documented, interactive Jupyter Notebooks with standardized initial parameter configuration sections:
 
-* **Panel A ($\Phi(t)$ Evolution):** Demonstrates the dynamic buildup of $\Phi(t)$ and its long-term autopoietic stabilization.
-* **Panel B (State Trajectories):** Raster plot of all agents over 120 time steps confirming high differentiation without loss of integration.
-* **Panel C (Recurrent Adjacency Matrix):** Small-world ring lattice with recurrent feedback cross-links.
-
-### Quantitative Verification (120 Steps):
-* **Early Phase Mean $\Phi$ ($t = 1 \dots 60$):** $0.3689$
-* **Sustained Phase Mean $\Phi$ ($t = 61 \dots 120$):** $0.4327$
-* **Condition $\mathbb{E}[\Phi(t+1) \mid \text{Action}] \ge \Phi(t)$:** **SATISFIED (Autopoiesis Active)**
+| Notebook | Core Focus & Theoretical Content | Direct Link |
+| :--- | :--- | :--- |
+| **`Active_Inference_Phi_Maximization_Network.ipynb`** | Recurrent array of Active Inference agents self-organizing at the Edge of Chaos to maximize $\Phi(t)$. | [View Notebook](notebooks/Active_Inference_Phi_Maximization_Network.ipynb) |
+| **`Active_Inference_Expanding_Network_Phi_Scaling.ipynb`** | Dynamic network expansion ($N = 4 \to 12$) demonstrating modular scaling of Integrated Information. | [View Notebook](notebooks/Active_Inference_Expanding_Network_Phi_Scaling.ipynb) |
+| **`Deep_Temporal_Active_Inference_Simulation.ipynb`** | Multi-agent Monte Carlo simulation of **Temporal Depths ($H = 0 \to 4$)**, epistemic detours, and validation of the 6th Axiom. | [View Notebook](notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb) |
 
 ---
 
-## 4. Quickstart & Installation
+## 📑 Treatises, Master Papers & PDF Downloads
+
+All foundational publications, formal essays, and executive presentation slides are available in `docs/`:
+
+### Master Treatises & Methodologies (A4 Portrait):
+* 📕 **The Conative-Integrative Framework (CIF Master Paper):** [`The_Conative_Integrative_Framework_Thomas_Riebl.pdf`](docs/The_Conative_Integrative_Framework_Thomas_Riebl.pdf) | [Word `.docx`](docs/The_Conative_Integrative_Framework_Thomas_Riebl.docx)
+* 📕 **The Composition of the Soul (6-Layer Architecture):** [`The_Composition_of_the_Soul_Thomas_Riebl.pdf`](docs/The_Composition_of_the_Soul_Thomas_Riebl.pdf) | [Word `.docx`](docs/The_Composition_of_the_Soul_Thomas_Riebl.docx)
+* 📕 **The Temporal Mechanics of Consciousness (Time & The Specious Present):** [`The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf`](docs/The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf) | [Word `.docx`](docs/The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.docx)
+* 📕 **Monte Carlo Methodology in Active Inference & Consciousness:** [`Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf`](docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf) | [Word `.docx`](docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.docx)
+* 📕 **The Computational Grounding of My Ontology:** [`The_Computational_Grounding_of_My_Ontology_Thomas_Riebl.pdf`](docs/The_Computational_Grounding_of_My_Ontology_Thomas_Riebl.pdf) | [Word `.docx`](docs/The_Computational_Grounding_of_My_Ontology_Thomas_Riebl.docx)
+
+### Executive Presentation Slides & Posters (A4 Landscape):
+* 🖼️ **The 6th Axiom Executive Slide (High-Impact Hero Formula in Neon Yellow):** [`The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf`](docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf) | [Word `.docx`](docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.docx)
+* 🖼️ **The 6th Axiom Chapter 5 One-Pager & POMDP Parameter Map:** [`The_6th_Axiom_Active_Inference_IIT_Thomas_Riebl_A4_Landscape.pdf`](docs/The_6th_Axiom_Active_Inference_IIT_Thomas_Riebl_A4_Landscape.pdf) | [Word `.docx`](docs/The_6th_Axiom_Active_Inference_IIT_Thomas_Riebl_A4_Landscape.docx)
+
+---
+
+## 🖼️ High-Resolution Simulation Figures
+
+| Simulation Result | Description | Preview |
+| :--- | :--- | :---: |
+| **Temporal Depth ($H=0 \to 4$) & 6th Axiom** | 4-panel comparison of $\Phi(t)$, survival probability, Free Energy $F(t)$, and epistemic detours. | [View PNG](images/Deep_Temporal_Active_Inference_Simulation.png) |
+| **Expanding Network Scaling ($\Phi$)** | Modular network expansion from $N=4$ to $N=12$ showing superlinear $\Phi$ integration. | [View PNG](images/Active_Inference_Expanding_Network_Phi_Scaling.png) |
+| **Recurrent $\Phi$-Maximization Network** | Dynamic self-tuning at the Edge of Chaos maximizing cause-effect power. | [View PNG](images/Active_Inference_Phi_Simulation_Results.png) |
+
+---
+
+## 🛠️ Installation & Reproduction
 
 ```bash
+# Clone the unified CIF repository
 git clone https://github.com/Thriebl/active-inference-phi-network.git
 cd active-inference-phi-network
+
+# Install dependencies
 pip install -r requirements.txt
-python active_inference_phi_network.py
-```
 
-Or explore the interactive Jupyter Notebook:
-```bash
-jupyter notebook Active_Inference_Phi_Maximization_Network.ipynb
+# Launch Jupyter Lab / Notebooks
+jupyter lab notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb
 ```
 
 ---
 
-## 5. Citation & Reference
+## Tool Attribution & Colophon
 
-If you reference or build upon this working draft and exploratory model, please cite:
-
-```bibtex
-@misc{riebl2026activephi,
-  author = {Riebl, Thomas},
-  title = {Maximizing Integrated Information ($\Phi$) in Recurrent Active Inference Networks: A Realization of the 6th Axiom of Autopoietic Persistence (Working Draft / WIP)},
-  year = {2026},
-  publisher = {GitHub},
-  url = {https://github.com/Thriebl/active-inference-phi-network}
-}
-```
-
----
-**License:** MIT License (Working Draft / Research Prototype)
+> [!NOTE]
+> **Tooling Colophon:**  
+> This theoretical architecture, mathematical derivations, simulation code, and scientific syntheses were conceptualized and authored by **Thomas Riebl** (Luxembourg) as part of **The Conative-Integrative Framework (CIF)**.  
+> Conceptual formulation, simulation scripts, vector diagrams, and multi-format document compilation (Word `.docx`, Print-Ready A4 Portrait & Landscape PDFs, and Jupyter Notebooks) were developed with the assistance of **Google Gemini (Antigravity Advanced Agentic Coding System)** (September 2026).
