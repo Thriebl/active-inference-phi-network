@@ -962,46 +962,81 @@ Tiefe:</strong> Kontrafaktisches Zukunftsmodell (<span
 class="math inline">\(H &gt; 1\)</span>). 4. <strong>Das 6.
 Axiom:</strong> Handlungsgeleitete Kausalpersistenz (<span
 class="math inline">\(\mathbb{E}[\Phi(t+1)] \ge \Phi(t)\)</span>).</p>
-<h1 id="kapitel-9-mathematischer-anhang-quellcode-bibliographie">Kapitel
-9: Mathematischer Anhang, Quellcode &amp; Bibliographie</h1>
-<hr />
-<h2 id="anhang-a-mathematische-formalismen">Anhang A: Mathematische
-Formalismen</h2>
-<h3 id="das-pomdp-tupel">1. Das POMDP-Tupel</h3>
+<h1 class="unnumbered"
+id="anhang-a-mathematischer-formalismus-tensorschreibweise">Anhang A:
+Mathematischer Formalismus &amp; Tensorschreibweise</h1>
+<h3 id="das-generative-pomdp-modell-1">1. Das generative
+POMDP-Modell</h3>
+<p>Der diskrete, partiell beobachtbare Markov-Entscheidungsprozess
+(POMDP) eines bewussten Alters wird durch folgendes Tupel definiert:</p>
 <p><span class="math display">\[\mathcal{M} = \big\langle \mathcal{S},
 \mathcal{O}, \mathcal{U}, A, B, C, D, \gamma \big\rangle\]</span></p>
 <ul>
-<li><strong>Likelihood:</strong> <span class="math inline">\(A =
-P(o_\tau \mid s_\tau) \in \mathbb{R}^{N_o \times N_s}\)</span></li>
-<li><strong>Übergangstensor:</strong> <span class="math inline">\(B =
-P(s_{\tau+1} \mid s_\tau, u_\tau) \in \mathbb{R}^{N_s \times N_s \times
-N_u}\)</span></li>
-<li><strong>Präferenzen:</strong> <span class="math inline">\(C = \ln
-P(o) \in \mathbb{R}^{N_o}\)</span></li>
-<li><strong>Startverteilung:</strong> <span class="math inline">\(D =
-P(s_1) \in \mathbb{R}^{N_s}\)</span></li>
+<li><strong>Verborgene Zustände:</strong> <span class="math inline">\(s
+\in \mathcal{S} = \{1, \dots, N_s\}\)</span></li>
+<li><strong>Beobachtungen:</strong> <span class="math inline">\(o \in
+\mathcal{O} = \{1, \dots, N_o\}\)</span></li>
+<li><strong>Handlungen (Politiken):</strong> <span
+class="math inline">\(u \in \mathcal{U} = \{1, \dots,
+N_u\}\)</span></li>
+<li><strong>Likelihood-Matrix (<span
+class="math inline">\(A\)</span>):</strong> <span
+class="math inline">\(P(o_\tau \mid s_\tau) = A \in \mathbb{R}^{N_o
+\times N_s}\)</span>, mit <span class="math inline">\(\sum_j A_{j, k} =
+1\)</span>.</li>
+<li><strong>Übergangstensor (<span
+class="math inline">\(B\)</span>):</strong> <span
+class="math inline">\(P(s_{\tau+1} \mid s_\tau, u_\tau) = B \in
+\mathbb{R}^{N_s \times N_s \times N_u}\)</span>, mit <span
+class="math inline">\(\sum_i B_{i, j, u} = 1\)</span>.</li>
+<li><strong>Angeborene Präferenzen (<span
+class="math inline">\(C\)</span>):</strong> <span
+class="math inline">\(\ln P(o) = C \in \mathbb{R}^{N_o}\)</span>.</li>
+<li><strong>Startzustand-Prior (<span
+class="math inline">\(D\)</span>):</strong> <span
+class="math inline">\(P(s_1) = D \in \mathbb{R}^{N_s}\)</span>, mit
+<span class="math inline">\(\sum_k D_k = 1\)</span>.</li>
+<li><strong>Handlungspräzision (<span
+class="math inline">\(\gamma\)</span>):</strong> Inverse Temperatur zur
+Steuerung der Entscheidungssicherheit.</li>
 </ul>
-<h3 id="zustandsschätzung-perzeptuelle-inferenz">2. Zustandsschätzung
-(Perzeptuelle Inferenz)</h3>
+<h3 id="variationale-zustandsschätzung-wahrnehmung">2. Variationale
+Zustandsschätzung (Wahrnehmung)</h3>
+<p>Zum Zeitschritt <span class="math inline">\(t\)</span> wird nach
+Eingang der Beobachtung <span class="math inline">\(o_t\)</span> die
+Posterior-Verteilung <span class="math inline">\(q(s_t)\)</span> im
+Log-Raum per Softmax aktualisiert:</p>
 <p><span class="math display">\[q(s_t) = \sigma\Big( \ln A_{o_t, :} +
 \ln \big( B(u_{t-1}) \cdot q(s_{t-1}) \big) \Big)\]</span></p>
-<h3 id="erwartete-freie-energie-mathbfg-über-horizont-h">3. Erwartete
-Freie Energie (<span class="math inline">\(\mathbf{G}\)</span>) über
-Horizont <span class="math inline">\(H\)</span></h3>
+<p>Wobei <span class="math inline">\(\sigma(x)_i =
+\frac{\exp(x_i)}{\sum_j \exp(x_j)}\)</span> die Softmax-Funktion
+darstellt.</p>
+<h3 id="erwartete-freie-energie-mathbfg-über-planungshorizont-h">3.
+Erwartete Freie Energie (<span
+class="math inline">\(\mathbf{G}\)</span>) über Planungshorizont <span
+class="math inline">\(H\)</span></h3>
+<p>Für eine Handlungsfolge <span class="math inline">\(\pi = (u_t,
+u_{t+1}, \dots, u_{t+H-1})\)</span>:</p>
 <p><span class="math display">\[\mathbf{G}(\pi) = \sum_{\tau =
 t+1}^{t+H} \delta^{\tau - t} \cdot \mathbf{G}(\pi, \tau)\]</span></p>
-<p><span class="math display">\[\mathbf{G}(\pi, \tau) = \sum_{o_\tau}
-Q(o_\tau \mid \pi) \cdot \Big(\ln Q(o_\tau \mid \pi) - C(o_\tau)\Big) +
-\sum_{s_\tau} Q(s_\tau \mid \pi) \cdot \mathcal{H}\big(A_{:,
-s_\tau}\big)\]</span></p>
+<p><span class="math display">\[\mathbf{G}(\pi, \tau) =
+\underbrace{\sum_{o_\tau} Q(o_\tau \mid \pi) \cdot \Big(\ln Q(o_\tau
+\mid \pi) - C(o_\tau)\Big)}_{\text{Pragmatischer Wert (KL-Divergenz zu
+Zielen)}} + \underbrace{\sum_{s_\tau} Q(s_\tau \mid \pi) \cdot
+\mathcal{H}\big(A_{:, s_\tau}\big)}_{\text{Epistemischer Wert
+(Ambiguitätsabbau)}}\]</span></p>
+<p>Wobei vorhergesagte Beobachtungen und Zustände generiert werden
+durch:</p>
+<p><span class="math display">\[Q(o_\tau \mid \pi) = A \cdot Q(s_\tau
+\mid \pi) \qquad\text{und}\qquad Q(s_\tau \mid \pi) = B(u_{\tau-1})
+\cdot Q(s_{\tau-1} \mid \pi)\]</span></p>
 <h3 id="boltzmann-politik-auswahl">4. Boltzmann-Politik-Auswahl</h3>
 <p><span class="math display">\[P(\pi) = \frac{\exp\big(-\gamma \cdot
 \mathbf{G}(\pi)\big)}{\sum_{\pi&#39;} \exp\big(-\gamma \cdot
 \mathbf{G}(\pi&#39;)\big)}\]</span></p>
-<hr />
-<h2
+<h1 class="unnumbered"
 id="anhang-b-open-science-git-archiv-wissenschaftliche-begleitpapiere">Anhang
-B: Open Science, Git-Archiv &amp; Wissenschaftliche Begleitpapiere</h2>
+B: Open Science, Git-Archiv &amp; Wissenschaftliche Begleitpapiere</h1>
 <p>Im Einklang mit den höchsten Standards transparenter und
 reproduzierbarer Wissenschaft sind sämtliche Simulations-Quellcodes,
 interaktiven Jupyter Notebooks, mathematischen Herleitungen und
@@ -1063,9 +1098,9 @@ Slide (High-Impact A4 Landscape)</em><br />
 <a
 href="https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf"><code>The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf</code></a></li>
 </ul>
-<hr />
-<h2 id="anhang-c-alphabetisches-glossar-der-fachbegriffe">Anhang C:
-Alphabetisches Glossar der Fachbegriffe</h2>
+<h1 class="unnumbered"
+id="anhang-c-umfassendes-alphabetisches-glossar-der-fachbegriffe">Anhang
+C: Umfassendes Alphabetisches Glossar der Fachbegriffe</h1>
 <ul>
 <li><strong>Active Inference (Aktive Inferenz):</strong> Das normative
 mathematische Framework der theoretischen Neurobiologie, das besagt,
@@ -1073,8 +1108,8 @@ dass lebendige Organismen ihre Existenz sichern, indem sie Handlungen
 ausführen, die die erwartete freie Energie (<span
 class="math inline">\(\mathbf{G}\)</span>) minimieren, um sensorische
 Beobachtungen mit angeborenen Präferenzen in Einklang zu bringen.</li>
-<li><strong>Alter (Dissoziiertes Bewusstseinszentrum):</strong> Im
-Analytischen Idealismus ein individueller lebendiger Organismus, der
+<li><strong>Alter (Dissoziiertes Bewusstseinszentrum / Seele):</strong>
+Im Analytischen Idealismus ein individueller lebendiger Organismus, der
 durch die topologische Dissoziation von Mind-at-Large entsteht und durch
 eine statistische Markov-Decke abgegrenzt ist.</li>
 <li><strong>Analytischer Idealismus:</strong> Die von Bernardo Kastrup
@@ -1086,16 +1121,36 @@ Erscheinungsbild universaler mentaler Prozesse darstellt.</li>
 Systeme, ihr eigenes strukturelles und organisatorisches Netzwerk
 kontinuierlich selbst zu regenerieren und gegen den thermodynamischen
 Zerfall zu behaupten.</li>
+<li><strong>Cartesianischer Dualismus:</strong> Die von René Descartes
+begründete Lehre von zwei fundamental getrennten Substanzen: <em>res
+cogitans</em> (unräumlicher, denkender Geist) und <em>res extensa</em>
+(ausgedehnte, tote Materie), welche das unlösbare Leib-Seele-Problem
+schuf.</li>
 <li><strong>Conatus (Der Existenzwille):</strong> Das angeborene Streben
 jedes Seienden, in seiner Existenz zu verharren und der Zerstörung zu
 widerstehen (Spinoza). Im CIF formalisiert als Sollzustand <span
-class="math inline">\(\Phi &gt; 0\)</span>.</li>
+class="math inline">\(\Phi &gt; 0\)</span> und 6. Axiom.</li>
 <li><strong>Das 6. Axiom des Bewusstseins:</strong> Das Axiom der
 <em>Autopoietischen Kausalkonstanz</em>, das festlegt, dass echtes
 Bewusstsein zwingend ein aktives Handeln zur Erhaltung der integrierten
 Ursache-Wirkungs-Macht über die Zeit erfordert: <span
 class="math inline">\(\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge
 \Phi(t)\)</span> (Riebl).</li>
+<li><strong>Dissoziation:</strong> Der psychologische und kosmologische
+Prozess, durch den sich ein einheitliches Bewusstseinsfeld in
+teilautonome Sub-Zentren (<em>Alters</em>) aufspaltet und individuelle
+Innenperspektiven hinter Markov-Decken bildet.</li>
+<li><strong>Dual-Aspect-Monismus:</strong> Die philosophische
+Auffassung, dass Geist und Materie zwei komplementäre,
+erkenntnistheoretisch unterschiedliche Perspektiven einer einzigen
+zugrunde liegenden Wirklichkeit sind.</li>
+<li><strong>Epistemischer Wert / Epistemologie
+(Erkenntnistheorie):</strong> Der neugiergetriebene,
+informationssuchende Anteil der Erwarteten Freien Energie (<span
+class="math inline">\(\mathbf{G}\)</span>), der einen Agenten dazu
+motiviert, Unwissenheit und Ambiguität vor der Belohnungsjagd abzubauen.
+Die Epistemologie untersucht Wesen, Zustandekommen und Grenzen von
+Wissen.</li>
 <li><strong>Erklärungslücke (<em>Explanatory Gap</em>):</strong> Die
 unüberwindbare Kluft im Physikalismus zwischen quantitativen objektiven
 Hirnprozessen und qualitativem subjektiven Erleben (Levine).</li>
@@ -1110,6 +1165,11 @@ class="math inline">\(\Phi\)</span>):</strong> Das quantitative Maß für
 die intrinsische Ursache-Wirkungs-Macht eines maximal irreduziblen
 physikalischen Substrats über die Minimum Information Partition (Tononi,
 IIT 4.0).</li>
+<li><strong>Kausalität (Intrinsisch vs. Extrinsisch):</strong> In der
+IIT und im CIF beschreibt <em>intrinsische Kausalität</em> die
+Ursache-Wirkungs-Macht eines Systems auf sich selbst von innen heraus
+(phänomenales Erleben), während <em>extrinsische Kausalität</em>
+beobachtbare Verhaltensreaktionen von außen meint.</li>
 <li><strong>Kritikalität (<em>Edge of Chaos</em>):</strong> Der
 Phasenübergang zwischen starrer Ordnung und chaotischer Turbulenz, an
 dem Informationstransfer und Integrierte Information (<span
@@ -1129,9 +1189,23 @@ Wirklichkeit bildet (Spinoza, Kastrup).</li>
 Zweiteilung eines Systems, die den geringsten Kausalitätsverlust
 verursacht; dient zur Berechnung der System-Irreduzibilität <span
 class="math inline">\(\Phi\)</span>.</li>
+<li><strong>Monismus:</strong> Die ontologische Auffassung, dass die
+gesamte Wirklichkeit auf eine einzige fundamentale Grundsubstanz
+zurückgeht. Im CIF: ein <em>idealistischer Monismus</em>, in dem Erleben
+primär ist.</li>
+<li><strong>Ontologie / Ontologischer Primat:</strong> Die Disziplin der
+Metaphysik, die sich mit der Grundstruktur des Seins befasst. Im CIF
+besitzt das Bewusstsein den <em>ontologischen Primat</em>; tote Materie
+ist lediglich die extrinsische Erscheinung.</li>
+<li><strong>Phänomenales Bewusstsein / Qualia:</strong> Die subjektive
+Erlebnisqualität des „Wie-es-sich-anfühlt“, etwas zu empfinden (z. B.
+Röte der Rose, Schmerz, Trauer, Freude) (Nagel, Chalmers).</li>
 <li><strong>Phänomenales Selbstmodell (PSM):</strong> Eine transparente,
 kontinuierliche innere Simulation des prädiktiven Gehirns, die die
 1.-Person-Perspektive eines stabilen „Ich“ erzeugt (Metzinger).</li>
+<li><strong>Physicalismus (Materialismus):</strong> Das metaphysische
+Dogma, dass ausschließlich physikalische Materie fundamental existiert
+und Bewusstsein ein nebensächliches Epiphänomen sei.</li>
 <li><strong>POMDP (Partially Observable Markov Decision
 Process):</strong> Mathematischer Formalismus für Entscheidungsfindung
 unter Unsicherheit, definiert durch die Tensoren <span
@@ -1139,6 +1213,12 @@ class="math inline">\(A\)</span> (Likelihood), <span
 class="math inline">\(B\)</span> (Übergänge), <span
 class="math inline">\(C\)</span> (Werte) und <span
 class="math inline">\(D\)</span> (Startpriors).</li>
+<li><strong>Pragmatischer Wert:</strong> Der zielorientierte Anteil der
+Erwarteten Freien Energie (<span
+class="math inline">\(\mathbf{G}\)</span>), der misst, wie gut
+vorhergesagte Sinneseindrücke die angeborenen homöostatischen
+Überlebenspräferenzen (<span class="math inline">\(C\)</span>)
+erfüllen.</li>
 <li><strong>Protention:</strong> Die antizipatorische Zukunftserwartung
 innerhalb der Specious Present, entsprechend Top-Down-Vorhersagen
 (Husserl).</li>
@@ -1154,6 +1234,11 @@ triadische, nicht-ausdehnungslose zeitliche Dauer des subjektiven
 Erlebens (<span class="math inline">\(\sim 500\,\text{ms} -
 3\,\text{s}\)</span>), die Retention, Urimpression und Protention
 vereint (James, Husserl).</li>
+<li><strong>Teleologie (Konative Attraktoren):</strong> Die
+zielgerichtete Ausrichtung lebendiger Systeme auf zukünftige
+homöostatische Attraktoren, formalisiert durch die Minimierung der
+erwarteten freien Energie und die Erhaltung von <span
+class="math inline">\(\Phi\)</span>.</li>
 <li><strong>Temporale Tiefe (<span
 class="math inline">\(H\)</span>):</strong> Die Reichweite des
 kontrafaktischen Planungshorizonts, über den ein Agent Übergangstensoren
@@ -1173,9 +1258,8 @@ class="math inline">\(F\)</span>):</strong> Eine berechenbare Obergrenze
 für sensorische Überraschung (<span class="math inline">\(-\ln
 P(o)\)</span>), die während der Wahrnehmung minimiert wird.</li>
 </ul>
-<hr />
-<h2 id="akademische-bibliographie-auswahl">Akademische Bibliographie
-(Auswahl)</h2>
+<h1 class="unnumbered" id="akademische-bibliographie">Akademische
+Bibliographie</h1>
 <ol type="1">
 <li><strong>Bak, P. (1996).</strong> <em>How Nature Works: The Science
 of Self-Organized Criticality.</em> Copernicus, Springer-Verlag.</li>
@@ -1259,20 +1343,20 @@ inference.</em> arXiv:2002.12636.</li>
 <em>Intergenerational transmission of trauma effects.</em> World
 Psychiatry, 17(3), 243–257.</li>
 </ol>
-<hr />
-<h2 id="tool-attribution-colophon">Tool Attribution &amp; Colophon</h2>
+<h1 class="unnumbered" id="tool-attribution-colophon">Tool Attribution
+&amp; Colophon</h1>
 <blockquote>
 <p>[!NOTE] <strong>Tooling Colophon:</strong><br />
 Diese theoretische Abhandlung, philosophische Architektur und
 wissenschaftliche Monographie wurden von <strong>Thomas Riebl</strong>
 (Luxemburg) im Rahmen des <strong>Conative-Integrative Framework
 (CIF)</strong> konzipiert und verfasst.<br />
-Die formale Modellierung, Simulationsskripte, Vektordiagramme und die
-mehrformatige Buchkompilierung (Amazon KDP Print-PDF <span
-class="math inline">\(6 \times 9&#39;&#39;\)</span>, Word
-<code>.docx</code>) wurden mit Unterstützung von <strong>Google Gemini
-(Antigravity Advanced Agentic Coding System)</strong> (September 2026)
-realisiert.</p>
+Die formale mathematische Modellierung, Simulationsskripte,
+Vektordiagramme und die mehrformatige Buchkompilierung (Amazon KDP
+Print-PDF <span class="math inline">\(6 \times 9&#39;&#39;\)</span>,
+Word <code>.docx</code>) wurden mit Unterstützung von <strong>Google
+Gemini (Antigravity Advanced Agentic Coding System)</strong> (September
+2026) realisiert.</p>
 </blockquote>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">

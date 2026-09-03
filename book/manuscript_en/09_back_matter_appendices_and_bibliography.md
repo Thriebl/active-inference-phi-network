@@ -1,8 +1,4 @@
-# Chapter 9: Mathematical Appendices, Source Code & Academic Bibliography
-
----
-
-## Appendix A: Mathematical Formalisms & Tensor Notations
+# Appendix A: Mathematical Formalisms & Tensor Notations {-}
 
 ### 1. The POMDP Generative Model
 The discrete Partially Observable Markov Decision Process (POMDP) of a conscious alter is defined by the tuple:
@@ -30,114 +26,16 @@ For candidate policy $\pi = (u_t, u_{t+1}, \dots, u_{t+H-1})$:
 
 $$\mathbf{G}(\pi) = \sum_{\tau = t+1}^{t+H} \delta^{\tau - t} \cdot \mathbf{G}(\pi, \tau)$$
 
-$$\mathbf{G}(\pi, \tau) = \underbrace{\sum_{o_\tau} Q(o_\tau \mid \pi) \cdot \Big(\ln Q(o_\tau \mid \pi) - C(o_\tau)\Big)}_{\text{Pragmatic Value (KL Divergence to Goals)}} + \underbrace{\sum_{s_\tau} Q(s_\tau \mid \pi) \cdot \mathcal{H}\big(A_{:, s_\tau}\big)}_{\text{Epistemic Ambiguity}}$$
+$$\mathbf{G}(\pi, \tau) = \underbrace{\sum_{o_\tau} Q(o_\tau \mid \pi) \cdot \Big(\ln Q(o_\tau \mid \pi) - C(o_\tau)\Big)}_{\text{Pragmatic Value (KL Divergence to Goals)}} + \underbrace{\sum_{s_\tau} Q(s_\tau \mid \pi) \cdot \mathcal{H}\big(A_{:, s_\tau}\big)}_{\text{Epistemic Ambiguity Resolution}}$$
 
-Where predicted observations are:
+Where predicted observations and future states are generated via:
 
-$$Q(o_\tau \mid \pi) = A \cdot Q(s_\tau \mid \pi)$$
-
-$$Q(s_\tau \mid \pi) = B(u_{\tau-1}) \cdot Q(s_{\tau-1} \mid \pi)$$
+$$Q(o_\tau \mid \pi) = A \cdot Q(s_\tau \mid \pi) \qquad\text{and}\qquad Q(s_\tau \mid \pi) = B(u_{\tau-1}) \cdot Q(s_{\tau-1} \mid \pi)$$
 
 ### 4. Policy Selection via Precision-Weighted Boltzmann Distribution
 $$P(\pi) = \frac{\exp\big(-\gamma \cdot \mathbf{G}(\pi)\big)}{\sum_{\pi'} \exp\big(-\gamma \cdot \mathbf{G}(\pi')\big)}$$
 
----
-
-## Appendix B: Python Implementation of Deep Temporal Agent
-
-```python
-"""
-Deep Temporal Active Inference Agent (CIF Core Implementation)
-Author: Thomas Riebl (2026)
-"""
-import numpy as np
-import scipy.linalg as la
-import itertools
-
-class DeepTemporalActiveInferenceAgent:
-    def __init__(self, name, horizon=4, num_states=6, num_obs=5, num_actions=4, precision=2.5):
-        self.name = name
-        self.horizon = horizon
-        self.num_states = num_states
-        self.num_obs = num_obs
-        self.num_actions = num_actions
-        self.precision = precision
-        
-        # 1. State Prior D
-        self.D = np.zeros(num_states)
-        self.D[0] = 1.0  # Initialized at Start state (s0)
-        
-        # 2. Likelihood Matrix A = P(o | s)
-        self.A = np.zeros((num_obs, num_states))
-        self.A[0, 0] = 1.0  # Start -> Neutral obs
-        self.A[1, 1] = 0.2; self.A[2, 1] = 0.8  # Cue -> Disambiguates safe path
-        self.A[3, 2] = 0.9; self.A[4, 2] = 0.1  # Trap -> Deceptive sweet obs
-        self.A[0, 3] = 0.8; self.A[2, 3] = 0.2  # Path1 -> Neutral/Safe
-        self.A[2, 4] = 1.0  # True Goal -> True safe obs
-        self.A[4, 5] = 1.0  # Death -> Lethal collapse obs
-        self.A += 1e-6
-        self.A = self.A / self.A.sum(axis=0, keepdims=True)
-        
-        # 3. Transition Tensors B = P(s_{t+1} | s_t, u)
-        self.B = np.zeros((num_states, num_states, num_actions))
-        for u in range(num_actions):
-            self.B[:, :, u] = np.eye(num_states)
-            
-        # Action 1: Move to Cue Site
-        self.B[:, 0, 1] = 0; self.B[1, 0, 1] = 1.0
-        # Action 2: Move to Trap (Lethal collapse after delay)
-        self.B[:, 0, 2] = 0; self.B[2, 0, 2] = 1.0
-        for u in range(num_actions):
-            self.B[:, 2, u] = 0; self.B[5, 2, u] = 1.0
-            
-        # Action 3: Move to Safe Path / Goal
-        self.B[:, 0, 3] = 0; self.B[3, 0, 3] = 1.0
-        self.B[:, 1, 3] = 0; self.B[3, 1, 3] = 1.0
-        self.B[:, 3, 3] = 0; self.B[4, 3, 3] = 1.0
-        
-        # 4. Prior Preferences C = ln P(o)
-        self.C = np.array([0.0, -1.0, 4.5, 2.0, -10.0])
-        self.qs = self.D.copy()
-        
-    def infer_states(self, obs):
-        likelihood = self.A[obs, :]
-        self.qs = self.qs * likelihood
-        self.qs = self.qs / (np.sum(self.qs) + 1e-12)
-        return self.qs
-        
-    def calculate_expected_free_energy(self, policy):
-        if self.horizon == 0:
-            return 0.0
-        G = 0.0
-        curr_qs = self.qs.copy()
-        for t, u in enumerate(policy):
-            next_qs = self.B[:, :, u] @ curr_qs
-            next_qs = next_qs / (np.sum(next_qs) + 1e-12)
-            qo = self.A @ next_qs
-            qo = qo / (np.sum(qo) + 1e-12)
-            pragmatic = np.sum(qo * self.C)
-            H_qo = -np.sum(qo * np.log(qo + 1e-12))
-            H_A = -np.sum(self.A * np.log(self.A + 1e-12), axis=0)
-            epistemic = H_qo - np.sum(next_qs * H_A)
-            step_G = -(pragmatic + 1.2 * epistemic)
-            G += (0.95 ** t) * step_G
-            curr_qs = next_qs
-        return G
-
-    def select_action(self):
-        if self.horizon == 0:
-            return np.random.choice([1, 2, 3], p=[0.2, 0.6, 0.2]), 0.0
-        policies = list(itertools.product(range(self.num_actions), repeat=self.horizon))
-        G_vals = np.array([self.calculate_expected_free_energy(pol) for pol in policies])
-        e_G = np.exp(-self.precision * (G_vals - np.min(G_vals)))
-        p_pol = e_G / np.sum(e_G)
-        chosen_idx = np.random.choice(len(policies), p=p_pol)
-        return policies[chosen_idx][0], G_vals[chosen_idx]
-```
-
----
-
-## Appendix C: Open Science, Git Repository & Computational Reproducibility
+# Appendix B: Open Science, Git Repository & Computational Reproducibility {-}
 
 In alignment with the highest standards of open, transparent, and reproducible science, all simulation source codes, interactive Jupyter Notebooks, foundational treatises, and high-resolution publication assets accompanying this monograph are hosted publicly on GitHub:
 
@@ -167,37 +65,45 @@ In alignment with the highest standards of open, transparent, and reproducible s
 * **The Executive Landscape Poster:** *The 6th Axiom Executive Slide (High-Impact Hero Formula)*  
   [`The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf)
 
----
-
-## Appendix D: Alphabetical Glossary of Technical Terms
+# Appendix C: Comprehensive Alphabetical Glossary {-}
 
 * **Active Inference:** The normative mathematical framework in theoretical neurobiology stating that living organisms preserve homeostatic existence by executing actions to minimize Expected Free Energy ($\mathbf{G}$), bringing sensory observations into alignment with prior preferences.
 * **Alter (Dissociated Center of Mind):** In Analytic Idealism, an individual living organism formed through the topological dissociation of Mind-at-Large, demarcated by a statistical Markov Blanket.
 * **Analytic Idealism:** The non-dual, parsimonious monistic ontology (formulated by Bernardo Kastrup) asserting that reality in its essence is experiential (*Mind-at-Large*), and inanimate physical matter is the extrinsic appearance of universal mental processes observed across a boundary.
 * **Autopoiesis:** The fundamental property of a living system to continuously regenerate, repair, and sustain its own structural and organizational network against thermodynamic dispersion.
-* **Conatus:** The innate striving of any living entity to persevere in its own existence and resist entropic destruction (Spinoza). In CIF, formalized as the conative goal state $\Phi > 0$.
+* **Cartesian Dualism:** The philosophical doctrine established by René Descartes asserting the existence of two fundamentally distinct substances: *res cogitans* (unextended, thinking mind) and *res extensa* (extended, mindless matter), creating the insoluble problem of mind-body interaction.
+* **Causality (Intrinsic vs. Extrinsic):** In Integrated Information Theory and CIF, *intrinsic causality* refers to the irreducible cause-effect power a system exerts upon itself from within, which constitutes phenomenal experience. *Extrinsic causality* refers to observed behavioral input-output transformations.
+* **Conatus (The Will to Exist):** The innate striving of any living entity to persevere in its own existence and resist entropic destruction (Spinoza). In CIF, formalized as the conative goal state $\Phi > 0$ and the 6th Axiom.
 * **Criticality (Edge of Chaos):** The delicate phase transition boundary between rigid order and chaotic turbulence where information transmission, network dynamic range, and integrated information ($\Phi$) reach their global maximum.
-* **Expected Free Energy ($\mathbf{G}$):** A forward-looking metric evaluating candidate policy sequences over planning horizon $H$, decomposing into pragmatic value (goal satisfaction) and epistemic value (ambiguity resolution / curiosity).
+* **Dissociation:** The psychological and cosmological mechanism whereby a unified conscious field divides into semi-autonomous, self-contained sub-domains (*alters*), establishing localized perspectives behind Markov boundaries.
+* **Dual-Aspect Monism:** The metaphysical view that the mental and physical are two complementary, epistemically distinct perspectives of a single underlying reality.
+* **Epistemic Value (Epistemic Curiosity):** The information-seeking component of Expected Free Energy ($\mathbf{G}$) that drives an active inference agent to explore uncertain environments, disambiguate hidden states, and resolve epistemic surprise before pursuing pragmatic rewards.
+* **Epistemology / Epistemic:** The branch of philosophy concerned with the theory, nature, sources, and limitations of knowledge. In CIF, physical matter is an *epistemic representation* of mental processes viewed across a Markov blanket.
+* **Expected Free Energy ($\mathbf{G}$):** A forward-looking metric evaluating candidate policy sequences over planning horizon $H$, decomposing into pragmatic value (goal satisfaction) and epistemic value (ambiguity resolution).
 * **Explanatory Gap:** The insurmountable epistemic chasm within physicalism between quantitative objective neural mechanisms and qualitative subjective experience (Levine).
 * **Hard Problem of Consciousness:** The fundamental question of why and how physical computations in a brain should ever give rise to subjective, qualitative inner experience (*qualia*) (Chalmers).
 * **Integrated Information ($\Phi$):** The quantitative measure of intrinsic cause-effect power within a maximally irreducible physical substrate, computed across the Minimum Information Partition (Tononi, IIT 4.0).
 * **Markov Blanket:** A statistical boundary partitioning a system into internal ($\mu$), sensory ($s$), active ($a$), and external ($\eta$) states, rendering internal states conditionally independent of external states.
 * **Mind-at-Large:** The universal, transpersonal field of pure consciousness that constitutes the fundamental ontological ground of reality (Spinoza, Kastrup).
 * **Minimum Information Partition (MIP):** The bipartition of a system that minimizes informational and causal loss, used to calculate irreducibility and integrated information $\Phi$.
+* **Monism:** The ontological stance asserting that all of reality is ultimately composed of a single, fundamental kind of substance or essence. CIF adheres to an *idealist monism* where experiencing is primary.
+* **Ontology / Ontological Primacy:** The branch of metaphysics studying the fundamental nature of existence, reality, and being. In CIF, consciousness holds *ontological primacy* as the irreducible ground of reality.
+* **Phenomenal Consciousness / Qualia:** The subjective, qualitative "what-it-is-like" dimension of direct conscious experience (e.g., the redness of red, the feeling of grief, the warmth of sunlight) (Nagel, Chalmers).
 * **Phenomenal Self-Model (PSM):** A transparent, continuous internal simulation generated by the predictive brain that creates the felt 1st-person perspective of an enduring "I" (Metzinger).
+* **Physicalism (Materialism):** The metaphysical dogma asserting that inanimate physical matter is the sole fundamental reality, and consciousness is merely an emergent epiphenomenon.
 * **POMDP (Partially Observable Markov Decision Process):** A mathematical framework for modeling decision-making under uncertainty, defined by matrices $A$ (likelihood), $B$ (transitions), $C$ (preferences), and $D$ (priors).
+* **Pragmatic Value:** The goal-seeking component of Expected Free Energy ($\mathbf{G}$) measuring the degree to which predicted sensory outcomes satisfy the agent's innate homeostatic survival preferences ($C$).
 * **Primal Impression (*Urimpression*):** The present sensory perturbation at the Markov boundary within the Specious Present, corresponding to incoming prediction errors (Husserl).
 * **Protention:** The forward-looking anticipatory projection within the Specious Present, corresponding to top-down generative predictions (Husserl).
 * **Retention:** The immediate past preserved in working memory within the Specious Present, corresponding to empirical synaptic priors (Husserl).
 * **Specious Present:** The tripartite, non-zero temporal duration of subjective consciousness ($\sim 500\,\text{ms} - 3\,\text{s}$) combining Retention, Primal Impression, and Protention (James, Husserl).
+* **Teleology (Conative Attractors):** The directed, goal-oriented striving of living systems toward future homeostatic attractors, governed by the formal minimization of Expected Free Energy and the preservation of $\Phi$.
 * **Temporal Depth ($H$):** The length of the forward-looking counterfactual planning horizon over which an agent evaluates transition tensors ($B$) and expected free energy ($\mathbf{G}$).
 * **Theorem of Minimum Temporal Depth:** The mathematical necessity condition stating that phenomenal self-consciousness strictly requires multi-step counterfactual planning ($H > 1$) to avoid causal collapse ($\Phi \to 0$) (Riebl).
 * **The 6th Axiom of Consciousness:** The axiom of *Autopoietic Causal Persistence*, establishing that genuine consciousness requires an active striving to preserve integrated cause-effect power over time: $\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t)$ (Riebl).
 * **Variational Free Energy ($F$):** A computable upper bound on sensory surprise ($-\ln P(o)$), minimized during perceptual inference to eliminate prediction errors.
 
----
-
-## Academic References & Comprehensive Bibliography
+# Academic References & Comprehensive Bibliography {-}
 
 1. **Bak, P. (1996).** *How Nature Works: The Science of Self-Organized Criticality.* Copernicus, Springer-Verlag, New York.
 2. **Beggs, J. M., & Plenz, D. (2003).** *Neuronal avalanches in neocortical circuits.* Journal of Neuroscience, 23(35), 11167–11177.
@@ -248,11 +154,9 @@ In alignment with the highest standards of open, transparent, and reproducible s
 47. **Wiese, W. (2018).** *Experienced Wholes: Unifying Insight into Phenomenal Integration.* MIT Press.
 48. **Yehuda, R., & Lehrner, A. (2018).** *Intergenerational transmission of trauma effects: putative role of epigenetic mechanisms.* World Psychiatry, 17(3), 243–257.
 
----
-
-## Tool Attribution & Colophon
+# Tool Attribution & Colophon {-}
 
 > [!NOTE]
 > **Tooling Colophon:**  
-> This theoretical treatise, philosophical architecture, and scientific monograph were conceptualized and authored by **Thomas Riebl** (Luxembourg) as part of **The Conative-Integrative Framework (CIF)**.  
-> The conceptual formulation, mathematical modeling, simulation scripts, vector diagrams, and multi-format document compilation (Amazon KDP Print PDF $6 \times 9''$, Word `.docx`, and EPUB) were developed with the assistance of **Google Gemini (Antigravity Advanced Agentic Coding System)** (September 2026).
+> This theoretical treatise, philosophical architecture, and academic monograph were conceived, authored, and curated by **Thomas Riebl** (Luxembourg) within the **Conative-Integrative Framework (CIF)**.  
+> Formal mathematical derivations, multi-agent simulation scripts, vector diagrams, and the multi-format book compilation (Amazon KDP Print PDF $6 \times 9''$, Word `.docx`) were developed with the assistance of **Google Gemini (Antigravity Advanced Agentic Coding System)** (September 2026).

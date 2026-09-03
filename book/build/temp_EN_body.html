@@ -1577,12 +1577,9 @@ inanimate tools—magnificent mirrors of human language, but devoid of an
 inner spark of light.</p>
 <p>In the final chapter, we provide the mathematical appendices, source
 codes, and complete bibliography concluding this treatise.</p>
-<h1
-id="chapter-9-mathematical-appendices-source-code-academic-bibliography">Chapter
-9: Mathematical Appendices, Source Code &amp; Academic Bibliography</h1>
-<hr />
-<h2 id="appendix-a-mathematical-formalisms-tensor-notations">Appendix A:
-Mathematical Formalisms &amp; Tensor Notations</h2>
+<h1 class="unnumbered"
+id="appendix-a-mathematical-formalisms-tensor-notations">Appendix A:
+Mathematical Formalisms &amp; Tensor Notations</h1>
 <h3 id="the-pomdp-generative-model">1. The POMDP Generative Model</h3>
 <p>The discrete Partially Observable Markov Decision Process (POMDP) of
 a conscious alter is defined by the tuple:</p>
@@ -1637,115 +1634,21 @@ t+1}^{t+H} \delta^{\tau - t} \cdot \mathbf{G}(\pi, \tau)\]</span></p>
 \underbrace{\sum_{o_\tau} Q(o_\tau \mid \pi) \cdot \Big(\ln Q(o_\tau
 \mid \pi) - C(o_\tau)\Big)}_{\text{Pragmatic Value (KL Divergence to
 Goals)}} + \underbrace{\sum_{s_\tau} Q(s_\tau \mid \pi) \cdot
-\mathcal{H}\big(A_{:, s_\tau}\big)}_{\text{Epistemic
-Ambiguity}}\]</span></p>
-<p>Where predicted observations are:</p>
+\mathcal{H}\big(A_{:, s_\tau}\big)}_{\text{Epistemic Ambiguity
+Resolution}}\]</span></p>
+<p>Where predicted observations and future states are generated via:</p>
 <p><span class="math display">\[Q(o_\tau \mid \pi) = A \cdot Q(s_\tau
-\mid \pi)\]</span></p>
-<p><span class="math display">\[Q(s_\tau \mid \pi) = B(u_{\tau-1}) \cdot
-Q(s_{\tau-1} \mid \pi)\]</span></p>
+\mid \pi) \qquad\text{and}\qquad Q(s_\tau \mid \pi) = B(u_{\tau-1})
+\cdot Q(s_{\tau-1} \mid \pi)\]</span></p>
 <h3
 id="policy-selection-via-precision-weighted-boltzmann-distribution">4.
 Policy Selection via Precision-Weighted Boltzmann Distribution</h3>
 <p><span class="math display">\[P(\pi) = \frac{\exp\big(-\gamma \cdot
 \mathbf{G}(\pi)\big)}{\sum_{\pi&#39;} \exp\big(-\gamma \cdot
 \mathbf{G}(\pi&#39;)\big)}\]</span></p>
-<hr />
-<h2
-id="appendix-b-python-implementation-of-deep-temporal-agent">Appendix B:
-Python Implementation of Deep Temporal Agent</h2>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">Deep Temporal Active Inference Agent (CIF Core Implementation)</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">Author: Thomas Riebl (2026)</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.linalg <span class="im">as</span> la</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DeepTemporalActiveInferenceAgent:</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, horizon<span class="op">=</span><span class="dv">4</span>, num_states<span class="op">=</span><span class="dv">6</span>, num_obs<span class="op">=</span><span class="dv">5</span>, num_actions<span class="op">=</span><span class="dv">4</span>, precision<span class="op">=</span><span class="fl">2.5</span>):</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.horizon <span class="op">=</span> horizon</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.num_states <span class="op">=</span> num_states</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.num_obs <span class="op">=</span> num_obs</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.num_actions <span class="op">=</span> num_actions</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.precision <span class="op">=</span> precision</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 1. State Prior D</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.D <span class="op">=</span> np.zeros(num_states)</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.D[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Initialized at Start state (s0)</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 2. Likelihood Matrix A = P(o | s)</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.A <span class="op">=</span> np.zeros((num_obs, num_states))</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.A[<span class="dv">0</span>, <span class="dv">0</span>] <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Start -&gt; Neutral obs</span></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.A[<span class="dv">1</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="fl">0.2</span><span class="op">;</span> <span class="va">self</span>.A[<span class="dv">2</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="fl">0.8</span>  <span class="co"># Cue -&gt; Disambiguates safe path</span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.A[<span class="dv">3</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="fl">0.9</span><span class="op">;</span> <span class="va">self</span>.A[<span class="dv">4</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="fl">0.1</span>  <span class="co"># Trap -&gt; Deceptive sweet obs</span></span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.A[<span class="dv">0</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="fl">0.8</span><span class="op">;</span> <span class="va">self</span>.A[<span class="dv">2</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="fl">0.2</span>  <span class="co"># Path1 -&gt; Neutral/Safe</span></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.A[<span class="dv">2</span>, <span class="dv">4</span>] <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># True Goal -&gt; True safe obs</span></span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.A[<span class="dv">4</span>, <span class="dv">5</span>] <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Death -&gt; Lethal collapse obs</span></span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.A <span class="op">+=</span> <span class="fl">1e-6</span></span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.A <span class="op">=</span> <span class="va">self</span>.A <span class="op">/</span> <span class="va">self</span>.A.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>, keepdims<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 3. Transition Tensors B = P(s_{t+1} | s_t, u)</span></span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.B <span class="op">=</span> np.zeros((num_states, num_states, num_actions))</span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">range</span>(num_actions):</span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.B[:, :, u] <span class="op">=</span> np.eye(num_states)</span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Action 1: Move to Cue Site</span></span>
-<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.B[:, <span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="va">self</span>.B[<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Action 2: Move to Trap (Lethal collapse after delay)</span></span>
-<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.B[:, <span class="dv">0</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="va">self</span>.B[<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span>] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">range</span>(num_actions):</span>
-<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.B[:, <span class="dv">2</span>, u] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="va">self</span>.B[<span class="dv">5</span>, <span class="dv">2</span>, u] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Action 3: Move to Safe Path / Goal</span></span>
-<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.B[:, <span class="dv">0</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="va">self</span>.B[<span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.B[:, <span class="dv">1</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="va">self</span>.B[<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.B[:, <span class="dv">3</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="va">self</span>.B[<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 4. Prior Preferences C = ln P(o)</span></span>
-<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.C <span class="op">=</span> np.array([<span class="fl">0.0</span>, <span class="op">-</span><span class="fl">1.0</span>, <span class="fl">4.5</span>, <span class="fl">2.0</span>, <span class="op">-</span><span class="fl">10.0</span>])</span>
-<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.qs <span class="op">=</span> <span class="va">self</span>.D.copy()</span>
-<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> infer_states(<span class="va">self</span>, obs):</span>
-<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>        likelihood <span class="op">=</span> <span class="va">self</span>.A[obs, :]</span>
-<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.qs <span class="op">=</span> <span class="va">self</span>.qs <span class="op">*</span> likelihood</span>
-<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.qs <span class="op">=</span> <span class="va">self</span>.qs <span class="op">/</span> (np.<span class="bu">sum</span>(<span class="va">self</span>.qs) <span class="op">+</span> <span class="fl">1e-12</span>)</span>
-<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.qs</span>
-<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_expected_free_energy(<span class="va">self</span>, policy):</span>
-<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.horizon <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="fl">0.0</span></span>
-<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>        G <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>        curr_qs <span class="op">=</span> <span class="va">self</span>.qs.copy()</span>
-<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> t, u <span class="kw">in</span> <span class="bu">enumerate</span>(policy):</span>
-<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>            next_qs <span class="op">=</span> <span class="va">self</span>.B[:, :, u] <span class="op">@</span> curr_qs</span>
-<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a>            next_qs <span class="op">=</span> next_qs <span class="op">/</span> (np.<span class="bu">sum</span>(next_qs) <span class="op">+</span> <span class="fl">1e-12</span>)</span>
-<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>            qo <span class="op">=</span> <span class="va">self</span>.A <span class="op">@</span> next_qs</span>
-<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a>            qo <span class="op">=</span> qo <span class="op">/</span> (np.<span class="bu">sum</span>(qo) <span class="op">+</span> <span class="fl">1e-12</span>)</span>
-<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a>            pragmatic <span class="op">=</span> np.<span class="bu">sum</span>(qo <span class="op">*</span> <span class="va">self</span>.C)</span>
-<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>            H_qo <span class="op">=</span> <span class="op">-</span>np.<span class="bu">sum</span>(qo <span class="op">*</span> np.log(qo <span class="op">+</span> <span class="fl">1e-12</span>))</span>
-<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>            H_A <span class="op">=</span> <span class="op">-</span>np.<span class="bu">sum</span>(<span class="va">self</span>.A <span class="op">*</span> np.log(<span class="va">self</span>.A <span class="op">+</span> <span class="fl">1e-12</span>), axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>            epistemic <span class="op">=</span> H_qo <span class="op">-</span> np.<span class="bu">sum</span>(next_qs <span class="op">*</span> H_A)</span>
-<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a>            step_G <span class="op">=</span> <span class="op">-</span>(pragmatic <span class="op">+</span> <span class="fl">1.2</span> <span class="op">*</span> epistemic)</span>
-<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>            G <span class="op">+=</span> (<span class="fl">0.95</span> <span class="op">**</span> t) <span class="op">*</span> step_G</span>
-<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>            curr_qs <span class="op">=</span> next_qs</span>
-<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> G</span>
-<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> select_action(<span class="va">self</span>):</span>
-<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.horizon <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> np.random.choice([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], p<span class="op">=</span>[<span class="fl">0.2</span>, <span class="fl">0.6</span>, <span class="fl">0.2</span>]), <span class="fl">0.0</span></span>
-<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a>        policies <span class="op">=</span> <span class="bu">list</span>(itertools.product(<span class="bu">range</span>(<span class="va">self</span>.num_actions), repeat<span class="op">=</span><span class="va">self</span>.horizon))</span>
-<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>        G_vals <span class="op">=</span> np.array([<span class="va">self</span>.calculate_expected_free_energy(pol) <span class="cf">for</span> pol <span class="kw">in</span> policies])</span>
-<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a>        e_G <span class="op">=</span> np.exp(<span class="op">-</span><span class="va">self</span>.precision <span class="op">*</span> (G_vals <span class="op">-</span> np.<span class="bu">min</span>(G_vals)))</span>
-<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a>        p_pol <span class="op">=</span> e_G <span class="op">/</span> np.<span class="bu">sum</span>(e_G)</span>
-<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a>        chosen_idx <span class="op">=</span> np.random.choice(<span class="bu">len</span>(policies), p<span class="op">=</span>p_pol)</span>
-<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> policies[chosen_idx][<span class="dv">0</span>], G_vals[chosen_idx]</span></code></pre></div>
-<hr />
-<h2
-id="appendix-c-open-science-git-repository-computational-reproducibility">Appendix
-C: Open Science, Git Repository &amp; Computational Reproducibility</h2>
+<h1 class="unnumbered"
+id="appendix-b-open-science-git-repository-computational-reproducibility">Appendix
+B: Open Science, Git Repository &amp; Computational Reproducibility</h1>
 <p>In alignment with the highest standards of open, transparent, and
 reproducible science, all simulation source codes, interactive Jupyter
 Notebooks, foundational treatises, and high-resolution publication
@@ -1806,9 +1709,9 @@ Executive Slide (High-Impact Hero Formula)</em><br />
 <a
 href="https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf"><code>The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf</code></a></li>
 </ul>
-<hr />
-<h2 id="appendix-d-alphabetical-glossary-of-technical-terms">Appendix D:
-Alphabetical Glossary of Technical Terms</h2>
+<h1 class="unnumbered"
+id="appendix-c-comprehensive-alphabetical-glossary">Appendix C:
+Comprehensive Alphabetical Glossary</h1>
 <ul>
 <li><strong>Active Inference:</strong> The normative mathematical
 framework in theoretical neurobiology stating that living organisms
@@ -1828,21 +1731,48 @@ mental processes observed across a boundary.</li>
 system to continuously regenerate, repair, and sustain its own
 structural and organizational network against thermodynamic
 dispersion.</li>
-<li><strong>Conatus:</strong> The innate striving of any living entity
-to persevere in its own existence and resist entropic destruction
-(Spinoza). In CIF, formalized as the conative goal state <span
-class="math inline">\(\Phi &gt; 0\)</span>.</li>
+<li><strong>Cartesian Dualism:</strong> The philosophical doctrine
+established by René Descartes asserting the existence of two
+fundamentally distinct substances: <em>res cogitans</em> (unextended,
+thinking mind) and <em>res extensa</em> (extended, mindless matter),
+creating the insoluble problem of mind-body interaction.</li>
+<li><strong>Causality (Intrinsic vs. Extrinsic):</strong> In Integrated
+Information Theory and CIF, <em>intrinsic causality</em> refers to the
+irreducible cause-effect power a system exerts upon itself from within,
+which constitutes phenomenal experience. <em>Extrinsic causality</em>
+refers to observed behavioral input-output transformations.</li>
+<li><strong>Conatus (The Will to Exist):</strong> The innate striving of
+any living entity to persevere in its own existence and resist entropic
+destruction (Spinoza). In CIF, formalized as the conative goal state
+<span class="math inline">\(\Phi &gt; 0\)</span> and the 6th Axiom.</li>
 <li><strong>Criticality (Edge of Chaos):</strong> The delicate phase
 transition boundary between rigid order and chaotic turbulence where
 information transmission, network dynamic range, and integrated
 information (<span class="math inline">\(\Phi\)</span>) reach their
 global maximum.</li>
+<li><strong>Dissociation:</strong> The psychological and cosmological
+mechanism whereby a unified conscious field divides into
+semi-autonomous, self-contained sub-domains (<em>alters</em>),
+establishing localized perspectives behind Markov boundaries.</li>
+<li><strong>Dual-Aspect Monism:</strong> The metaphysical view that the
+mental and physical are two complementary, epistemically distinct
+perspectives of a single underlying reality.</li>
+<li><strong>Epistemic Value (Epistemic Curiosity):</strong> The
+information-seeking component of Expected Free Energy (<span
+class="math inline">\(\mathbf{G}\)</span>) that drives an active
+inference agent to explore uncertain environments, disambiguate hidden
+states, and resolve epistemic surprise before pursuing pragmatic
+rewards.</li>
+<li><strong>Epistemology / Epistemic:</strong> The branch of philosophy
+concerned with the theory, nature, sources, and limitations of
+knowledge. In CIF, physical matter is an <em>epistemic
+representation</em> of mental processes viewed across a Markov
+blanket.</li>
 <li><strong>Expected Free Energy (<span
 class="math inline">\(\mathbf{G}\)</span>):</strong> A forward-looking
 metric evaluating candidate policy sequences over planning horizon <span
 class="math inline">\(H\)</span>, decomposing into pragmatic value (goal
-satisfaction) and epistemic value (ambiguity resolution /
-curiosity).</li>
+satisfaction) and epistemic value (ambiguity resolution).</li>
 <li><strong>Explanatory Gap:</strong> The insurmountable epistemic chasm
 within physicalism between quantitative objective neural mechanisms and
 qualitative subjective experience (Levine).</li>
@@ -1868,10 +1798,25 @@ ground of reality (Spinoza, Kastrup).</li>
 bipartition of a system that minimizes informational and causal loss,
 used to calculate irreducibility and integrated information <span
 class="math inline">\(\Phi\)</span>.</li>
+<li><strong>Monism:</strong> The ontological stance asserting that all
+of reality is ultimately composed of a single, fundamental kind of
+substance or essence. CIF adheres to an <em>idealist monism</em> where
+experiencing is primary.</li>
+<li><strong>Ontology / Ontological Primacy:</strong> The branch of
+metaphysics studying the fundamental nature of existence, reality, and
+being. In CIF, consciousness holds <em>ontological primacy</em> as the
+irreducible ground of reality.</li>
+<li><strong>Phenomenal Consciousness / Qualia:</strong> The subjective,
+qualitative “what-it-is-like” dimension of direct conscious experience
+(e.g., the redness of red, the feeling of grief, the warmth of sunlight)
+(Nagel, Chalmers).</li>
 <li><strong>Phenomenal Self-Model (PSM):</strong> A transparent,
 continuous internal simulation generated by the predictive brain that
 creates the felt 1st-person perspective of an enduring “I”
 (Metzinger).</li>
+<li><strong>Physicalism (Materialism):</strong> The metaphysical dogma
+asserting that inanimate physical matter is the sole fundamental
+reality, and consciousness is merely an emergent epiphenomenon.</li>
 <li><strong>POMDP (Partially Observable Markov Decision
 Process):</strong> A mathematical framework for modeling decision-making
 under uncertainty, defined by matrices <span
@@ -1879,6 +1824,11 @@ class="math inline">\(A\)</span> (likelihood), <span
 class="math inline">\(B\)</span> (transitions), <span
 class="math inline">\(C\)</span> (preferences), and <span
 class="math inline">\(D\)</span> (priors).</li>
+<li><strong>Pragmatic Value:</strong> The goal-seeking component of
+Expected Free Energy (<span class="math inline">\(\mathbf{G}\)</span>)
+measuring the degree to which predicted sensory outcomes satisfy the
+agent’s innate homeostatic survival preferences (<span
+class="math inline">\(C\)</span>).</li>
 <li><strong>Primal Impression (<em>Urimpression</em>):</strong> The
 present sensory perturbation at the Markov boundary within the Specious
 Present, corresponding to incoming prediction errors (Husserl).</li>
@@ -1892,6 +1842,10 @@ priors (Husserl).</li>
 duration of subjective consciousness (<span class="math inline">\(\sim
 500\,\text{ms} - 3\,\text{s}\)</span>) combining Retention, Primal
 Impression, and Protention (James, Husserl).</li>
+<li><strong>Teleology (Conative Attractors):</strong> The directed,
+goal-oriented striving of living systems toward future homeostatic
+attractors, governed by the formal minimization of Expected Free Energy
+and the preservation of <span class="math inline">\(\Phi\)</span>.</li>
 <li><strong>Temporal Depth (<span
 class="math inline">\(H\)</span>):</strong> The length of the
 forward-looking counterfactual planning horizon over which an agent
@@ -1915,9 +1869,9 @@ sensory surprise (<span class="math inline">\(-\ln P(o)\)</span>),
 minimized during perceptual inference to eliminate prediction
 errors.</li>
 </ul>
-<hr />
-<h2 id="academic-references-comprehensive-bibliography">Academic
-References &amp; Comprehensive Bibliography</h2>
+<h1 class="unnumbered"
+id="academic-references-comprehensive-bibliography">Academic References
+&amp; Comprehensive Bibliography</h1>
 <ol type="1">
 <li><strong>Bak, P. (1996).</strong> <em>How Nature Works: The Science
 of Self-Organized Criticality.</em> Copernicus, Springer-Verlag, New
@@ -2060,20 +2014,20 @@ Insight into Phenomenal Integration.</em> MIT Press.</li>
 <em>Intergenerational transmission of trauma effects: putative role of
 epigenetic mechanisms.</em> World Psychiatry, 17(3), 243–257.</li>
 </ol>
-<hr />
-<h2 id="tool-attribution-colophon">Tool Attribution &amp; Colophon</h2>
+<h1 class="unnumbered" id="tool-attribution-colophon">Tool Attribution
+&amp; Colophon</h1>
 <blockquote>
 <p>[!NOTE] <strong>Tooling Colophon:</strong><br />
-This theoretical treatise, philosophical architecture, and scientific
-monograph were conceptualized and authored by <strong>Thomas
-Riebl</strong> (Luxembourg) as part of <strong>The Conative-Integrative
+This theoretical treatise, philosophical architecture, and academic
+monograph were conceived, authored, and curated by <strong>Thomas
+Riebl</strong> (Luxembourg) within the <strong>Conative-Integrative
 Framework (CIF)</strong>.<br />
-The conceptual formulation, mathematical modeling, simulation scripts,
-vector diagrams, and multi-format document compilation (Amazon KDP Print
-PDF <span class="math inline">\(6 \times 9&#39;&#39;\)</span>, Word
-<code>.docx</code>, and EPUB) were developed with the assistance of
-<strong>Google Gemini (Antigravity Advanced Agentic Coding
-System)</strong> (September 2026).</p>
+Formal mathematical derivations, multi-agent simulation scripts, vector
+diagrams, and the multi-format book compilation (Amazon KDP Print PDF
+<span class="math inline">\(6 \times 9&#39;&#39;\)</span>, Word
+<code>.docx</code>) were developed with the assistance of <strong>Google
+Gemini (Antigravity Advanced Agentic Coding System)</strong> (September
+2026).</p>
 </blockquote>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">

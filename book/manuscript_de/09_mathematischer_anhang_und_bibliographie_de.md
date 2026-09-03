@@ -1,31 +1,41 @@
-# Kapitel 9: Mathematischer Anhang, Quellcode & Bibliographie
+# Anhang A: Mathematischer Formalismus & Tensorschreibweise {-}
 
----
+### 1. Das generative POMDP-Modell
+Der diskrete, partiell beobachtbare Markov-Entscheidungsprozess (POMDP) eines bewussten Alters wird durch folgendes Tupel definiert:
 
-## Anhang A: Mathematische Formalismen
-
-### 1. Das POMDP-Tupel
 $$\mathcal{M} = \big\langle \mathcal{S}, \mathcal{O}, \mathcal{U}, A, B, C, D, \gamma \big\rangle$$
 
-* **Likelihood:** $A = P(o_\tau \mid s_\tau) \in \mathbb{R}^{N_o \times N_s}$
-* **Übergangstensor:** $B = P(s_{\tau+1} \mid s_\tau, u_\tau) \in \mathbb{R}^{N_s \times N_s \times N_u}$
-* **Präferenzen:** $C = \ln P(o) \in \mathbb{R}^{N_o}$
-* **Startverteilung:** $D = P(s_1) \in \mathbb{R}^{N_s}$
+* **Verborgene Zustände:** $s \in \mathcal{S} = \{1, \dots, N_s\}$
+* **Beobachtungen:** $o \in \mathcal{O} = \{1, \dots, N_o\}$
+* **Handlungen (Politiken):** $u \in \mathcal{U} = \{1, \dots, N_u\}$
+* **Likelihood-Matrix ($A$):** $P(o_\tau \mid s_\tau) = A \in \mathbb{R}^{N_o \times N_s}$, mit $\sum_j A_{j, k} = 1$.
+* **Übergangstensor ($B$):** $P(s_{\tau+1} \mid s_\tau, u_\tau) = B \in \mathbb{R}^{N_s \times N_s \times N_u}$, mit $\sum_i B_{i, j, u} = 1$.
+* **Angeborene Präferenzen ($C$):** $\ln P(o) = C \in \mathbb{R}^{N_o}$.
+* **Startzustand-Prior ($D$):** $P(s_1) = D \in \mathbb{R}^{N_s}$, mit $\sum_k D_k = 1$.
+* **Handlungspräzision ($\gamma$):** Inverse Temperatur zur Steuerung der Entscheidungssicherheit.
 
-### 2. Zustandsschätzung (Perzeptuelle Inferenz)
+### 2. Variationale Zustandsschätzung (Wahrnehmung)
+Zum Zeitschritt $t$ wird nach Eingang der Beobachtung $o_t$ die Posterior-Verteilung $q(s_t)$ im Log-Raum per Softmax aktualisiert:
+
 $$q(s_t) = \sigma\Big( \ln A_{o_t, :} + \ln \big( B(u_{t-1}) \cdot q(s_{t-1}) \big) \Big)$$
 
-### 3. Erwartete Freie Energie ($\mathbf{G}$) über Horizont $H$
+Wobei $\sigma(x)_i = \frac{\exp(x_i)}{\sum_j \exp(x_j)}$ die Softmax-Funktion darstellt.
+
+### 3. Erwartete Freie Energie ($\mathbf{G}$) über Planungshorizont $H$
+Für eine Handlungsfolge $\pi = (u_t, u_{t+1}, \dots, u_{t+H-1})$:
+
 $$\mathbf{G}(\pi) = \sum_{\tau = t+1}^{t+H} \delta^{\tau - t} \cdot \mathbf{G}(\pi, \tau)$$
 
-$$\mathbf{G}(\pi, \tau) = \sum_{o_\tau} Q(o_\tau \mid \pi) \cdot \Big(\ln Q(o_\tau \mid \pi) - C(o_\tau)\Big) + \sum_{s_\tau} Q(s_\tau \mid \pi) \cdot \mathcal{H}\big(A_{:, s_\tau}\big)$$
+$$\mathbf{G}(\pi, \tau) = \underbrace{\sum_{o_\tau} Q(o_\tau \mid \pi) \cdot \Big(\ln Q(o_\tau \mid \pi) - C(o_\tau)\Big)}_{\text{Pragmatischer Wert (KL-Divergenz zu Zielen)}} + \underbrace{\sum_{s_\tau} Q(s_\tau \mid \pi) \cdot \mathcal{H}\big(A_{:, s_\tau}\big)}_{\text{Epistemischer Wert (Ambiguitätsabbau)}}$$
+
+Wobei vorhergesagte Beobachtungen und Zustände generiert werden durch:
+
+$$Q(o_\tau \mid \pi) = A \cdot Q(s_\tau \mid \pi) \qquad\text{und}\qquad Q(s_\tau \mid \pi) = B(u_{\tau-1}) \cdot Q(s_{\tau-1} \mid \pi)$$
 
 ### 4. Boltzmann-Politik-Auswahl
 $$P(\pi) = \frac{\exp\big(-\gamma \cdot \mathbf{G}(\pi)\big)}{\sum_{\pi'} \exp\big(-\gamma \cdot \mathbf{G}(\pi')\big)}$$
 
----
-
-## Anhang B: Open Science, Git-Archiv & Wissenschaftliche Begleitpapiere
+# Anhang B: Open Science, Git-Archiv & Wissenschaftliche Begleitpapiere {-}
 
 Im Einklang mit den höchsten Standards transparenter und reproduzierbarer Wissenschaft sind sämtliche Simulations-Quellcodes, interaktiven Jupyter Notebooks, mathematischen Herleitungen und druckfertigen Begleitpapiere öffentlich auf GitHub zugänglich:
 
@@ -55,37 +65,44 @@ Im Einklang mit den höchsten Standards transparenter und reproduzierbarer Wisse
 * **Das Executive Poster:** *The 6th Axiom Executive Slide (High-Impact A4 Landscape)*  
   [`The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf`](https://github.com/Thriebl/active-inference-phi-network/blob/main/docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf)
 
----
-
-## Anhang C: Alphabetisches Glossar der Fachbegriffe
+# Anhang C: Umfassendes Alphabetisches Glossar der Fachbegriffe {-}
 
 * **Active Inference (Aktive Inferenz):** Das normative mathematische Framework der theoretischen Neurobiologie, das besagt, dass lebendige Organismen ihre Existenz sichern, indem sie Handlungen ausführen, die die erwartete freie Energie ($\mathbf{G}$) minimieren, um sensorische Beobachtungen mit angeborenen Präferenzen in Einklang zu bringen.
-* **Alter (Dissoziiertes Bewusstseinszentrum):** Im Analytischen Idealismus ein individueller lebendiger Organismus, der durch die topologische Dissoziation von Mind-at-Large entsteht und durch eine statistische Markov-Decke abgegrenzt ist.
+* **Alter (Dissoziiertes Bewusstseinszentrum / Seele):** Im Analytischen Idealismus ein individueller lebendiger Organismus, der durch die topologische Dissoziation von Mind-at-Large entsteht und durch eine statistische Markov-Decke abgegrenzt ist.
 * **Analytischer Idealismus:** Die von Bernardo Kastrup formulierte nicht-duale, ontologisch sparsame Monismus-Lehre, nach der die Wirklichkeit fundamental erfahrungsbasiert ist (*Mind-at-Large*) und physikalische Materie das äußere Erscheinungsbild universaler mentaler Prozesse darstellt.
 * **Autopoiese:** Die fundamentale Eigenschaft lebendiger Systeme, ihr eigenes strukturelles und organisatorisches Netzwerk kontinuierlich selbst zu regenerieren und gegen den thermodynamischen Zerfall zu behaupten.
-* **Conatus (Der Existenzwille):** Das angeborene Streben jedes Seienden, in seiner Existenz zu verharren und der Zerstörung zu widerstehen (Spinoza). Im CIF formalisiert als Sollzustand $\Phi > 0$.
+* **Cartesianischer Dualismus:** Die von René Descartes begründete Lehre von zwei fundamental getrennten Substanzen: *res cogitans* (unräumlicher, denkender Geist) und *res extensa* (ausgedehnte, tote Materie), welche das unlösbare Leib-Seele-Problem schuf.
+* **Conatus (Der Existenzwille):** Das angeborene Streben jedes Seienden, in seiner Existenz zu verharren und der Zerstörung zu widerstehen (Spinoza). Im CIF formalisiert als Sollzustand $\Phi > 0$ und 6. Axiom.
 * **Das 6. Axiom des Bewusstseins:** Das Axiom der *Autopoietischen Kausalkonstanz*, das festlegt, dass echtes Bewusstsein zwingend ein aktives Handeln zur Erhaltung der integrierten Ursache-Wirkungs-Macht über die Zeit erfordert: $\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t)$ (Riebl).
+* **Dissoziation:** Der psychologische und kosmologische Prozess, durch den sich ein einheitliches Bewusstseinsfeld in teilautonome Sub-Zentren (*Alters*) aufspaltet und individuelle Innenperspektiven hinter Markov-Decken bildet.
+* **Dual-Aspect-Monismus:** Die philosophische Auffassung, dass Geist und Materie zwei komplementäre, erkenntnistheoretisch unterschiedliche Perspektiven einer einzigen zugrunde liegenden Wirklichkeit sind.
+* **Epistemischer Wert / Epistemologie (Erkenntnistheorie):** Der neugiergetriebene, informationssuchende Anteil der Erwarteten Freien Energie ($\mathbf{G}$), der einen Agenten dazu motiviert, Unwissenheit und Ambiguität vor der Belohnungsjagd abzubauen. Die Epistemologie untersucht Wesen, Zustandekommen und Grenzen von Wissen.
 * **Erklärungslücke (*Explanatory Gap*):** Die unüberwindbare Kluft im Physikalismus zwischen quantitativen objektiven Hirnprozessen und qualitativem subjektiven Erleben (Levine).
 * **Erwartete Freie Energie ($\mathbf{G}$):** Eine zukunftsgerichtete Metrik zur Bewertung von Handlungsoptionen über einen Planungshorizont $H$, bestehend aus pragmatischem Wert (Zielerfüllung) und epistemischem Wert (Neugier / Ambiguitätsabbau).
 * **Integrierte Information ($\Phi$):** Das quantitative Maß für die intrinsische Ursache-Wirkungs-Macht eines maximal irreduziblen physikalischen Substrats über die Minimum Information Partition (Tononi, IIT 4.0).
+* **Kausalität (Intrinsisch vs. Extrinsisch):** In der IIT und im CIF beschreibt *intrinsische Kausalität* die Ursache-Wirkungs-Macht eines Systems auf sich selbst von innen heraus (phänomenales Erleben), während *extrinsische Kausalität* beobachtbare Verhaltensreaktionen von außen meint.
 * **Kritikalität (*Edge of Chaos*):** Der Phasenübergang zwischen starrer Ordnung und chaotischer Turbulenz, an dem Informationstransfer und Integrierte Information ($\Phi$) ihr globales Maximum erreichen.
 * **Markov-Decke (*Markov Blanket*):** Eine statistische Trennfläche, die ein System in interne ($\mu$), sensorische ($s$), aktive ($a$) und externe Zustände ($\eta$) unterteilt und das Innere bedingt unabhängig vom Äußeren macht.
 * **Mind-at-Large:** Das universale, transpersonale Feld reinen Bewusstseins, das den fundamentalen ontologischen Urgrund der Wirklichkeit bildet (Spinoza, Kastrup).
 * **Minimum Information Partition (MIP):** Diejenige Zweiteilung eines Systems, die den geringsten Kausalitätsverlust verursacht; dient zur Berechnung der System-Irreduzibilität $\Phi$.
+* **Monismus:** Die ontologische Auffassung, dass die gesamte Wirklichkeit auf eine einzige fundamentale Grundsubstanz zurückgeht. Im CIF: ein *idealistischer Monismus*, in dem Erleben primär ist.
+* **Ontologie / Ontologischer Primat:** Die Disziplin der Metaphysik, die sich mit der Grundstruktur des Seins befasst. Im CIF besitzt das Bewusstsein den *ontologischen Primat*; tote Materie ist lediglich die extrinsische Erscheinung.
+* **Phänomenales Bewusstsein / Qualia:** Die subjektive Erlebnisqualität des „Wie-es-sich-anfühlt“, etwas zu empfinden (z. B. Röte der Rose, Schmerz, Trauer, Freude) (Nagel, Chalmers).
 * **Phänomenales Selbstmodell (PSM):** Eine transparente, kontinuierliche innere Simulation des prädiktiven Gehirns, die die 1.-Person-Perspektive eines stabilen „Ich“ erzeugt (Metzinger).
+* **Physicalismus (Materialismus):** Das metaphysische Dogma, dass ausschließlich physikalische Materie fundamental existiert und Bewusstsein ein nebensächliches Epiphänomen sei.
 * **POMDP (Partially Observable Markov Decision Process):** Mathematischer Formalismus für Entscheidungsfindung unter Unsicherheit, definiert durch die Tensoren $A$ (Likelihood), $B$ (Übergänge), $C$ (Werte) und $D$ (Startpriors).
+* **Pragmatischer Wert:** Der zielorientierte Anteil der Erwarteten Freien Energie ($\mathbf{G}$), der misst, wie gut vorhergesagte Sinneseindrücke die angeborenen homöostatischen Überlebenspräferenzen ($C$) erfüllen.
 * **Protention:** Die antizipatorische Zukunftserwartung innerhalb der Specious Present, entsprechend Top-Down-Vorhersagen (Husserl).
 * **Retention:** Das im Arbeitsgedächtnis festgehaltene unmittelbare Vergangene innerhalb der Specious Present, entsprechend synaptischen Priors (Husserl).
 * **Schweres Problem des Bewusstseins (*Hard Problem*):** Die Frage, warum und wie physikalische Informationsverarbeitung jemals subjektives inneres Erleben (*Qualia*) hervorbringen sollte (Chalmers).
 * **Specious Present (Gefühlte Gegenwart):** Die triadische, nicht-ausdehnungslose zeitliche Dauer des subjektiven Erlebens ($\sim 500\,\text{ms} - 3\,\text{s}$), die Retention, Urimpression und Protention vereint (James, Husserl).
+* **Teleologie (Konative Attraktoren):** Die zielgerichtete Ausrichtung lebendiger Systeme auf zukünftige homöostatische Attraktoren, formalisiert durch die Minimierung der erwarteten freien Energie und die Erhaltung von $\Phi$.
 * **Temporale Tiefe ($H$):** Die Reichweite des kontrafaktischen Planungshorizonts, über den ein Agent Übergangstensoren ($B$) und erwartete freie Energie ($\mathbf{G}$) evaluiert.
 * **Theorem der temporalen Mindesttiefe:** Die mathematische Notwendigkeitsbedingung, dass phänomenales Selbstbewusstsein mehrstufige kontrafaktische Planung ($H > 1$) erfordert, um einen Kausalitätskollaps ($\Phi \to 0$) abzuwenden (Riebl).
 * **Urimpression:** Die gegenwärtige sensorische Störung an der Markov-Decke, entsprechend dem eingehenden Vorhersagefehler (Husserl).
 * **Variationale Freie Energie ($F$):** Eine berechenbare Obergrenze für sensorische Überraschung ($-\ln P(o)$), die während der Wahrnehmung minimiert wird.
 
----
-
-## Akademische Bibliographie (Auswahl)
+# Akademische Bibliographie {-}
 
 1. **Bak, P. (1996).** *How Nature Works: The Science of Self-Organized Criticality.* Copernicus, Springer-Verlag.
 2. **Beggs, J. M., & Plenz, D. (2003).** *Neuronal avalanches in neocortical circuits.* Journal of Neuroscience, 23(35), 11167–11177.
@@ -120,11 +137,9 @@ Im Einklang mit den höchsten Standards transparenter und reproduzierbarer Wisse
 31. **Tschantz, A., Millidge, B., Seth, A. K., & Buckley, C. L. (2020).** *Reinforcement learning through active inference.* arXiv:2002.12636.
 32. **Yehuda, R., & Lehrner, A. (2018).** *Intergenerational transmission of trauma effects.* World Psychiatry, 17(3), 243–257.
 
----
-
-## Tool Attribution & Colophon
+# Tool Attribution & Colophon {-}
 
 > [!NOTE]
 > **Tooling Colophon:**  
 > Diese theoretische Abhandlung, philosophische Architektur und wissenschaftliche Monographie wurden von **Thomas Riebl** (Luxemburg) im Rahmen des **Conative-Integrative Framework (CIF)** konzipiert und verfasst.  
-> Die formale Modellierung, Simulationsskripte, Vektordiagramme und die mehrformatige Buchkompilierung (Amazon KDP Print-PDF $6 \times 9''$, Word `.docx`) wurden mit Unterstützung von **Google Gemini (Antigravity Advanced Agentic Coding System)** (September 2026) realisiert.
+> Die formale mathematische Modellierung, Simulationsskripte, Vektordiagramme und die mehrformatige Buchkompilierung (Amazon KDP Print-PDF $6 \times 9''$, Word `.docx`) wurden mit Unterstützung von **Google Gemini (Antigravity Advanced Agentic Coding System)** (September 2026) realisiert.
