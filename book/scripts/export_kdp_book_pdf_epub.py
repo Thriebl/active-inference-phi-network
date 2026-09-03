@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 export_kdp_book_pdf_epub.py
-Compiles English, German, and Bilingual Amazon KDP-ready 6x9 inch Academic Monograph Editions (PDF & DOCX).
+Compiles English and German standalone Amazon KDP-ready 6x9 inch Academic Monograph Editions (PDF & DOCX).
 """
 
 import os
@@ -342,53 +342,21 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
     print(f"✓ Created PDF: {pdf_out}")
 
 def main():
-    # 1. English Edition
+    # 1. English Standalone Edition
     en_md = os.path.join(BUILD_DIR, "CIF_Monograph_EN.md")
-    en_text = merge_chapters(MANUSCRIPT_EN_DIR, en_md)
+    merge_chapters(MANUSCRIPT_EN_DIR, en_md)
     en_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf")
     en_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.docx")
     build_edition("EN", en_md, "The Conative-Integrative Framework", en_pdf, en_docx)
     
-    # 2. German Edition
+    # 2. German Standalone Edition
     de_md = os.path.join(BUILD_DIR, "CIF_Monograph_DE.md")
-    de_text = merge_chapters(MANUSCRIPT_DE_DIR, de_md)
+    merge_chapters(MANUSCRIPT_DE_DIR, de_md)
     de_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.pdf")
     de_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.docx")
     build_edition("DE", de_md, "Das Konativ-Integrative Framework", de_pdf, de_docx)
     
-    # 3. Bilingual Master Edition
-    bilingual_md = os.path.join(BUILD_DIR, "CIF_Monograph_Bilingual_EN_DE.md")
-    bilingual_header = """---
-title: "The Conative-Integrative Framework (CIF) / Das Konativ-Integrative Framework"
-subtitle: "Bilingual Complete Edition / Zweisprachige Gesamtausgabe (English & Deutsch)"
-author: "Thomas Riebl"
-date: "2026"
-geometry: "paperwidth=6in,paperheight=9in,margin=0.75in,bindingoffset=0.25in"
-fontsize: "10.5pt"
-linestretch: "1.18"
-documentclass: "book"
-toc: true
-toc-depth: 2
----
-
-# Bilingual Edition Note / Zweisprachige Edition {-}
-
-*This volume contains the complete unabridged monograph in both English and German.*  
-*Dieser Band enthält die vollständige, ungekürzte Monographie in englischer und deutscher Sprache.*
-
----
-
-# Part I: English Edition {-}
-
-"""
-    with open(bilingual_md, "w", encoding="utf-8") as f:
-        f.write(bilingual_header + "\n\n" + en_text + "\n\n\\newpage\n\n# Part II: Deutsche Ausgabe {-}\n\n" + de_text)
-        
-    bilingual_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Bilingual_Edition_Thomas_Riebl_6x9.pdf")
-    bilingual_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Bilingual_Edition_Thomas_Riebl_6x9.docx")
-    build_edition("Bilingual", bilingual_md, "The Conative-Integrative Framework (Bilingual)", bilingual_pdf, bilingual_docx)
-    
-    print("\n🎉 ALL THREE EDITIONS SUCCESSFULLY COMPILED!")
+    print("\n🎉 STANDALONE EN AND DE MONOGRAPH EDITIONS COMPILED SUCCESSFULLY!")
 
 if __name__ == "__main__":
     main()
