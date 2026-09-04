@@ -17,11 +17,6 @@ toc-depth: 2
 <div class="title-subtitle">Active Inference, Integrated Information, and the Autopoietic Arrow of Mind</div>
 </div>
 
-<div class="title-image-box">
-<img src="/home/thr/Documents/active-inference-phi-network/images/img_9795.jpg" alt="Thomas Riebl" class="title-cover-image" />
-<div class="title-image-caption">The Conative-Integrative Architecture of Mind</div>
-</div>
-
 <div class="master-equivalence-box">
 <div class="eq-label">THE FUNDAMENTAL MASTER EQUIVALENCE (6TH AXIOM)</div>
 

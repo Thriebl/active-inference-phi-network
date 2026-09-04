@@ -164,7 +164,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             align-items: center;
             text-align: center;
             min-height: 86vh;
-            padding: 5pt 0 10pt 0;
+            padding: 25pt 10pt 20pt 10pt;
             box-sizing: border-box;
             page-break-before: avoid;
             page-break-after: always;
@@ -172,116 +172,84 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         }}
         
         .title-top-group {{
-            margin-top: 10pt;
-            margin-bottom: 8pt;
+            margin-top: 25pt;
+            margin-bottom: 15pt;
         }}
         
         .title-main {{
             font-family: 'Cinzel', serif;
-            font-size: 16.5pt;
+            font-size: 18pt;
             font-weight: 800;
-            letter-spacing: 1.2px;
+            letter-spacing: 1.5px;
             color: #0f172a;
-            line-height: 1.22;
-            margin-bottom: 6pt;
+            line-height: 1.25;
+            margin-bottom: 8pt;
         }}
         
         .title-subtitle {{
             font-family: 'EB Garamond', serif;
             font-style: italic;
-            font-size: 10.8pt;
+            font-size: 11.5pt;
             color: #0369a1;
-            line-height: 1.35;
+            line-height: 1.4;
             max-width: 90%;
             margin: 0 auto;
         }}
         
-        .title-image-box {{
-            margin: 8pt auto;
-            max-width: 88%;
-            border: 1.2px solid #1e3a8a;
-            border-radius: 6pt;
-            padding: 8pt;
-            background: #0b192c; /* Dunkelblauer Hintergrund */
-            box-shadow: 0 3px 10px rgba(11, 25, 44, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }}
-        
-        .title-cover-image {{
-            max-height: 150pt;
-            width: auto;
-            max-width: 100%;
-            display: block;
-            margin: 0 auto;
-            border-radius: 4pt;
-            border: 0.8px solid #1e40af;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
-        }}
-        
-        .title-image-caption {{
-            font-family: 'EB Garamond', serif;
-            font-size: 8.3pt;
-            font-style: italic;
-            color: #93c5fd; /* Sanftes Hellblau auf dunkelblauem Grund */
-            margin-top: 4pt;
-            text-align: center;
-        }}
-        
         .master-equivalence-box {{
             background: #f0fdf4;
-            border: 1.2px solid #16a34a;
-            border-radius: 5pt;
-            padding: 6pt 10pt;
-            margin: 8pt auto;
+            border: 1.4px solid #16a34a;
+            border-radius: 6pt;
+            padding: 16pt 14pt;
+            margin: 30pt auto;
             width: 96%;
             box-sizing: border-box;
+            box-shadow: 0 2px 8px rgba(22, 163, 74, 0.08);
         }}
         
-        .master-equivalence-box .mjx-chtml {{
-            font-size: 102% !important;
-            margin: 4pt 0 !important;
+        .master-equivalence-box .MathJax {{
+            font-size: 11pt !important;
+            margin: 6pt 0 !important;
         }}
         
         .eq-label {{
             font-family: 'Cinzel', serif;
-            font-size: 8pt;
+            font-size: 8.5pt;
             font-weight: 700;
-            letter-spacing: 0.8px;
+            letter-spacing: 1px;
             color: #166534;
-            margin-bottom: 2pt;
+            margin-bottom: 4pt;
         }}
         
         .eq-subtext {{
             font-family: 'EB Garamond', serif;
-            font-size: 8pt;
+            font-size: 8.8pt;
             font-style: italic;
             color: #15803d;
-            margin-top: 2pt;
+            margin-top: 5pt;
         }}
         
         .title-author-block {{
             margin-top: auto;
-            padding-top: 8pt;
-            border-top: 0.8px solid #e2e8f0;
+            padding-top: 16pt;
+            border-top: 0.8px solid #cbd5e1;
             width: 80%;
+            margin-bottom: 15pt;
         }}
         
         .title-author {{
             font-family: 'Cinzel', serif;
-            font-size: 12.5pt;
+            font-size: 13.5pt;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             color: #0f172a;
         }}
         
         .title-meta {{
             font-family: 'EB Garamond', serif;
-            font-size: 8.8pt;
+            font-size: 9.2pt;
             color: #64748b;
-            margin-top: 2pt;
+            margin-top: 3pt;
         }}
         
         /* H1 is the ONLY element that triggers a new page (Chapters & Front Matter sections) */
