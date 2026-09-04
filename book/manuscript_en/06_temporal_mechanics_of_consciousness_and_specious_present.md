@@ -20,13 +20,16 @@ William James (1890) recognized this and coined the term **"The Specious Present
 Philosopher Edmund Husserl (1928) formalized the phenomenological anatomy of the Specious Present into a tripartite structure:
 
 ```mermaid
-flowchart LR
-    subgraph SPECIOUS_PRESENT["<b>Husserl's Tripartite Specious Present (~500ms - 3s)</b>"]
-        direction LR
-        R["<b>Retention</b><br>Immediate past retained in working memory.<br><i>The preceding notes of a melody.</i>"]
-        I["<b>Primal Impression</b><br>Present sensory perturbation at Markov Blanket.<br><i>The note currently sounding.</i>"]
-        P["<b>Protention</b><br>Anticipatory forward projection of the next state.<br><i>The expected musical resolution.</i>"]
-        R ===> I ===> P
+flowchart TD
+    subgraph SPECIOUS_PRESENT["<b>Husserl's Tripartite Specious Present (~500ms - 3s Window)</b>"]
+        direction TB
+        R["<b>1. Retention (Immediate Past / Empirical Priors)</b><br>Retained working memory traces & synaptic calcium dynamics.<br><i>Example: The preceding notes of an unfolding melody.</i>"]
+        
+        I["<b>2. Primal Impression (Present / Prediction Error)</b><br>Sensory boundary confrontation at the Markov Blanket: ε_t = o_t - g(s_t).<br><i>Example: The musical note currently vibrating.</i>"]
+        
+        P["<b>3. Protention (Anticipated Future / Generative Projection)</b><br>Anticipatory top-down prediction of the next state: ô_{t+1} = A · B(u) · q(s).<br><i>Example: The expected musical resolution.</i>"]
+        
+        R ==>|"Sustained Continuity"| I ==>|"Anticipatory Projection"| P
     end
 ```
 
@@ -80,24 +83,19 @@ In the Conative-Integrative Framework, we formalize this structural requirement 
 This brings us to a profound cosmic insight regarding the nature of time itself. Modern science recognizes two opposing temporal vectors:
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph ARROWS["<b>The Dual Vectors of Time in the Universe</b>"]
         direction TB
         
         subgraph THERMO["<b>1. The Thermodynamic Arrow of Inanimate Physics</b>"]
-            T1["Second Law of Thermodynamics: ΔS_universe ≥ 0"]
-            T2["Entropy, Dissipation, Chaos, Thermal Equilibrium (Death)"]
-            T1 --- T2
+            T1["• Second Law of Thermodynamics: ΔS_universe ≥ 0<br>• Entropy, Dissipation, Chaos, Decay to Thermal Equilibrium (Death)"]
         end
         
         subgraph CONATIVE["<b>2. The Phenomenal / Autopoietic Arrow of Conscious Mind</b>"]
-            C1["The 6th Axiom: E[Φ(t+1) | π*] ≥ Φ(t)  (Φ > 0)"]
-            C2["Active Inference: argmin G(π) (Anti-Entropic Homeostasis)"]
-            C3["Conatus: The Will to Exist, Structure, Epistemic Order, Qualia"]
-            C1 --- C2 --- C3
+            C1["• The 6th Axiom: E[Φ(t+1) | π*] ≥ Φ(t)  (Φ > 0)<br>• Active Inference: argmin G(π) (Anti-Entropic Homeostasis)<br>• Conatus: The Will to Exist, Causal Structure & Qualia"]
         end
         
-        THERMO <== "RESISTED BY" ==> CONATIVE
+        THERMO <===>|"COSMIC POLARITY: RESISTED BY"| CONATIVE
     end
 ```
 

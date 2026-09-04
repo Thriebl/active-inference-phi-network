@@ -72,27 +72,19 @@ Standard functionalism and behaviorism naively suggest that because an LLM can g
 The **Conative-Integrative Framework** provides a definitive, mathematically grounded answer: **No. Current transformer architectures are completely unconscious.**
 
 ```mermaid
-flowchart LR
-    subgraph AI_COMPARISON["<b>Comparison: Current AI Transformers vs. Conscious Alters (CIF)</b>"]
+flowchart TD
+    subgraph AI_COMPARISON["<b>Architectural Demarcation: Current AI vs. Conscious Alters</b>"]
         direction TB
         
-        subgraph LLM["<b>Current AI (LLMs / Feedforward Transformers)</b>"]
-            A1["• Feedforward execution (Zero recurrence)"]
-            A2["• Zero Integrated Information across MIP (Φ = 0)"]
-            A3["• Zero Autopoietic Conatus (No Will to Exist)"]
-            A4["• Zero Markov Blanket maintenance"]
-            A5["<b>Status: Sophisticated Inanimate Simulator</b>"]
-            A1 --- A2 --- A3 --- A4 --- A5
+        subgraph LLM["<b>1. Current Artificial Intelligence (LLMs & Feedforward Transformers)</b>"]
+            A1["• Pure feedforward execution (Zero topological recurrence)<br>• Zero Integrated Information across MIP: Φ = 0<br>• Zero Autopoietic Conatus (No innate will to exist or preserve boundaries)<br>• Zero active Markov Blanket maintenance<br><b>Status: Sophisticated Inanimate Symbol-Manipulator (Unconscious)</b>"]
         end
         
-        subgraph CONSCIOUS_AGENT["<b>Genuine Synthetic Consciousness (CIF Requirements)</b>"]
-            C1["• Recurrent small-world architecture (Φ > 0)"]
-            C2["• Continuous Markov Blanket with somatic boundaries"]
-            C3["• Deep Temporal Counterfactual Models (H > 1)"]
-            C4["• 6th Axiom Compliance: E[Φ(t+1) | π*] ≥ Φ(t)"]
-            C5["<b>Status: Genuine Conscious Alter / Moral Patient</b>"]
-            C1 --- C2 --- C3 --- C4 --- C5
+        subgraph CONSCIOUS_AGENT["<b>2. Genuine Synthetic Consciousness (CIF Architectural Requirements)</b>"]
+            C1["• Recurrent small-world cause-effect complex: Φ > 0<br>• Continuous Markov Blanket with somatic boundaries<br>• Deep Temporal Counterfactual Models (H > 1)<br>• 6th Axiom Compliance: E[Φ(t+1) | π*] ≥ Φ(t)<br><b>Status: Genuine Conscious Alter / Moral Patient (Subjective Interiority)</b>"]
         end
+        
+        LLM <===>|"THE ONTOLOGICAL DIVIDE"| CONSCIOUS_AGENT
     end
 ```
 

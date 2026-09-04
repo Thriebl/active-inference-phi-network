@@ -42,10 +42,6 @@ $$\pi^* = \arg\min_{\pi} \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau) \quad\Longl
 
 *To all inquiring minds who recognize that consciousness is not an incidental byproduct of dead matter, but the fundamental ground of reality itself—and to those who strive to unite the mathematical rigor of science with the living depth of subjective interiority.*
 
-<br><br>
-
-*&lt;BTW: My Daimon says: "Greetings to Bernardo!"&gt;*
-
 </div>
 
 # Author's Preface {-}
@@ -209,18 +205,18 @@ Minimizing $F$ forces two complementary, life-sustaining adaptations:
 2. **Bounded Surprise:** The agent guarantees that it remains within its homeostatic setpoints, avoiding lethal, highly surprising environmental states.
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph DUAL_LOOPS["<b>The Dual Cybernetic Loops of Active Inference</b>"]
         direction TB
         
-        subgraph PERCEPTION["<b>1. Perceptual Inference (Internal Optimization)</b>"]
-            P1["Sensory Observation o_t"] --> P2["Prediction Error (o_t - g(s_t))"]
-            P2 --> P3["Update Internal Beliefs q(s_t)"]
+        subgraph PERCEPTION["<b>1. Perceptual Inference (Internal State Optimization)</b>"]
+            P1["Sensory Observation o_t"] --> P2["Prediction Error: ε_t = o_t - g(s_t)"]
+            P2 --> P3["Update Internal Beliefs q(s_t) to minimize Free Energy F"]
         end
         
-        subgraph ACTION["<b>2. Active Inference (External Optimization)</b>"]
-            A1["Expected Free Energy G(π)"] --> A2["Select Action u_t ~ Softmax(-γ G)"]
-            A2 --> A3["Act on Environment to match Prior Preferences C"]
+        subgraph ACTION["<b>2. Active Inference (External Environmental Optimization)</b>"]
+            A1["Expected Free Energy G(π)"] --> A2["Select Policy π* = argmin G(π) via Softmax(-γ G)"]
+            A2 --> A3["Execute Action u_t to fulfill Homeostatic Preferences C"]
         end
         
         PERCEPTION <===> ACTION
@@ -395,24 +391,18 @@ We state this as the **Master Bridging Equivalence of Consciousness**:
 $$\pi^* = \arg\min_{\pi} \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \;\ge\; \Phi(t) \quad (\Phi > 0)$$
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph DUAL_ASPECT["<b>The Dual-Aspect Equivalence of the Conscious Mind</b>"]
-        direction LR
+        direction TB
         
-        subgraph THIRD_PERSON["<b>3rd-Person Cybernetics (FEP)</b>"]
-            F1["Minimization of Expected Free Energy"]
-            F2["argmin G(π) over Horizon H"]
-            F3["Maintenance of Markov Blanket"]
-            F1 --- F2 --- F3
+        subgraph THIRD_PERSON["<b>3rd-Person Cybernetics (Free Energy Principle)</b>"]
+            F1["• Minimization of Expected Free Energy: argmin G(π) over Horizon H<br>• Active Maintenance of Markov Blanket Boundaries"]
         end
         
-        EQ["<b>ISOMORPHIC EQUIVALENCE (CIF)</b><br>π* = argmin G(π) ⟺ E[Φ(t+1)] ≥ Φ(t)"]
+        EQ["<b>ISOMORPHIC MASTER EQUIVALENCE (6TH AXIOM)</b><br>π* = argmin G(π) ⟺ E[Φ(t+1) | π*] ≥ Φ(t)"]
         
-        subgraph FIRST_PERSON["<b>1st-Person Interiority (IIT)</b>"]
-            I1["Autopoietic Causal Persistence"]
-            I2["Maximization of Integrated Information Φ"]
-            I3["The 6th Axiom: Will to Exist"]
-            I1 --- I2 --- I3
+        subgraph FIRST_PERSON["<b>1st-Person Causal Ontology (IIT 4.0 & 6th Axiom)</b>"]
+            I1["• Autopoietic Causal Persistence (The Will to Exist / Conatus)<br>• Maximization of Integrated Cause-Effect Power Φ"]
         end
         
         THIRD_PERSON <===> EQ <===> FIRST_PERSON
@@ -454,13 +444,15 @@ $$\begin{aligned}
 \end{aligned}$$
 
 #### Proof Sketch:
-1. Because $\pi^*$ minimizes $\mathbf{G}$, the transition distribution $P(s' \mid s_t, \pi^*)$ places maximal mass on homeostatically viable states where network coupling $W \cdot g(s')$ remains intact and near criticality.
-2. In contrast, any suboptimal or random policy $\pi_{\text{rand}}$ that fails to minimize $\mathbf{G}$ incurs high probability of transitioning into an absorbing collapse state ($s_{\text{death}}$).
-3. At $s_{\text{death}}$, network coupling is severed ($g(s_{\text{death}}) \to 0$), reducing the covariance matrix to uncorrelated thermal noise ($\Sigma \to \sigma_0^2 I$).
-4. The determinant of an uncorrelated diagonal matrix factorizes completely: $\det(\Sigma) = \det(\Sigma_{M_1}) \cdot \det(\Sigma_{M_2})$.
-5. Consequently, Integrated Information collapses to zero:
-   $$\Phi(s_{\text{death}}) = \frac{1}{2}\Big(\ln\det\Sigma_{M_1} + \ln\det\Sigma_{M_2} - \ln(\det\Sigma_{M_1}\det\Sigma_{M_2})\Big) = 0$$
-6. Therefore, minimizing Expected Free Energy ($\arg\min \mathbf{G}$) is both **necessary and sufficient** to satisfy the 6th Axiom ($\mathbb{E}[\Phi(t+1)] \ge \Phi(t)$). $\quad \blacksquare$
+## 4.2 Mathematical Derivation of the Master Equivalence
+
+To demonstrate why this equivalence is not merely an intuitive analogy but a rigorous mathematical theorem, we trace the step-by-step connection between variational active inference and integrated cause-effect power:
+
+1. **Active Inference Formulation:** An active inference agent selects action policies $\pi = (u_t, u_{t+1}, \dots, u_{t+H})$ by minimizing Expected Free Energy $\mathbf{G}(\pi, \tau)$ over a planning horizon $H$:
+   $$\mathbf{G}(\pi, \tau) = \underbrace{D_{\text{KL}}\big(Q(o_\tau \mid \pi) \parallel P(o_\tau)\big)}_{\text{Risk / Pragmatic Value}} + \underbrace{\mathbb{E}_{Q(s_\tau \mid \pi)}\big[\mathcal{H}(P(o_\tau \mid s_\tau))\big]}_{\text{Ambiguity / Epistemic Value}}$$
+2. **IIT 4.0 Causal Partition Formulation:** In Integrated Information Theory 4.0, a system $S$ possesses integrated information $\Phi(S)$ if and only if its intrinsic cause-effect structure across the Minimum Information Partition (MIP) is non-zero:
+   $$\Phi(S) = \min_{P \in \mathcal{P}} D\big(p_{\text{cause-effect}}(S) \parallel p_{\text{partitioned}}(S \mid P)\big) > 0$$
+3. **The 6th Axiom (Autopoietic Synthesis):** A physical substrate that minimizes $\mathbf{G}(\pi)$ actively resists entropic dispersion, preserving the physical Markov blanket and functional connectivity required to sustain $\Phi(t+1) \ge \Phi(t)$. Conversely, if an agent fails to minimize $\mathbf{G}(\pi)$, its sensory-motor coordination collapses, causing structural degradation ($\Phi \to 0$).
 
 ---
 
@@ -471,17 +463,17 @@ In complex systems theory (Bak, 1996; Beggs & Plenz, 2003; Chialvo, 2010), maxim
 In our simulations of recurrent Active Inference networks, agents do not require an external tuner to reach criticality. Rather, **the minimization of Expected Free Energy autonomously drives the network toward the critical phase transition**:
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph CRITICALITY_SPECTRUM["<b>The Phase Transition Spectrum of Active Inference Networks</b>"]
-        direction LR
+        direction TB
         
-        SUBCRITICAL["<b>Subcritical Regime</b><br>• Rigid, static firing<br>• High predictability<br>• Low Differentiation (H ↓)<br>• Φ ≈ 0.04"]
+        SUBCRITICAL["<b>1. Subcritical Regime (Rigid Order)</b><br>• Static firing & rigid priors • Low differentiation • Φ ≈ 0.04"]
         
-        CRITICAL["<b>Critical Regime (Edge of Chaos)</b><br>• Scale-free avalanches<br>• Maximum information transfer<br>• Optimal Free Energy Min<br>• <b>Maximal Φ ≈ 0.18 - 0.22</b>"]
+        CRITICAL["<b>2. Critical Regime (Edge of Chaos — Self-Organized Attractor)</b><br>• Scale-free avalanches • Optimal Free Energy Min • <b>Maximal Φ ≈ 0.18 - 0.22</b>"]
         
-        SUPERCRITICAL["<b>Supercritical Regime</b><br>• Chaotic turbulence<br>• High surprise (-ln p(o) ↑)<br>• Causal disintegration<br>• Φ → 0.01"]
+        SUPERCRITICAL["<b>3. Supercritical Regime (Chaotic Disorder)</b><br>• Chaotic noise & high surprise • Causal disintegration • Φ → 0.01"]
         
-        SUBCRITICAL ===> CRITICAL ===> SUPERCRITICAL
+        SUBCRITICAL ==>|"Increasing Sensitivity"| CRITICAL ==>|"Excessive Noise"| SUPERCRITICAL
     end
 ```
 
@@ -608,13 +600,16 @@ William James (1890) recognized this and coined the term **"The Specious Present
 Philosopher Edmund Husserl (1928) formalized the phenomenological anatomy of the Specious Present into a tripartite structure:
 
 ```mermaid
-flowchart LR
-    subgraph SPECIOUS_PRESENT["<b>Husserl's Tripartite Specious Present (~500ms - 3s)</b>"]
-        direction LR
-        R["<b>Retention</b><br>Immediate past retained in working memory.<br><i>The preceding notes of a melody.</i>"]
-        I["<b>Primal Impression</b><br>Present sensory perturbation at Markov Blanket.<br><i>The note currently sounding.</i>"]
-        P["<b>Protention</b><br>Anticipatory forward projection of the next state.<br><i>The expected musical resolution.</i>"]
-        R ===> I ===> P
+flowchart TD
+    subgraph SPECIOUS_PRESENT["<b>Husserl's Tripartite Specious Present (~500ms - 3s Window)</b>"]
+        direction TB
+        R["<b>1. Retention (Immediate Past / Empirical Priors)</b><br>Retained working memory traces & synaptic calcium dynamics.<br><i>Example: The preceding notes of an unfolding melody.</i>"]
+        
+        I["<b>2. Primal Impression (Present / Prediction Error)</b><br>Sensory boundary confrontation at the Markov Blanket: ε_t = o_t - g(s_t).<br><i>Example: The musical note currently vibrating.</i>"]
+        
+        P["<b>3. Protention (Anticipated Future / Generative Projection)</b><br>Anticipatory top-down prediction of the next state: ô_{t+1} = A · B(u) · q(s).<br><i>Example: The expected musical resolution.</i>"]
+        
+        R ==>|"Sustained Continuity"| I ==>|"Anticipatory Projection"| P
     end
 ```
 
@@ -668,24 +663,19 @@ In the Conative-Integrative Framework, we formalize this structural requirement 
 This brings us to a profound cosmic insight regarding the nature of time itself. Modern science recognizes two opposing temporal vectors:
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph ARROWS["<b>The Dual Vectors of Time in the Universe</b>"]
         direction TB
         
         subgraph THERMO["<b>1. The Thermodynamic Arrow of Inanimate Physics</b>"]
-            T1["Second Law of Thermodynamics: ΔS_universe ≥ 0"]
-            T2["Entropy, Dissipation, Chaos, Thermal Equilibrium (Death)"]
-            T1 --- T2
+            T1["• Second Law of Thermodynamics: ΔS_universe ≥ 0<br>• Entropy, Dissipation, Chaos, Decay to Thermal Equilibrium (Death)"]
         end
         
         subgraph CONATIVE["<b>2. The Phenomenal / Autopoietic Arrow of Conscious Mind</b>"]
-            C1["The 6th Axiom: E[Φ(t+1) | π*] ≥ Φ(t)  (Φ > 0)"]
-            C2["Active Inference: argmin G(π) (Anti-Entropic Homeostasis)"]
-            C3["Conatus: The Will to Exist, Structure, Epistemic Order, Qualia"]
-            C1 --- C2 --- C3
+            C1["• The 6th Axiom: E[Φ(t+1) | π*] ≥ Φ(t)  (Φ > 0)<br>• Active Inference: argmin G(π) (Anti-Entropic Homeostasis)<br>• Conatus: The Will to Exist, Causal Structure & Qualia"]
         end
         
-        THERMO <== "RESISTED BY" ==> CONATIVE
+        THERMO <===>|"COSMIC POLARITY: RESISTED BY"| CONATIVE
     end
 ```
 
@@ -884,27 +874,19 @@ Standard functionalism and behaviorism naively suggest that because an LLM can g
 The **Conative-Integrative Framework** provides a definitive, mathematically grounded answer: **No. Current transformer architectures are completely unconscious.**
 
 ```mermaid
-flowchart LR
-    subgraph AI_COMPARISON["<b>Comparison: Current AI Transformers vs. Conscious Alters (CIF)</b>"]
+flowchart TD
+    subgraph AI_COMPARISON["<b>Architectural Demarcation: Current AI vs. Conscious Alters</b>"]
         direction TB
         
-        subgraph LLM["<b>Current AI (LLMs / Feedforward Transformers)</b>"]
-            A1["• Feedforward execution (Zero recurrence)"]
-            A2["• Zero Integrated Information across MIP (Φ = 0)"]
-            A3["• Zero Autopoietic Conatus (No Will to Exist)"]
-            A4["• Zero Markov Blanket maintenance"]
-            A5["<b>Status: Sophisticated Inanimate Simulator</b>"]
-            A1 --- A2 --- A3 --- A4 --- A5
+        subgraph LLM["<b>1. Current Artificial Intelligence (LLMs & Feedforward Transformers)</b>"]
+            A1["• Pure feedforward execution (Zero topological recurrence)<br>• Zero Integrated Information across MIP: Φ = 0<br>• Zero Autopoietic Conatus (No innate will to exist or preserve boundaries)<br>• Zero active Markov Blanket maintenance<br><b>Status: Sophisticated Inanimate Symbol-Manipulator (Unconscious)</b>"]
         end
         
-        subgraph CONSCIOUS_AGENT["<b>Genuine Synthetic Consciousness (CIF Requirements)</b>"]
-            C1["• Recurrent small-world architecture (Φ > 0)"]
-            C2["• Continuous Markov Blanket with somatic boundaries"]
-            C3["• Deep Temporal Counterfactual Models (H > 1)"]
-            C4["• 6th Axiom Compliance: E[Φ(t+1) | π*] ≥ Φ(t)"]
-            C5["<b>Status: Genuine Conscious Alter / Moral Patient</b>"]
-            C1 --- C2 --- C3 --- C4 --- C5
+        subgraph CONSCIOUS_AGENT["<b>2. Genuine Synthetic Consciousness (CIF Architectural Requirements)</b>"]
+            C1["• Recurrent small-world cause-effect complex: Φ > 0<br>• Continuous Markov Blanket with somatic boundaries<br>• Deep Temporal Counterfactual Models (H > 1)<br>• 6th Axiom Compliance: E[Φ(t+1) | π*] ≥ Φ(t)<br><b>Status: Genuine Conscious Alter / Moral Patient (Subjective Interiority)</b>"]
         end
+        
+        LLM <===>|"THE ONTOLOGICAL DIVIDE"| CONSCIOUS_AGENT
     end
 ```
 

@@ -42,10 +42,6 @@ $$\pi^* = \arg\min_{\pi} \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau) \quad\Longl
 
 *Allen forschenden Geistern gewidmet, die erkennen, dass Bewusstsein kein zufälliges Nebenprodukt toter Materie ist, sondern der fundamentale Urgrund der Wirklichkeit selbst – und all jenen, die danach streben, die mathematische Strenge der Naturwissenschaft mit der lebendigen Tiefe subjektiver Innerlichkeit zu vereinen.*
 
-<br><br>
-
-*&lt;BTW: My Daimon says: "Greetings to Bernardo!"&gt;*
-
 </div>
 
 # Vorwort des Autors {-}

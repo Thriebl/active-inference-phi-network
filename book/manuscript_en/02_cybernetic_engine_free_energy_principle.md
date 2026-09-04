@@ -41,18 +41,18 @@ Minimizing $F$ forces two complementary, life-sustaining adaptations:
 2. **Bounded Surprise:** The agent guarantees that it remains within its homeostatic setpoints, avoiding lethal, highly surprising environmental states.
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph DUAL_LOOPS["<b>The Dual Cybernetic Loops of Active Inference</b>"]
         direction TB
         
-        subgraph PERCEPTION["<b>1. Perceptual Inference (Internal Optimization)</b>"]
-            P1["Sensory Observation o_t"] --> P2["Prediction Error (o_t - g(s_t))"]
-            P2 --> P3["Update Internal Beliefs q(s_t)"]
+        subgraph PERCEPTION["<b>1. Perceptual Inference (Internal State Optimization)</b>"]
+            P1["Sensory Observation o_t"] --> P2["Prediction Error: ε_t = o_t - g(s_t)"]
+            P2 --> P3["Update Internal Beliefs q(s_t) to minimize Free Energy F"]
         end
         
-        subgraph ACTION["<b>2. Active Inference (External Optimization)</b>"]
-            A1["Expected Free Energy G(π)"] --> A2["Select Action u_t ~ Softmax(-γ G)"]
-            A2 --> A3["Act on Environment to match Prior Preferences C"]
+        subgraph ACTION["<b>2. Active Inference (External Environmental Optimization)</b>"]
+            A1["Expected Free Energy G(π)"] --> A2["Select Policy π* = argmin G(π) via Softmax(-γ G)"]
+            A2 --> A3["Execute Action u_t to fulfill Homeostatic Preferences C"]
         end
         
         PERCEPTION <===> ACTION

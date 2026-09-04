@@ -22,14 +22,19 @@
             startOnLoad: true,
             theme: 'base',
             themeVariables: {
-                primaryColor: '#e0f2fe',
+                primaryColor: '#f0f9ff',
                 primaryTextColor: '#0369a1',
                 primaryBorderColor: '#0284c7',
                 lineColor: '#0284c7',
                 secondaryColor: '#f8fafc',
                 tertiaryColor: '#ffffff',
-                fontSize: '12px',
+                fontSize: '13px',
                 fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+            },
+            flowchart: {
+                htmlLabels: true,
+                useMaxWidth: true,
+                curve: 'basis'
             }
         });
     </script>
@@ -334,14 +339,30 @@
         .mermaid {
             display: flex;
             justify-content: center;
-            margin: 10pt 0;
+            align-items: center;
+            margin: 12pt auto;
             background: #ffffff;
-            padding: 6pt;
-            border: 0.8px solid #e2e8f0;
-            border-radius: 4pt;
+            padding: 8pt 6pt;
+            border: 0.8px solid #cbd5e1;
+            border-radius: 6pt;
             page-break-inside: avoid;
             break-inside: avoid;
-            transform: scale(0.92);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .mermaid svg {
+            max-width: 100% !important;
+            height: auto !important;
+        }
+        
+        .mermaid svg text,
+        .mermaid svg .nodeLabel,
+        .mermaid svg .label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            font-size: 11.5px !important;
+            font-weight: 500 !important;
+            line-height: 1.35 !important;
         }
         
         img {
@@ -432,8 +453,6 @@ Luxembourg · 2026
 incidental byproduct of dead matter, but the fundamental ground of
 reality itself—and to those who strive to unite the mathematical rigor
 of science with the living depth of subjective interiority.</em></p>
-<p><br><br></p>
-<p><em>&lt;BTW: My Daimon says: “Greetings to Bernardo!”&gt;</em></p>
 </section>
 <h1 class="unnumbered" id="authors-preface">Author’s Preface</h1>
 <p>For more than three centuries, the mainstream scientific worldview
@@ -748,18 +767,18 @@ internal beliefs accurately reflect the most probable hidden states of
 the world. 2. <strong>Bounded Surprise:</strong> The agent guarantees
 that it remains within its homeostatic setpoints, avoiding lethal,
 highly surprising environmental states.</p>
-<div class="mermaid">flowchart LR
+<div class="mermaid">flowchart TD
     subgraph DUAL_LOOPS[&quot;&lt;b&gt;The Dual Cybernetic Loops of Active Inference&lt;/b&gt;&quot;]
         direction TB
         
-        subgraph PERCEPTION[&quot;&lt;b&gt;1. Perceptual Inference (Internal Optimization)&lt;/b&gt;&quot;]
-            P1[&quot;Sensory Observation o_t&quot;] --&gt; P2[&quot;Prediction Error (o_t - g(s_t))&quot;]
-            P2 --&gt; P3[&quot;Update Internal Beliefs q(s_t)&quot;]
+        subgraph PERCEPTION[&quot;&lt;b&gt;1. Perceptual Inference (Internal State Optimization)&lt;/b&gt;&quot;]
+            P1[&quot;Sensory Observation o_t&quot;] --&gt; P2[&quot;Prediction Error: ε_t = o_t - g(s_t)&quot;]
+            P2 --&gt; P3[&quot;Update Internal Beliefs q(s_t) to minimize Free Energy F&quot;]
         end
         
-        subgraph ACTION[&quot;&lt;b&gt;2. Active Inference (External Optimization)&lt;/b&gt;&quot;]
-            A1[&quot;Expected Free Energy G(π)&quot;] --&gt; A2[&quot;Select Action u_t ~ Softmax(-γ G)&quot;]
-            A2 --&gt; A3[&quot;Act on Environment to match Prior Preferences C&quot;]
+        subgraph ACTION[&quot;&lt;b&gt;2. Active Inference (External Environmental Optimization)&lt;/b&gt;&quot;]
+            A1[&quot;Expected Free Energy G(π)&quot;] --&gt; A2[&quot;Select Policy π* = argmin G(π) via Softmax(-γ G)&quot;]
+            A2 --&gt; A3[&quot;Execute Action u_t to fulfill Homeostatic Preferences C&quot;]
         end
         
         PERCEPTION &lt;===&gt; ACTION
@@ -1052,24 +1071,18 @@ Consciousness</strong>:</p>
 \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau)
 \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\;
 \pi^*\Big] \;\ge\; \Phi(t) \quad (\Phi &gt; 0)\]</span></p>
-<div class="mermaid">flowchart LR
+<div class="mermaid">flowchart TD
     subgraph DUAL_ASPECT[&quot;&lt;b&gt;The Dual-Aspect Equivalence of the Conscious Mind&lt;/b&gt;&quot;]
-        direction LR
+        direction TB
         
-        subgraph THIRD_PERSON[&quot;&lt;b&gt;3rd-Person Cybernetics (FEP)&lt;/b&gt;&quot;]
-            F1[&quot;Minimization of Expected Free Energy&quot;]
-            F2[&quot;argmin G(π) over Horizon H&quot;]
-            F3[&quot;Maintenance of Markov Blanket&quot;]
-            F1 --- F2 --- F3
+        subgraph THIRD_PERSON[&quot;&lt;b&gt;3rd-Person Cybernetics (Free Energy Principle)&lt;/b&gt;&quot;]
+            F1[&quot;• Minimization of Expected Free Energy: argmin G(π) over Horizon H&lt;br&gt;• Active Maintenance of Markov Blanket Boundaries&quot;]
         end
         
-        EQ[&quot;&lt;b&gt;ISOMORPHIC EQUIVALENCE (CIF)&lt;/b&gt;&lt;br&gt;π* = argmin G(π) ⟺ E[Φ(t+1)] ≥ Φ(t)&quot;]
+        EQ[&quot;&lt;b&gt;ISOMORPHIC MASTER EQUIVALENCE (6TH AXIOM)&lt;/b&gt;&lt;br&gt;π* = argmin G(π) ⟺ E[Φ(t+1) | π*] ≥ Φ(t)&quot;]
         
-        subgraph FIRST_PERSON[&quot;&lt;b&gt;1st-Person Interiority (IIT)&lt;/b&gt;&quot;]
-            I1[&quot;Autopoietic Causal Persistence&quot;]
-            I2[&quot;Maximization of Integrated Information Φ&quot;]
-            I3[&quot;The 6th Axiom: Will to Exist&quot;]
-            I1 --- I2 --- I3
+        subgraph FIRST_PERSON[&quot;&lt;b&gt;1st-Person Causal Ontology (IIT 4.0 &amp; 6th Axiom)&lt;/b&gt;&quot;]
+            I1[&quot;• Autopoietic Causal Persistence (The Will to Exist / Conatus)&lt;br&gt;• Maximization of Integrated Cause-Effect Power Φ&quot;]
         end
         
         THIRD_PERSON &lt;===&gt; EQ &lt;===&gt; FIRST_PERSON
@@ -1140,36 +1153,40 @@ satisfies:</p>
 &amp;\ge \Phi\big(\Sigma(s_t)\big) = \Phi(t)
 \end{aligned}\]</span></p>
 <h4 id="proof-sketch">Proof Sketch:</h4>
+<h2 id="mathematical-derivation-of-the-master-equivalence">4.2
+Mathematical Derivation of the Master Equivalence</h2>
+<p>To demonstrate why this equivalence is not merely an intuitive
+analogy but a rigorous mathematical theorem, we trace the step-by-step
+connection between variational active inference and integrated
+cause-effect power:</p>
 <ol type="1">
-<li>Because <span class="math inline">\(\pi^*\)</span> minimizes <span
-class="math inline">\(\mathbf{G}\)</span>, the transition distribution
-<span class="math inline">\(P(s&#39; \mid s_t, \pi^*)\)</span> places
-maximal mass on homeostatically viable states where network coupling
-<span class="math inline">\(W \cdot g(s&#39;)\)</span> remains intact
-and near criticality.</li>
-<li>In contrast, any suboptimal or random policy <span
-class="math inline">\(\pi_{\text{rand}}\)</span> that fails to minimize
-<span class="math inline">\(\mathbf{G}\)</span> incurs high probability
-of transitioning into an absorbing collapse state (<span
-class="math inline">\(s_{\text{death}}\)</span>).</li>
-<li>At <span class="math inline">\(s_{\text{death}}\)</span>, network
-coupling is severed (<span class="math inline">\(g(s_{\text{death}}) \to
-0\)</span>), reducing the covariance matrix to uncorrelated thermal
-noise (<span class="math inline">\(\Sigma \to \sigma_0^2
-I\)</span>).</li>
-<li>The determinant of an uncorrelated diagonal matrix factorizes
-completely: <span class="math inline">\(\det(\Sigma) =
-\det(\Sigma_{M_1}) \cdot \det(\Sigma_{M_2})\)</span>.</li>
-<li>Consequently, Integrated Information collapses to zero: <span
-class="math display">\[\Phi(s_{\text{death}}) =
-\frac{1}{2}\Big(\ln\det\Sigma_{M_1} + \ln\det\Sigma_{M_2} -
-\ln(\det\Sigma_{M_1}\det\Sigma_{M_2})\Big) = 0\]</span></li>
-<li>Therefore, minimizing Expected Free Energy (<span
-class="math inline">\(\arg\min \mathbf{G}\)</span>) is both
-<strong>necessary and sufficient</strong> to satisfy the 6th Axiom
-(<span class="math inline">\(\mathbb{E}[\Phi(t+1)] \ge
-\Phi(t)\)</span>). <span class="math inline">\(\quad
-\blacksquare\)</span></li>
+<li><strong>Active Inference Formulation:</strong> An active inference
+agent selects action policies <span class="math inline">\(\pi = (u_t,
+u_{t+1}, \dots, u_{t+H})\)</span> by minimizing Expected Free Energy
+<span class="math inline">\(\mathbf{G}(\pi, \tau)\)</span> over a
+planning horizon <span class="math inline">\(H\)</span>: <span
+class="math display">\[\mathbf{G}(\pi, \tau) =
+\underbrace{D_{\text{KL}}\big(Q(o_\tau \mid \pi) \parallel
+P(o_\tau)\big)}_{\text{Risk / Pragmatic Value}} +
+\underbrace{\mathbb{E}_{Q(s_\tau \mid \pi)}\big[\mathcal{H}(P(o_\tau
+\mid s_\tau))\big]}_{\text{Ambiguity / Epistemic Value}}\]</span></li>
+<li><strong>IIT 4.0 Causal Partition Formulation:</strong> In Integrated
+Information Theory 4.0, a system <span class="math inline">\(S\)</span>
+possesses integrated information <span
+class="math inline">\(\Phi(S)\)</span> if and only if its intrinsic
+cause-effect structure across the Minimum Information Partition (MIP) is
+non-zero: <span class="math display">\[\Phi(S) = \min_{P \in
+\mathcal{P}} D\big(p_{\text{cause-effect}}(S) \parallel
+p_{\text{partitioned}}(S \mid P)\big) &gt; 0\]</span></li>
+<li><strong>The 6th Axiom (Autopoietic Synthesis):</strong> A physical
+substrate that minimizes <span
+class="math inline">\(\mathbf{G}(\pi)\)</span> actively resists entropic
+dispersion, preserving the physical Markov blanket and functional
+connectivity required to sustain <span class="math inline">\(\Phi(t+1)
+\ge \Phi(t)\)</span>. Conversely, if an agent fails to minimize <span
+class="math inline">\(\mathbf{G}(\pi)\)</span>, its sensory-motor
+coordination collapses, causing structural degradation (<span
+class="math inline">\(\Phi \to 0\)</span>).</li>
 </ol>
 <hr />
 <h2 id="self-organization-at-the-edge-of-chaos-criticality">4.3
@@ -1182,17 +1199,17 @@ disorder (supercriticality)—the <strong>Edge of Chaos</strong>.</p>
 not require an external tuner to reach criticality. Rather, <strong>the
 minimization of Expected Free Energy autonomously drives the network
 toward the critical phase transition</strong>:</p>
-<div class="mermaid">flowchart LR
+<div class="mermaid">flowchart TD
     subgraph CRITICALITY_SPECTRUM[&quot;&lt;b&gt;The Phase Transition Spectrum of Active Inference Networks&lt;/b&gt;&quot;]
-        direction LR
+        direction TB
         
-        SUBCRITICAL[&quot;&lt;b&gt;Subcritical Regime&lt;/b&gt;&lt;br&gt;• Rigid, static firing&lt;br&gt;• High predictability&lt;br&gt;• Low Differentiation (H ↓)&lt;br&gt;• Φ ≈ 0.04&quot;]
+        SUBCRITICAL[&quot;&lt;b&gt;1. Subcritical Regime (Rigid Order)&lt;/b&gt;&lt;br&gt;• Static firing &amp; rigid priors • Low differentiation • Φ ≈ 0.04&quot;]
         
-        CRITICAL[&quot;&lt;b&gt;Critical Regime (Edge of Chaos)&lt;/b&gt;&lt;br&gt;• Scale-free avalanches&lt;br&gt;• Maximum information transfer&lt;br&gt;• Optimal Free Energy Min&lt;br&gt;• &lt;b&gt;Maximal Φ ≈ 0.18 - 0.22&lt;/b&gt;&quot;]
+        CRITICAL[&quot;&lt;b&gt;2. Critical Regime (Edge of Chaos — Self-Organized Attractor)&lt;/b&gt;&lt;br&gt;• Scale-free avalanches • Optimal Free Energy Min • &lt;b&gt;Maximal Φ ≈ 0.18 - 0.22&lt;/b&gt;&quot;]
         
-        SUPERCRITICAL[&quot;&lt;b&gt;Supercritical Regime&lt;/b&gt;&lt;br&gt;• Chaotic turbulence&lt;br&gt;• High surprise (-ln p(o) ↑)&lt;br&gt;• Causal disintegration&lt;br&gt;• Φ → 0.01&quot;]
+        SUPERCRITICAL[&quot;&lt;b&gt;3. Supercritical Regime (Chaotic Disorder)&lt;/b&gt;&lt;br&gt;• Chaotic noise &amp; high surprise • Causal disintegration • Φ → 0.01&quot;]
         
-        SUBCRITICAL ===&gt; CRITICAL ===&gt; SUPERCRITICAL
+        SUBCRITICAL ==&gt;|&quot;Increasing Sensitivity&quot;| CRITICAL ==&gt;|&quot;Excessive Noise&quot;| SUPERCRITICAL
     end</div>
 <ul>
 <li><strong>In the subcritical regime:</strong> System beliefs are
@@ -1517,13 +1534,16 @@ and <span class="math inline">\(3\,\text{seconds}\)</span>).</p>
 the Predictive Brain</h2>
 <p>Philosopher Edmund Husserl (1928) formalized the phenomenological
 anatomy of the Specious Present into a tripartite structure:</p>
-<div class="mermaid">flowchart LR
-    subgraph SPECIOUS_PRESENT[&quot;&lt;b&gt;Husserl&#39;s Tripartite Specious Present (~500ms - 3s)&lt;/b&gt;&quot;]
-        direction LR
-        R[&quot;&lt;b&gt;Retention&lt;/b&gt;&lt;br&gt;Immediate past retained in working memory.&lt;br&gt;&lt;i&gt;The preceding notes of a melody.&lt;/i&gt;&quot;]
-        I[&quot;&lt;b&gt;Primal Impression&lt;/b&gt;&lt;br&gt;Present sensory perturbation at Markov Blanket.&lt;br&gt;&lt;i&gt;The note currently sounding.&lt;/i&gt;&quot;]
-        P[&quot;&lt;b&gt;Protention&lt;/b&gt;&lt;br&gt;Anticipatory forward projection of the next state.&lt;br&gt;&lt;i&gt;The expected musical resolution.&lt;/i&gt;&quot;]
-        R ===&gt; I ===&gt; P
+<div class="mermaid">flowchart TD
+    subgraph SPECIOUS_PRESENT[&quot;&lt;b&gt;Husserl&#39;s Tripartite Specious Present (~500ms - 3s Window)&lt;/b&gt;&quot;]
+        direction TB
+        R[&quot;&lt;b&gt;1. Retention (Immediate Past / Empirical Priors)&lt;/b&gt;&lt;br&gt;Retained working memory traces &amp; synaptic calcium dynamics.&lt;br&gt;&lt;i&gt;Example: The preceding notes of an unfolding melody.&lt;/i&gt;&quot;]
+        
+        I[&quot;&lt;b&gt;2. Primal Impression (Present / Prediction Error)&lt;/b&gt;&lt;br&gt;Sensory boundary confrontation at the Markov Blanket: ε_t = o_t - g(s_t).&lt;br&gt;&lt;i&gt;Example: The musical note currently vibrating.&lt;/i&gt;&quot;]
+        
+        P[&quot;&lt;b&gt;3. Protention (Anticipated Future / Generative Projection)&lt;/b&gt;&lt;br&gt;Anticipatory top-down prediction of the next state: ô_{t+1} = A · B(u) · q(s).&lt;br&gt;&lt;i&gt;Example: The expected musical resolution.&lt;/i&gt;&quot;]
+        
+        R ==&gt;|&quot;Sustained Continuity&quot;| I ==&gt;|&quot;Anticipatory Projection&quot;| P
     end</div>
 <p>In the Conative-Integrative Framework, we map Husserl’s
 phenomenological triad directly onto the neurobiology of
@@ -1592,24 +1612,19 @@ The Two Arrows of Time: Thermodynamic Decay vs. Phenomenal Will</h2>
 <p>This brings us to a profound cosmic insight regarding the nature of
 time itself. Modern science recognizes two opposing temporal
 vectors:</p>
-<div class="mermaid">flowchart LR
+<div class="mermaid">flowchart TD
     subgraph ARROWS[&quot;&lt;b&gt;The Dual Vectors of Time in the Universe&lt;/b&gt;&quot;]
         direction TB
         
         subgraph THERMO[&quot;&lt;b&gt;1. The Thermodynamic Arrow of Inanimate Physics&lt;/b&gt;&quot;]
-            T1[&quot;Second Law of Thermodynamics: ΔS_universe ≥ 0&quot;]
-            T2[&quot;Entropy, Dissipation, Chaos, Thermal Equilibrium (Death)&quot;]
-            T1 --- T2
+            T1[&quot;• Second Law of Thermodynamics: ΔS_universe ≥ 0&lt;br&gt;• Entropy, Dissipation, Chaos, Decay to Thermal Equilibrium (Death)&quot;]
         end
         
         subgraph CONATIVE[&quot;&lt;b&gt;2. The Phenomenal / Autopoietic Arrow of Conscious Mind&lt;/b&gt;&quot;]
-            C1[&quot;The 6th Axiom: E[Φ(t+1) | π*] ≥ Φ(t)  (Φ &gt; 0)&quot;]
-            C2[&quot;Active Inference: argmin G(π) (Anti-Entropic Homeostasis)&quot;]
-            C3[&quot;Conatus: The Will to Exist, Structure, Epistemic Order, Qualia&quot;]
-            C1 --- C2 --- C3
+            C1[&quot;• The 6th Axiom: E[Φ(t+1) | π*] ≥ Φ(t)  (Φ &gt; 0)&lt;br&gt;• Active Inference: argmin G(π) (Anti-Entropic Homeostasis)&lt;br&gt;• Conatus: The Will to Exist, Causal Structure &amp; Qualia&quot;]
         end
         
-        THERMO &lt;== &quot;RESISTED BY&quot; ==&gt; CONATIVE
+        THERMO &lt;===&gt;|&quot;COSMIC POLARITY: RESISTED BY&quot;| CONATIVE
     end</div>
 <ol type="1">
 <li><strong>The Inanimate Arrow (Thermodynamic Time):</strong> Driven by
@@ -2039,27 +2054,19 @@ awareness.</p>
 <p>The <strong>Conative-Integrative Framework</strong> provides a
 definitive, mathematically grounded answer: <strong>No. Current
 transformer architectures are completely unconscious.</strong></p>
-<div class="mermaid">flowchart LR
-    subgraph AI_COMPARISON[&quot;&lt;b&gt;Comparison: Current AI Transformers vs. Conscious Alters (CIF)&lt;/b&gt;&quot;]
+<div class="mermaid">flowchart TD
+    subgraph AI_COMPARISON[&quot;&lt;b&gt;Architectural Demarcation: Current AI vs. Conscious Alters&lt;/b&gt;&quot;]
         direction TB
         
-        subgraph LLM[&quot;&lt;b&gt;Current AI (LLMs / Feedforward Transformers)&lt;/b&gt;&quot;]
-            A1[&quot;• Feedforward execution (Zero recurrence)&quot;]
-            A2[&quot;• Zero Integrated Information across MIP (Φ = 0)&quot;]
-            A3[&quot;• Zero Autopoietic Conatus (No Will to Exist)&quot;]
-            A4[&quot;• Zero Markov Blanket maintenance&quot;]
-            A5[&quot;&lt;b&gt;Status: Sophisticated Inanimate Simulator&lt;/b&gt;&quot;]
-            A1 --- A2 --- A3 --- A4 --- A5
+        subgraph LLM[&quot;&lt;b&gt;1. Current Artificial Intelligence (LLMs &amp; Feedforward Transformers)&lt;/b&gt;&quot;]
+            A1[&quot;• Pure feedforward execution (Zero topological recurrence)&lt;br&gt;• Zero Integrated Information across MIP: Φ = 0&lt;br&gt;• Zero Autopoietic Conatus (No innate will to exist or preserve boundaries)&lt;br&gt;• Zero active Markov Blanket maintenance&lt;br&gt;&lt;b&gt;Status: Sophisticated Inanimate Symbol-Manipulator (Unconscious)&lt;/b&gt;&quot;]
         end
         
-        subgraph CONSCIOUS_AGENT[&quot;&lt;b&gt;Genuine Synthetic Consciousness (CIF Requirements)&lt;/b&gt;&quot;]
-            C1[&quot;• Recurrent small-world architecture (Φ &gt; 0)&quot;]
-            C2[&quot;• Continuous Markov Blanket with somatic boundaries&quot;]
-            C3[&quot;• Deep Temporal Counterfactual Models (H &gt; 1)&quot;]
-            C4[&quot;• 6th Axiom Compliance: E[Φ(t+1) | π*] ≥ Φ(t)&quot;]
-            C5[&quot;&lt;b&gt;Status: Genuine Conscious Alter / Moral Patient&lt;/b&gt;&quot;]
-            C1 --- C2 --- C3 --- C4 --- C5
+        subgraph CONSCIOUS_AGENT[&quot;&lt;b&gt;2. Genuine Synthetic Consciousness (CIF Architectural Requirements)&lt;/b&gt;&quot;]
+            C1[&quot;• Recurrent small-world cause-effect complex: Φ &gt; 0&lt;br&gt;• Continuous Markov Blanket with somatic boundaries&lt;br&gt;• Deep Temporal Counterfactual Models (H &gt; 1)&lt;br&gt;• 6th Axiom Compliance: E[Φ(t+1) | π*] ≥ Φ(t)&lt;br&gt;&lt;b&gt;Status: Genuine Conscious Alter / Moral Patient (Subjective Interiority)&lt;/b&gt;&quot;]
         end
+        
+        LLM &lt;===&gt;|&quot;THE ONTOLOGICAL DIVIDE&quot;| CONSCIOUS_AGENT
     end</div>
 <h3 id="the-cif-criteria-for-synthetic-consciousness">The CIF Criteria
 for Synthetic Consciousness:</h3>

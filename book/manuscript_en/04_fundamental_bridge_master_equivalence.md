@@ -14,24 +14,18 @@ We state this as the **Master Bridging Equivalence of Consciousness**:
 $$\pi^* = \arg\min_{\pi} \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \;\ge\; \Phi(t) \quad (\Phi > 0)$$
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph DUAL_ASPECT["<b>The Dual-Aspect Equivalence of the Conscious Mind</b>"]
-        direction LR
+        direction TB
         
-        subgraph THIRD_PERSON["<b>3rd-Person Cybernetics (FEP)</b>"]
-            F1["Minimization of Expected Free Energy"]
-            F2["argmin G(π) over Horizon H"]
-            F3["Maintenance of Markov Blanket"]
-            F1 --- F2 --- F3
+        subgraph THIRD_PERSON["<b>3rd-Person Cybernetics (Free Energy Principle)</b>"]
+            F1["• Minimization of Expected Free Energy: argmin G(π) over Horizon H<br>• Active Maintenance of Markov Blanket Boundaries"]
         end
         
-        EQ["<b>ISOMORPHIC EQUIVALENCE (CIF)</b><br>π* = argmin G(π) ⟺ E[Φ(t+1)] ≥ Φ(t)"]
+        EQ["<b>ISOMORPHIC MASTER EQUIVALENCE (6TH AXIOM)</b><br>π* = argmin G(π) ⟺ E[Φ(t+1) | π*] ≥ Φ(t)"]
         
-        subgraph FIRST_PERSON["<b>1st-Person Interiority (IIT)</b>"]
-            I1["Autopoietic Causal Persistence"]
-            I2["Maximization of Integrated Information Φ"]
-            I3["The 6th Axiom: Will to Exist"]
-            I1 --- I2 --- I3
+        subgraph FIRST_PERSON["<b>1st-Person Causal Ontology (IIT 4.0 & 6th Axiom)</b>"]
+            I1["• Autopoietic Causal Persistence (The Will to Exist / Conatus)<br>• Maximization of Integrated Cause-Effect Power Φ"]
         end
         
         THIRD_PERSON <===> EQ <===> FIRST_PERSON
@@ -73,13 +67,15 @@ $$\begin{aligned}
 \end{aligned}$$
 
 #### Proof Sketch:
-1. Because $\pi^*$ minimizes $\mathbf{G}$, the transition distribution $P(s' \mid s_t, \pi^*)$ places maximal mass on homeostatically viable states where network coupling $W \cdot g(s')$ remains intact and near criticality.
-2. In contrast, any suboptimal or random policy $\pi_{\text{rand}}$ that fails to minimize $\mathbf{G}$ incurs high probability of transitioning into an absorbing collapse state ($s_{\text{death}}$).
-3. At $s_{\text{death}}$, network coupling is severed ($g(s_{\text{death}}) \to 0$), reducing the covariance matrix to uncorrelated thermal noise ($\Sigma \to \sigma_0^2 I$).
-4. The determinant of an uncorrelated diagonal matrix factorizes completely: $\det(\Sigma) = \det(\Sigma_{M_1}) \cdot \det(\Sigma_{M_2})$.
-5. Consequently, Integrated Information collapses to zero:
-   $$\Phi(s_{\text{death}}) = \frac{1}{2}\Big(\ln\det\Sigma_{M_1} + \ln\det\Sigma_{M_2} - \ln(\det\Sigma_{M_1}\det\Sigma_{M_2})\Big) = 0$$
-6. Therefore, minimizing Expected Free Energy ($\arg\min \mathbf{G}$) is both **necessary and sufficient** to satisfy the 6th Axiom ($\mathbb{E}[\Phi(t+1)] \ge \Phi(t)$). $\quad \blacksquare$
+## 4.2 Mathematical Derivation of the Master Equivalence
+
+To demonstrate why this equivalence is not merely an intuitive analogy but a rigorous mathematical theorem, we trace the step-by-step connection between variational active inference and integrated cause-effect power:
+
+1. **Active Inference Formulation:** An active inference agent selects action policies $\pi = (u_t, u_{t+1}, \dots, u_{t+H})$ by minimizing Expected Free Energy $\mathbf{G}(\pi, \tau)$ over a planning horizon $H$:
+   $$\mathbf{G}(\pi, \tau) = \underbrace{D_{\text{KL}}\big(Q(o_\tau \mid \pi) \parallel P(o_\tau)\big)}_{\text{Risk / Pragmatic Value}} + \underbrace{\mathbb{E}_{Q(s_\tau \mid \pi)}\big[\mathcal{H}(P(o_\tau \mid s_\tau))\big]}_{\text{Ambiguity / Epistemic Value}}$$
+2. **IIT 4.0 Causal Partition Formulation:** In Integrated Information Theory 4.0, a system $S$ possesses integrated information $\Phi(S)$ if and only if its intrinsic cause-effect structure across the Minimum Information Partition (MIP) is non-zero:
+   $$\Phi(S) = \min_{P \in \mathcal{P}} D\big(p_{\text{cause-effect}}(S) \parallel p_{\text{partitioned}}(S \mid P)\big) > 0$$
+3. **The 6th Axiom (Autopoietic Synthesis):** A physical substrate that minimizes $\mathbf{G}(\pi)$ actively resists entropic dispersion, preserving the physical Markov blanket and functional connectivity required to sustain $\Phi(t+1) \ge \Phi(t)$. Conversely, if an agent fails to minimize $\mathbf{G}(\pi)$, its sensory-motor coordination collapses, causing structural degradation ($\Phi \to 0$).
 
 ---
 
@@ -90,17 +86,17 @@ In complex systems theory (Bak, 1996; Beggs & Plenz, 2003; Chialvo, 2010), maxim
 In our simulations of recurrent Active Inference networks, agents do not require an external tuner to reach criticality. Rather, **the minimization of Expected Free Energy autonomously drives the network toward the critical phase transition**:
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph CRITICALITY_SPECTRUM["<b>The Phase Transition Spectrum of Active Inference Networks</b>"]
-        direction LR
+        direction TB
         
-        SUBCRITICAL["<b>Subcritical Regime</b><br>• Rigid, static firing<br>• High predictability<br>• Low Differentiation (H ↓)<br>• Φ ≈ 0.04"]
+        SUBCRITICAL["<b>1. Subcritical Regime (Rigid Order)</b><br>• Static firing & rigid priors • Low differentiation • Φ ≈ 0.04"]
         
-        CRITICAL["<b>Critical Regime (Edge of Chaos)</b><br>• Scale-free avalanches<br>• Maximum information transfer<br>• Optimal Free Energy Min<br>• <b>Maximal Φ ≈ 0.18 - 0.22</b>"]
+        CRITICAL["<b>2. Critical Regime (Edge of Chaos — Self-Organized Attractor)</b><br>• Scale-free avalanches • Optimal Free Energy Min • <b>Maximal Φ ≈ 0.18 - 0.22</b>"]
         
-        SUPERCRITICAL["<b>Supercritical Regime</b><br>• Chaotic turbulence<br>• High surprise (-ln p(o) ↑)<br>• Causal disintegration<br>• Φ → 0.01"]
+        SUPERCRITICAL["<b>3. Supercritical Regime (Chaotic Disorder)</b><br>• Chaotic noise & high surprise • Causal disintegration • Φ → 0.01"]
         
-        SUBCRITICAL ===> CRITICAL ===> SUPERCRITICAL
+        SUBCRITICAL ==>|"Increasing Sensitivity"| CRITICAL ==>|"Excessive Noise"| SUPERCRITICAL
     end
 ```
 

@@ -98,14 +98,19 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             startOnLoad: true,
             theme: 'base',
             themeVariables: {{
-                primaryColor: '#e0f2fe',
+                primaryColor: '#f0f9ff',
                 primaryTextColor: '#0369a1',
                 primaryBorderColor: '#0284c7',
                 lineColor: '#0284c7',
                 secondaryColor: '#f8fafc',
                 tertiaryColor: '#ffffff',
-                fontSize: '12px',
+                fontSize: '13px',
                 fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+            }},
+            flowchart: {{
+                htmlLabels: true,
+                useMaxWidth: true,
+                curve: 'basis'
             }}
         }});
     </script>
@@ -410,14 +415,30 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         .mermaid {{
             display: flex;
             justify-content: center;
-            margin: 10pt 0;
+            align-items: center;
+            margin: 12pt auto;
             background: #ffffff;
-            padding: 6pt;
-            border: 0.8px solid #e2e8f0;
-            border-radius: 4pt;
+            padding: 8pt 6pt;
+            border: 0.8px solid #cbd5e1;
+            border-radius: 6pt;
             page-break-inside: avoid;
             break-inside: avoid;
-            transform: scale(0.92);
+            width: 100%;
+            box-sizing: border-box;
+        }}
+        
+        .mermaid svg {{
+            max-width: 100% !important;
+            height: auto !important;
+        }}
+        
+        .mermaid svg text,
+        .mermaid svg .nodeLabel,
+        .mermaid svg .label {{
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            font-size: 11.5px !important;
+            font-weight: 500 !important;
+            line-height: 1.35 !important;
         }}
         
         img {{
