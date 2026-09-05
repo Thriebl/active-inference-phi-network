@@ -4,6 +4,7 @@ export_all_english_documents.py
 Compiles high-resolution, printable A4 PDF and Word (.docx) versions of:
 1. 'Thermodynamic and Information-Theoretic Foundations of Markov Blanket Emergence in Quantum Systems'
 2. 'John 1:1–1:5: Greek Original Text, Interlinear Translation & the Ontology of the Logos'
+3. 'Ontological Innovation, Mathematical Novelty, and Authorship Claims'
 by Thomas Riebl.
 """
 
@@ -31,6 +32,15 @@ DOCUMENTS = [
         "doc_md": "2026-09-05-john-1-1-5-logos-interlinear-and-quantum-information.md",
         "pdf_name": "John_1_1-5_Logos_Interlinear_and_Philosophy_Thomas_Riebl.pdf",
         "docx_name": "John_1_1-5_Logos_Interlinear_and_Philosophy_Thomas_Riebl.docx",
+    },
+    {
+        "id": "novelty_and_authorship",
+        "title": "Ontological Innovation and Authorship Claims - Thomas Riebl",
+        "footer_title": "Thomas Riebl • Ontological Innovation & Authorship Claims (CIF)",
+        "src_artifact": "/home/thr/.gemini/antigravity-cli/brain/8260f0bb-77b6-429e-90cf-c04cc8aa02fd/quantum_ontology_novelty_and_authorship_claims.md",
+        "doc_md": "2026-09-05-quantum-ontology-novelty-and-authorship-claims.md",
+        "pdf_name": "Quantum_Ontology_Novelty_and_Authorship_Claims_Thomas_Riebl.pdf",
+        "docx_name": "Quantum_Ontology_Novelty_and_Authorship_Claims_Thomas_Riebl.docx",
     }
 ]
 
@@ -126,6 +136,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             margin-bottom: 4pt;
             page-break-after: avoid;
         }
+        h4 {
+            color: #166534;
+            font-size: 11pt;
+            font-weight: 600;
+            margin-top: 10pt;
+            margin-bottom: 3pt;
+            page-break-after: avoid;
+        }
         p {
             margin-top: 0;
             margin-bottom: 8pt;
@@ -179,6 +197,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             background: #f1f5f9;
             padding: 2px 4px;
             border-radius: 3px;
+        }
+        pre {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 8pt 12pt;
+            border-radius: 4px;
+            font-size: 9pt;
+            page-break-inside: avoid;
         }
     </style>
 </head>
