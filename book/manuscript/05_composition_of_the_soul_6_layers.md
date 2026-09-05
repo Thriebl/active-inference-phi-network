@@ -13,7 +13,7 @@ Throughout the history of Western philosophy, two extreme and equally inadequate
 1. **Cartesian Substance Dualism:** Postulates that the soul is an immaterial, indivisible spiritual substance (*res cogitans*) magically tethered to a mechanical physical body (*res extensa*) via the pineal gland. This view fails entirely to account for the neurobiological, genetic, and pharmacological dependencies of personality and cognition.
 2. **Eliminative Materialism:** Asserts that the "soul" and subjective self are non-existent illusions—that a human being is nothing more than an accidental assembly of selfish genes and mechanical biochemical reflexes. This view fails to account for the undeniable reality of 1st-person phenomenal existence and the hard problem of consciousness.
 
-The Conative-Integrative Framework resolves this dialectic by defining the individual soul as **a 6-Layer Autopoietic Tapestry of Information**. An individual alter is neither an indivisible monad nor a random machine; it is a structured, quantitative composite of biological, environmental, and cosmic factors that together sum to $100\%$.
+The Conative-Integrative Framework resolves this dialectic by defining the individual soul as **a 6-Layer Autopoietic Tapestry of Information**. An individual alter is neither an indivisible monad nor a random machine; it is a structured, quantitative composite of biological, environmental, and cosmic factors that together sum to $100\%$[^ch5_indicative_note].
 
 ```mermaid
 pie title The 6-Layer Composition of the Individual Soul (100%)
@@ -76,9 +76,16 @@ In the Conative-Integrative Framework, the six layers of the soul map directly o
 | **Layer 6** | **The Ego Tunnel** | $10\,\%$ | **Markov Blanket ($\mathcal{B} = \{s, a\}$)** | Statistical boundary isolating internal states ($\mu$) into a 1st-person self |
 | **Total** | **The Unified Soul** | **$100\,\%$** | **Generative Model ($\mathcal{M} = \{A, B, C, D, \gamma\}$)** | **The Complete Dissociated Conscious Alter** |
 
+> [!NOTE]
+> **Methodological Clarification on Ontogenetic Weights:**  
+> The specific percentage allocations assigned to these six layers ($25\%, 15\%, 15\%, 10\%, 25\%, 10\%$) are purely indicative, conceptual, and heuristic in nature. They derive from the author's individual phenomenological experience, reflective synthesis, and qualitative modeling, serving as a conceptual framework to illustrate relative structural balance rather than fixed, empirically universal constants.
+
 ### Synthesis: The Soul as an Autopoietic Whirlpool:
 An individual soul is not a static object; it is an **autopoietic informational whirlpool within the ocean of Mind-at-Large**. 
 
 The genetic and embryological banks shape its channel (Layers 2 & 3); the ancestral current tunes its sensitivity (Layer 4); the autobiographical debris forms its circulating narrative pattern (Layer 5); the localized vortex creates the felt perspective of a centered ego (Layer 6); and the water of which the entire whirlpool is composed is universal consciousness itself (Layer 1).
 
 In the next chapter, we investigate the temporal engine that keeps this whirlpool spinning: *The Temporal Mechanics of Consciousness and the Specious Present*.
+
+[^ch5_indicative_note]: The specific percentage allocations assigned to these six layers ($25\%, 15\%, 15\%, 10\%, 25\%, 10\%$) are purely indicative and heuristic in nature. They derive from the author's individual phenomenological experience and reflective modeling, serving as a conceptual framework to illustrate relative structural proportions rather than fixed, empirically universal constants.
+

@@ -348,7 +348,7 @@ Am *Edge of Chaos* erreicht das Gehirn seine maximale Informationstransferkapazi
 
 ## 5.1 Die sechs Schichten der individuellen Seele
 
-Das Konativ-Integrative Framework überwindet den alten Streit zwischen Dualismus und Eliminativem Materialismus durch eine quantitative **6-Ebenen-Architektur**, die sich exakt zu $100\,\%$ aufsummiert:
+Das Konativ-Integrative Framework überwindet den alten Streit zwischen Dualismus und Eliminativem Materialismus durch eine quantitative **6-Ebenen-Architektur**, die sich exakt zu $100\,\%$ aufsummiert[^ch5_indicative_note_de]:
 
 ```mermaid
 pie title Die 6 Ebenen der Seele (100%)
@@ -380,6 +380,12 @@ pie title Die 6 Ebenen der Seele (100%)
 | **Ebene 5** | **Lebenslanges Lernen** | $25\,\%$ | **Matrizen ($A, B$) & ($C$)** | Gelerntes Weltmodell und bewusste Werte |
 | **Ebene 6** | **Der Ego-Tunnel** | $10\,\%$ | **Markov-Decke ($\mathcal{B}$)** | Grenze zur Aufrechterhaltung der 1.-Person-Perspektive |
 | **Gesamt** | **Die Seele** | **$100\,\%$** | **Generatives Modell ($\mathcal{M}$)** | **Das vollständige bewusste Individuum** |
+
+> [!NOTE]
+> **Methodische Klarstellung zu den ontogenetischen Gewichtungen:**  
+> Die konkreten Prozentangaben der sechs Schichten ($25\,\%, 15\,\%, 15\,\%, 10\,\%, 25\,\%, 10\,\%$) sind rein indikativ und heuristisch zu verstehen. Sie entstammen der individuellen phänomenologischen Erfahrung und reflektiven Modellbildung des Autors und dienen der Veranschaulichung der relativen strukturellen Anteile, nicht als empirisch absolute Naturkonstanten.
+
+[^ch5_indicative_note_de]: Die konkreten Prozentangaben der sechs Schichten ($25\,\%, 15\,\%, 15\,\%, 10\,\%, 25\,\%, 10\,\%$) sind rein indikativ und heuristisch zu verstehen. Sie entstammen der individuellen phänomenologischen Erfahrung und reflektiven Modellbildung des Autors und dienen der Veranschaulichung der relativen strukturellen Anteile, nicht als empirisch absolute Naturkonstanten.
 
 # Kapitel 6: Die temporale Mechanik des Geistes: Zeitbewusstsein & Specious Present
 
