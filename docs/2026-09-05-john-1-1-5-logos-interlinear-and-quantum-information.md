@@ -1,4 +1,4 @@
-# John 1:1–1:5: Greek Original Text, Interlinear Translation & the Ontology of the Logos
+# John 1:1–1:5: Greek Original Text & the Ontology of the Logos
 
 ### *Why Logos Must Not Be Translated as 'Word' and Its Isomorphism with Quantum Information Theory (QIT)*
 
@@ -8,146 +8,86 @@
 
 ---
 
-## 1. Verse-by-Verse Greek Original and Interlinear Translation
+## 1. Greek Original Text & Verse-by-Verse Translation
 
 > **Translation Principle:**  
 > The term **Logos (λόγος)** is deliberately preserved untranslated. Translating it as "Word" commits a category error, reducing a cosmic, generative, and relational matrix to mere human speech.
 
 ---
 
-### Verse 1:1
+### Verse-by-Verse Presentation
 
-$$\begin{array}{l}
-\textbf{Ἐν} & \textbf{ἀρχῇ} & \textbf{ἦν} & \textbf{ὁ} & \textbf{λόγος,} \\
-\text{En} & \text{archē} & \text{ēn} & \text{ho} & \text{logos,} \\
-\text{[In]} & \text{[origin/principle]} & \text{[was]} & \text{[the]} & \textbf{[Logos],}
-\end{array}$$
+* **Verse 1:1**  
+  **Greek (Nestle-Aland 28):**  
+  Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.  
+  **English Translation:**  
+  In the beginning [in the foundational origin] was the **Logos**, and the **Logos** was in dynamic relation with God, and divine in essence was the **Logos**.  
+  *(Syntactic Note: In the third clause, $\theta\epsilon\grave{o}\varsigma$ stands without the definite article before the verb $\tilde{\eta}\nu$, functioning as a qualitative predicate: The Logos is divine in essence and nature, identical with ultimate reality.)*
 
-$$\begin{array}{l}
-\textbf{καὶ} & \textbf{ὁ} & \textbf{λόγος} & \textbf{ἦν} & \textbf{πρὸς} & \textbf{τὸν} & \textbf{θεόν,} \\
-\text{kai} & \text{ho} & \text{logos} & \text{ēn} & \text{pros} & \text{ton} & \text{theon,} \\
-\text{[and]} & \text{[the]} & \textbf{[Logos]} & \text{[was]} & \text{[in intimate relation with]} & \text{[the]} & \text{[God],}
-\end{array}$$
+* **Verse 1:2**  
+  **Greek (Nestle-Aland 28):**  
+  οὗτος ἦν ἐν ἀρχῇ πρὸς τὸν θεόν.  
+  **English Translation:**  
+  This very one was in the beginning in dynamic relation with God.
 
-$$\begin{array}{l}
-\textbf{καὶ} & \textbf{θεὸς} & \textbf{ἦν} & \textbf{ὁ} & \textbf{λόγος.} \\
-\text{kai} & \text{theos} & \text{ēn} & \text{ho} & \text{logos.} \\
-\text{[and]} & \text{[divine in nature]} & \text{[was]} & \text{[the]} & \textbf{[Logos].}
-\end{array}$$
+* **Verse 1:3**  
+  **Greek (Nestle-Aland 28):**  
+  πάντα δι’ αὐτοῦ ἐγένετο, καὶ χωρὶς αὐτοῦ ἐγένετο οὐδὲ ἕν ὃ γέγονεν.  
+  **English Translation:**  
+  All things came into being through it, and apart from it not a single thing came into being that has come to be.
 
-> **Syntactic Note:** In the third clause, $\theta\epsilon\grave{o}\varsigma$ stands without the definite article before the verb $\tilde{\eta}\nu$, functioning as a qualitative predicate: The Logos is divine in essence and nature, identical with ultimate reality.
+* **Verse 1:4**  
+  **Greek (Nestle-Aland 28):**  
+  ἐν αὐτῷ ζωὴ ἦν, καὶ ἡ ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων·  
+  **English Translation:**  
+  In it was Life, and the Life was the Light of humanity.
 
----
-
-### Verse 1:2
-
-$$\begin{array}{l}
-\textbf{οὗτος} & \textbf{ἦν} & \textbf{ἐν} & \textbf{ἀρχῇ} & \textbf{πρὸς} & \textbf{τὸν} & \textbf{θεόν.} \\
-\text{Houtos} & \text{ēn} & \text{en} & \text{archē} & \text{pros} & \text{ton} & \text{theon.} \\
-\text{[This one]} & \text{[was]} & \text{[in]} & \text{[origin/principle]} & \text{[in relation with]} & \text{[the]} & \text{[God].}
-\end{array}$$
-
----
-
-### Verse 1:3
-
-$$\begin{array}{l}
-\textbf{πάντα} & \textbf{δι’} & \textbf{αὐτοῦ} & \textbf{ἐγένετο,} \\
-\text{Panta} & \text{di'} & \text{autou} & \text{egeneto,} \\
-\text{[All things]} & \text{[through]} & \text{[it/him]} & \text{[came into being / emerged],}
-\end{array}$$
-
-$$\begin{array}{l}
-\textbf{καὶ} & \textbf{χωρὶς} & \textbf{αὐτοῦ} & \textbf{ἐγένετο} & \textbf{οὐδὲ} & \textbf{ἕν} & \textbf{ὃ} & \textbf{γέγονεν.} \\
-\text{kai} & \text{chōris} & \text{autou} & \text{egeneto} & \text{oude} & \text{hen} & \text{ho} & \text{gegonen.} \\
-\text{[and]} & \text{[apart from]} & \text{[it/him]} & \text{[came into being]} & \text{[not even]} & \text{[one single thing]} & \text{[that]} & \text{[has come to be].}
-\end{array}$$
+* **Verse 1:5**  
+  **Greek (Nestle-Aland 28):**  
+  καὶ τὸ φῶς ἐν τῇ σκοτίᾳ φαίνει, καὶ ἡ σκοτία αὐτὸ οὐ κατέλαβεν.  
+  **English Translation:**  
+  And the Light shines in the darkness, and the darkness did not overcome it.
 
 ---
 
-### Verse 1:4
+### Continuous Reading Text
 
-$$\begin{array}{l}
-\textbf{ἐν} & \textbf{αὐτῷ} & \textbf{ζωὴ} & \textbf{ἦν,} \\
-\text{en} & \text{autō} & \text{zōē} & \text{ēn,} \\
-\text{[In]} & \text{[it/him]} & \text{[Life]} & \text{[was / resided],}
-\end{array}$$
-
-$$\begin{array}{l}
-\textbf{καὶ} & \textbf{ἡ} & \textbf{ζωὴ} & \textbf{ἦν} & \textbf{τὸ} & \textbf{φῶς} & \textbf{τῶν} & \textbf{ἀνθρώπων·} \\
-\text{kai} & \text{hē} & \text{zōē} & \text{ēn} & \text{to} & \text{phōs} & \text{tōn} & \text{anthrōpōn;} \\
-\text{[and]} & \text{[the]} & \text{[Life]} & \text{[was]} & \text{[the]} & \text{[Light]} & \text{[of]} & \text{[human beings];}
-\end{array}$$
-
----
-
-### Verse 1:5
-
-$$\begin{array}{l}
-\textbf{καὶ} & \textbf{τὸ} & \textbf{φῶς} & \textbf{ἐν} & \textbf{τῇ} & \textbf{σκοτίᾳ} & \textbf{φαίνει,} \\
-\text{kai} & \text{to} & \text{phōs} & \text{en} & \text{tē} & \text{skotia} & \text{phainei,} \\
-\text{[and]} & \text{[the]} & \text{[Light]} & \text{[in]} & \text{[the]} & \text{[darkness]} & \text{[shines],}
-\end{array}$$
-
-$$\begin{array}{l}
-\textbf{καὶ} & \textbf{ἡ} & \textbf{σκοτία} & \textbf{αὐτὸ} & \textbf{οὐ} & \textbf{κατέλαβεν.} \\
-\text{kai} & \text{hē} & \text{skotia} & \text{auto} & \text{ou} & \text{katelaben.} \\
-\text{[and]} & \text{[the]} & \text{[darkness]} & \text{[it]} & \text{[not]} & \text{[overcame / extinguished / engulfed].}
-\end{array}$$
-
----
-
-## 2. Continuous Reading Text
-
-### Greek Original (Nestle-Aland 28)
+#### Greek Original (Nestle-Aland 28)
 > 1:1 Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.  
 > 1:2 οὗτος ἦν ἐν ἀρχῇ πρὸς τὸν θεόν.  
 > 1:3 πάντα δι’ αὐτοῦ ἐγένετο, καὶ χωρὶς αὐτοῦ ἐγένετο οὐδὲ ἕν ὃ γέγονεν.  
 > 1:4 ἐν αὐτῷ ζωὴ ἦν, καὶ ἡ ζωὴ ἦν τὸ φῶς τῶν ἀνθρώπων·  
 > 1:5 καὶ τὸ φῶς ἐν τῇ σκοτίᾳ φαίνει, καὶ ἡ σκοτία αὐτὸ οὐ κατέλαβεν.
 
-### Verse-by-Verse English Translation (Preserving the Logos)
-> **1:1** In the beginning [in the foundational origin] was the **Logos**, and the **Logos** was in dynamic relation with God, and divine in essence was the **Logos**.  
-> **1:2** This very one was in the beginning in dynamic relation with God.  
-> **1:3** All things came into being through it, and apart from it not a single thing came into being that has come to be.  
-> **1:4** In it was Life, and the Life was the Light of humanity.  
-> **1:5** And the Light shines in the darkness, and the darkness did not overcome it.
+#### Continuous English Translation (Preserving the Logos)
+> **1:1** In the beginning was the **Logos**, and the **Logos** was in dynamic relation with God, and divine in essence was the **Logos**. **1:2** This very one was in the beginning in dynamic relation with God. **1:3** All things came into being through it, and apart from it not a single thing came into being that has come to be. **1:4** In it was Life, and the Life was the Light of humanity. **1:5** And the Light shines in the darkness, and the darkness did not overcome it.
 
 ---
 
-## 3. Philological & Philosophical Treatise: Why Logos Must Not Be Translated as 'Word'
+## 2. Philological & Philosophical Treatise: Why Logos Must Not Be Translated as 'Word'
 
 The historic translation of the Greek term **λόγος (logos)** into Latin as *verbum* (Jerome’s Vulgate), into German as *„Wort“* (Martin Luther), and into English as *„Word“* represents one of the most consequential reductions in intellectual history. It amputates the cosmological, mathematical, and metaphysical dimensions of the Greek concept, diminishing it to acoustic speech or linguistic signs.
 
 ```mermaid
-graph TD
-    subgraph Antike [Ancient Logos Concept]
-        L1["Cosmic Ordering Principle (Heraclitus)"]
-        L2["Generative Reason (Seminal Logos / Stoa)"]
-        L3["Intelligible Matrix of Forms (Philo)"]
-        L4["Mathematical Proportion & Relation (Euclid/Pythagoras)"]
+flowchart TD
+    subgraph Ancient ["1. Ancient Cosmological Logos"]
+        A["• Cosmic Ordering Principle & Unifying Law (Heraclitus)<br/>• Generative Reason / Seminal Code (Stoic Physics)<br/>• Intelligible Matrix of Forms & Laws (Philo of Alexandria)<br/>• Mathematical Ratio, Proportion & Harmony (Pythagoras)"]
     end
 
-    subgraph Verengung [Linguistic Reduction]
-        R1["Latin: Verbum"]
-        R2["English: 'Word' / German: 'Wort'"]
+    subgraph Fallacy ["2. Historical Linguistic Reduction (Category Error)"]
+        B["Latin: Verbum &bull; English: 'Word' &bull; German: 'Wort'<br/>(Diminished to acoustic speech, vocalization & linguistic signs)"]
     end
 
-    subgraph Moderne [Quantum Informational Matrix]
-        Q1["Universal Quantum State |Ψ⟩"]
-        Q2["Wheeler: 'It from Qubit'"]
-        Q3["Non-Local Entanglement Network"]
+    subgraph Modern ["3. Modern Physical Isomorphism (Quantum Information Theory)"]
+        C["• Universal Quantum Wavefunction |Ψ⟩ (Mind-at-Large)<br/>• Wheeler's 'It from Qubit' (Information Precedes Matter)<br/>• Non-Local Relational Entanglement Network (Bell Holism)"]
     end
 
-    L1 & L2 & L3 & L4 -->|Reduced in translation| R1 & R2
-    L1 & L2 & L3 & L4 <==>|True Mathematical Isomorphism| Q1 & Q2 & Q3
+    Ancient -->|Severe Historical Truncation| Fallacy
+    Ancient <==>|Rigorous Ontological Isomorphism| Modern
 
-    classDef ancient fill:#f0fdf4,stroke:#16a34a,stroke-width:2px;
-    classDef reduced fill:#fef2f2,stroke:#ef4444,stroke-width:1.5px;
-    classDef modern fill:#eff6ff,stroke:#2563eb,stroke-width:2px;
-    class L1,L2,L3,L4 ancient;
-    class R1,R2 reduced;
-    class Q1,Q2,Q3 modern;
+    style Ancient fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,color:#166534
+    style Fallacy fill:#fef2f2,stroke:#ef4444,stroke-width:2px,color:#991b1b
+    style Modern fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#1e40af
 ```
 
 ### 1. Etymology and Greek Semantic Breadth
@@ -182,22 +122,35 @@ Goethe realized that "Word" was insufficient. Yet replacing it with "Deed" (*Tat
 
 ---
 
-## 4. Isomorphism with Quantum Information Theory (QIT) & the CIF
+## 3. Isomorphism with Quantum Information Theory (QIT) & the CIF
 
 The Prologue of John (1:1–1:5) exhibits an exact structural isomorphism with the axioms of modern Quantum Information Theory and the **Conative-Integrative Framework (CIF)**.
 
 ```mermaid
-graph TD
-    J1["1:1: En arche en ho logos"] <--> Q1["Universal State |Ψ⟩ & Wheeler: 'It from Qubit'"]
-    J2["1:3: Panta di' autou egeneto"] <--> Q2["Non-Separability, Entanglement & Bell: 2√2 > 2"]
-    J3["1:4a: En auto zoe en"] <--> Q3["Quantum Darwinism, Pointer States & Markov Blankets (Conatus)"]
-    J4["1:4b-5a: To phos phainei en te skotia"] <--> Q4["Measurement Problem, Participatory Universe & Integrated Information (Φ > 0)"]
-    J5["1:5b: He skotia auto ou katelaben"] <--> Q5["Unitarity (U†U = I) & Braunstein-Pati No-Hiding Theorem"]
+flowchart TD
+    subgraph V1 ["Verse 1:1 • Ἐν ἀρχῇ ἦν ὁ λόγος"]
+        Q1["Universal Quantum Wavefunction |Ψ⟩ & Wheeler's 'It from Qubit'<br/><i>(Information as primordial ontological ground)</i>"]
+    end
+    subgraph V2 ["Verse 1:3 • Πάντα δι’ αὐτοῦ ἐγένετο"]
+        Q2["Quantum Non-Separability, Entanglement & Bell's Theorem (2√2 > 2)<br/><i>(Relational holism: no isolated local realism)</i>"]
+    end
+    subgraph V3 ["Verse 1:4a • Ἐν αὐτῷ ζωὴ ἦν"]
+        Q3["Quantum Darwinism, Pointer States & Markov Blankets (Conatus)<br/><i>(Decoherence shielding & non-equilibrium self-preservation)</i>"]
+    end
+    subgraph V4 ["Verse 1:4b–5a • Τὸ φῶς φαίνει ἐν τῇ σκοτίᾳ"]
+        Q4["Measurement Problem, Participatory Universe & Integrated Information (Φ > 0)<br/><i>(1st-person qualia illuminating the dark quantum potential)</i>"]
+    end
+    subgraph V5 ["Verse 1:5b • Ἡ σκοτία αὐτὸ οὐ κατέλαβεν"]
+        Q5["Global Unitarity (U†U = I) & Braunstein-Pati No-Hiding Theorem<br/><i>(Absolute conservation of experiential information at death)</i>"]
+    end
 
-    classDef verse fill:#f0fdf4,stroke:#16a34a,stroke-width:1.5px;
-    classDef qit fill:#eff6ff,stroke:#2563eb,stroke-width:1.5px;
-    class J1,J2,J3,J4,J5 verse;
-    class Q1,Q2,Q3,Q4,Q5 qit;
+    V1 ==> V2 ==> V3 ==> V4 ==> V5
+
+    style V1 fill:#f0fdf4,stroke:#16a34a,stroke-width:1.5px
+    style V2 fill:#f0fdf4,stroke:#16a34a,stroke-width:1.5px
+    style V3 fill:#f0fdf4,stroke:#16a34a,stroke-width:1.5px
+    style V4 fill:#f0fdf4,stroke:#16a34a,stroke-width:1.5px
+    style V5 fill:#f0fdf4,stroke:#16a34a,stroke-width:1.5px
 ```
 
 ---
@@ -268,7 +221,7 @@ $$\text{„καὶ ἡ σκοτία αὐτὸ οὐ κατέλαβεν.“} \Lo
 
 ---
 
-## 5. Synoptic Matrix: John 1:1–1:5 vs. Quantum Information Theory
+## 4. Synoptic Matrix: John 1:1–1:5 vs. Quantum Information Theory
 
 | John 1 Verse | Greek Core Term | Quantum Information Theory (QIT) & CIF | Physical & Metaphysical Significance |
 | :--- | :--- | :--- | :--- |
@@ -280,7 +233,7 @@ $$\text{„καὶ ἡ σκοτία αὐτὸ οὐ κατέλαβεν.“} \Lo
 
 ---
 
-## 6. Conclusion: The Foundational Bedrock for *„Vom Anfang bis zum Ende“*
+## 5. Conclusion: The Foundational Bedrock for *„Vom Anfang bis zum Ende“*
 
 By re-establishing the ancient concept of the **Logos** in its full philological depth and demonstrating its exact isomorphism with the mathematical foundations of **Quantum Information Theory**, this work bridges the historical divide between ancient ontology and cutting-edge physics.
 
