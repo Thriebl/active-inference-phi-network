@@ -219,7 +219,7 @@ def compile_document(doc):
     docs_dir = os.path.join(repo_dir, "docs")
     vault_notes = "/home/thr/Documents/ThRNotes/03-professional/braindumps"
     vault_pdf_dir = "/home/thr/Documents/ThRNotes/Alle_Braindumps_PDF"
-    out_dir = "/home/thr/Documents"
+    out_dir = "/home/thr/Documents/02_Academic_Suite"
 
     src_artifact = doc["src_artifact"]
     doc_md_path = os.path.join(docs_dir, doc["doc_md"])

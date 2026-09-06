@@ -14,7 +14,7 @@ import shutil
 def export_paper():
     repo_dir = "/home/thr/Documents/time-and-consciousness"
     docs_dir = os.path.join(repo_dir, "docs")
-    out_dir = "/home/thr/Documents"
+    out_dir = "/home/thr/Documents/02_Academic_Suite"
     md_source = os.path.join(docs_dir, "2026-09-02-time-and-consciousness-the-temporal-mechanics-of-the-conscious-mind-en.md")
 
     pdf_out = os.path.join(out_dir, "The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf")

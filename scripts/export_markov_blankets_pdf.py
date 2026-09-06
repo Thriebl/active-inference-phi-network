@@ -17,7 +17,7 @@ def export_paper():
     docs_dir = os.path.join(repo_dir, "docs")
     vault_notes = "/home/thr/Documents/ThRNotes/03-professional/braindumps"
     vault_pdf_dir = "/home/thr/Documents/ThRNotes/Alle_Braindumps_PDF"
-    out_dir = "/home/thr/Documents"
+    out_dir = "/home/thr/Documents/02_Academic_Suite"
 
     artifact_src = "/home/thr/.gemini/antigravity-cli/brain/8260f0bb-77b6-429e-90cf-c04cc8aa02fd/quanten_markov_blankets_energetische_guenstigkeit.md"
     doc_md = os.path.join(docs_dir, "2026-09-05-quanten-markov-blankets-energetische-guenstigkeit.md")

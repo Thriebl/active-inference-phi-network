@@ -13,10 +13,10 @@ DOC_MD = "/home/thr/Documents/time-and-consciousness/docs/2026-09-03-monte-carlo
 VAULT_MD = "/home/thr/Documents/ThRNotes/03-professional/braindumps/2026-09-03-monte-carlo-methodology-in-active-inference-and-consciousness-en.md"
 
 DOCX_OUT = "/home/thr/Documents/time-and-consciousness/docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.docx"
-DOCX_MAIN = "/home/thr/Documents/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.docx"
+DOCX_MAIN = "/home/thr/Documents/02_Academic_Suite/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.docx"
 
 PDF_OUT = "/home/thr/Documents/time-and-consciousness/docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf"
-PDF_MAIN = "/home/thr/Documents/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf"
+PDF_MAIN = "/home/thr/Documents/02_Academic_Suite/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf"
 PDF_VAULT = "/home/thr/Documents/ThRNotes/Alle_Braindumps_PDF/2026-09-03-monte-carlo-methodology-in-active-inference-and-consciousness-en.pdf"
 
 def main():
