@@ -13,7 +13,7 @@ reading_time: "9 min read"
 ### *How the Conative-Integrative Framework (CIF) unifies Analytic Idealism, Active Inference, and IIT 4.0 to resolve the hard problem—and why the future is just a bundle of Monte Carlo trails.*
 
 **By Thomas Riebl**  
-*Theoretical Framework: The Conative-Integrative Framework (CIF) & Book 2 (From Beginning to End)*  
+*Theoretical Framework: The Conative-Integrative Framework (CIF)*  
 *September 2026 • 9 min read*
 
 ---
@@ -31,7 +31,7 @@ For more than a century, mainstream science has been paralyzed by two seemingly 
 
 Faced with this contradiction, orthodox science took a bizarre turn: it chose to dismiss human experience as a mistake. Consciousness was labeled an "epiphenomenon" (a useless user-interface illusion), and our feeling of temporal duration was brushed aside as a neurological mirage.
 
-**The Conative-Integrative Framework (CIF)**, articulated in my treatise and developed systematically in **Book 2 (*From Beginning to End*)**, rejects this intellectual surrender. By establishing a rigorous mathematical synthesis between three cutting-edge fields—**Analytic Idealism**, **Active Inference**, and **Integrated Information Theory (IIT 4.0)**—we uncover a profound truth:
+**The Conative-Integrative Framework (CIF)**, articulated in our mathematical treatises and computational simulations, rejects this intellectual surrender. By establishing a rigorous mathematical synthesis between three cutting-edge fields—**Analytic Idealism**, **Active Inference**, and **Integrated Information Theory (IIT 4.0)**—we uncover a profound truth:
 
 > **The Hard Problem of Consciousness and the Nature of Time are not two separate puzzles. They are the same puzzle.**  
 > And the key that unlocks them both is what Baruch Spinoza called the *Conatus*—the fundamental will to persevere in existence—now formalized as the **6th Axiom of Mind**.
@@ -93,7 +93,7 @@ This is where the **6th Axiom of Mind** enters the equation.
 
 ## 4. The Breakthrough: The 6th Axiom of Autopoietic Causal Persistence
 
-In my monograph, I formalize the missing link that bridges Tononi’s $\Phi$ with Friston’s Active Inference:
+In our framework, we formalize the missing link that bridges Tononi’s $\Phi$ with Friston’s Active Inference:
 
 $$\pi^* = \arg\min_{\pi} \mathbf{G}(\pi) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \ge \Phi(t) \quad (\Phi > 0)$$
 
@@ -123,12 +123,12 @@ Consciousness is the operational mechanism of this self-preservation: an organis
 
 ## 5. The Mystery of the Specious Present: Why the Future is a Bundle of Trails
 
-This brings us to the centerpiece of **Book 2 (*From Beginning to End*)**: the complete resolution of the paradox of time.
+This brings us to the central temporal mechanics of the framework: the complete resolution of the paradox of time.
 
 If the cosmos exists strictly at $t = 0$, why do human beings experience what psychologist William James and philosopher Edmund Husserl called the **Specious Present**—a felt temporal window of duration spanning roughly $2$ to $3$ seconds?
 
-### Thesis 7.1: The Pure Ontology of Phase Space
-In Section 7.1 of our framework, we establish a radical ontological claim:
+### The Pure Ontology of Phase Space
+In the Conative-Integrative Framework, we establish a radical ontological claim:
 
 > **The future is not a place.**  
 > It is not a cosmic sector waiting ahead of us.  
@@ -175,14 +175,14 @@ Anxiety is an **ontological category mistake**. It occurs when the brain generat
 Under the CIF, the cure for existential dread is immediate and profound:
 1. **The catastrophic future does not exist.** It is merely one unweighted trajectory inside your generative model at $t = 0$.
 2. **Your agency lives entirely in the present.** You evaluate the trail bundle, compute the action that minimizes expected free energy, and execute that single physical step in the Now ($u_0 = \pi^*[0]$).
-3. **Amor Fati (Love of Fate):** Once the present action is taken, you surrender attachment to unmanifested futures. If environmental noise perturbs your path, your generative model simply samples a fresh bundle of trails at the next $t = 0$.
+3. **Amor Fati (Love of Fate):** Once the present action is taken, you surrender attachment to unmanifested paths. If environmental noise perturbs your path, your generative model simply samples a fresh bundle of trails at the next $t = 0$.
 
 As the Roman Stoic Emperor Marcus Aurelius wrote:  
 *"Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present."*
 
 ---
 
-## Conclusion: Book 2 and the Horizon Ahead
+## Conclusion: The Horizon Ahead
 
 The **Conative-Integrative Framework** demonstrates that consciousness is neither a magical substance that defies physics nor a trivial illusion fabricated by meat. Consciousness is the irreducible, self-sustaining flame of the cosmos: a living boundary that navigates stochastic phase spaces, protects its causal integrity against entropy, and casts a lantern of counterfactual trails into the unknown.
 

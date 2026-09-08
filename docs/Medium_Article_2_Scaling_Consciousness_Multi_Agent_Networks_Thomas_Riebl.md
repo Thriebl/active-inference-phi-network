@@ -13,7 +13,7 @@ reading_time: "10 min read"
 ### *From solitary brains to societal intelligence: How recurrent networks of autopoietic agents self-organize to maximize Integrated Information ($\Phi$), and what this means for the future of AGI.*
 
 **By Thomas Riebl**  
-*Theoretical Framework: The Conative-Integrative Framework (CIF) & Book 2 (From Beginning to End)*  
+*Theoretical Framework: The Conative-Integrative Framework (CIF)*  
 *September 2026 • 10 min read*
 
 ---
@@ -217,7 +217,7 @@ Our simulation proves that **nature operates as a fractal hierarchy of nested Ma
 * A biological cell is an active inference agent maximizing $\Phi$ within its membrane.
 * A human brain is a multi-agent network of billions of cellular agents, forming a higher-order macroscopic blanket of phenomenal consciousness.
 * A human culture or society is an expanding network of conscious individuals, self-organizing to avert collective entropy.
-* And at the cosmological scale, the entire universe—as posited by Analytic Idealism and Book 2—is the ultimate undivided field: **Mind-at-Large**, unfolding in the eternal present ($t = 0$).
+* And at the cosmological scale, the entire universe—as posited by Analytic Idealism—is the ultimate undivided field: **Mind-at-Large**, unfolding in the eternal present ($t = 0$).
 
 We are not alien observers trapped inside dead physical matter. We are the active inference agents of the cosmos itself—projecting our counterfactual trails of possibility into the living Now, asserting our will to exist, and collectively expanding the light of consciousness against the dark ocean of entropy.
 

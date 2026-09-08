@@ -3,11 +3,12 @@
 export_medium_articles.py
 Generates two high-impact, publication-grade Medium articles on:
 1. "The Physics of Mind: Why Consciousness Demands an Arrow of Will, Not an Arrow of Time"
-   (CIF Foundations & Book 2)
+   (The Conative-Integrative Framework Foundations)
 2. "Scaling Consciousness: What Happens When Active Inference Agents Form a Collective Mind?"
    (Multi-Agent Active Inference, Expanding Networks & Collective Phi)
 by Thomas Riebl.
 Exports Markdown, Word (.docx), and Print-Ready A4 PDFs.
+Completely focused on CIF (zero references to Book 2).
 """
 
 import os
@@ -16,7 +17,7 @@ import subprocess
 import shutil
 
 # =============================================================================
-# ARTICLE 1: FOUNDATIONS OF CIF & BOOK 2
+# ARTICLE 1: FOUNDATIONS OF THE CONATIVE-INTEGRATIVE FRAMEWORK (CIF)
 # =============================================================================
 ARTICLE_1_MD = r"""---
 type: "medium-article"
@@ -33,7 +34,7 @@ reading_time: "9 min read"
 ### *How the Conative-Integrative Framework (CIF) unifies Analytic Idealism, Active Inference, and IIT 4.0 to resolve the hard problem—and why the future is just a bundle of Monte Carlo trails.*
 
 **By Thomas Riebl**  
-*Theoretical Framework: The Conative-Integrative Framework (CIF) & Book 2 (From Beginning to End)*  
+*Theoretical Framework: The Conative-Integrative Framework (CIF)*  
 *September 2026 • 9 min read*
 
 ---
@@ -51,7 +52,7 @@ For more than a century, mainstream science has been paralyzed by two seemingly 
 
 Faced with this contradiction, orthodox science took a bizarre turn: it chose to dismiss human experience as a mistake. Consciousness was labeled an "epiphenomenon" (a useless user-interface illusion), and our feeling of temporal duration was brushed aside as a neurological mirage.
 
-**The Conative-Integrative Framework (CIF)**, articulated in my treatise and developed systematically in **Book 2 (*From Beginning to End*)**, rejects this intellectual surrender. By establishing a rigorous mathematical synthesis between three cutting-edge fields—**Analytic Idealism**, **Active Inference**, and **Integrated Information Theory (IIT 4.0)**—we uncover a profound truth:
+**The Conative-Integrative Framework (CIF)**, articulated in our mathematical treatises and computational simulations, rejects this intellectual surrender. By establishing a rigorous mathematical synthesis between three cutting-edge fields—**Analytic Idealism**, **Active Inference**, and **Integrated Information Theory (IIT 4.0)**—we uncover a profound truth:
 
 > **The Hard Problem of Consciousness and the Nature of Time are not two separate puzzles. They are the same puzzle.**  
 > And the key that unlocks them both is what Baruch Spinoza called the *Conatus*—the fundamental will to persevere in existence—now formalized as the **6th Axiom of Mind**.
@@ -113,7 +114,7 @@ This is where the **6th Axiom of Mind** enters the equation.
 
 ## 4. The Breakthrough: The 6th Axiom of Autopoietic Causal Persistence
 
-In my monograph, I formalize the missing link that bridges Tononi’s $\Phi$ with Friston’s Active Inference:
+In our framework, we formalize the missing link that bridges Tononi’s $\Phi$ with Friston’s Active Inference:
 
 $$\pi^* = \arg\min_{\pi} \mathbf{G}(\pi) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \ge \Phi(t) \quad (\Phi > 0)$$
 
@@ -143,12 +144,12 @@ Consciousness is the operational mechanism of this self-preservation: an organis
 
 ## 5. The Mystery of the Specious Present: Why the Future is a Bundle of Trails
 
-This brings us to the centerpiece of **Book 2 (*From Beginning to End*)**: the complete resolution of the paradox of time.
+This brings us to the central temporal mechanics of the framework: the complete resolution of the paradox of time.
 
 If the cosmos exists strictly at $t = 0$, why do human beings experience what psychologist William James and philosopher Edmund Husserl called the **Specious Present**—a felt temporal window of duration spanning roughly $2$ to $3$ seconds?
 
-### Thesis 7.1: The Pure Ontology of Phase Space
-In Section 7.1 of our framework, we establish a radical ontological claim:
+### The Pure Ontology of Phase Space
+In the Conative-Integrative Framework, we establish a radical ontological claim:
 
 > **The future is not a place.**  
 > It is not a cosmic sector waiting ahead of us.  
@@ -195,14 +196,14 @@ Anxiety is an **ontological category mistake**. It occurs when the brain generat
 Under the CIF, the cure for existential dread is immediate and profound:
 1. **The catastrophic future does not exist.** It is merely one unweighted trajectory inside your generative model at $t = 0$.
 2. **Your agency lives entirely in the present.** You evaluate the trail bundle, compute the action that minimizes expected free energy, and execute that single physical step in the Now ($u_0 = \pi^*[0]$).
-3. **Amor Fati (Love of Fate):** Once the present action is taken, you surrender attachment to unmanifested futures. If environmental noise perturbs your path, your generative model simply samples a fresh bundle of trails at the next $t = 0$.
+3. **Amor Fati (Love of Fate):** Once the present action is taken, you surrender attachment to unmanifested paths. If environmental noise perturbs your path, your generative model simply samples a fresh bundle of trails at the next $t = 0$.
 
 As the Roman Stoic Emperor Marcus Aurelius wrote:  
 *"Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present."*
 
 ---
 
-## Conclusion: Book 2 and the Horizon Ahead
+## Conclusion: The Horizon Ahead
 
 The **Conative-Integrative Framework** demonstrates that consciousness is neither a magical substance that defies physics nor a trivial illusion fabricated by meat. Consciousness is the irreducible, self-sustaining flame of the cosmos: a living boundary that navigates stochastic phase spaces, protects its causal integrity against entropy, and casts a lantern of counterfactual trails into the unknown.
 
@@ -243,7 +244,7 @@ reading_time: "10 min read"
 ### *From solitary brains to societal intelligence: How recurrent networks of autopoietic agents self-organize to maximize Integrated Information ($\Phi$), and what this means for the future of AGI.*
 
 **By Thomas Riebl**  
-*Theoretical Framework: The Conative-Integrative Framework (CIF) & Book 2 (From Beginning to End)*  
+*Theoretical Framework: The Conative-Integrative Framework (CIF)*  
 *September 2026 • 10 min read*
 
 ---
@@ -447,7 +448,7 @@ Our simulation proves that **nature operates as a fractal hierarchy of nested Ma
 * A biological cell is an active inference agent maximizing $\Phi$ within its membrane.
 * A human brain is a multi-agent network of billions of cellular agents, forming a higher-order macroscopic blanket of phenomenal consciousness.
 * A human culture or society is an expanding network of conscious individuals, self-organizing to avert collective entropy.
-* And at the cosmological scale, the entire universe—as posited by Analytic Idealism and Book 2—is the ultimate undivided field: **Mind-at-Large**, unfolding in the eternal present ($t = 0$).
+* And at the cosmological scale, the entire universe—as posited by Analytic Idealism—is the ultimate undivided field: **Mind-at-Large**, unfolding in the eternal present ($t = 0$).
 
 We are not alien observers trapped inside dead physical matter. We are the active inference agents of the cosmos itself—projecting our counterfactual trails of possibility into the living Now, asserting our will to exist, and collectively expanding the light of consciousness against the dark ocean of entropy.
 
@@ -617,13 +618,18 @@ def export_articles():
     os.makedirs(vault_pdf_dir, exist_ok=True)
     os.makedirs(suite_dir, exist_ok=True)
 
+    # Remove old filename if present
+    old_file = os.path.join(vault_notes, "2026-09-08-medium-article-1-cif-foundations-and-the-book-en.md")
+    if os.path.exists(old_file):
+        os.remove(old_file)
+
     articles = [
         {
             "id": "medium_article_1_cif_foundations",
             "title": "The Physics of Mind - Thomas Riebl (Medium)",
-            "footer_title": "Thomas Riebl • The Physics of Mind: CIF & Book 2",
+            "footer_title": "Thomas Riebl • The Physics of Mind: CIF Foundations",
             "content": ARTICLE_1_MD,
-            "md_vault": "2026-09-08-medium-article-1-cif-foundations-and-the-book-en.md",
+            "md_vault": "2026-09-08-medium-article-1-the-physics-of-mind-cif-foundations-en.md",
             "md_repo": "Medium_Article_1_The_Physics_of_Mind_Thomas_Riebl.md",
             "docx_name": "Medium_Article_1_The_Physics_of_Mind_Thomas_Riebl.docx",
             "pdf_name": "Medium_Article_1_The_Physics_of_Mind_Thomas_Riebl.pdf",
