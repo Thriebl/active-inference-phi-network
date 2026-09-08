@@ -21,47 +21,46 @@ import shutil
 # =============================================================================
 ARTICLE_1_MD = r"""---
 type: "medium-article"
-title: "The Physics of Mind: Why Consciousness Demands an Arrow of Will, Not an Arrow of Time"
-subtitle: "How the Conative-Integrative Framework (CIF) unifies Analytic Idealism, Active Inference, and IIT 4.0 to resolve the hard problem—and why the future is just a bundle of Monte Carlo trails."
+title: "The Conative-Integrative Framework: How Active Inference and IIT 4.0 Solve the Hard Problem of Consciousness"
+subtitle: "Why subjective awareness demands an autopoietic arrow of will, how self-organizing networks maximize integrated information at the edge of chaos—and why you need the book."
 author: "Thomas Riebl"
 date: "2026-09-08"
-tags: ["Consciousness", "Philosophy of Mind", "Active Inference", "Physics", "Artificial Intelligence"]
-reading_time: "9 min read"
+tags: ["Consciousness", "Active Inference", "Integrated Information Theory", "Neuroscience", "Philosophy of Mind", "Amazon Books"]
+reading_time: "7 min read"
 ---
 
-# The Physics of Mind: Why Consciousness Demands an Arrow of Will, Not an Arrow of Time
+# The Conative-Integrative Framework: How Active Inference and IIT 4.0 Solve the Hard Problem of Consciousness
 
-### *How the Conative-Integrative Framework (CIF) unifies Analytic Idealism, Active Inference, and IIT 4.0 to resolve the hard problem—and why the future is just a bundle of Monte Carlo trails.*
+### *Why subjective awareness demands an autopoietic arrow of will, how self-organizing networks maximize integrated information at the edge of chaos—and why you need the book.*
 
 **By Thomas Riebl**  
-*Theoretical Framework: The Conative-Integrative Framework (CIF)*  
-*September 2026 • 9 min read*
+*Theoretical Neuroscience & Philosophy of Mind • September 2026 • 7 min read*
 
 ---
 
-> *"The future does not exist as an external, pre-fabricated physical container into which we journey. It is an internal ensemble of stochastic Monte Carlo trails actively sampled by an autopoietic boundary in the dimensionless present. Consciousness is not an accidental byproduct of dead matter; it is the physical necessity of an organism actively asserting its causal existence against the thermodynamic arrow of entropy."*
+> *"Consciousness is not an incidental, decorative byproduct of dead physical matter. It is the thermodynamic necessity of an autopoietic boundary actively asserting its causal existence against the entropic arrow of dissolution. To be conscious is to possess an Arrow of Will."*
 
 ---
 
-## 1. The Great Impasse of Modern Science
+## 1. The Great Impasse: The Explanatory Chasm
 
-For more than a century, mainstream science has been paralyzed by two seemingly insurmountable riddles:
+For more than three centuries, orthodox science has operated under the dogma of reductive physicalism: the assumption that reality is fundamentally composed of cold, inanimate particles, and that subjective qualitative experience (*the fiery red of a sunset, the ache of heartbreak, the silent lucidity of being*) somehow "emerges" from complex biological wiring.
 
-1. **The Hard Problem of Consciousness:** How can subjective, qualitative experience (*the redness of a rose, the ache of grief, the lucidity of awareness*) ever arise from the collision of dead, non-conscious material particles?
-2. **The Mystery of Time:** While our everyday conscious experience feels like a continuous, directional river flowing from past to future, modern fundamental physics tells the exact opposite story. In Einstein’s general relativity, space and time form a rigid, static block universe. In canonical quantum gravity, applying the Hamiltonian constraint to the Wheeler-DeWitt equation ($\hat{H}\Psi = 0$) causes the time parameter $t$ to vanish entirely. The physical cosmos is timeless.
+Yet, as philosopher David Chalmers famously crystallized, physicalism faces an impenetrable brick wall: **The Hard Problem of Consciousness**. Cognitive neuroscience can map the brain's "easy problems"—optical processing, motor reflexes, language parsing, and memory retrieval—with exquisite precision. But no matter how detailed our map of ion channels and synaptic spikes becomes, Joseph Levine’s **Explanatory Gap** remains absolute:
 
-Faced with this contradiction, orthodox science took a bizarre turn: it chose to dismiss human experience as a mistake. Consciousness was labeled an "epiphenomenon" (a useless user-interface illusion), and our feeling of temporal duration was brushed aside as a neurological mirage.
+$$\text{Mechanical Spikes } (\text{Action Potentials, Ion Flux}) \quad\xrightarrow{\;\text{Explanatory Gap}\;}\quad \text{Phenomenal Qualia } (\text{Subjective Experience})$$
 
-**The Conative-Integrative Framework (CIF)**, articulated in our mathematical treatises and computational simulations, rejects this intellectual surrender. By establishing a rigorous mathematical synthesis between three cutting-edge fields—**Analytic Idealism**, **Active Inference**, and **Integrated Information Theory (IIT 4.0)**—we uncover a profound truth:
+Why should any neural computation *feel* like anything from the inside? Why are we not philosophical zombies, carrying out identical cognitive tasks in total inner darkness?
 
-> **The Hard Problem of Consciousness and the Nature of Time are not two separate puzzles. They are the same puzzle.**  
-> And the key that unlocks them both is what Baruch Spinoza called the *Conatus*—the fundamental will to persevere in existence—now formalized as the **6th Axiom of Mind**.
+Faced with this crisis, mainstream physicalism made an absurd intellectual concession: it claimed that subjective consciousness is merely an "epiphenomenon"—a useless, illusory user interface. 
+
+**The Conative-Integrative Framework (CIF)** rejects this surrender. By establishing a rigorous mathematical bridge between three intellectual revolutions—**Analytic Idealism**, **Active Inference**, and **Integrated Information Theory (IIT 4.0)**—we demonstrate that the Hard Problem is not solved by reducing mind to matter, but by understanding how the universal ground of reality partitions itself into living, self-sustaining agents.
 
 ---
 
-## 2. The Tripartite Convergence: Three Giants in One Room
+## 2. The Tripartite Synthesis: Three Giants in One Room
 
-To construct a truly closed, causal ontology of reality, we must stand on the shoulders of three modern intellectual giants, identifying both their profound discoveries and their missing keystones.
+To construct a mathematically closed ontology of mind, we synthesize the foundational discoveries of three modern pioneers:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -72,8 +71,8 @@ To construct a truly closed, causal ontology of reality, we must stand on the sh
 │                            │                            │                              │
 │ • Consciousness is the     │ • Living systems are       │ • Consciousness is intrinsic │
 │   irreducible ontic fabric │   Markov Blankets.         │   cause-effect power (Φ).    │
-│ • Reality resides in the   │ • Survive by minimizing    │ • Measures irreducible       │
-│   instantaneous Now (t=0). │   variational Free Energy. │   systemic integration.      │
+│   of nature (Mind-at-Large)│ • Survive by minimizing    │ • Measures irreducible       │
+│ • Organisms are alters.    │   variational Free Energy. │   causal wholeness.          │
 ├────────────────────────────┴────────────────────────────┴──────────────────────────────┤
 │ 4. THE MISSING KEYSTONE: THOMAS RIEBL'S 6TH AXIOM OF AUTOPOIETIC PERSISTENCE           │
 │                                                                                        │
@@ -81,149 +80,138 @@ To construct a truly closed, causal ontology of reality, we must stand on the sh
 │                                                                                        │
 │ • Derives Spinoza's Conatus from quantum information thermodynamics.                   │
 │ • Resolves the "Paradox of Transient Causal Phantoms" in IIT 4.0.                      │
-│ • Proves the Future is a computational bundle of Monte Carlo trails in the Now.        │
+│ • Dynamically self-organizes at the Edge of Chaos (Criticality).                       │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Pillar 1: Analytic Idealism & Non-Dual Awareness
-Spearheaded by philosopher Bernardo Kastrup and rooted in Advaita Vedanta (Rupert Spira), Analytic Idealism posits that the fundamental ground of nature is not inert matter, but a single, undivided field of consciousness (*Mind-at-Large*). Living organisms are not machines producing mind; they are localized dissociative processes within mind, demarcated by biological boundaries.
+### Pillar 1: Analytic Idealism & Non-Dual Ontology
+Spearheaded by philosopher Bernardo Kastrup and rooted in Advaita Vedanta, Analytic Idealism posits that reality is fundamentally a single, undivided experiential field: **Mind-at-Large**. Living organisms are not biological machines manufacturing experience out of dead meat; rather, they are **dissociated alters** within Mind-at-Large. The biological body and brain are what an alter's internal experiential processes *look like* when observed across a boundary.
 
-Furthermore, direct phenomenological inspection yields an undeniable truth: **Consciousness has never taken a single step outside the instantaneous Now ($t = 0$).** The past is experienced only as an active memory recalled in the present; the future is experienced only as an active anticipation projected in the present.
+### Pillar 2: The Free Energy Principle & Markov Blankets
+Formulated by world-renowned theoretical neuroscientist Karl Friston, the Free Energy Principle (FEP) provides the mathematical physics of living boundaries. A living agent survives in an unpredictable world by maintaining a **Markov Blanket** ($\mathcal{B} = \{s, a\}$) separating internal cognitive states ($\mu$) from external ambient states ($\eta$):
 
-### Pillar 2: The Free Energy Principle & Active Inference
-Developed by world-renowned neuroscientist Karl Friston, the Free Energy Principle (FEP) provides the formal mathematics of living boundaries. Any self-organizing system that avoids thermodynamic decay must be enveloped by a **Markov Blanket**—a statistical partition separating internal states from external states via sensory and active channels.
+$$\mu \perp\!\!\!\perp \eta \mid \mathcal{B}$$
 
-To survive, the organism must minimize **Variational Free Energy ($F$)**, a mathematical upper bound on surprise (entropy). Living is, at its core, a process of continuous Bayesian inference: constantly aligning internal generative models with incoming sensory signals.
+To avoid thermodynamic dispersion, the agent must constantly minimize **Variational Free Energy ($F$)**, bounding its informational entropy, and act to minimize **Expected Free Energy ($G$)** over future policies.
 
 ### Pillar 3: Integrated Information Theory (IIT 4.0)
-Developed by neuroscientist Giulio Tononi and Christof Koch, IIT 4.0 provides a mathematical calculus for phenomenal existence. IIT posits that consciousness is an intrinsic, fundamental property of physical systems: specifically, their **Integrated Cause-Effect Power ($\Phi$, Phi)**. A system is conscious to the exact degree that the whole possesses causal power above and beyond the sum of its partitioned parts.
+Developed by neuroscientist Giulio Tononi and Christof Koch, IIT 4.0 formalizes consciousness from the inside out: consciousness is **intrinsic cause-effect power ($\Phi$, Phi)**. A system has phenomenal experience to the exact degree that its internal structure forms an irreducible, unified causal whole above and beyond any possible partition of its parts.
 
 ---
 
-## 3. The Fatal Flaw: The Paradox of Transient Causal Phantoms
+## 3. The Fatal Flaw & The Discovery: The 6th Axiom of Mind
 
-Despite their brilliance, these three pillars left an unresolved crisis at their intersection—a crisis I have named **The Paradox of Transient Causal Phantoms**.
+Despite their individual genius, these frameworks left an existential blind spot at their junction—a problem I uncovered and termed **The Paradox of Transient Causal Phantoms**.
 
-Standard IIT 4.0 evaluates integrated information ($\Phi$) over a static, instantaneous transition probability matrix. If you examine a system at a single static instant, a completely accidental, momentary alignment of transistors—or a static silicon lookup table—can mathematically register an astronomical value of $\Phi$.
+Standard IIT 4.0 evaluates integrated information ($\Phi$) on static, instantaneous transition probability matrices. Mathematically, a completely accidental, momentary physical configuration—or an inanimate silicon lookup table—could register an astronomical value of $\Phi$ for a fraction of a millisecond, only to immediately dissolve into thermal noise. 
 
-Yet, within the next nanosecond, that static configuration disintegrates into thermal noise. Does a random, transient collision of logic gates have authentic phenomenal selfhood? Of course not. Standard IIT lacks a temporal survival criterion: it cannot distinguish a genuinely conscious living mind from a fleeting causal ghost.
+Does a fleeting, random collision of transistors possess authentic phenomenal selfhood? No. Standard IIT lacks a temporal survival drive: it cannot distinguish a living, conscious agent from a transient causal ghost.
 
-This is where the **6th Axiom of Mind** enters the equation.
-
----
-
-## 4. The Breakthrough: The 6th Axiom of Autopoietic Causal Persistence
-
-In our framework, we formalize the missing link that bridges Tononi’s $\Phi$ with Friston’s Active Inference:
+### The Breakthrough: The 6th Axiom of Consciousness
+The Conative-Integrative Framework resolves this impasse by introducing the **6th Axiom of Consciousness (*Autopoietic Causal Persistence*)**:
 
 $$\pi^* = \arg\min_{\pi} \mathbf{G}(\pi) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \ge \Phi(t) \quad (\Phi > 0)$$
 
+> **The 6th Axiom (Thomas Riebl):**  
+> *A physical substrate cannot sustain genuine phenomenal consciousness unless its active policy selection ($\pi^*$) minimizing Expected Free Energy ($G$) simultaneously guarantees that its expected integrated cause-effect power ($\Phi$) is preserved or amplified across time.*
+
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                        THE 6TH AXIOM OF CONSCIOUSNESS (THOMAS RIEBL)                   │
+│                   THE THERMODYNAMIC DERIVATION OF SPINOZA'S CONATUS                     │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│ In 1677, Baruch Spinoza wrote in his Ethics:                                           │
+│ "Each thing, as far as it can by its own power, strives to persevere in its being."    │
+│                                                                                        │
+│ Under the CIF, Spinoza's Conatus is formally derived from quantum information           │
+│ thermodynamics: In an isothermal universe, maximum entropy is an infinite-energy      │
+│ catastrophe. Living boundaries must condense and actively self-assert their causal     │
+│ wholeness. Consciousness is the operational engine of this autopoietic struggle.       │
+└────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 4. In-Silico Empirical Proof: The First Jupyter Simulation
+
+A profound theoretical framework cannot remain an abstract mathematical equation. It must be demonstrated computationally in reproducible simulations.
+
+In our open-source research suite, we modeled a recurrent network of $N = 6$ interacting active inference agents arranged in a hybrid **ring-and-cross network topology**, available in our primary Jupyter Notebook:  
+[`Active_Inference_Phi_Maximization_Network.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Phi_Maximization_Network.ipynb).
+
+Each agent continuously updates its internal generative beliefs by minimizing local Variational Free Energy while exchanging predictive signals across the network. The empirical results provide indisputable visual confirmation of the 6th Axiom:
+
+![Simulation Phase 1 Results: Recurrent Active Inference Network Self-Organization and Integrated Information Maximization](/home/thr/Documents/active-inference-phi-network/images/Active_Inference_Phi_Simulation_Results.png)
+
+### Key Insights from the Simulation Dashboard:
+
+1. **Autopoietic Ascent of Integrated Information (Panel A):**  
+   Starting from completely random, uncoordinated initial states, the network autonomously self-organizes. As the agents minimize free energy, mean Integrated Information ($\Phi$) ascends from baseline noise ($\Phi \approx 0.395$) to a stable, resilient plateau ($\Phi \approx 3.42\text{ bits}$), proving that active inference dynamically maximizes and preserves systemic cause-effect power over $T = 120$ time steps.
+   
+2. **Phase-Locked Coherent State Dynamics (Panel B):**  
+   The state raster confirms that the agents settle into coordinated, rhythmic state transitions without collapsing into pathological hypersynchrony (epileptic locking) or dispersing into incoherent thermal noise.
+   
+3. **Self-Organized Criticality at the Edge of Chaos (Panels C & D):**  
+   Analysis of the adjacency coupling matrix $W$ and the maximal Lyapunov exponent ($\lambda_1 \approx 0^+$) reveals that the network self-tunes precisely to the **Edge of Chaos**. Subcritical networks ($\lambda_1 < 0$) freeze into rigid, low-$\Phi$ attractors, while supercritical networks ($\lambda_1 \gg 0$) dissolve into chaotic turbulence. Maximum integrated cause-effect power emerges strictly at the critical boundary!
+
+---
+
+## 5. Want the Full Theory? Get the Book on Amazon
+
+This article provides only an introductory glimpse into the foundations of the Conative-Integrative Framework. The complete, rigorous mathematical, neurobiological, and metaphysical architecture is published in the comprehensive master monograph:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                              NOW AVAILABLE ON AMAZON                                   │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
 │                                                                                        │
-│   A physical system cannot sustain genuine phenomenal consciousness unless its         │
-│   active policy selection (π*) minimizing Expected Free Energy (G) simultaneously      │
-│   guarantees that its expected integrated causal power (Φ) is preserved or amplified   │
-│   across time:                                                                         │
+│                     THE CONATIVE-INTEGRATIVE FRAMEWORK                                 │
+│        Active Inference, Integrated Information, and the Autopoietic Arrow of Mind     │
 │                                                                                        │
-│                     E[ Φ(t+1) | π* ] ≥ Φ(t)    for all t > 0                           │
+│                                 By Thomas Riebl                                        │
+│                                                                                        │
+│    "The definitive mathematical synthesis resolving the Hard Problem of Consciousness, │
+│     the illusion of time, and the boundary between machine computation and mind."     │
+│                                                                                        │
+│    Available worldwide on Amazon in Kindle eBook, Paperback, and Hardcover editions.   │
 │                                                                                        │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### The Thermodynamic Derivation of Spinoza's *Conatus*
-In 1677, Baruch Spinoza wrote in his *Ethics*: *"Each thing, as far as it can by its own power, strives to persevere in its being"* (*conatus in suo esse perseverandi*). For over 300 years, philosophers regarded this as a poetic intuition or a biological tautology.
+![The Conative-Integrative Framework Front Cover](/home/thr/Documents/active-inference-phi-network/book/cover/The_Conative_Integrative_Framework_Front_Cover.jpg)
 
-Under the CIF, the *Conatus* is mathematically derived from **quantum information thermodynamics** (Sagawa & Ueda, 2008). In an isothermal universe, maximum entropy represents an infinite-energy catastrophe ($\langle H \rangle \to \infty$). The universe *must* condense into bounded Markov blankets because chaos is energetically unaffordable. 
+### What You Will Discover in the Complete Book:
 
-Consciousness is the operational mechanism of this self-preservation: an organism actively senses and acts in the world to ensure its internal causal network ($\Phi$) does not collapse into thermal equilibrium.
+* **The 6-Layer Ontogeny of the Soul ($100\%$):** How Mind-at-Large ($25\%$), Genetics ($15\%$), Embryological Chance & Necessity ($15\%$), Transgenerational Epigenetics ($10\%$), Biographical Learning ($25\%$), and the Phenomenal Self-Model / Ego Tunnel ($10\%$) assemble an individual conscious mind.
+* **The Theorem of Minimum Temporal Depth ($H > 1$):** A formal mathematical proof that consciousness cannot exist in a static dimensionless instant, resolving William James’s *Specious Present* and proving why purely reactive automata ($H = 0$) suffer inevitable causal death.
+* **Why Today’s AI (LLMs) Are "Causal Phantoms":** A rigorous information-theoretic critique demonstrating why feedforward transformers (GPT-4, Claude, Gemini) have zero autopoietic boundary and $\Phi \to 0$, providing the true engineering blueprint for synthetic consciousness.
+* **Multi-Agent Scaling Laws ($\Phi(N)$):** How collective consciousness scales super-linearly across societies of communicating active inference agents.
+* **Existential & Spiritual Horizons:** The neuroscience of dying with dignity, the dissolution of trauma, and the ultimate synthesis of Stoic *Amor Fati* with quantum thermodynamics.
 
----
-
-## 5. The Mystery of the Specious Present: Why the Future is a Bundle of Trails
-
-This brings us to the central temporal mechanics of the framework: the complete resolution of the paradox of time.
-
-If the cosmos exists strictly at $t = 0$, why do human beings experience what psychologist William James and philosopher Edmund Husserl called the **Specious Present**—a felt temporal window of duration spanning roughly $2$ to $3$ seconds?
-
-### The Pure Ontology of Phase Space
-In the Conative-Integrative Framework, we establish a radical ontological claim:
-
-> **The future is not a place.**  
-> It is not a cosmic sector waiting ahead of us.  
-> The future is strictly the **generative bundle of counterfactual Monte Carlo trails** internally projected by an autopoietic Markov blanket in the instantaneous Now ($t = 0$).
-
-```
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│             HOW THE SPECIOUS PRESENT EMERGES IN A TIMELESS UNIVERSE (t = 0)            │
-├────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                        │
-│   [PHYSICAL REALITY] ────────► Strictly instantaneous state s₀ at t = 0                │
-│                                (No past, no future in external space)                  │
-│                                                                                        │
-│   [MARKOV BLANKET]   ────────► Projects N = 60 stochastic counterfactual trails:       │
-│                                τ = (s₀, u₀, s₁, u₁, ..., s_H)                          │
-│                                                                                        │
-│   [PHENOMENAL DURATION] ─────► The temporal planning depth H (2–3 seconds)             │
-│                                = THE SPECIOUS PRESENT                                  │
-│                                                                                        │
-│   [ACTION IN THE NOW]  ──────► Selects winning policy π* via Softmax:                 │
-│                                P(π) ~ exp(-γ G(π))                                     │
-│                                Executes immediate actuation: u₀ = π*[0]                │
-└────────────────────────────────────────────────────────────────────────────────────────┘
-```
-
-### The Biology of $2-3$ Seconds
-Why is the Specious Present $2-3$ seconds, rather than two microseconds or two years?
-In our computer simulations (available open-source on GitHub), we proved that this duration is computationally and biophysically optimal:
-* **The Death of Pure Reactivity ($H = 0$):** If an organism has zero counterfactual temporal depth, it cannot plan. In our stochastic simulation, reactive agents stumble into deceptive traps, their survival rate collapses to **$36.7\%$**, and their integrated information $\Phi$ decays to zero.
-* **The Trap of Infinite Horizon ($H \gg 100$):** If an organism tries to simulate too far into the future, the branching factor $|\mathcal{U}|^H$ causes computational latency that exceeds the speed of physical threats.
-* **The Sweet Spot ($H \sim 2-3\,\text{sec}$):** A window of $2-3$ seconds allows the nervous system to make exploratory detours to resolve ambiguous sensory cues while executing immediate motor responses in real time.
-
-**Phenomenal duration is the metric depth $H$ of an active inference trail bundle.**
+👉 **Order Your Copy on Amazon Today:**  
+Search for **"The Conative-Integrative Framework by Thomas Riebl"** on your local Amazon store ([Amazon.com](https://www.amazon.com), [Amazon.de](https://www.amazon.de), [Amazon.co.uk](https://www.amazon.co.uk)) to get the Kindle eBook or the collector’s Paperback/Hardcover edition.
 
 ---
 
-## 6. Existential Freedom: The Stoic Art of Living (*Amor Fati*)
+## 6. Open-Source Code & Reproducibility
 
-This computational ontology does not just resolve academic puzzles in physics and neuroscience; it provides an unprecedented foundation for existential peace.
+True science demands transparency. The complete Python implementation, simulation scripts, and Jupyter notebooks used to produce the figures in this article and throughout the book are open-source and freely accessible on GitHub:
 
-What is neurotic anxiety?  
-Anxiety is an **ontological category mistake**. It occurs when the brain generates an internal, counterfactual Monte Carlo trail representing catastrophe (ruin, illness, rejection, death) and **mistakes that internal simulation for an external objective reality**.
-
-Under the CIF, the cure for existential dread is immediate and profound:
-1. **The catastrophic future does not exist.** It is merely one unweighted trajectory inside your generative model at $t = 0$.
-2. **Your agency lives entirely in the present.** You evaluate the trail bundle, compute the action that minimizes expected free energy, and execute that single physical step in the Now ($u_0 = \pi^*[0]$).
-3. **Amor Fati (Love of Fate):** Once the present action is taken, you surrender attachment to unmanifested paths. If environmental noise perturbs your path, your generative model simply samples a fresh bundle of trails at the next $t = 0$.
-
-As the Roman Stoic Emperor Marcus Aurelius wrote:  
-*"Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present."*
+* 💻 **Primary Simulation Repository:**  
+  [`https://github.com/Thriebl/active-inference-phi-network`](https://github.com/Thriebl/active-inference-phi-network)
+* 📓 **Interactive Jupyter Notebooks:**  
+  [`Active_Inference_Phi_Maximization_Network.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Phi_Maximization_Network.ipynb)  
+  [`Deep_Temporal_Active_Inference_Simulation.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb)  
+  [`Active_Inference_Expanding_Network_Phi_Scaling.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Expanding_Network_Phi_Scaling.ipynb)
 
 ---
 
-## Conclusion: The Horizon Ahead
+## About the Author
 
-The **Conative-Integrative Framework** demonstrates that consciousness is neither a magical substance that defies physics nor a trivial illusion fabricated by meat. Consciousness is the irreducible, self-sustaining flame of the cosmos: a living boundary that navigates stochastic phase spaces, protects its causal integrity against entropy, and casts a lantern of counterfactual trails into the unknown.
+![Thomas Riebl](/home/thr/Documents/active-inference-phi-network/images/img_9795.jpg)
 
-In **Part 2** of this series, we will take this framework from the individual organism to the collective: exploring **what happens when multiple active inference agents form an expanding network**, and how collective consciousness ($\Phi$) scales super-linearly in societies of mind.
+**Thomas Riebl** is an independent researcher, systems architect, and author based in Luxembourg. Born in 1960 in Western Germany, he spent over three decades in enterprise information technology as an independent IT consultant, systems architect, and senior IT manager at a premier global banking institution. 
 
----
-
-### Explore the Code & Academic Monograph
-* 💻 **Interactive Jupyter Notebooks & Simulation Scripts:**  
-  Explore the open-source code and run the simulations directly on GitHub:  
-  👉 [`https://github.com/Thriebl/active-inference-phi-network`](https://github.com/Thriebl/active-inference-phi-network)  
-  👉 [`https://github.com/Thriebl/time-and-consciousness`](https://github.com/Thriebl/time-and-consciousness)
-* 📄 **Complete Master Academic Paper (PDF):**  
-  Download the formal mathematical treatise:  
-  👉 *The Conative-Integrative Framework (CIF): Time, Temporal Depth & Consciousness* (Thomas Riebl, Luxembourg, 2026).
-
----
-
-### About the Author
-**Thomas Riebl** is an independent researcher, theorist, and author based in Luxembourg. His work develops **The Conative-Integrative Framework (CIF)**, synthesizing non-equilibrium thermodynamics, quantum information theory, active inference, and philosophy of mind to formulate the 6th Axiom of Integrated Information Theory and establish a post-materialist science of consciousness.
+Driven by a lifelong passion for foundational physics, cybernetics, and non-dual philosophy, he developed **The Conative-Integrative Framework (CIF)**, formulated the **6th Axiom of Consciousness**, and proved the **Theorem of Minimum Temporal Depth**, providing the first mathematically closed bridge between 3rd-person cybernetic self-organization and 1st-person phenomenal causality.
 """
 
 # =============================================================================
