@@ -104,7 +104,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
                 lineColor: '#0284c7',
                 secondaryColor: '#f8fafc',
                 tertiaryColor: '#ffffff',
-                fontSize: '13px',
+                fontSize: '14px',
                 fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
             }},
             flowchart: {{
@@ -127,20 +127,20 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
                 content: "{title_header}";
                 font-family: 'EB Garamond', serif;
                 font-style: italic;
-                font-size: 8pt;
+                font-size: 8.8pt;
                 color: #64748b;
             }}
             @top-right {{
                 content: "Thomas Riebl";
                 font-family: 'EB Garamond', serif;
                 font-style: italic;
-                font-size: 8pt;
+                font-size: 8.8pt;
                 color: #64748b;
             }}
             @bottom-center {{
                 content: counter(page);
                 font-family: 'EB Garamond', serif;
-                font-size: 9pt;
+                font-size: 10pt;
                 color: #334155;
             }}
         }}
@@ -148,8 +148,8 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         body {{
             font-family: 'EB Garamond', Garamond, Georgia, serif;
             color: #0f172a;
-            line-height: 1.55;
-            font-size: 10.2pt;
+            line-height: 1.58;
+            font-size: 12.5pt;
             margin: 0;
             padding: 0;
             background-color: #ffffff;
@@ -178,7 +178,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         
         .title-main {{
             font-family: 'Cinzel', serif;
-            font-size: 18pt;
+            font-size: 20pt;
             font-weight: 800;
             letter-spacing: 1.5px;
             color: #0f172a;
@@ -189,7 +189,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         .title-subtitle {{
             font-family: 'EB Garamond', serif;
             font-style: italic;
-            font-size: 11.5pt;
+            font-size: 13pt;
             color: #0369a1;
             line-height: 1.4;
             max-width: 90%;
@@ -201,20 +201,20 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             border: 1.4px solid #16a34a;
             border-radius: 6pt;
             padding: 16pt 14pt;
-            margin: 30pt auto;
+            margin: 25pt auto;
             width: 96%;
             box-sizing: border-box;
             box-shadow: 0 2px 8px rgba(22, 163, 74, 0.08);
         }}
         
         .master-equivalence-box .MathJax {{
-            font-size: 11pt !important;
+            font-size: 12.5pt !important;
             margin: 6pt 0 !important;
         }}
         
         .eq-label {{
             font-family: 'Cinzel', serif;
-            font-size: 8.5pt;
+            font-size: 9.5pt;
             font-weight: 700;
             letter-spacing: 1px;
             color: #166534;
@@ -223,7 +223,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         
         .eq-subtext {{
             font-family: 'EB Garamond', serif;
-            font-size: 8.8pt;
+            font-size: 10pt;
             font-style: italic;
             color: #15803d;
             margin-top: 5pt;
@@ -239,7 +239,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         
         .title-author {{
             font-family: 'Cinzel', serif;
-            font-size: 13.5pt;
+            font-size: 15pt;
             font-weight: 700;
             letter-spacing: 2px;
             color: #0f172a;
@@ -247,7 +247,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         
         .title-meta {{
             font-family: 'EB Garamond', serif;
-            font-size: 9.2pt;
+            font-size: 10pt;
             color: #64748b;
             margin-top: 3pt;
         }}
@@ -256,7 +256,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         h1 {{
             font-family: 'Cinzel', serif;
             color: #0f172a;
-            font-size: 15.5pt;
+            font-size: 18pt;
             font-weight: 700;
             text-align: center;
             border-bottom: 1.5px solid #0284c7;
@@ -271,14 +271,14 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         
         .dedication-page {{
             display: block;
-            margin-top: 32%;
+            margin-top: 30%;
             text-align: center;
             padding: 20pt 15pt;
         }}
         
         .dedication-page h1 {{
             border-bottom: none;
-            font-size: 14pt;
+            font-size: 16pt;
             margin-bottom: 25pt;
             letter-spacing: 1px;
             color: #0369a1;
@@ -287,7 +287,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         .dedication-page p {{
             font-style: italic;
             text-align: center;
-            font-size: 11pt;
+            font-size: 13pt;
             line-height: 1.7;
             max-width: 90%;
             margin: 0 auto;
@@ -298,9 +298,9 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         h2 {{
             font-family: 'EB Garamond', serif;
             color: #0369a1;
-            font-size: 12.5pt;
+            font-size: 15pt;
             font-weight: 700;
-            margin-top: 18pt;
+            margin-top: 20pt;
             margin-bottom: 6pt;
             border-bottom: 0.5px solid #e2e8f0;
             padding-bottom: 2pt;
@@ -313,9 +313,9 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         h3 {{
             font-family: 'EB Garamond', serif;
             color: #0284c7;
-            font-size: 10.8pt;
+            font-size: 13pt;
             font-weight: 600;
-            margin-top: 12pt;
+            margin-top: 14pt;
             margin-bottom: 4pt;
             page-break-before: auto;
             break-before: auto;
@@ -325,7 +325,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         
         p {{
             margin-top: 0;
-            margin-bottom: 7pt;
+            margin-bottom: 8pt;
             text-align: justify;
             text-justify: inter-word;
             orphans: 2;
@@ -334,25 +334,25 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         
         ul, ol {{
             margin-top: 0;
-            margin-bottom: 7pt;
-            padding-left: 16pt;
+            margin-bottom: 8pt;
+            padding-left: 18pt;
         }}
         
         li {{
-            margin-bottom: 2.5pt;
+            margin-bottom: 3pt;
         }}
         
         table {{
             width: 100%;
             border-collapse: collapse;
-            margin: 10pt 0;
-            font-size: 8.2pt;
+            margin: 12pt 0;
+            font-size: 9.8pt;
             page-break-inside: avoid;
             break-inside: avoid;
         }}
         
         th, td {{
-            padding: 4.5pt 6pt;
+            padding: 5pt 7pt;
             border: 0.8px solid #cbd5e1;
             text-align: left;
         }}
@@ -368,12 +368,12 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         }}
         
         blockquote {{
-            margin: 10pt 0;
-            padding: 7pt 12pt;
+            margin: 12pt 0;
+            padding: 8pt 14pt;
             background-color: #f0fdf4;
             border-left: 3.5px solid #16a34a;
             color: #166534;
-            font-size: 9.3pt;
+            font-size: 11.2pt;
             border-radius: 0 4px 4px 0;
             font-style: italic;
             page-break-inside: avoid;
@@ -384,9 +384,9 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 12pt auto;
+            margin: 14pt auto;
             background: #ffffff;
-            padding: 8pt 6pt;
+            padding: 10pt 8pt;
             border: 0.8px solid #cbd5e1;
             border-radius: 6pt;
             page-break-inside: avoid;
@@ -404,7 +404,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         .mermaid svg .nodeLabel,
         .mermaid svg .label {{
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-            font-size: 11.5px !important;
+            font-size: 13px !important;
             font-weight: 500 !important;
             line-height: 1.35 !important;
         }}
@@ -413,7 +413,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 10pt auto;
+            margin: 12pt auto;
             border: 0.8px solid #cbd5e1;
             border-radius: 4pt;
             page-break-inside: avoid;
@@ -423,7 +423,7 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         hr {{
             border: none;
             border-top: 0.8px solid #e2e8f0;
-            margin: 10pt 0;
+            margin: 12pt 0;
             page-break-before: auto;
             break-before: auto;
             page-break-after: auto;
@@ -432,9 +432,9 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         
         code {{
             font-family: 'JetBrains Mono', monospace;
-            font-size: 7.8pt;
+            font-size: 9.2pt;
             background-color: #f1f5f9;
-            padding: 1.5px 3.5px;
+            padding: 1.5px 4px;
             border-radius: 3px;
             color: #0f172a;
         }}
@@ -442,10 +442,10 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         pre {{
             background-color: #0f172a;
             color: #f8fafc;
-            padding: 8pt;
+            padding: 10pt;
             border-radius: 4pt;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 7.2pt;
+            font-size: 8.6pt;
             overflow-x: auto;
             page-break-inside: avoid;
             break-inside: avoid;

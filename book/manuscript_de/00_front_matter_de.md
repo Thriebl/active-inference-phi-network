@@ -4,8 +4,8 @@ subtitle: "Active Inference, Integrierte Information und die autopoietische Mech
 author: "Thomas Riebl"
 date: "2026"
 geometry: "paperwidth=6in,paperheight=9in,margin=0.75in,bindingoffset=0.25in"
-fontsize: "10.5pt"
-linestretch: "1.18"
+fontsize: "12.5pt"
+linestretch: "1.25"
 documentclass: "book"
 toc: true
 toc-depth: 2
