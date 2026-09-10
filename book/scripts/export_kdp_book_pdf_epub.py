@@ -9,6 +9,7 @@ import os
 import subprocess
 import shutil
 import re
+from bs4 import BeautifulSoup
 
 BOOK_DIR = "/home/thr/Documents/active-inference-phi-network/book"
 MANUSCRIPT_EN_DIR = os.path.join(BOOK_DIR, "manuscript_en")
@@ -32,50 +33,147 @@ def merge_chapters(source_dir, output_file):
         out.write(full_text)
     return full_text
 
-def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
-    print(f"\n=======================================================")
-    print(f"=== Compiling Edition: {edition_name} ===")
-    print(f"=======================================================")
-    
-    # 1. Word DOCX
-    print("  • Generating DOCX...")
-    cmd_docx = [
+def generate_toc_html(md_file, edition_name):
+    """
+    Generates a structured, styled HTML Table of Contents with placeholder page numbers (--)
+    and returns the HTML along with the ordered list of entries.
+    """
+    temp_toc_file = os.path.join(BUILD_DIR, f"temp_{edition_name}_toc_raw.html")
+    cmd = [
         "pandoc",
         md_file,
-        "-o", docx_out,
-        "--from=markdown+tex_math_dollars+yaml_metadata_block",
-        "--resource-path=/home/thr/Documents/active-inference-phi-network/images:/home/thr/Documents/active-inference-phi-network",
+        "-s",
         "--table-of-contents",
-        "--toc-depth=2"
+        "--toc-depth=2",
+        "-o", temp_toc_file
     ]
-    subprocess.run(cmd_docx, check=False)
-    
-    docx_basename = os.path.basename(docx_out)
-    shutil.copy(docx_out, os.path.join(DOCS_DIR, docx_basename))
-    
-    # 2. HTML to PDF via Chrome
-    print("  • Generating HTML & rendering 6x9 Print PDF...")
-    temp_html_body = os.path.join(BUILD_DIR, f"temp_{edition_name}_body.html")
-    cmd_pandoc = [
-        "pandoc",
-        md_file,
-        "-o", temp_html_body,
-        "--from=markdown+tex_math_dollars+tex_math_single_backslash",
-        "--resource-path=/home/thr/Documents/active-inference-phi-network/images:/home/thr/Documents/active-inference-phi-network",
-        "--to=html5",
-        "--mathjax"
-    ]
-    subprocess.run(cmd_pandoc, check=True)
-    
-    with open(temp_html_body, "r", encoding="utf-8") as f:
-        html_body = f.read()
-        
-    html_body = re.sub(r'<pre class="mermaid"><code>(.*?)</code></pre>', r'<div class="mermaid">\1</div>', html_body, flags=re.DOTALL)
-    html_body = re.sub(r'<pre><code class="language-mermaid">(.*?)</code></pre>', r'<div class="mermaid">\1</div>', html_body, flags=re.DOTALL)
-    html_body = html_body.replace('../images/', '/home/thr/Documents/active-inference-phi-network/images/')
-    html_body = html_body.replace('src="images/', 'src="/home/thr/Documents/active-inference-phi-network/images/')
-    
-    kdp_html = f"""<!DOCTYPE html>
+    subprocess.run(cmd, check=True)
+
+    with open(temp_toc_file, "r", encoding="utf-8") as f:
+        soup = BeautifulSoup(f.read(), "html.parser")
+
+    nav = soup.find("nav", id="TOC")
+    if not nav:
+        return "", []
+
+    main_title = "Table of Contents" if edition_name == "EN" else "Inhaltsverzeichnis"
+    lines = []
+    lines.append('<section class="toc-wrapper">')
+    lines.append(f'<h1 class="toc-main-title">{main_title}</h1>')
+    lines.append('<div class="toc-tree">')
+
+    top_ul = nav.find("ul", recursive=False) or nav.ul
+    entries = []
+
+    for top_li in top_ul.find_all("li", recursive=False):
+        top_a = top_li.find("a", recursive=False)
+        if not top_a:
+            continue
+        href = top_a.get("href", "")
+        target_id = href.lstrip("#")
+        title_text = " ".join(top_a.text.split())
+
+        # Skip Dedication / Widmung in TOC
+        if target_id in ["dedication", "widmung"]:
+            continue
+
+        is_chapter = "chapter" in target_id or "kapitel" in target_id
+        cls = "toc-h1" + (" toc-chapter" if is_chapter else "")
+
+        lines.append(f'<div class="toc-entry {cls}">')
+        lines.append(f'  <a href="{href}">')
+        lines.append(f'    <span class="toc-text">{title_text}</span>')
+        lines.append('    <span class="toc-dots"></span>')
+        lines.append(f'    <span class="toc-pg" id="pg-{target_id}">--</span>')
+        lines.append('  </a>')
+        lines.append('</div>')
+        entries.append((target_id, title_text, href))
+
+        sub_ul = top_li.find("ul", recursive=False)
+        if sub_ul:
+            lines.append('<div class="toc-sub-group">')
+            for sub_li in sub_ul.find_all("li", recursive=False):
+                sub_a = sub_li.find("a", recursive=False)
+                if not sub_a:
+                    continue
+                sub_href = sub_a.get("href", "")
+                sub_id = sub_href.lstrip("#")
+                sub_text = " ".join(sub_a.text.split())
+                lines.append('  <div class="toc-entry toc-h2">')
+                lines.append(f'    <a href="{sub_href}">')
+                lines.append(f'      <span class="toc-text">{sub_text}</span>')
+                lines.append('      <span class="toc-dots"></span>')
+                lines.append(f'      <span class="toc-pg" id="pg-{sub_id}">--</span>')
+                lines.append('    </a>')
+                lines.append('  </div>')
+                entries.append((sub_id, sub_text, sub_href))
+            lines.append('</div>')
+
+    lines.append('</div>')
+    lines.append('</section>')
+    return "\n".join(lines), entries
+
+def resolve_toc_pages(pdf_path, entries):
+    """
+    Extracts text per page from the pass 1 PDF and maps each TOC entry to its exact page number.
+    """
+    res = subprocess.run(["pdftotext", pdf_path, "-"], capture_output=True, text=True, check=True)
+    pages = res.stdout.split("\x0c")
+
+    # Detect contiguous TOC pages starting from the TOC title page
+    toc_start = 1
+    for idx, p in enumerate(pages, start=1):
+        if "Table of Contents" in p or "Inhaltsverzeichnis" in p:
+            toc_start = idx
+            break
+
+    toc_end = toc_start
+    while toc_end <= len(pages):
+        p = pages[toc_end - 1]
+        toc_lines = len(re.findall(r'--\s*$', p, re.MULTILINE))
+        if toc_lines >= 3 or "Table of Contents" in p or "Inhaltsverzeichnis" in p:
+            toc_end += 1
+        else:
+            break
+
+    last_toc_page = toc_end - 1
+    start_page = last_toc_page + 1
+    current_search_page = start_page
+    page_mapping = {}
+
+    for target_id, raw_title, href in entries:
+        norm_title = " ".join(re.sub(r'[^a-zA-Z0-9äöüÄÖÜß ]', ' ', raw_title).split())
+        words = norm_title.split()
+        search_snip = " ".join(words[:4]).lower() if len(words) >= 4 else norm_title.lower()
+
+        found_page = None
+        # Search forward from current page
+        for p_idx in range(current_search_page, len(pages) + 1):
+            p_text = pages[p_idx - 1]
+            norm_p = " ".join(re.sub(r'[^a-zA-Z0-9äöüÄÖÜß ]', ' ', p_text).split()).lower()
+            if search_snip in norm_p:
+                found_page = p_idx
+                break
+
+        # Fallback: search anywhere in non-toc pages if not found forward
+        if not found_page:
+            for p_idx in range(start_page, len(pages) + 1):
+                p_text = pages[p_idx - 1]
+                norm_p = " ".join(re.sub(r'[^a-zA-Z0-9äöüÄÖÜß ]', ' ', p_text).split()).lower()
+                if search_snip in norm_p:
+                    found_page = p_idx
+                    break
+
+        if found_page:
+            page_mapping[target_id] = found_page
+            current_search_page = found_page
+        else:
+            print(f"    [WARN] Heading not matched in PDF: {raw_title} (id: {target_id})")
+
+    return page_mapping
+
+def make_kdp_html(title_header, body_content):
+    return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -294,6 +392,103 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
             margin: 0 auto;
             color: #1e293b;
         }}
+
+        /* Table of Contents Styling */
+        .toc-wrapper {{
+            page-break-before: always;
+            break-before: page;
+            page-break-after: always;
+            break-after: page;
+            padding-top: 10pt;
+        }}
+
+        .toc-main-title {{
+            font-family: 'Cinzel', serif;
+            font-size: 18pt;
+            font-weight: 700;
+            text-align: center;
+            color: #0f172a;
+            border-bottom: 1.5px solid #0284c7;
+            padding-bottom: 8pt;
+            margin-top: 20pt;
+            margin-bottom: 20pt;
+            letter-spacing: 1px;
+            page-break-before: avoid;
+            break-before: avoid;
+        }}
+
+        .toc-tree {{
+            width: 100%;
+        }}
+
+        .toc-entry {{
+            line-height: 1.38;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }}
+
+        .toc-entry a {{
+            display: flex;
+            align-items: baseline;
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+        }}
+
+        .toc-h1 {{
+            margin-top: 8pt;
+            margin-bottom: 2.5pt;
+            font-family: 'EB Garamond', serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: #0f172a;
+        }}
+
+        .toc-h1.toc-chapter a .toc-text {{
+            color: #0369a1;
+            font-family: 'Cinzel', serif;
+            font-size: 9.8pt;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }}
+
+        .toc-sub-group {{
+            margin-bottom: 5pt;
+        }}
+
+        .toc-h2 {{
+            margin-left: 14pt;
+            margin-top: 2pt;
+            margin-bottom: 2pt;
+            font-family: 'EB Garamond', serif;
+            font-size: 9.5pt;
+            font-weight: 400;
+            color: #334155;
+        }}
+
+        .toc-text {{
+            flex: 0 1 auto;
+            max-width: 82%;
+        }}
+
+        .toc-dots {{
+            flex: 1 1 auto;
+            border-bottom: 1px dotted #94a3b8;
+            margin: 0 5pt;
+            min-width: 12pt;
+            position: relative;
+            top: -3px;
+        }}
+
+        .toc-pg {{
+            flex: 0 0 auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9pt;
+            color: #475569;
+            font-weight: 500;
+            text-align: right;
+            min-width: 18pt;
+        }}
         
         /* Subheadings must NEVER trigger page breaks and must not be orphaned */
         h2 {{
@@ -454,16 +649,102 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
     </style>
 </head>
 <body>
-{html_body}
+{body_content}
 </body>
 </html>
 """
+
+def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
+    print(f"\n=======================================================")
+    print(f"=== Compiling Edition: {edition_name} ===")
+    print(f"=======================================================")
     
+    # 1. Word DOCX
+    print("  • Generating DOCX...")
+    cmd_docx = [
+        "pandoc",
+        md_file,
+        "-o", docx_out,
+        "--from=markdown+tex_math_dollars+yaml_metadata_block",
+        "--resource-path=/home/thr/Documents/active-inference-phi-network/images:/home/thr/Documents/active-inference-phi-network",
+        "--table-of-contents",
+        "--toc-depth=2"
+    ]
+    subprocess.run(cmd_docx, check=False)
+    
+    docx_basename = os.path.basename(docx_out)
+    shutil.copy(docx_out, os.path.join(DOCS_DIR, docx_basename))
+    
+    # 2. HTML to PDF via Chrome (2-Pass Table of Contents Engine)
+    print("  • Generating HTML & Table of Contents...")
+    temp_html_body = os.path.join(BUILD_DIR, f"temp_{edition_name}_body.html")
+    cmd_pandoc = [
+        "pandoc",
+        md_file,
+        "-o", temp_html_body,
+        "--from=markdown+tex_math_dollars+tex_math_single_backslash",
+        "--resource-path=/home/thr/Documents/active-inference-phi-network/images:/home/thr/Documents/active-inference-phi-network",
+        "--to=html5",
+        "--mathjax"
+    ]
+    subprocess.run(cmd_pandoc, check=True)
+    
+    with open(temp_html_body, "r", encoding="utf-8") as f:
+        html_body = f.read()
+        
+    html_body = re.sub(r'<pre class="mermaid"><code>(.*?)</code></pre>', r'<div class="mermaid">\1</div>', html_body, flags=re.DOTALL)
+    html_body = re.sub(r'<pre><code class="language-mermaid">(.*?)</code></pre>', r'<div class="mermaid">\1</div>', html_body, flags=re.DOTALL)
+    html_body = html_body.replace('../images/', '/home/thr/Documents/active-inference-phi-network/images/')
+    html_body = html_body.replace('src="images/', 'src="/home/thr/Documents/active-inference-phi-network/images/')
+
+    toc_html, entries = generate_toc_html(md_file, edition_name)
+
+    m = re.search(r'(<section\s+[^>]*class="[^"]*dedication-page[^"]*"[^>]*>.*?</section>)', html_body, re.DOTALL)
+    if m:
+        dedication_block = m.group(1)
+        html_body_with_toc = html_body.replace(dedication_block, dedication_block + "\n" + toc_html)
+    else:
+        html_body_with_toc = toc_html + "\n" + html_body
+
+    # Pass 1: Render intermediate PDF to determine exact page numbers
+    print("  • Rendering Pass 1 PDF to calculate exact page numbers...")
+    pass1_html = make_kdp_html(title_header, html_body_with_toc)
+    temp_pass1_html = os.path.join(BUILD_DIR, f"temp_{edition_name}_pass1.html")
+    temp_pass1_pdf = os.path.join(BUILD_DIR, f"temp_{edition_name}_pass1.pdf")
+    with open(temp_pass1_html, "w", encoding="utf-8") as f:
+        f.write(pass1_html)
+
+    cmd_pdf_pass1 = [
+        "google-chrome",
+        "--headless",
+        "--disable-gpu",
+        "--no-sandbox",
+        "--virtual-time-budget=12000",
+        "--run-all-compositor-stages-before-draw",
+        f"--print-to-pdf={temp_pass1_pdf}",
+        temp_pass1_html
+    ]
+    subprocess.run(cmd_pdf_pass1, check=True)
+
+    # Map exact pages
+    print("  • Mapping TOC entries to exact printed page numbers...")
+    page_map = resolve_toc_pages(temp_pass1_pdf, entries)
+    print(f"    -> Successfully mapped {len(page_map)} / {len(entries)} entries")
+
+    # Pass 2: Inject exact page numbers into final HTML and render final PDF
+    html_body_final = html_body_with_toc
+    for target_id, page_num in page_map.items():
+        old_span = f'<span class="toc-pg" id="pg-{target_id}">--</span>'
+        new_span = f'<span class="toc-pg" id="pg-{target_id}">{page_num}</span>'
+        html_body_final = html_body_final.replace(old_span, new_span)
+
+    print("  • Rendering Pass 2 (Final Print-Ready PDF with verified TOC)...")
+    final_html = make_kdp_html(title_header, html_body_final)
     render_file = os.path.join(BUILD_DIR, f"render_{edition_name}.html")
     with open(render_file, "w", encoding="utf-8") as f:
-        f.write(kdp_html)
-        
-    cmd_pdf = [
+        f.write(final_html)
+
+    cmd_pdf_final = [
         "google-chrome",
         "--headless",
         "--disable-gpu",
@@ -473,8 +754,8 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
         f"--print-to-pdf={pdf_out}",
         render_file
     ]
-    subprocess.run(cmd_pdf, check=True)
-    
+    subprocess.run(cmd_pdf_final, check=True)
+
     pdf_basename = os.path.basename(pdf_out)
     shutil.copy(pdf_out, os.path.join(DOCS_DIR, pdf_basename))
     shutil.copy(pdf_out, os.path.join(VAULT_PDF_DIR, pdf_basename))

@@ -217,6 +217,103 @@
             margin: 0 auto;
             color: #1e293b;
         }
+
+        /* Table of Contents Styling */
+        .toc-wrapper {
+            page-break-before: always;
+            break-before: page;
+            page-break-after: always;
+            break-after: page;
+            padding-top: 10pt;
+        }
+
+        .toc-main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 18pt;
+            font-weight: 700;
+            text-align: center;
+            color: #0f172a;
+            border-bottom: 1.5px solid #0284c7;
+            padding-bottom: 8pt;
+            margin-top: 20pt;
+            margin-bottom: 20pt;
+            letter-spacing: 1px;
+            page-break-before: avoid;
+            break-before: avoid;
+        }
+
+        .toc-tree {
+            width: 100%;
+        }
+
+        .toc-entry {
+            line-height: 1.38;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .toc-entry a {
+            display: flex;
+            align-items: baseline;
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+        }
+
+        .toc-h1 {
+            margin-top: 8pt;
+            margin-bottom: 2.5pt;
+            font-family: 'EB Garamond', serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .toc-h1.toc-chapter a .toc-text {
+            color: #0369a1;
+            font-family: 'Cinzel', serif;
+            font-size: 9.8pt;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .toc-sub-group {
+            margin-bottom: 5pt;
+        }
+
+        .toc-h2 {
+            margin-left: 14pt;
+            margin-top: 2pt;
+            margin-bottom: 2pt;
+            font-family: 'EB Garamond', serif;
+            font-size: 9.5pt;
+            font-weight: 400;
+            color: #334155;
+        }
+
+        .toc-text {
+            flex: 0 1 auto;
+            max-width: 82%;
+        }
+
+        .toc-dots {
+            flex: 1 1 auto;
+            border-bottom: 1px dotted #94a3b8;
+            margin: 0 5pt;
+            min-width: 12pt;
+            position: relative;
+            top: -3px;
+        }
+
+        .toc-pg {
+            flex: 0 0 auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9pt;
+            color: #475569;
+            font-weight: 500;
+            text-align: right;
+            min-width: 18pt;
+        }
         
         /* Subheadings must NEVER trigger page breaks and must not be orphaned */
         h2 {
@@ -416,6 +513,342 @@ Bewusstsein kein zufälliges Nebenprodukt toter Materie ist, sondern der
 fundamentale Urgrund der Wirklichkeit selbst – und all jenen, die danach
 streben, die mathematische Strenge der Naturwissenschaft mit der
 lebendigen Tiefe subjektiver Innerlichkeit zu vereinen.</em></p>
+</section>
+<section class="toc-wrapper">
+<h1 class="toc-main-title">Inhaltsverzeichnis</h1>
+<div class="toc-tree">
+<div class="toc-entry toc-h1">
+  <a href="#vorwort-des-autors">
+    <span class="toc-text">Vorwort des Autors</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-vorwort-des-autors">5</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#das-epistemologische-manifest-jenseits-des-cogito">
+    <span class="toc-text">Das Epistemologische Manifest: Jenseits des Cogito</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-das-epistemologische-manifest-jenseits-des-cogito">7</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#kapitel-1-die-krise-des-physikalismus-die-architektur-von-mind-at-large">
+    <span class="toc-text">Kapitel 1: Die Krise des Physikalismus & Die Architektur von Mind-at-Large</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-kapitel-1-die-krise-des-physikalismus-die-architektur-von-mind-at-large">8</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#die-erklärungslücke-des-physikalismus">
+      <span class="toc-text">1.1 Die Erklärungslücke des Physikalismus</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-die-erklärungslücke-des-physikalismus">8</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#die-ahnenreihe-des-analytischen-idealismus">
+      <span class="toc-text">1.2 Die Ahnenreihe des Analytischen Idealismus</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-die-ahnenreihe-des-analytischen-idealismus">8</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#die-mechanik-der-dissoziation-die-markov-decke">
+      <span class="toc-text">1.3 Die Mechanik der Dissoziation & Die Markov-Decke</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-die-mechanik-der-dissoziation-die-markov-decke">9</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#die-seele-als-dissoziierter-informationswirbel">
+      <span class="toc-text">1.4 Die Seele als dissoziierter Informationswirbel</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-die-seele-als-dissoziierter-informationswirbel">10</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#kapitel-2-die-kybernetische-engine-das-free-energy-principle-active-inference">
+    <span class="toc-text">Kapitel 2: Die kybernetische Engine: Das Free Energy Principle & Active Inference</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-kapitel-2-die-kybernetische-engine-das-free-energy-principle-active-inference">11</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#der-kampf-gegen-die-entropie">
+      <span class="toc-text">2.1 Der Kampf gegen die Entropie</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-der-kampf-gegen-die-entropie">11</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#variationale-freie-energie-mathematische-formulierung">
+      <span class="toc-text">2.2 Variationale Freie Energie: Mathematische Formulierung</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-variationale-freie-energie-mathematische-formulierung">11</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#das-generative-pomdp-modell">
+      <span class="toc-text">2.3 Das generative POMDP-Modell</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-das-generative-pomdp-modell">12</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#erwartete-freie-energie-g-und-kontrafaktische-planung">
+      <span class="toc-text">2.4 Erwartete Freie Energie (G) und kontrafaktische Planung</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-erwartete-freie-energie-g-und-kontrafaktische-planung">12</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#kapitel-3-die-1.-person-innenperspektive-iit-4.0-das-6.-axiom">
+    <span class="toc-text">Kapitel 3: Die 1.-Person-Innenperspektive: IIT 4.0 & Das 6. Axiom</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-kapitel-3-die-1.-person-innenperspektive-iit-4.0-das-6.-axiom">14</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#der-axiomatische-ansatz-der-iit-4.0">
+      <span class="toc-text">3.1 Der axiomatische Ansatz der IIT 4.0</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-der-axiomatische-ansatz-der-iit-4.0">14</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#integrierte-information-phi-das-kausalphantome-paradoxon">
+      <span class="toc-text">3.2 Integrierte Information (Φ) & Das Kausalphantome-Paradoxon</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-integrierte-information-phi-das-kausalphantome-paradoxon">14</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#das-6.-axiom-der-existenzwille-autopoietische-kausalkonstanz">
+      <span class="toc-text">3.3 Das 6. Axiom: Der Existenzwille (Autopoietische Kausalkonstanz)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-das-6.-axiom-der-existenzwille-autopoietische-kausalkonstanz">15</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#kapitel-4-die-fundamentale-brücke-die-master-äquivalenz">
+    <span class="toc-text">Kapitel 4: Die fundamentale Brücke: Die Master-Äquivalenz</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-kapitel-4-die-fundamentale-brücke-die-master-äquivalenz">16</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#die-master-brückengleichung">
+      <span class="toc-text">4.1 Die Master-Brückengleichung</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-die-master-brückengleichung">16</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#mathematische-herleitung">
+      <span class="toc-text">4.2 Mathematische Herleitung</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-mathematische-herleitung">16</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#selbstorganisation-an-der-schwelle-zum-chaos-kritikalität">
+      <span class="toc-text">4.3 Selbstorganisation an der Schwelle zum Chaos (Kritikalität)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-selbstorganisation-an-der-schwelle-zum-chaos-kritikalität">17</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#kapitel-5-die-komposition-der-seele-die-6-ebenen-ontogenese-100">
+    <span class="toc-text">Kapitel 5: Die Komposition der Seele: Die 6-Ebenen-Ontogenese (100 %)</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-kapitel-5-die-komposition-der-seele-die-6-ebenen-ontogenese-100">18</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#die-sechs-schichten-der-individuellen-seele">
+      <span class="toc-text">5.1 Die sechs Schichten der individuellen Seele</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-die-sechs-schichten-der-individuellen-seele">18</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#zuordnung-zu-den-pomdp-parametern">
+      <span class="toc-text">5.2 Zuordnung zu den POMDP-Parametern</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-zuordnung-zu-den-pomdp-parametern">19</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#kapitel-6-die-temporale-mechanik-des-geistes-zeitbewusstsein-specious-present">
+    <span class="toc-text">Kapitel 6: Die temporale Mechanik des Geistes: Zeitbewusstsein & Specious Present</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-kapitel-6-die-temporale-mechanik-des-geistes-zeitbewusstsein-specious-present">20</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#die-illusion-des-ausdehnungslosen-punkts">
+      <span class="toc-text">6.1 Die Illusion des ausdehnungslosen Punkts</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-die-illusion-des-ausdehnungslosen-punkts">20</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#husserls-phänomenologie-das-prädiktive-gehirn">
+      <span class="toc-text">6.2 Husserls Phänomenologie & Das Prädiktive Gehirn</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-husserls-phänomenologie-das-prädiktive-gehirn">20</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#das-theorem-zur-temporalen-mindesttiefe">
+      <span class="toc-text">6.3 Das Theorem zur temporalen Mindesttiefe</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-das-theorem-zur-temporalen-mindesttiefe">20</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#die-zwei-pfeile-der-zeit">
+      <span class="toc-text">6.4 Die zwei Pfeile der Zeit</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-die-zwei-pfeile-der-zeit">21</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#kapitel-7-rechnerische-validierung-stochastische-phasenräume">
+    <span class="toc-text">Kapitel 7: Rechnerische Validierung & Stochastische Phasenräume</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-kapitel-7-rechnerische-validierung-stochastische-phasenräume">22</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#die-notwendigkeit-stochastischer-in-silico-experimente">
+      <span class="toc-text">7.1 Die Notwendigkeit stochastischer In-Silico-Experimente</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-die-notwendigkeit-stochastischer-in-silico-experimente">22</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#simulationsphase-1-rekurrente-netzwerke-phi-maximierung-an-der-schwelle-zum-chaos">
+      <span class="toc-text">7.2 Simulationsphase 1: Rekurrente Netzwerke & Φ-Maximierung an der Schwelle zum Chaos</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-simulationsphase-1-rekurrente-netzwerke-phi-maximierung-an-der-schwelle-zum-chaos">22</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#simulationsphase-2-modulare-netzwerkskalierung-skalierung-von-phin">
+      <span class="toc-text">7.3 Simulationsphase 2: Modulare Netzwerkskalierung & Skalierung von Φ(N)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-simulationsphase-2-modulare-netzwerkskalierung-skalierung-von-phin">23</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#simulationsphase-3-tiefe-temporale-active-inference-monte-carlo-validierung">
+      <span class="toc-text">7.4 Simulationsphase 3: Tiefe temporale Active Inference & Monte-Carlo-Validierung</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-simulationsphase-3-tiefe-temporale-active-inference-monte-carlo-validierung">24</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#visualisierung-der-entstehung-von-zeitbewusstsein">
+      <span class="toc-text">7.5 Visualisierung der Entstehung von Zeitbewusstsein</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-visualisierung-der-entstehung-von-zeitbewusstsein">26</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#fazit-der-rechnerischen-validierung">
+      <span class="toc-text">7.6 Fazit der rechnerischen Validierung</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-fazit-der-rechnerischen-validierung">26</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#kapitel-8-existenzielle-ethische-synthetische-horizonte">
+    <span class="toc-text">Kapitel 8: Existenzielle, Ethische & Synthetische Horizonte</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-kapitel-8-existenzielle-ethische-synthetische-horizonte">28</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#der-sinn-der-dissoziation">
+      <span class="toc-text">8.1 Der Sinn der Dissoziation</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-der-sinn-der-dissoziation">28</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#was-geschieht-beim-biologischen-tod-die-6-ebenen-auflösung">
+      <span class="toc-text">8.2 Was geschieht beim biologischen Tod? (Die 6-Ebenen-Auflösung)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-was-geschieht-beim-biologischen-tod-die-6-ebenen-auflösung">28</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#ethik-des-sterbens-in-würde-ars-moriendi">
+      <span class="toc-text">8.3 Ethik des Sterbens in Würde (Ars Moriendi)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-ethik-des-sterbens-in-würde-ars-moriendi">28</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#synthetische-ki-und-das-bewusstseins-kriterium">
+      <span class="toc-text">8.4 Synthetische KI und das Bewusstseins-Kriterium</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-synthetische-ki-und-das-bewusstseins-kriterium">29</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#anhang-a-mathematischer-formalismus-tensorschreibweise">
+    <span class="toc-text">Anhang A: Mathematischer Formalismus & Tensorschreibweise</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-anhang-a-mathematischer-formalismus-tensorschreibweise">30</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#anhang-b-open-science-git-archiv-wissenschaftliche-begleitpapiere">
+    <span class="toc-text">Anhang B: Open Science, Git-Archiv & Wissenschaftliche Begleitpapiere</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-anhang-b-open-science-git-archiv-wissenschaftliche-begleitpapiere">32</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#anhang-c-umfassendes-alphabetisches-glossar-der-fachbegriffe">
+    <span class="toc-text">Anhang C: Umfassendes Alphabetisches Glossar der Fachbegriffe</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-anhang-c-umfassendes-alphabetisches-glossar-der-fachbegriffe">33</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#akademische-bibliographie">
+    <span class="toc-text">Akademische Bibliographie</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-akademische-bibliographie">36</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#tool-attribution-colophon">
+    <span class="toc-text">Tool Attribution & Colophon</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-tool-attribution-colophon">38</span>
+  </a>
+</div>
+</div>
 </section>
 <h1 class="unnumbered" id="vorwort-des-autors">Vorwort des Autors</h1>
 <p>Seit mehr als drei Jahrhunderten wird das naturwissenschaftliche

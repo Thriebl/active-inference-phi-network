@@ -217,6 +217,103 @@
             margin: 0 auto;
             color: #1e293b;
         }
+
+        /* Table of Contents Styling */
+        .toc-wrapper {
+            page-break-before: always;
+            break-before: page;
+            page-break-after: always;
+            break-after: page;
+            padding-top: 10pt;
+        }
+
+        .toc-main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 18pt;
+            font-weight: 700;
+            text-align: center;
+            color: #0f172a;
+            border-bottom: 1.5px solid #0284c7;
+            padding-bottom: 8pt;
+            margin-top: 20pt;
+            margin-bottom: 20pt;
+            letter-spacing: 1px;
+            page-break-before: avoid;
+            break-before: avoid;
+        }
+
+        .toc-tree {
+            width: 100%;
+        }
+
+        .toc-entry {
+            line-height: 1.38;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .toc-entry a {
+            display: flex;
+            align-items: baseline;
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+        }
+
+        .toc-h1 {
+            margin-top: 8pt;
+            margin-bottom: 2.5pt;
+            font-family: 'EB Garamond', serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .toc-h1.toc-chapter a .toc-text {
+            color: #0369a1;
+            font-family: 'Cinzel', serif;
+            font-size: 9.8pt;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+
+        .toc-sub-group {
+            margin-bottom: 5pt;
+        }
+
+        .toc-h2 {
+            margin-left: 14pt;
+            margin-top: 2pt;
+            margin-bottom: 2pt;
+            font-family: 'EB Garamond', serif;
+            font-size: 9.5pt;
+            font-weight: 400;
+            color: #334155;
+        }
+
+        .toc-text {
+            flex: 0 1 auto;
+            max-width: 82%;
+        }
+
+        .toc-dots {
+            flex: 1 1 auto;
+            border-bottom: 1px dotted #94a3b8;
+            margin: 0 5pt;
+            min-width: 12pt;
+            position: relative;
+            top: -3px;
+        }
+
+        .toc-pg {
+            flex: 0 0 auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9pt;
+            color: #475569;
+            font-weight: 500;
+            text-align: right;
+            min-width: 18pt;
+        }
         
         /* Subheadings must NEVER trigger page breaks and must not be orphaned */
         h2 {
@@ -415,6 +512,531 @@ Luxembourg · 2026
 incidental byproduct of dead matter, but the fundamental ground of
 reality itself—and to those who strive to unite the mathematical rigor
 of science with the living depth of subjective interiority.</em></p>
+</section>
+<section class="toc-wrapper">
+<h1 class="toc-main-title">Table of Contents</h1>
+<div class="toc-tree">
+<div class="toc-entry toc-h1">
+  <a href="#authors-preface">
+    <span class="toc-text">Author’s Preface</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-authors-preface">5</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#the-epistemological-manifesto-beyond-the-cogito">
+    <span class="toc-text">The Epistemological Manifesto: Beyond the Cogito</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-the-epistemological-manifesto-beyond-the-cogito">6</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#chapter-1-the-crisis-of-physicalism-the-architecture-of-mind-at-large">
+    <span class="toc-text">Chapter 1: The Crisis of Physicalism & The Architecture of Mind-at-Large</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-chapter-1-the-crisis-of-physicalism-the-architecture-of-mind-at-large">7</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#the-historical-genesis-of-the-physicalist-dogma">
+      <span class="toc-text">1.1 The Historical Genesis of the Physicalist Dogma</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-historical-genesis-of-the-physicalist-dogma">7</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-explanatory-chasm-levine-jackson-and-chalmers">
+      <span class="toc-text">1.2 The Explanatory Chasm: Levine, Jackson, and Chalmers</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-explanatory-chasm-levine-jackson-and-chalmers">9</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-epistemological-inversion-mind-as-the-primary-datum">
+      <span class="toc-text">1.3 The Epistemological Inversion: Mind as the Primary Datum</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-epistemological-inversion-mind-as-the-primary-datum">10</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-bankruptcy-of-eliminative-materialism-panpsychism">
+      <span class="toc-text">1.4 The Bankruptcy of Eliminative Materialism & Panpsychism</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-bankruptcy-of-eliminative-materialism-panpsychism">11</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-lineage-of-analytic-idealism">
+      <span class="toc-text">1.5 The Lineage of Analytic Idealism</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-lineage-of-analytic-idealism">11</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-topology-of-dissociation-how-alters-form">
+      <span class="toc-text">1.6 The Topology of Dissociation: How Alters Form</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-topology-of-dissociation-how-alters-form">13</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-statistical-physics-of-the-markov-blanket">
+      <span class="toc-text">1.7 The Statistical Physics of the Markov Blanket</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-statistical-physics-of-the-markov-blanket">14</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-definition-of-the-conscious-soul-in-the-cif">
+      <span class="toc-text">1.8 The Definition of the Conscious Soul in the CIF</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-definition-of-the-conscious-soul-in-the-cif">15</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#chapter-2-the-cybernetic-engine-the-free-energy-principle-active-inference">
+    <span class="toc-text">Chapter 2: The Cybernetic Engine: The Free Energy Principle & Active Inference</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-chapter-2-the-cybernetic-engine-the-free-energy-principle-active-inference">16</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#the-thermodynamic-crisis-resisting-entropic-dissolution">
+      <span class="toc-text">2.1 The Thermodynamic Crisis: Resisting Entropic Dissolution</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-thermodynamic-crisis-resisting-entropic-dissolution">16</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#mathematical-derivation-of-variational-free-energy">
+      <span class="toc-text">2.2 Mathematical Derivation of Variational Free Energy</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-mathematical-derivation-of-variational-free-energy">18</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#continuous-active-inference-generalized-coordinates-of-motion">
+      <span class="toc-text">2.3 Continuous Active Inference & Generalized Coordinates of Motion</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-continuous-active-inference-generalized-coordinates-of-motion">19</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-nonequilibrium-steady-state-ness-and-solenoidal-flows">
+      <span class="toc-text">2.4 The Nonequilibrium Steady State (NESS) and Solenoidal Flows</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-nonequilibrium-steady-state-ness-and-solenoidal-flows">20</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-discrete-generative-model-pomdp-tensor-architecture">
+      <span class="toc-text">2.5 The Discrete Generative Model: POMDP Tensor Architecture</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-discrete-generative-model-pomdp-tensor-architecture">20</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#expected-free-energy-g-and-temporal-depth">
+      <span class="toc-text">2.6 Expected Free Energy (G) and Temporal Depth</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-expected-free-energy-g-and-temporal-depth">22</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#multiscale-biological-active-inference-cells-tissues-and-morphogenesis">
+      <span class="toc-text">2.7 Multiscale Biological Active Inference: Cells, Tissues, and Morphogenesis</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-multiscale-biological-active-inference-cells-tissues-and-morphogenesis">23</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#chapter-3-1st-person-causal-interiority-iit-4.0-the-6th-axiom">
+    <span class="toc-text">Chapter 3: 1st-Person Causal Interiority: IIT 4.0 & The 6th Axiom</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-chapter-3-1st-person-causal-interiority-iit-4.0-the-6th-axiom">25</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#the-phenomenological-foundations-of-iit-4.0">
+      <span class="toc-text">3.1 The Phenomenological Foundations of IIT 4.0</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-phenomenological-foundations-of-iit-4.0">25</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#quantifying-cause-effect-power-phi-and-the-earth-movers-distance">
+      <span class="toc-text">3.2 Quantifying Cause-Effect Power (Φ) and the Earth Mover’s Distance</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-quantifying-cause-effect-power-phi-and-the-earth-movers-distance">27</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#qualia-space-geometry-distinctions-relations-and-causal-polyhedra">
+      <span class="toc-text">3.3 Qualia Space Geometry: Distinctions, Relations, and Causal Polyhedra</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-qualia-space-geometry-distinctions-relations-and-causal-polyhedra">29</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-static-flaw-of-iit-4.0-the-paradox-of-causal-phantoms">
+      <span class="toc-text">3.4 The Static Flaw of IIT 4.0: The Paradox of Causal Phantoms</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-static-flaw-of-iit-4.0-the-paradox-of-causal-phantoms">30</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-discovery-of-the-6th-axiom-the-will-to-exist-conatus">
+      <span class="toc-text">3.5 The Discovery of the 6th Axiom: The Will to Exist (Conatus)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-discovery-of-the-6th-axiom-the-will-to-exist-conatus">31</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#mathematical-formulation-of-the-conative-constraint-and-causal-degradation">
+      <span class="toc-text">3.6 Mathematical Formulation of the Conative Constraint and Causal Degradation</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-mathematical-formulation-of-the-conative-constraint-and-causal-degradation">32</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#philosophical-significance-of-the-6th-axiom">
+      <span class="toc-text">3.7 Philosophical Significance of the 6th Axiom</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-philosophical-significance-of-the-6th-axiom">33</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#chapter-4-the-fundamental-bridge-uniting-3rd-person-cybernetics-with-1st-person-causal-interiority">
+    <span class="toc-text">Chapter 4: The Fundamental Bridge: Uniting 3rd-Person Cybernetics with 1st-Person Causal Interiority</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-chapter-4-the-fundamental-bridge-uniting-3rd-person-cybernetics-with-1st-person-causal-interiority">35</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#the-master-bridging-equivalence">
+      <span class="toc-text">4.1 The Master Bridging Equivalence</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-master-bridging-equivalence">35</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#formal-derivation-mathematical-proofs">
+      <span class="toc-text">4.2 Formal Derivation & Mathematical Proofs</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-formal-derivation-mathematical-proofs">37</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#information-geometry-and-the-fisher-rao-manifold-of-consciousness">
+      <span class="toc-text">4.3 Information Geometry and the Fisher-Rao Manifold of Consciousness</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-information-geometry-and-the-fisher-rao-manifold-of-consciousness">40</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#self-organization-at-the-edge-of-chaos-criticality">
+      <span class="toc-text">4.4 Self-Organization at the Edge of Chaos (Criticality)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-self-organization-at-the-edge-of-chaos-criticality">42</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#neuroanatomical-realization-the-thalamocortical-core-and-triple-network-architecture">
+      <span class="toc-text">4.5 Neuroanatomical Realization: The Thalamocortical Core and Triple-Network Architecture</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-neuroanatomical-realization-the-thalamocortical-core-and-triple-network-architecture">44</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#scaling-laws-superlinearity-and-modular-saturation">
+      <span class="toc-text">4.6 Scaling Laws: Superlinearity and Modular Saturation</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-scaling-laws-superlinearity-and-modular-saturation">45</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#chapter-5-the-composition-of-the-soul-the-6-layer-ontogenetic-tapestry">
+    <span class="toc-text">Chapter 5: The Composition of the Soul: The 6-Layer Ontogenetic Tapestry</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-chapter-5-the-composition-of-the-soul-the-6-layer-ontogenetic-tapestry">46</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#beyond-substance-dualism-and-eliminative-materialism">
+      <span class="toc-text">5.1 Beyond Substance Dualism and Eliminative Materialism</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-beyond-substance-dualism-and-eliminative-materialism">46</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-six-architectural-layers-of-the-soul">
+      <span class="toc-text">5.2 The Six Architectural Layers of the Soul</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-six-architectural-layers-of-the-soul">47</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#active-inference-mapping-uniting-neurobiology-with-pomdp-tensors">
+      <span class="toc-text">5.3 Active Inference Mapping: Uniting Neurobiology with POMDP Tensors</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-active-inference-mapping-uniting-neurobiology-with-pomdp-tensors">50</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#clinical-case-studies-split-brain-phenomena-across-the-6-layers">
+      <span class="toc-text">5.4 Clinical Case Studies & Split-Brain Phenomena Across the 6 Layers</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-clinical-case-studies-split-brain-phenomena-across-the-6-layers">51</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#chapter-6-the-temporal-mechanics-of-consciousness-the-specious-present">
+    <span class="toc-text">Chapter 6: The Temporal Mechanics of Consciousness & The Specious Present</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-chapter-6-the-temporal-mechanics-of-consciousness-the-specious-present">53</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#the-fallacy-of-the-dimensionless-instant">
+      <span class="toc-text">6.1 The Fallacy of the Dimensionless Instant</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-fallacy-of-the-dimensionless-instant">53</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#husserls-tripartite-triad-and-the-predictive-brain">
+      <span class="toc-text">6.2 Husserl’s Tripartite Triad and the Predictive Brain</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-husserls-tripartite-triad-and-the-predictive-brain">53</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#cross-frequency-phase-amplitude-coupling-pac-and-the-neural-metric-of-time">
+      <span class="toc-text">6.3 Cross-Frequency Phase-Amplitude Coupling (PAC) and the Neural Metric of Time</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-cross-frequency-phase-amplitude-coupling-pac-and-the-neural-metric-of-time">56</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-theorem-of-minimum-temporal-depth-h-1">
+      <span class="toc-text">6.4 The Theorem of Minimum Temporal Depth (H > 1)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-theorem-of-minimum-temporal-depth-h-1">56</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#chronopathologies-when-internal-time-fractures">
+      <span class="toc-text">6.5 Chronopathologies: When Internal Time Fractures</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-chronopathologies-when-internal-time-fractures">58</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-dual-arrows-of-time-thermodynamic-entropy-vs.-conative-will">
+      <span class="toc-text">6.6 The Dual Arrows of Time: Thermodynamic Entropy vs. Conative Will</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-dual-arrows-of-time-thermodynamic-entropy-vs.-conative-will">58</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#chapter-7-computational-verification-stochastic-phase-spaces">
+    <span class="toc-text">Chapter 7: Computational Verification & Stochastic Phase Spaces</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-chapter-7-computational-verification-stochastic-phase-spaces">61</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#the-epistemological-mandate-of-in-silico-verification">
+      <span class="toc-text">7.1 The Epistemological Mandate of In Silico Verification</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-epistemological-mandate-of-in-silico-verification">61</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#simulation-phase-1-recurrent-active-inference-phi-maximization-at-criticality">
+      <span class="toc-text">7.2 Simulation Phase 1: Recurrent Active Inference & Φ-Maximization at Criticality</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-simulation-phase-1-recurrent-active-inference-phi-maximization-at-criticality">62</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#topological-phase-space-dynamics-lyapunov-exponent-analysis">
+      <span class="toc-text">7.3 Topological Phase Space Dynamics & Lyapunov Exponent Analysis</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-topological-phase-space-dynamics-lyapunov-exponent-analysis">63</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#simulation-phase-2-modular-network-expansion-scaling-laws">
+      <span class="toc-text">7.4 Simulation Phase 2: Modular Network Expansion & Scaling Laws</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-simulation-phase-2-modular-network-expansion-scaling-laws">65</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-epistemic-foraging-theorem-information-gain-as-an-anti-entropic-shield">
+      <span class="toc-text">7.5 The Epistemic Foraging Theorem: Information Gain as an Anti-Entropic Shield</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-epistemic-foraging-theorem-information-gain-as-an-anti-entropic-shield">66</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#simulation-phase-3-deep-temporal-active-inference-monte-carlo-verification">
+      <span class="toc-text">7.6 Simulation Phase 3: Deep Temporal Active Inference & Monte Carlo Verification</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-simulation-phase-3-deep-temporal-active-inference-monte-carlo-verification">67</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#monte-carlo-ensemble-results-n-30-runs-t-25-steps">
+      <span class="toc-text">7.7 Monte Carlo Ensemble Results (N = 30 Runs, T = 25 Steps)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-monte-carlo-ensemble-results-n-30-runs-t-25-steps">67</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#theoretical-summary-of-computational-verifications">
+      <span class="toc-text">7.8 Theoretical Summary of Computational Verifications</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-theoretical-summary-of-computational-verifications">69</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1 toc-chapter">
+  <a href="#chapter-8-existential-ethical-synthetic-horizons">
+    <span class="toc-text">Chapter 8: Existential, Ethical & Synthetic Horizons</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-chapter-8-existential-ethical-synthetic-horizons">70</span>
+  </a>
+</div>
+<div class="toc-sub-group">
+  <div class="toc-entry toc-h2">
+    <a href="#the-cosmic-teleology-of-dissociation">
+      <span class="toc-text">8.1 The Cosmic Teleology of Dissociation</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-cosmic-teleology-of-dissociation">70</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#planetary-active-inference-nested-super-organisms">
+      <span class="toc-text">8.3 Planetary Active Inference & Nested Super-Organisms</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-planetary-active-inference-nested-super-organisms">71</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-architecture-of-biological-dying-the-6-layer-dissolution">
+      <span class="toc-text">8.4 The Architecture of Biological Dying: The 6-Layer Dissolution</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-architecture-of-biological-dying-the-6-layer-dissolution">72</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-ethics-of-dying-in-dignity-ars-moriendi">
+      <span class="toc-text">8.5 The Ethics of Dying in Dignity (Ars Moriendi)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-ethics-of-dying-in-dignity-ars-moriendi">74</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#trauma-healing-as-predictive-re-weighting-the-rebus-model">
+      <span class="toc-text">8.6 Trauma Healing as Predictive Re-weighting (The REBUS Model)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-trauma-healing-as-predictive-re-weighting-the-rebus-model">74</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-threshold-of-synthetic-ai-sentience-moral-patiency">
+      <span class="toc-text">8.7 The Threshold of Synthetic AI Sentience & Moral Patiency</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-threshold-of-synthetic-ai-sentience-moral-patiency">75</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-conservation-of-experiential-reality-the-cosmic-return">
+      <span class="toc-text">8.8 The Conservation of Experiential Reality & The Cosmic Return</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-conservation-of-experiential-reality-the-cosmic-return">79</span>
+    </a>
+  </div>
+  <div class="toc-entry toc-h2">
+    <a href="#the-conative-manifesto-a-compass-for-21st-century-science">
+      <span class="toc-text">8.9 The Conative Manifesto: A Compass for 21st-Century Science</span>
+      <span class="toc-dots"></span>
+      <span class="toc-pg" id="pg-the-conative-manifesto-a-compass-for-21st-century-science">79</span>
+    </a>
+  </div>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#appendix-a-tensor-algebra-of-discrete-pomdps-variational-message-passing">
+    <span class="toc-text">Appendix A: Tensor Algebra of Discrete POMDPs & Variational Message Passing</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-appendix-a-tensor-algebra-of-discrete-pomdps-variational-message-passing">81</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#appendix-b-algorithmic-formalism-of-integrated-information-theory-4.0">
+    <span class="toc-text">Appendix B: Algorithmic Formalism of Integrated Information Theory 4.0</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-appendix-b-algorithmic-formalism-of-integrated-information-theory-4.0">83</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#appendix-c-stochastic-differential-equations-for-nonequilibrium-steady-states">
+    <span class="toc-text">Appendix C: Stochastic Differential Equations for Nonequilibrium Steady States</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-appendix-c-stochastic-differential-equations-for-nonequilibrium-steady-states">84</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#appendix-d-numerical-algorithms-for-wasserstein-mip-search-in-python">
+    <span class="toc-text">Appendix D: Numerical Algorithms for Wasserstein MIP Search in Python</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-appendix-d-numerical-algorithms-for-wasserstein-mip-search-in-python">85</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#appendix-e-comprehensive-technical-glossary">
+    <span class="toc-text">Appendix E: Comprehensive Technical Glossary</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-appendix-e-comprehensive-technical-glossary">88</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#academic-references-comprehensive-bibliography">
+    <span class="toc-text">Academic References & Comprehensive Bibliography</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-academic-references-comprehensive-bibliography">91</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#about-the-author">
+    <span class="toc-text">About the Author</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-about-the-author">95</span>
+  </a>
+</div>
+<div class="toc-entry toc-h1">
+  <a href="#tool-attribution-colophon">
+    <span class="toc-text">Tool Attribution & Colophon</span>
+    <span class="toc-dots"></span>
+    <span class="toc-pg" id="pg-tool-attribution-colophon">96</span>
+  </a>
+</div>
+</div>
 </section>
 <h1 class="unnumbered" id="authors-preface">Author’s Preface</h1>
 <p>For more than three centuries, the mainstream scientific worldview
