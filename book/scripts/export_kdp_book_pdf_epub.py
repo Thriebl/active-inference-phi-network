@@ -17,6 +17,7 @@ BUILD_DIR = os.path.join(BOOK_DIR, "build")
 DOCS_DIR = "/home/thr/Documents/active-inference-phi-network/docs"
 VAULT_DIR = "/home/thr/Documents/ThRNotes/03-professional/braindumps"
 VAULT_PDF_DIR = "/home/thr/Documents/ThRNotes/Alle_Braindumps_PDF"
+BOOKS_DIR = "/home/thr/Documents/01_Books"
 
 def merge_chapters(source_dir, output_file):
     chapter_files = sorted([f for f in os.listdir(source_dir) if f.endswith(".md")])
@@ -477,6 +478,8 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
     pdf_basename = os.path.basename(pdf_out)
     shutil.copy(pdf_out, os.path.join(DOCS_DIR, pdf_basename))
     shutil.copy(pdf_out, os.path.join(VAULT_PDF_DIR, pdf_basename))
+    if os.path.exists(BOOKS_DIR):
+        shutil.copy(pdf_out, os.path.join(BOOKS_DIR, pdf_basename))
     print(f"✓ Created PDF: {pdf_out}")
 
 def main():
