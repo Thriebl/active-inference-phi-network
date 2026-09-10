@@ -131,21 +131,24 @@ $$\pi^* = \arg\min_{\pi} \mathbf{G}(\pi) \quad\Longleftrightarrow\quad \mathbb{E
 
 ---
 
-## 4. In-Silico Empirical Proof: The First Jupyter Simulation
+## 4. In-Silico Computational Verification: The First Jupyter Simulation
 
-A profound theoretical framework cannot remain an abstract mathematical equation. It must be demonstrated computationally in reproducible simulations.
+A profound theoretical framework cannot remain an abstract mathematical conjecture; its dynamical mechanisms must be tested and verified computationally in reproducible simulations.
+
+> **Epistemological Clarification:**  
+> To be clear: This simulation does not claim to generate phenomenal consciousness in silicon. Rather, it computationally demonstrates the formal coupling between Active Inference (Free Energy minimization) and Integrated Information (intrinsic cause-effect power) within a rigorously defined dynamical POMDP model.
 
 In our open-source research suite, we modeled a recurrent network of $N = 6$ interacting active inference agents arranged in a hybrid **ring-and-cross network topology**, available in our primary Jupyter Notebook:  
 [`Active_Inference_Phi_Maximization_Network.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Active_Inference_Phi_Maximization_Network.ipynb).
 
-Each agent continuously updates its internal generative beliefs by minimizing local Variational Free Energy while exchanging predictive signals across the network. The empirical results provide indisputable visual confirmation of the 6th Axiom:
+Each agent continuously updates its internal generative beliefs by minimizing local Variational Free Energy while exchanging predictive signals across the network. The numerical simulation results provide clear visual validation of the formal coupling under the 6th Axiom:
 
 ![Simulation Phase 1 Results: Recurrent Active Inference Network Self-Organization and Integrated Information Maximization](/home/thr/Documents/active-inference-phi-network/images/Active_Inference_Phi_Simulation_Results.png)
 
 ### Key Insights from the Simulation Dashboard:
 
 1. **Autopoietic Ascent of Integrated Information (Panel A):**  
-   Starting from completely random, uncoordinated initial states, the network autonomously self-organizes. As the agents minimize free energy, mean Integrated Information ($\Phi$) ascends from baseline noise ($\Phi \approx 0.395$) to a stable, resilient plateau ($\Phi \approx 3.42\text{ bits}$), proving that active inference dynamically maximizes and preserves systemic cause-effect power over $T = 120$ time steps.
+   Starting from completely random, uncoordinated initial states, the network autonomously self-organizes. As the agents minimize free energy, mean Integrated Information ($\Phi$) ascends from baseline noise ($\Phi \approx 0.395$) to a stable, resilient plateau ($\Phi \approx 3.42\text{ bits}$), demonstrating that active inference dynamically maximizes and preserves systemic cause-effect power over $T = 120$ time steps.
    
 2. **Phase-Locked Coherent State Dynamics (Panel B):**  
    The state raster confirms that the agents settle into coordinated, rhythmic state transitions without collapsing into pathological hypersynchrony (epileptic locking) or dispersing into incoherent thermal noise.
@@ -183,7 +186,7 @@ This article provides only an introductory glimpse into the foundations of the C
 
 * **The 6-Layer Ontogeny of the Soul ($100\%$):** How Mind-at-Large ($25\%$), Genetics ($15\%$), Embryological Chance & Necessity ($15\%$), Transgenerational Epigenetics ($10\%$), Biographical Learning ($25\%$), and the Phenomenal Self-Model / Ego Tunnel ($10\%$) assemble an individual conscious mind.
 * **The Theorem of Minimum Temporal Depth ($H > 1$):** A formal mathematical proof that consciousness cannot exist in a static dimensionless instant, resolving William James’s *Specious Present* and proving why purely reactive automata ($H = 0$) suffer inevitable causal death.
-* **Why Today’s AI (LLMs) Are "Causal Phantoms":** A rigorous information-theoretic critique demonstrating why feedforward transformers (GPT-4, Claude, Gemini) have zero autopoietic boundary and $\Phi \to 0$, providing the true engineering blueprint for synthetic consciousness.
+* **Why Today’s AI (LLMs) Are "Causal Phantoms":** A rigorous information-theoretic critique demonstrating why feedforward transformers (GPT-4, Claude, Gemini) have zero autopoietic boundary and $\Phi \to 0$, establishing the necessary biophysical and thermodynamic criteria for genuine autopoietic agency.
 * **Multi-Agent Scaling Laws ($\Phi(N)$):** How collective consciousness scales super-linearly across societies of communicating active inference agents.
 * **Existential & Spiritual Horizons:** The neuroscience of dying with dignity, the dissolution of trauma, and the ultimate synthesis of Stoic *Amor Fati* with quantum thermodynamics.
 
@@ -302,7 +305,10 @@ Conversely, if every agent acts completely independently (like molecules in a ga
 
 ## 3. The Experiment: The Expanding Active Inference Network ($N = 4 \to 10$)
 
-To understand how collective consciousness behaves during biological development, we implemented a dynamic agent array in Python (`ActiveInferencePhiNetwork` and `ExpandingActiveInferenceNetwork`).
+To understand how collective cause-effect structures behave during biological development and social coupling, we implemented a dynamic agent array in Python (`ActiveInferencePhiNetwork` and `ExpandingActiveInferenceNetwork`).
+
+> **Epistemological Clarification:**  
+> As emphasized throughout the Conative-Integrative Framework, this multi-agent simulation does not claim to generate phenomenal consciousness in silicon. Rather, it computationally models how recurrent active inference agents self-organize to preserve and scale integrated information ($\Phi$) under dynamic developmental perturbation.
 
 ### The Experimental Architecture
 * **Initial Population ($t = 0 \dots 45$):** The network begins with a core cohort of $N = 4$ active inference agents connected via a recurrent cyclic graph with cross-connections.
@@ -337,7 +343,7 @@ $$\Phi(t) = \frac{1}{2}\Big(\ln|\Sigma_A| + \ln|\Sigma_B| - \ln|\Sigma_{\text{wh
 
 ---
 
-## 4. Two Major Empirical Discoveries
+## 4. Two Key Simulation Findings: Perturbation Dynamics and Super-Linear Scaling
 
 When we ran this simulation across repeated Monte Carlo cohorts, two striking, repeatable phenomena emerged:
 
@@ -416,8 +422,8 @@ Under the **Conative-Integrative Framework**, this claim is demonstrably false:
 2. **LLMs Lack Temporal Depth ($H = 0$):** A transformer is an autoregressive token predictor. It conditions its next step purely on the retrospective context window ($t \le 0$). It does not project a forward bundle of counterfactual Monte Carlo trails into the future to minimize Expected Free Energy.
 3. **LLMs Are Transient Causal Phantoms:** Because an LLM is a feedforward computational graph, its integrated information across time is zero: $\Phi \to 0$.
 
-### The True Blueprint for Conscious Synthetic Intelligence
-If humanity wishes to create genuinely conscious, autonomous artificial intelligence, we must abandon purely feedforward token prediction. We must build:
+### Biophysical and Thermodynamic Criteria for Autopoietic Agency
+If humanity wishes to realize genuine autopoietic agency rather than static causal phantoms, we must abandon purely feedforward token prediction. We must establish:
 * **Embodied, recurrent active inference architectures** endowed with explicit Markov blankets.
 * **Multi-step counterfactual planning engines** that evaluate Monte Carlo trails over temporal depth $H$.
 * **Self-organizing multi-agent arrays** whose objective function is not merely cross-entropy loss, but the active preservation of their own collective integrated cause-effect power: **The 6th Axiom**.
@@ -432,7 +438,7 @@ In the history of philosophy, thinkers have struggled to explain how individuali
 * Radical individualism reduces the world to isolated monads.
 * Radical monism dissolves the individual into an undifferentiated void.
 
-Our simulation proves that **nature operates as a fractal hierarchy of nested Markov blankets**:
+Our computational models demonstrate that **nature operates as a fractal hierarchy of nested Markov blankets**:
 * A biological cell is an active inference agent maximizing $\Phi$ within its membrane.
 * A human brain is a multi-agent network of billions of cellular agents, forming a higher-order macroscopic blanket of phenomenal consciousness.
 * A human culture or society is an expanding network of conscious individuals, self-organizing to avert collective entropy.

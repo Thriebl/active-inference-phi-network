@@ -65,7 +65,7 @@ flowchart TD
         
         M1["<b>Module 1: Recurrent Active Inference & Scaling Φ</b><br>Agents self-organize at the edge of chaos.<br>Φ scales superlinearly as nodes expand (N = 4 → 12)."]
         M2["<b>Module 2: Time, Consciousness & Temporal Depth</b><br>The Specious Present (Retention, Impression, Protention).<br>Theorem: Minimum Temporal Depth H > 1 for self-consciousness."]
-        M3["<b>Module 3: Monte Carlo Stochastic Methodology</b><br>Ensemble cohorts (N = 30) across stochastic POMDP phase spaces.<br>Empirical proof of the 6th Axiom against deceptive traps."]
+        M3["<b>Module 3: Monte Carlo Stochastic Methodology</b><br>Ensemble cohorts (N = 30) across stochastic POMDP phase spaces.<br>Computational verification of the 6th Axiom coupling against deceptive traps."]
         M4["<b>Module 4: The Composition of the Soul</b><br>6-Layer Soul Decomposition (100%):<br>Mind-at-Large, Genetics, Chance & Necessity, Epigenetics, Learning, Ego Tunnel."]
         
         M1 <===> M2 <===> M3 <===> M4
@@ -74,7 +74,7 @@ flowchart TD
 
 ### 1. Recurrent Active Inference & Integrated Information Maximization
 * Implements recurrent arrays of discrete-state POMDP active inference agents.
-* Proves that agents minimizing Expected Free Energy self-tune to the **Edge of Chaos (Criticality)**, maximizing Gaussian Integrated Information ($\Phi$).
+* Demonstrates that agents minimizing Expected Free Energy self-tune to the **Edge of Chaos (Criticality)**, maximizing Gaussian Integrated Information ($\Phi$).
 * Demonstrates modular scaling: as networks expand from $N=4$ to $N=12$, $\Phi$ exhibits superlinear scaling, bounded by modular clustering.
 
 ### 2. Time, Consciousness, and the Specious Present
@@ -85,7 +85,7 @@ flowchart TD
   > *$\ast$ Scientific Context:* While Friston et al. (2017, 2018) established temporal depth for action planning, and Seth (2014, 2021) described counterfactual richness as a correlate of presence, CIF formalizes this as an explicit **mathematical necessity theorem for phenomenal self-consciousness**, directly coupled to autopoietic $\Phi$-preservation under the 6th Axiom.
 
 ### 3. Monte Carlo Methodology in Stochastic Phase Spaces
-* Proves that single deterministic simulation runs cannot distinguish lucky flukes from genuine agency.
+* Demonstrates that single deterministic simulation runs cannot distinguish lucky flukes from genuine agency.
 * Employs **Monte Carlo Ensemble Sampling ($N = 30 \dots 1000$)** across observation noise ($A$-matrix), transition hazards ($B$-tensors), and precision-weighted action sampling ($\gamma$).
 * Demonstrates the **Phase-Space Bifurcation**: reactive agents ($H=0$) collapse ($36.7\%$ survival, $\Phi \to 0$), whereas deep temporal agents ($H=4$) achieve $100\%$ survival and maximal $\Phi(t) \approx 0.18$.
 

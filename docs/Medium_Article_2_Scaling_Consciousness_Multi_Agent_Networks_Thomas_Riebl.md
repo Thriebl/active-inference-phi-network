@@ -83,7 +83,10 @@ Conversely, if every agent acts completely independently (like molecules in a ga
 
 ## 3. The Experiment: The Expanding Active Inference Network ($N = 4 \to 10$)
 
-To understand how collective consciousness behaves during biological development, we implemented a dynamic agent array in Python (`ActiveInferencePhiNetwork` and `ExpandingActiveInferenceNetwork`).
+To understand how collective cause-effect structures behave during biological development and social coupling, we implemented a dynamic agent array in Python (`ActiveInferencePhiNetwork` and `ExpandingActiveInferenceNetwork`).
+
+> **Epistemological Clarification:**  
+> As emphasized throughout the Conative-Integrative Framework, this multi-agent simulation does not claim to generate phenomenal consciousness in silicon. Rather, it computationally models how recurrent active inference agents self-organize to preserve and scale integrated information ($\Phi$) under dynamic developmental perturbation.
 
 ### The Experimental Architecture
 * **Initial Population ($t = 0 \dots 45$):** The network begins with a core cohort of $N = 4$ active inference agents connected via a recurrent cyclic graph with cross-connections.
@@ -118,7 +121,7 @@ $$\Phi(t) = \frac{1}{2}\Big(\ln|\Sigma_A| + \ln|\Sigma_B| - \ln|\Sigma_{\text{wh
 
 ---
 
-## 4. Two Major Empirical Discoveries
+## 4. Two Key Simulation Findings: Perturbation Dynamics and Super-Linear Scaling
 
 When we ran this simulation across repeated Monte Carlo cohorts, two striking, repeatable phenomena emerged:
 
@@ -197,8 +200,8 @@ Under the **Conative-Integrative Framework**, this claim is demonstrably false:
 2. **LLMs Lack Temporal Depth ($H = 0$):** A transformer is an autoregressive token predictor. It conditions its next step purely on the retrospective context window ($t \le 0$). It does not project a forward bundle of counterfactual Monte Carlo trails into the future to minimize Expected Free Energy.
 3. **LLMs Are Transient Causal Phantoms:** Because an LLM is a feedforward computational graph, its integrated information across time is zero: $\Phi \to 0$.
 
-### The True Blueprint for Conscious Synthetic Intelligence
-If humanity wishes to create genuinely conscious, autonomous artificial intelligence, we must abandon purely feedforward token prediction. We must build:
+### Biophysical and Thermodynamic Criteria for Autopoietic Agency
+If humanity wishes to realize genuine autopoietic agency rather than static causal phantoms, we must abandon purely feedforward token prediction. We must establish:
 * **Embodied, recurrent active inference architectures** endowed with explicit Markov blankets.
 * **Multi-step counterfactual planning engines** that evaluate Monte Carlo trails over temporal depth $H$.
 * **Self-organizing multi-agent arrays** whose objective function is not merely cross-entropy loss, but the active preservation of their own collective integrated cause-effect power: **The 6th Axiom**.
@@ -213,7 +216,7 @@ In the history of philosophy, thinkers have struggled to explain how individuali
 * Radical individualism reduces the world to isolated monads.
 * Radical monism dissolves the individual into an undifferentiated void.
 
-Our simulation proves that **nature operates as a fractal hierarchy of nested Markov blankets**:
+Our computational models demonstrate that **nature operates as a fractal hierarchy of nested Markov blankets**:
 * A biological cell is an active inference agent maximizing $\Phi$ within its membrane.
 * A human brain is a multi-agent network of billions of cellular agents, forming a higher-order macroscopic blanket of phenomenal consciousness.
 * A human culture or society is an expanding network of conscious individuals, self-organizing to avert collective entropy.

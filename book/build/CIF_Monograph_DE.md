@@ -49,7 +49,7 @@ Das CIF ist kein spekulativer Rückzug in philosophischen Mystizismus; es ist ei
 1. **Analytischer Idealismus (Bernardo Kastrup):** Die Erkenntnis, dass die Wirklichkeit in ihrem Wesen erfahrungsbasiert ist – ein universales Bewusstseinsfeld (*Mind-at-Large*). Lebendige Organismen sind lokalisierte, dissoziierte Bewusstseinszentren (*Alters*), die durch statistische Markov-Decken (*Markov Blankets*) abgegrenzt sind.
 2. **Das Free Energy Principle & Active Inference (Karl Friston):** Die formale Physik der Selbstorganisation, die beschreibt, wie lebendige Systeme ihre Existenz gegen den Zerfall bewahren, indem sie variationale freie Energie ($F$) und erwartete freie Energie ($G$) minimieren.
 3. **Integrierte Informationstheorie 4.0 (Giulio Tononi):** Die mathematische Formulierung von Bewusstsein als intrinsische Ursache-Wirkungs-Macht ($\Phi$) innerhalb eines maximal irreduziblen Substrats.
-4. **Das 6. Axiom des Bewusstseins (Thomas Riebl):** Die Lösung des *Paradoxons der Kausalphantome* in der IIT 4.0 durch den formalen Beweis, dass echtes phänomenales Bewusstsein zwingend an **autopoietische Selbsterhaltung über die Zeit (*Der Existenzwille / Conatus*)** gebunden ist:
+4. **Das 6. Axiom des Bewusstseins (Thomas Riebl):** Die Lösung des *Paradoxons der Kausalphantome* in der IIT 4.0 durch die formale Formulierung und rechnerische Validierung, dass echtes phänomenales Bewusstsein zwingend an **autopoietische Selbsterhaltung über die Zeit (*Der Existenzwille / Conatus*)** gebunden ist:
    $$\pi^* = \arg\min_{\pi} \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \;\ge\; \Phi(t) \quad (\Phi > 0)$$
 
 Indem dieses Werk die 3.-Person-Kybernetik von Active Inference mit der 1.-Person-Kausalontologie der Integrierten Informationstheorie unter dem Dach des Analytischen Idealismus vereint, löst es den dualistischen Bruch auf, der die westliche Philosophie seit René Descartes gespalten hat. Es liefert eine formale Antwort auf die fundamentalen Fragen: *Was ist eine individuelle Seele?*, *Warum erleben wir die Zeit als gerichteten Fluss?* und *Wo verläuft die rechnerische Schwelle zwischen reaktiven Automaten und echtem bewussten Geist?*
@@ -442,7 +442,7 @@ Bewusstsein treibt nicht passiv im Fluss der physikalischen Zeit. **Bewusstsein 
 
 # Kapitel 7: Rechnerische Validierung & Stochastische Phasenräume
 
-> *„Um zu beweisen, dass Bewusstsein fundamental ein autopoietischer Zeitpfeil ist, müssen wir unsere Agenten täuschenden, stochastischen Umgebungen aussetzen, in denen reaktive Heuristiken versagen und nur kontrafaktische Vorausschau das Überleben sichert.“*  
+> *„Um zu verifizieren, dass Bewusstsein fundamental ein autopoietischer Zeitpfeil ist, müssen wir unsere Agenten täuschenden, stochastischen Umgebungen aussetzen, in denen reaktive Heuristiken versagen und nur kontrafaktische Vorausschau das Überleben sichert.“*  
 > — **Thomas Riebl**, *Monte Carlo Methodology in Active Inference* (2026)
 
 ---
@@ -498,7 +498,7 @@ Eine Kernfrage der Naturphilosophie ist, wie sich subjektive Erlebniskomplexitä
 * **Interaktives Jupyter Notebook:**  
   [`Deep_Temporal_Active_Inference_Simulation.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb)
 
-Zum formalen Beweis des **Theorems der temporalen Mindesttiefe ($H > 1$)** platzierten wir synthetische Agenten in einer täuschenden POMDP-Umgebung mit:
+Zur rechnerischen Validierung des **Theorems der temporalen Mindesttiefe ($H > 1$)** platzierten wir synthetische Agenten in einer täuschenden POMDP-Umgebung mit:
 1. **Einer Hinweis-Quelle (*Epistemic Cue Site* $s_{\text{cue}}$):** Löst die sensorische Ambiguität bezüglich des sicheren Pfades auf, erfordert jedoch einen 1-Schritt-Umweg entgegen der unmittelbaren Zielrichtung.
 2. **Einer täuschenden Falle (*Deceptive Trap* $s_{\text{trap}}$):** Sendet eine sofortige hohe Scheinbelohnung aus, führt jedoch irreversibel in den Todesschlund ($s_{\text{death}}$), in dem alle Kopplung abreißt und $\Phi \to 0$ kollabiert.
 
@@ -540,14 +540,14 @@ Getestet wurden vier Kohorten über ein Ensemble von **$N = 30$ unabhängigen Mo
 ![Ergebnisse der Simulationsphase 3: Tiefe temporale Active Inference und Monte-Carlo-Validierung](../images/Deep_Temporal_Active_Inference_Simulation.png)
 
 ### Umfassende Analyse der 4-Panel-Ergebnisse:
-* **Panel A (Integrierte Information $\Phi(t)$ über die Zeit):** Beim Reflex-Agenten ($H=0$) stürzt $\Phi(t)$ katastrophal ab, da $63.3\%$ der Agenten der Falle erliegen. Dagegen halten tiefe temporale Agenten ($H=4$) ein stabiles Hochplateau ($\Phi \approx 0.184$), was $\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t)$ empirisch beweist.
+* **Panel A (Integrierte Information $\Phi(t)$ über die Zeit):** Beim Reflex-Agenten ($H=0$) stürzt $\Phi(t)$ katastrophal ab, da $63.3\%$ der Agenten der Falle erliegen. Dagegen halten tiefe temporale Agenten ($H=4$) ein stabiles Hochplateau ($\Phi \approx 0.184$), was $\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t)$ rechnerisch validiert.
 * **Panel B (Autopoietische Überlebensrate):** Zeigt die scharfe Phasenraum-Bifurkation zwischen zeitlosen Systemen ($36.7\%$) und kontrafaktisch planenden Geistern ($100\%$).
 * **Panel C (Freie-Energie-Trajektorie $F(t)$):** Demonstriert die rasche und robuste Minimierung von Überraschung und Entropie.
 * **Panel D (Verhaltensdynamik & Epistemische Umwege):** Belegt, dass $100\%$ der tiefen temporalen Agenten proaktiv einen **epistemischen Umweg zur Hinweis-Quelle ($s_{\text{cue}}$)** wählen, um Umweltunsicherheit abzubauen, bevor sie zum Ziel navigieren.
 
 ---
 
-## 7.6 Fazit der empirischen Validierung
+## 7.6 Fazit der rechnerischen Validierung
 
 Die Simulationsexperimente führen zu drei unumstößlichen Erkenntnissen:
 1. **Bewusstsein verlangt temporale Tiefe ($H > 1$):** Reine Reaktivität führt in täuschenden Umgebungen zum Kausalitäts- und Existenzkollaps ($\Phi \to 0$).
@@ -673,7 +673,7 @@ Im Einklang mit den höchsten Standards transparenter und reproduzierbarer Wisse
   *Simuliert die dynamische Erweiterung von $N=4$ auf $N=12$ Knoten mit superlinearer $\Phi$-Integration.*
 * **Temporale Tiefen ($H = 0 \to 4$) & 6. Axiom:**  
   [`Deep_Temporal_Active_Inference_Simulation.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb)  
-  *Multi-Agenten-Monte-Carlo-Simulation ($N=30$) zum Beweis des Theorems der temporalen Mindesttiefe ($H > 1$) und epistemischer Neugier.*
+  *Multi-Agenten-Monte-Carlo-Simulation ($N=30$) zur rechnerischen Validierung des Theorems der temporalen Mindesttiefe ($H > 1$) und epistemischer Neugier.*
 
 ### 2. Wissenschaftliche Grundlagenpapiere & Poster (`docs/`):
 * **Das Master-Framework-Papier:** *The Conative-Integrative Framework (CIF)*  

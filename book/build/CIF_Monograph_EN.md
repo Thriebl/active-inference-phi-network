@@ -49,7 +49,7 @@ The CIF is not a speculative philosophical retreat into mystification; it is a u
 1. **Analytic Idealism (Bernardo Kastrup):** The recognition that reality in its essence is experiential—a universal field of consciousness (*Mind-at-Large*). Living organisms are localized, dissociated alters bounded by statistical Markov Blankets.
 2. **The Free Energy Principle & Active Inference (Karl Friston):** The formal physics of self-organization, describing how living systems preserve their phenotypic boundaries by minimizing Variational Free Energy ($F$) and Expected Free Energy ($G$).
 3. **Integrated Information Theory 4.0 (Giulio Tononi):** The rigorous mathematical formulation of consciousness as intrinsic cause-effect power ($\Phi$) within a maximally irreducible substrate.
-4. **The 6th Axiom of Consciousness (Thomas Riebl):** The resolution of the *Paradox of Transient Causal Phantoms* in IIT 4.0, proving that genuine consciousness strictly requires **autopoietic temporal self-preservation (*The Will to Exist / Conatus*)**:
+4. **The 6th Axiom of Consciousness (Thomas Riebl):** The resolution of the *Paradox of Transient Causal Phantoms* in IIT 4.0, establishing that genuine consciousness strictly requires **autopoietic temporal self-preservation (*The Will to Exist / Conatus*)**:
    $$\pi^* = \arg\min_{\pi} \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \;\ge\; \Phi(t) \quad (\Phi > 0)$$
 
 By uniting the 3rd-person cybernetics of Active Inference with the 1st-person causal ontology of Integrated Information Theory under the umbrella of Analytic Idealism, this treatise resolves the dualistic split that has haunted Western philosophy since Descartes. It provides a formal answer to the questions: *What is an individual soul?*, *Why does time feel like an irreversible flow?*, and *What is the computational threshold between reactive matter and conscious agency?*
@@ -231,7 +231,7 @@ If reality is fundamentally a single, universal experiential field, how do indiv
 
 The solution is not aggregation (bottom-up), but **topological partitioning via Dissociation (top-down)**. 
 
-In clinical psychiatry, **Dissociative Identity Disorder (DID)** provides direct empirical proof that a single, unified mind can undergo informational partitioning, generating multiple concurrent, distinct centers of conscious awareness (*alters*) within the same mental substrate. Each alter has its own subjective horizon, its own narrative identity, and its own sensory boundaries, while remaining wholly composed of the underlying mental fabric.
+In clinical psychiatry, **Dissociative Identity Disorder (DID)** provides direct empirical evidence that a single, unified mind can undergo informational partitioning, generating multiple concurrent, distinct centers of conscious awareness (*alters*) within the same mental substrate. Each alter has its own subjective horizon, its own narrative identity, and its own sensory boundaries, while remaining wholly composed of the underlying mental fabric.
 
 Similarly, neurosurgical split-brain studies conducted by Roger Sperry and Michael Gazzaniga (1968) demonstrated that severing the corpus callosum splits the unified conscious subject into two distinct, concurrently operating experiential alters residing within the same cranium, each executing independent visual and motor active inference.
 
@@ -1649,7 +1649,7 @@ flowchart TD
         
         PHASE_2["<b>Simulation Phase 2: Modular Network Expansion & Φ(N) Scaling</b><br>• Systematic expansion from N = 4 to N = 12 nodes<br>• Discovery of superlinear power-law scaling: Φ(N) ∝ N^(1.4)<br>• Bounded Variational Free Energy across hierarchical modular clusters"]
         
-        PHASE_3["<b>Simulation Phase 3: Deep Temporal Active Inference & Monte Carlo Verification</b><br>• Deceptive POMDP environment with Epistemic Cue & Fatal Trap<br>• Monte Carlo ensemble analysis (N = 30 runs per cohort over T = 25 steps)<br>• Proof of H > 1: 100% survival for H = 4 vs. 36.7% collapse for H = 0"]
+        PHASE_3["<b>Simulation Phase 3: Deep Temporal Active Inference & Monte Carlo Verification</b><br>• Deceptive POMDP environment with Epistemic Cue & Fatal Trap<br>• Monte Carlo ensemble analysis (N = 30 runs per cohort over T = 25 steps)<br>• Computational validation of H > 1: 100% survival for H = 4 vs. 36.7% collapse for H = 0"]
         
         PHASE_1 ==> PHASE_2 ==> PHASE_3
     end
@@ -1774,7 +1774,7 @@ In deceptive states, the sensory likelihood tensor $A$ maps distinct environment
 * **Interactive Notebook:**  
   [`Deep_Temporal_Active_Inference_Simulation.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb)
 
-To provide an incontrovertible, empirical proof of the **Theorem of Minimum Temporal Depth ($H > 1$)** and the **6th Axiom of Consciousness**, we designed a deceptive, stochastic POMDP environment specifically engineered to punish myopic heuristics and reward counterfactual foresight.
+To provide rigorous computational verification of the **Theorem of Minimum Temporal Depth ($H > 1$)** and the **6th Axiom of Consciousness**, we designed a deceptive, stochastic POMDP environment specifically engineered to punish myopic heuristics and reward counterfactual foresight.
 
 ```mermaid
 flowchart TD
@@ -1840,12 +1840,12 @@ Simulations were executed across an ensemble of **$N = 30$ independent Monte Car
 
 ---
 
-## 7.8 Theoretical Summary of Empirical Proofs
+## 7.8 Theoretical Summary of Computational Verifications
 
 The three simulation phases provide definitive computational validation of the core theorems of the Conative-Integrative Framework:
 1. **Consciousness strictly requires temporal depth ($H > 1$):** Purely reactive automata ($H = 0$) fail to survive in deceptive environments; their causal structure disintegrates ($\Phi \to 0$).
 2. **Epistemic foraging precedes pragmatic consumption:** Counterfactual agents deliberately invest energy in curiosity (information gain) to secure long-term survival.
-3. **The 6th Axiom is mathematically necessary and empirically verified:** The continuous autopoietic preservation of integrated information over time ($\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t) > 0$) is the rigorous criterion that separates living conscious minds from transient computational phantoms.
+3. **The 6th Axiom is mathematically necessary and computationally verified:** The continuous autopoietic preservation of integrated information over time ($\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t) > 0$) is the rigorous criterion that separates living conscious minds from transient computational phantoms.
 
 In Chapter 8, we explore the profound existential, ethical, and metaphysical implications of this unified science of mind.
 

@@ -20,7 +20,7 @@ flowchart TD
         
         PHASE_2["<b>Simulation Phase 2: Modular Network Expansion & Φ(N) Scaling</b><br>• Systematic expansion from N = 4 to N = 12 nodes<br>• Discovery of superlinear power-law scaling: Φ(N) ∝ N^(1.4)<br>• Bounded Variational Free Energy across hierarchical modular clusters"]
         
-        PHASE_3["<b>Simulation Phase 3: Deep Temporal Active Inference & Monte Carlo Verification</b><br>• Deceptive POMDP environment with Epistemic Cue & Fatal Trap<br>• Monte Carlo ensemble analysis (N = 30 runs per cohort over T = 25 steps)<br>• Proof of H > 1: 100% survival for H = 4 vs. 36.7% collapse for H = 0"]
+        PHASE_3["<b>Simulation Phase 3: Deep Temporal Active Inference & Monte Carlo Verification</b><br>• Deceptive POMDP environment with Epistemic Cue & Fatal Trap<br>• Monte Carlo ensemble analysis (N = 30 runs per cohort over T = 25 steps)<br>• Computational validation of H > 1: 100% survival for H = 4 vs. 36.7% collapse for H = 0"]
         
         PHASE_1 ==> PHASE_2 ==> PHASE_3
     end
@@ -145,7 +145,7 @@ In deceptive states, the sensory likelihood tensor $A$ maps distinct environment
 * **Interactive Notebook:**  
   [`Deep_Temporal_Active_Inference_Simulation.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb)
 
-To provide an incontrovertible, empirical proof of the **Theorem of Minimum Temporal Depth ($H > 1$)** and the **6th Axiom of Consciousness**, we designed a deceptive, stochastic POMDP environment specifically engineered to punish myopic heuristics and reward counterfactual foresight.
+To provide rigorous computational verification of the **Theorem of Minimum Temporal Depth ($H > 1$)** and the **6th Axiom of Consciousness**, we designed a deceptive, stochastic POMDP environment specifically engineered to punish myopic heuristics and reward counterfactual foresight.
 
 ```mermaid
 flowchart TD
@@ -211,11 +211,11 @@ Simulations were executed across an ensemble of **$N = 30$ independent Monte Car
 
 ---
 
-## 7.8 Theoretical Summary of Empirical Proofs
+## 7.8 Theoretical Summary of Computational Verifications
 
 The three simulation phases provide definitive computational validation of the core theorems of the Conative-Integrative Framework:
 1. **Consciousness strictly requires temporal depth ($H > 1$):** Purely reactive automata ($H = 0$) fail to survive in deceptive environments; their causal structure disintegrates ($\Phi \to 0$).
 2. **Epistemic foraging precedes pragmatic consumption:** Counterfactual agents deliberately invest energy in curiosity (information gain) to secure long-term survival.
-3. **The 6th Axiom is mathematically necessary and empirically verified:** The continuous autopoietic preservation of integrated information over time ($\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t) > 0$) is the rigorous criterion that separates living conscious minds from transient computational phantoms.
+3. **The 6th Axiom is mathematically necessary and computationally verified:** The continuous autopoietic preservation of integrated information over time ($\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t) > 0$) is the rigorous criterion that separates living conscious minds from transient computational phantoms.
 
 In Chapter 8, we explore the profound existential, ethical, and metaphysical implications of this unified science of mind.

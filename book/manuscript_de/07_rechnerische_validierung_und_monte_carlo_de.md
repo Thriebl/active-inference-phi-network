@@ -1,6 +1,6 @@
 # Kapitel 7: Rechnerische Validierung & Stochastische Phasenräume
 
-> *„Um zu beweisen, dass Bewusstsein fundamental ein autopoietischer Zeitpfeil ist, müssen wir unsere Agenten täuschenden, stochastischen Umgebungen aussetzen, in denen reaktive Heuristiken versagen und nur kontrafaktische Vorausschau das Überleben sichert.“*  
+> *„Um zu verifizieren, dass Bewusstsein fundamental ein autopoietischer Zeitpfeil ist, müssen wir unsere Agenten täuschenden, stochastischen Umgebungen aussetzen, in denen reaktive Heuristiken versagen und nur kontrafaktische Vorausschau das Überleben sichert.“*  
 > — **Thomas Riebl**, *Monte Carlo Methodology in Active Inference* (2026)
 
 ---
@@ -56,7 +56,7 @@ Eine Kernfrage der Naturphilosophie ist, wie sich subjektive Erlebniskomplexitä
 * **Interaktives Jupyter Notebook:**  
   [`Deep_Temporal_Active_Inference_Simulation.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb)
 
-Zum formalen Beweis des **Theorems der temporalen Mindesttiefe ($H > 1$)** platzierten wir synthetische Agenten in einer täuschenden POMDP-Umgebung mit:
+Zur rechnerischen Validierung des **Theorems der temporalen Mindesttiefe ($H > 1$)** platzierten wir synthetische Agenten in einer täuschenden POMDP-Umgebung mit:
 1. **Einer Hinweis-Quelle (*Epistemic Cue Site* $s_{\text{cue}}$):** Löst die sensorische Ambiguität bezüglich des sicheren Pfades auf, erfordert jedoch einen 1-Schritt-Umweg entgegen der unmittelbaren Zielrichtung.
 2. **Einer täuschenden Falle (*Deceptive Trap* $s_{\text{trap}}$):** Sendet eine sofortige hohe Scheinbelohnung aus, führt jedoch irreversibel in den Todesschlund ($s_{\text{death}}$), in dem alle Kopplung abreißt und $\Phi \to 0$ kollabiert.
 
@@ -98,14 +98,14 @@ Getestet wurden vier Kohorten über ein Ensemble von **$N = 30$ unabhängigen Mo
 ![Ergebnisse der Simulationsphase 3: Tiefe temporale Active Inference und Monte-Carlo-Validierung](../images/Deep_Temporal_Active_Inference_Simulation.png)
 
 ### Umfassende Analyse der 4-Panel-Ergebnisse:
-* **Panel A (Integrierte Information $\Phi(t)$ über die Zeit):** Beim Reflex-Agenten ($H=0$) stürzt $\Phi(t)$ katastrophal ab, da $63.3\%$ der Agenten der Falle erliegen. Dagegen halten tiefe temporale Agenten ($H=4$) ein stabiles Hochplateau ($\Phi \approx 0.184$), was $\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t)$ empirisch beweist.
+* **Panel A (Integrierte Information $\Phi(t)$ über die Zeit):** Beim Reflex-Agenten ($H=0$) stürzt $\Phi(t)$ katastrophal ab, da $63.3\%$ der Agenten der Falle erliegen. Dagegen halten tiefe temporale Agenten ($H=4$) ein stabiles Hochplateau ($\Phi \approx 0.184$), was $\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t)$ rechnerisch validiert.
 * **Panel B (Autopoietische Überlebensrate):** Zeigt die scharfe Phasenraum-Bifurkation zwischen zeitlosen Systemen ($36.7\%$) und kontrafaktisch planenden Geistern ($100\%$).
 * **Panel C (Freie-Energie-Trajektorie $F(t)$):** Demonstriert die rasche und robuste Minimierung von Überraschung und Entropie.
 * **Panel D (Verhaltensdynamik & Epistemische Umwege):** Belegt, dass $100\%$ der tiefen temporalen Agenten proaktiv einen **epistemischen Umweg zur Hinweis-Quelle ($s_{\text{cue}}$)** wählen, um Umweltunsicherheit abzubauen, bevor sie zum Ziel navigieren.
 
 ---
 
-## 7.6 Fazit der empirischen Validierung
+## 7.6 Fazit der rechnerischen Validierung
 
 Die Simulationsexperimente führen zu drei unumstößlichen Erkenntnissen:
 1. **Bewusstsein verlangt temporale Tiefe ($H > 1$):** Reine Reaktivität führt in täuschenden Umgebungen zum Kausalitäts- und Existenzkollaps ($\Phi \to 0$).

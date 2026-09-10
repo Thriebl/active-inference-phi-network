@@ -51,7 +51,7 @@ Im Einklang mit den höchsten Standards transparenter und reproduzierbarer Wisse
   *Simuliert die dynamische Erweiterung von $N=4$ auf $N=12$ Knoten mit superlinearer $\Phi$-Integration.*
 * **Temporale Tiefen ($H = 0 \to 4$) & 6. Axiom:**  
   [`Deep_Temporal_Active_Inference_Simulation.ipynb`](https://github.com/Thriebl/active-inference-phi-network/blob/main/notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb)  
-  *Multi-Agenten-Monte-Carlo-Simulation ($N=30$) zum Beweis des Theorems der temporalen Mindesttiefe ($H > 1$) und epistemischer Neugier.*
+  *Multi-Agenten-Monte-Carlo-Simulation ($N=30$) zur rechnerischen Validierung des Theorems der temporalen Mindesttiefe ($H > 1$) und epistemischer Neugier.*
 
 ### 2. Wissenschaftliche Grundlagenpapiere & Poster (`docs/`):
 * **Das Master-Framework-Papier:** *The Conative-Integrative Framework (CIF)*  

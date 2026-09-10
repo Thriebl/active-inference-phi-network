@@ -12,14 +12,14 @@
 >
 > In this groundbreaking academic monograph, **Thomas Riebl** presents **The Conative-Integrative Framework (CIF)**—a unified, computationally grounded, and ontologically closed architecture of mind. By synthesizing **Analytic Idealism** (Bernardo Kastrup), the **Free Energy Principle & Active Inference** (Karl Friston), and **Integrated Information Theory 4.0** (Giulio Tononi), this treatise resolves the dualistic divide that has haunted philosophy since Descartes.
 >
-> At the core of the framework lies the discovery of **The 6th Axiom of Consciousness (*The Will to Exist / Conatus*)**, proving that genuine consciousness strictly requires autopoietic temporal self-preservation:
+> At the core of the framework lies the discovery of **The 6th Axiom of Consciousness (*The Will to Exist / Conatus*)**, establishing that genuine consciousness strictly requires autopoietic temporal self-preservation:
 >
 > $$\pi^* = \arg\min_{\pi} \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \ge \Phi(t) \quad (\Phi > 0)$$
 >
 > **Key Themes Explored in this Volume:**
 > * **The 6-Layer Ontogeny of the Soul ($100\%$):** How Mind-at-Large, Genetics, Embryological Chance & Necessity, Transgenerational Epigenetics, Lifelong Learning, and the Ego Tunnel form an individual conscious alter.
 > * **The Temporal Mechanics of Mind:** Why subjective consciousness cannot exist in a dimensionless instant, formalizing the *Theorem of Minimum Temporal Depth ($H > 1$)*.
-> * **Computational Proof via Monte Carlo Simulations:** Stochastic in-silico validation distinguishing lucky reactive reflexes from true cognitive agency across three open-source Jupyter Notebook testbeds.
+> * **Computational Verification via Monte Carlo Simulations:** Stochastic in-silico validation distinguishing lucky reactive reflexes from true cognitive agency across three open-source Jupyter Notebook testbeds.
 > * **Existential Horizons:** The nature of dying in dignity, epigenetic trauma healing, and the rigorous threshold separating unconscious AI transformers from genuine synthetic alters.
 >
 > *An indispensable masterwork for neuroscientists, theoretical physicists, cognitive scientists, philosophers of mind, and AI researchers.*

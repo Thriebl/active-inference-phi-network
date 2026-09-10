@@ -159,7 +159,7 @@ If reality is fundamentally a single, universal experiential field, how do indiv
 
 The solution is not aggregation (bottom-up), but **topological partitioning via Dissociation (top-down)**. 
 
-In clinical psychiatry, **Dissociative Identity Disorder (DID)** provides direct empirical proof that a single, unified mind can undergo informational partitioning, generating multiple concurrent, distinct centers of conscious awareness (*alters*) within the same mental substrate. Each alter has its own subjective horizon, its own narrative identity, and its own sensory boundaries, while remaining wholly composed of the underlying mental fabric.
+In clinical psychiatry, **Dissociative Identity Disorder (DID)** provides direct empirical evidence that a single, unified mind can undergo informational partitioning, generating multiple concurrent, distinct centers of conscious awareness (*alters*) within the same mental substrate. Each alter has its own subjective horizon, its own narrative identity, and its own sensory boundaries, while remaining wholly composed of the underlying mental fabric.
 
 Similarly, neurosurgical split-brain studies conducted by Roger Sperry and Michael Gazzaniga (1968) demonstrated that severing the corpus callosum splits the unified conscious subject into two distinct, concurrently operating experiential alters residing within the same cranium, each executing independent visual and motor active inference.
 
