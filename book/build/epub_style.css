@@ -1,0 +1,287 @@
+/* 
+   epub_style.css
+   Professional Academic Typography for The Conative-Integrative Framework (CIF)
+   Optimized for Kindle, Apple Books, Kobo, and EPUB 3 E-Readers
+*/
+
+@namespace epub "http://www.idpf.org/2007/ops";
+
+body {
+    font-family: Georgia, "EB Garamond", Garamond, "Times New Roman", serif;
+    font-size: 1.05em;
+    line-height: 1.58;
+    color: #0f172a;
+    background-color: #ffffff;
+    margin: 5% 5% 5% 5%;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+/* Headings */
+h1 {
+    font-family: Georgia, "Cinzel", Garamond, serif;
+    font-size: 1.65em;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #0f172a;
+    text-align: left;
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+    padding-bottom: 0.25em;
+    border-bottom: 1.5px solid #0284c7;
+    page-break-before: always;
+    break-before: page;
+}
+
+h2 {
+    font-family: Georgia, "Cinzel", Garamond, serif;
+    font-size: 1.3em;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #0369a1;
+    margin-top: 1.5em;
+    margin-bottom: 0.4em;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #0f172a;
+    margin-top: 1.2em;
+    margin-bottom: 0.3em;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+h4, h5, h6 {
+    font-size: 1.0em;
+    font-weight: 600;
+    color: #334155;
+    margin-top: 1.0em;
+    margin-bottom: 0.2em;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0.85em;
+    text-indent: 0;
+}
+
+/* Title Page Layout */
+.book-title-page {
+    text-align: center;
+    margin: 3em 0 4em 0;
+    page-break-after: always;
+    break-after: page;
+}
+
+.title-top-group {
+    margin-bottom: 2em;
+}
+
+.title-main {
+    font-size: 1.85em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 0.4em;
+}
+
+.title-subtitle {
+    font-size: 1.15em;
+    font-style: italic;
+    color: #0369a1;
+    line-height: 1.4;
+    margin: 0.5em auto;
+}
+
+.title-author-block {
+    margin-top: 3em;
+}
+
+.title-author {
+    font-size: 1.25em;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #0f172a;
+}
+
+.title-meta {
+    font-size: 0.95em;
+    color: #64748b;
+    margin-top: 0.3em;
+}
+
+/* Master Equivalence Callout Box & Statements */
+.master-equivalence-box {
+    background-color: #f0fdf4;
+    border: 1.5px solid #16a34a;
+    border-left: 5px solid #16a34a;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 1.6em 0;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.master-equivalence-box .eq-label {
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #166534;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.master-equivalence-box .eq-subtext {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #15803d;
+    margin-top: 8px;
+}
+
+blockquote {
+    background-color: #f8fafc;
+    border-left: 4px solid #0284c7;
+    margin: 1.2em 0;
+    padding: 0.8em 1.2em;
+    font-style: italic;
+    color: #334155;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+blockquote p {
+    margin-bottom: 0;
+}
+
+/* Figures, Diagrams & Captions */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.4em auto 0.6em auto;
+    border-radius: 4px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.figure-caption {
+    font-size: 0.88em;
+    font-style: italic;
+    text-align: center;
+    color: #475569;
+    margin-top: 0.4em;
+    margin-bottom: 1.8em;
+    line-height: 1.4;
+    page-break-before: avoid;
+    break-before: avoid;
+}
+
+.figure-caption strong {
+    font-style: normal;
+    color: #0369a1;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0 1.8em 0;
+    font-size: 0.88em;
+    line-height: 1.45;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+th {
+    background-color: #0284c7;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 10px;
+    border: 1px solid #0284c7;
+}
+
+td {
+    padding: 7px 10px;
+    border: 1px solid #cbd5e1;
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.table-caption {
+    font-size: 0.95em;
+    font-weight: bold;
+    color: #0f172a;
+    margin-bottom: 0.5em;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Code Blocks */
+code {
+    font-family: "JetBrains Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 0.88em;
+    background-color: #f1f5f9;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #0f172a;
+}
+
+pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-family: "JetBrains Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 0.84em;
+    line-height: 1.45;
+    overflow-x: auto;
+    margin: 1.2em 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+/* Lists */
+ul, ol {
+    margin-top: 0.4em;
+    margin-bottom: 1.0em;
+    padding-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.4em;
+}
+
+/* Separator */
+hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 2em 0;
+}
+
+/* MathML formatting */
+math {
+    font-size: 1.05em;
+}
+math[display="block"] {
+    margin: 1.2em 0;
+    text-align: center;
+    display: block;
+}

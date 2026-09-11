@@ -75,6 +75,7 @@ flowchart TD
         SUB_REG ==>|"Increasing Synaptic Gain W_ij"| CRIT_REG ==>|"Excessive Gain / Noise"| SUPER_REG
     end
 ```
+<p class="figure-caption"><strong>Figure 7.3:</strong> Phase Space Attractor Geometry and Dynamic Regimes.</p>
 
 ### 1. The Stability Metric:
 The trajectory separation between two infinitesimally close initial cognitive states $\delta \mathbf{s}(0)$ evolves as:

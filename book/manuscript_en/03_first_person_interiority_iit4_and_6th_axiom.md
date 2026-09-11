@@ -71,6 +71,7 @@ flowchart TD
         FEEDFORWARD -.-> IO_EQUIV
     end
 ```
+<p class="figure-caption"><strong>Figure 3.2:</strong> The Unfolding Theorem: Recurrent Interiority vs. Feedforward Zombie.</p>
 
 By the Krohn-Rhodes algebraic decomposition theorem, any finite recurrent neural network $R$ operating over a finite time interval $T$ can be mathematically unfolded into an equivalent purely feedforward directed acyclic graph (DAG) $F$ that computes the **exact same input-output function**:
 $$f_R(x) \equiv f_F(x) \quad \forall x \in \mathcal{X}$$
@@ -122,6 +123,7 @@ flowchart TD
         SYS --> PART --> W1_EVAL --> MIP --> PHI
     end
 ```
+<p class="figure-caption"><strong>Figure 3.3:</strong> Calculation of Integrated Information $\Phi$ via Minimum Information Partition.</p>
 
 ### Integrated Information across the Minimum Information Partition (MIP):
 
@@ -154,6 +156,7 @@ flowchart TD
         MECH --> DIST --> REL --> CES
     end
 ```
+<p class="figure-caption"><strong>Figure 3.4:</strong> Qualia Space Geometry: From Mechanisms to Phenomenal Polyhedra.</p>
 
 ### 1. Distinctions (The Vertices of Experience):
 A distinction $d$ is specified by a mechanism $m \subseteq S$ (a subset of nodes within the candidate complex) that has irreducible cause-effect power over a purview $z \subseteq S$:
@@ -199,6 +202,7 @@ flowchart TD
         STATIC_IIT -.->|Flawed Equivalence| CIF_VERDICT
     end
 ```
+<p class="figure-caption"><strong>Figure 3.5:</strong> The Paradox of Transient Causal Phantoms in Static IIT.</p>
 
 ### The Absurd Consequences of Static IIT:
 1. **The Inanimate Grid Paradox:** A static 2D grid of interconnected XOR lookup gates stored in silicon—possessing zero metabolism, zero agency, and zero self-preservation—is assigned a massive $\Phi$ score simply because of its wiring topology.

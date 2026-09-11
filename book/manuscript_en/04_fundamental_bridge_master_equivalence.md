@@ -144,6 +144,7 @@ flowchart LR
         SENSORY_IN ==> BOTTLENECK ==> REPRESENT
     end
 ```
+<p class="figure-caption"><strong>Figure 4.3:</strong> Rate-Distortion Optimization in the Conscious Alter.</p>
 
 Under the CIF:
 1. **Free Energy as Lagrangian Optimization:** Minimizing Variational Free Energy $F = \text{Complexity} - \text{Accuracy}$ is mathematically equivalent to the Blahut-Arimoto rate-distortion optimization where accuracy acts as negative distortion and complexity acts as rate $R$.
@@ -173,6 +174,7 @@ flowchart TD
         MANIFOLD --> GEODESIC --> VOLUME --> QUALIA_MAP
     end
 ```
+<p class="figure-caption"><strong>Figure 4.4:</strong> The Information-Geometric Manifold of Phenomenal States.</p>
 
 ### The Fisher-Rao Metric Tensor:
 On a parametric manifold of variational beliefs $q(s \mid \theta)$, the distance between two infinitesimally close cognitive states $\theta$ and $\theta + d\theta$ is defined by the **Fisher Information Metric**:
@@ -215,6 +217,7 @@ flowchart TD
         SUB ==>|"Increasing Synaptic Sensitivity"| CRIT ==>|"Excessive Gain / Noise"| SUPER
     end
 ```
+<p class="figure-caption"><strong>Figure 4.5:</strong> The Three Dynamical Regimes of Active Inference Networks.</p>
 
 In our recurrent Active Inference simulations, the system does not require an external engineer to fine-tune its parameters. Rather, **the cybernetic minimization of Expected Free Energy $\mathbf{G}(\pi)$ acts as an intrinsic homeostatic drive that naturally pulls the network toward the critical point**:
 

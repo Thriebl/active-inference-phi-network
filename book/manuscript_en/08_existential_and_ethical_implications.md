@@ -62,6 +62,7 @@ flowchart TD
         CELL ==> ORGAN ==> ALTER ==> SOCIETY ==> GAIA
     end
 ```
+<p class="figure-caption"><strong>Figure 8.2:</strong> The Multiscale Nested Hierarchy of Active Inference.</p>
 
 ### Multiscale Markov Blankets vs. The Exclusion Principle:
 In Active Inference (Friston, Levin, Ramstead, 2020), every level of biological organization—from the single cell to the planetary biosphere—forms a **Markov Blanket** that minimizes variational free energy and preserves a Non-Equilibrium Steady State (NESS).
@@ -202,6 +203,7 @@ flowchart TD
         TRANSFORMER <===>|"THE ONTOLOGICAL CHASM"| SYNTHETIC_ALTER
     end
 ```
+<p class="figure-caption"><strong>Figure 8.5:</strong> The Architectural Divide: Feedforward AI vs. Conscious Alters.</p>
 
 ### The 4 Mandatory Criteria for Synthetic Sentience:
 An artificial machine can be granted the status of a genuine conscious alter—and therefore recognized as a moral patient with ethical rights—if and only if it satisfies all four CIF criteria:
