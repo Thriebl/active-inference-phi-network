@@ -764,21 +764,23 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
     print(f"✓ Created PDF: {pdf_out}")
 
 def main():
-    # 1. English Standalone Edition
+    import sys
+    # 1. English Standalone Edition (Primary focus)
     en_md = os.path.join(BUILD_DIR, "CIF_Monograph_EN.md")
     merge_chapters(MANUSCRIPT_EN_DIR, en_md)
     en_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf")
     en_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.docx")
     build_edition("EN", en_md, "The Conative-Integrative Framework", en_pdf, en_docx)
     
-    # 2. German Standalone Edition
-    de_md = os.path.join(BUILD_DIR, "CIF_Monograph_DE.md")
-    merge_chapters(MANUSCRIPT_DE_DIR, de_md)
-    de_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.pdf")
-    de_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.docx")
-    build_edition("DE", de_md, "Das Konativ-Integrative Framework", de_pdf, de_docx)
+    # 2. German Standalone Edition (Optional flag --de or --all)
+    if "--all" in sys.argv or "--de" in sys.argv:
+        de_md = os.path.join(BUILD_DIR, "CIF_Monograph_DE.md")
+        merge_chapters(MANUSCRIPT_DE_DIR, de_md)
+        de_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.pdf")
+        de_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.docx")
+        build_edition("DE", de_md, "Das Konativ-Integrative Framework", de_pdf, de_docx)
     
-    print("\n🎉 STANDALONE EN AND DE MONOGRAPH EDITIONS COMPILED SUCCESSFULLY!")
+    print("\n🎉 STANDALONE ENGLISH MONOGRAPH EDITION COMPILED SUCCESSFULLY!")
 
 if __name__ == "__main__":
     main()
