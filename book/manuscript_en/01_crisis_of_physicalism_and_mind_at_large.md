@@ -27,6 +27,7 @@ flowchart TD
         GALILEO --> DESCARTES --> NEWTON --> BEHAVIORISM --> CRISIS
     end
 ```
+<p class="figure-caption"><strong>Figure 1.1:</strong> The Historical Evolution of Physicalist Reductionism.</p>
 
 ### The Galilean Cleaving of Reality:
 In *The Assayer* (1623), Galileo Galilei made a profound methodological move that propelled the scientific revolution: he split nature into two domains:
@@ -68,6 +69,7 @@ flowchart TD
         P1 --> P2 --> P3
     end
 ```
+<p class="figure-caption"><strong>Figure 1.2:</strong> The Triad of Anti-Physicalist Impossibility Proofs.</p>
 
 ---
 
@@ -98,6 +100,7 @@ flowchart TD
         ACQ ==>|"Epistemic Ground"| DESC
     end
 ```
+<p class="figure-caption"><strong>Figure 1.3:</strong> Epistemic Asymmetry: Acquaintance vs. Physical Description.</p>
 
 1. **Propositional Completeness vs. Phenomenal Blindness:**  
    Let $\mathcal{K}_{\text{phys}} = \{p_1, p_2, \dots, p_n\}$ represent the set of all possible third-person physical propositions describing the human visual cortex (rhodopsin photon absorption, parvocellular pathway activations, V4 retinotopic maps). Even if $\mathcal{K}_{\text{phys}}$ is complete, an observer who has never experienced the qualitative sensation of crimson possesses zero acquaintance with the quale of red.
@@ -122,6 +125,7 @@ flowchart TD
         ELIM <===> PAN
     end
 ```
+<p class="figure-caption"><strong>Figure 1.4:</strong> The Dual Dead-Ends of Materialist Metaphysics.</p>
 
 ---
 
@@ -144,6 +148,7 @@ flowchart TD
         SPINOZA --> SCHOPENHAUER --> KASTRUP --> RIEB
     end
 ```
+<p class="figure-caption"><strong>Figure 1.5:</strong> Historical Evolution of Idealist Monism.</p>
 
 1. **Baruch Spinoza (1677):** In his *Ethics*, Spinoza demonstrated that there can exist only one infinite substance. Mind (*Thought*) and Body (*Extension*) are not two distinct causal substances colliding through an anatomical gland; they are the 1st-person interior and 3rd-person exterior expressions of the exact same underlying reality.
 2. **Arthur Schopenhauer (1819):** In *The World as Will and Representation*, Schopenhauer realized that our scientific instruments grant us access to nature only as representation (*Vorstellung*). But from within our own organism, we immediately experience nature as *Will* (*Wille*)—an unyielding, autopoietic striving to exist and maintain form against decay.
@@ -168,25 +173,27 @@ flowchart TD
     subgraph MAL_FIELD["<b>Mind-at-Large (Universal Experiential Substrate)</b>"]
         direction TB
         
+        AMBIENT["<b>Ambient Cosmological Dynamics</b><br>Extrinsic Appearance: Inanimate Physical Universe (Stars, Rocks, Vacuum)"]
+        
         subgraph ALTER_A["<b>Dissociated Conscious Alter A</b>"]
             direction TB
-            MB_A["<b>Markov Blanket A</b><br>(Sensory & Active States)"]
-            INT_A["<b>Internal Experiential Dynamics</b><br>1st-Person Qualia, Memories & PSM"]
+            MB_A["<b>Markov Blanket A</b> (Sensory & Active States)"]
+            INT_A["<b>Internal Experiential Dynamics</b> (1st-Person Qualia & PSM)"]
             MB_A <===> INT_A
         end
         
         subgraph ALTER_B["<b>Dissociated Conscious Alter B</b>"]
             direction TB
-            MB_B["<b>Markov Blanket B</b><br>(Sensory & Active States)"]
-            INT_B["<b>Internal Experiential Dynamics</b><br>1st-Person Qualia, Memories & PSM"]
+            MB_B["<b>Markov Blanket B</b> (Sensory & Active States)"]
+            INT_B["<b>Internal Experiential Dynamics</b> (1st-Person Qualia & PSM)"]
             MB_B <===> INT_B
         end
         
-        AMBIENT["<b>Ambient Cosmological Dynamics</b><br>Extrinsic Appearance: Inanimate Physical Universe (Stars, Rocks, Vacuum)"]
+        ALTER_A <== "Perception / Action" ==> AMBIENT
+        AMBIENT <== "Perception / Action" ==> ALTER_B
     end
-    
-    ALTER_A <=== Perception / Action ===> AMBIENT <=== Perception / Action ===> ALTER_B
 ```
+<p class="figure-caption"><strong>Figure 1.6:</strong> Mind-at-Large as the Universal Experiential Substrate and Dissociated Alters.</p>
 
 ### 1.6.1 Topological Dissociation vs. The Combination Problem:
 Why does the top-down dissociative mechanism succeed where bottom-up panpsychism fatally fails?
@@ -223,28 +230,27 @@ Under this partition, the internal states $\mu$ and external states $\eta$ are *
 $$P(\mu, \eta \mid \mathcal{B}) = P(\mu \mid \mathcal{B}) \cdot P(\eta \mid \mathcal{B}) \quad \Longleftrightarrow \quad \mu \perp\!\!\!\perp \eta \mid \mathcal{B}$$
 
 ```mermaid
-flowchart LR
-    subgraph EXTERNAL["External States (η)"]
+flowchart TD
+    subgraph MARKOV_PARTITION["<b>Statistical Physics of the Markov Blanket</b>"]
         direction TB
-        E_DYN["Environmental Dynamics<br>Mind-at-Large Flux"]
-    end
+        
+        EXTERNAL["<b>External States (η)</b><br>Environmental Dynamics · Ambient Mind-at-Large Flux"]
+        
+        subgraph BLANKET["<b>Markov Blanket (B)</b>"]
+            direction TB
+            S_STATE["<b>Sensory States (s)</b>: Inflow (η → s → μ)"]
+            A_STATE["<b>Active States (a)</b>: Outflow (μ → a → η)"]
+        end
 
-    subgraph BLANKET["Markov Blanket (B)"]
-        direction TB
-        S_STATE["Sensory States (s)<br>Inflow: η → s → μ"]
-        A_STATE["Active States (a)<br>Outflow: μ → a → η"]
-    end
+        INTERNAL["<b>Internal States (μ)</b><br>Neural Representations · Phenomenal Self-Model · Generative Beliefs"]
 
-    subgraph INTERNAL["Internal States (μ)"]
-        direction TB
-        I_DYN["Neural Representations<br>Phenomenal Self-Model<br>Generative Beliefs"]
+        EXTERNAL -->|"Causation"| S_STATE
+        S_STATE -->|"Perceptual Inference"| INTERNAL
+        INTERNAL -->|"Action Selection"| A_STATE
+        A_STATE -->|"Environmental Impact"| EXTERNAL
     end
-
-    EXTERNAL -->|Causation| S_STATE
-    S_STATE -->|Perceptual Inference| INTERNAL
-    INTERNAL -->|Action Selection| A_STATE
-    A_STATE -->|Environmental Impact| EXTERNAL
 ```
+<p class="figure-caption"><strong>Figure 1.7:</strong> The Markov Blanket Partition and Information Flow.</p>
 
 This conditional independence carries profound epistemological and ontological implications:
 1. **The Epistemic Barrier:** Internal states $\mu$ never have unmediated, direct contact with external reality $\eta$. An organism can never directly "touch" the world; it can only infer the hidden causes of its sensory excitations $s$ by projecting predictive generative hypotheses.
@@ -257,7 +263,7 @@ This conditional independence carries profound epistemological and ontological i
 
 Synthesizing analytic idealism with statistical physics, we formulate the foundational definition of individual existence in the Conative-Integrative Framework:
 
-> **Definition 1.1 (The Individual Soul / Conscious Alter):**  
+> **Statement 1.1: Definition of the Individual Soul (Conscious Alter)**  
 > *An individual conscious organism (a soul) is an autopoietic, non-equilibrium informational alter dissociated from Mind-at-Large, demarcated by a statistical Markov Blanket $\mathcal{B} = \{s, a\}$, whose internal dynamics $\mu$ maintain homeostatic self-organization and subjective 1st-person interiority by actively minimizing variational free energy and preserving integrated cause-effect structure across time.*
 
 In Chapter 2, we explore the exact cybernetic engine that enables this dissociated alter to preserve its existence against entropic dissolution: *The Free Energy Principle and Active Inference*.

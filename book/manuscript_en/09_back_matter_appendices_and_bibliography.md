@@ -7,37 +7,22 @@ flowchart TD
     subgraph POMDP_GRAPH["<b>Bayesian Generative Graph of Deep Active Inference</b>"]
         direction TB
         
-        D_NODE["<b>Prior Vector D = P(s₁)</b>"]
-        PI_NODE["<b>Policy Prior P(π) = σ(-γ G(π))</b>"]
+        PRIORS["<b>Priors: D = P(s₁) · Policy Prior P(π) = σ(-γ G(π)) · Preferences C = ln P(o)</b>"]
         
-        S1["<b>Hidden State s₁</b>"]
-        S2["<b>Hidden State s₂</b>"]
-        ST["<b>Hidden State s_τ</b>"]
+        STEP_1["<b>Time Step τ = 1: Hidden State s₁ ⟹ Observation o₁</b><br>Likelihood mapping: o₁ ~ P(o₁ | s₁) = A"]
         
-        O1["<b>Observation o₁</b>"]
-        O2["<b>Observation o₂</b>"]
-        OT["<b>Observation o_τ</b>"]
+        ACTION_1["<b>Action u₁: Causal Transition Tensor B(u₁)</b>"]
         
-        U1["<b>Action u₁</b>"]
-        U2["<b>Action u₂</b>"]
+        STEP_2["<b>Time Step τ = 2: Hidden State s₂ ⟹ Observation o₂</b><br>Likelihood mapping: o₂ ~ P(o₂ | s₂) = A"]
         
-        C_NODE["<b>Preference Vector C = ln P(o)</b>"]
+        ACTION_2["<b>Action u₂: Causal Transition Tensor B(u₂)</b>"]
         
-        D_NODE --> S1
-        PI_NODE --> U1
-        PI_NODE --> U2
+        STEP_T["<b>Horizon τ = t+H: Hidden State s_τ ⟹ Expected Observation o_τ</b><br>Evaluated by Expected Free Energy G(π)"]
         
-        S1 -->|Likelihood A| O1
-        S1 -->|Transition B(u₁)| S2
-        S2 -->|Likelihood A| O2
-        S2 -->|Transition B(u₂)| ST
-        ST -->|Likelihood A| OT
-        
-        C_NODE -.->|Pragmatic Evaluation| O1
-        C_NODE -.->|Pragmatic Evaluation| O2
-        C_NODE -.->|Pragmatic Evaluation| OT
+        PRIORS --> STEP_1 --> ACTION_1 --> STEP_2 --> ACTION_2 --> STEP_T
     end
 ```
+<p class="figure-caption"><strong>Figure A.1:</strong> Bayesian Generative Graph of Deep Active Inference.</p>
 
 ### 1. The Generative Model Definition:
 The joint probability distribution over observations $\tilde{o} = (o_1, \dots, o_T)$, hidden states $\tilde{s} = (s_1, \dots, s_T)$, and policies $\pi$ is factored as:
@@ -96,6 +81,7 @@ flowchart TD
         STEP1 --> STEP2 --> STEP3 --> STEP4
     end
 ```
+<p class="figure-caption"><strong>Figure B.1:</strong> Algorithmic Workflow for Computing $\Phi_{\max}$ in IIT 4.0.</p>
 
 ### 1. Earth Mover's Distance (Wasserstein-1 Metric):
 Given discrete probability distributions $p$ and $q$ over binary state configurations $\{0, 1\}^N$:
@@ -172,67 +158,107 @@ flowchart TD
         INPUT --> UNPART --> LOOP --> W1_CALC --> MIN_SELECT
     end
 ```
+<p class="figure-caption"><strong>Figure C.1:</strong> Algorithmic Workflow of the MIP Wasserstein Search.</p>
 
-### Python Implementation of Wasserstein-1 Distance over Discrete States:
+### Open-Source Algorithm Implementation & Software Repository
 
-```python
-import numpy as np
-from scipy.optimize import linprog
+To support reproducibility, open scientific inquiry, and computational validation across independent research laboratories, the complete algorithmic implementation of the Wasserstein Minimum Information Partition (MIP) search, the continuous Gaussian $\Phi$ solvers, and the multiscale active inference simulation suites are released as **open-source software** under the permissive **MIT License**.
 
-def compute_wasserstein_1d(p_unpartitioned, p_partitioned, state_dim):
-    """
-    Computes Earth Mover's Distance (Wasserstein-1) between two discrete
-    probability distributions over binary state vectors of length N.
-    """
-    num_states = 2 ** state_dim
-    states = [np.array([int(b) for b in format(i, f'0{state_dim}b')]) 
-              for i in range(num_states)]
-    
-    # 1. Cost matrix based on Hamming distance between binary states
-    C = np.zeros((num_states, num_states))
-    for i in range(num_states):
-        for j in range(num_states):
-            C[i, j] = np.sum(np.abs(states[i] - states[j]))
-            
-    c_vector = C.flatten()
-    
-    # 2. Linear programming constraints for optimal transport coupling
-    A_eq = np.zeros((2 * num_states, num_states * num_states))
-    for i in range(num_states):
-        A_eq[i, i*num_states:(i+1)*num_states] = 1.0  # Row sums match p
-    for j in range(num_states):
-        A_eq[num_states + j, j::num_states] = 1.0     # Col sums match p_part
-        
-    b_eq = np.concatenate([p_unpartitioned, p_partitioned])
-    
-    res = linprog(c_vector, A_eq_ub=None, b_eq_ub=None,
-                  A_eq=A_eq, b_eq=b_eq, method='highs')
-    
-    return res.fun if res.success else 0.0
+The production codebase provides fully optimized, vectorized routines leveraging NumPy, SciPy (Linear Programming via HiGHS), and JAX for GPU-accelerated tensor operations.
 
-def find_minimum_information_partition(TPM, current_state, N):
-    """
-    Exhaustive search over all 2^(N-1) - 1 bipartitions to find MIP and Phi.
-    """
-    min_w1 = float('inf')
-    optimal_partition = None
-    
-    # Compute full unpartitioned repertoire
-    p_full = TPM[current_state, :]
-    
-    # Generate bipartitions M1, M2
-    for partition_mask in range(1, 2**(N-1)):
-        # Compute tensor product of marginalized partitions
-        p_part = compute_factorized_repertoire(TPM, current_state, partition_mask, N)
-        w1_dist = compute_wasserstein_1d(p_full, p_part, N)
-        
-        if w1_dist < min_w1:
-            min_w1 = w1_dist
-            optimal_partition = partition_mask
-            
-    phi_integrated = min_w1
-    return phi_integrated, optimal_partition
+#### Official GitHub Repository:
+* 🌐 **Repository URL:** [https://github.com/Thriebl/active-inference-phi-network](https://github.com/Thriebl/active-inference-phi-network)
+* 📓 **Interactive Jupyter Notebooks:** [https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks](https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks)
+  * `Active_Inference_Phi_Maximization_Network.ipynb` — Phase 1 recurrent network self-organization to criticality ($\Phi \approx 3.42\text{ bits}$).
+  * `Active_Inference_Expanding_Network_Phi_Scaling.ipynb` — Phase 2 modular network expansion and $\Phi(N) \propto N^{1.4}$ power-law scaling analysis.
+  * `Deep_Temporal_Active_Inference_Simulation.ipynb` — Phase 3 Monte Carlo deceptive POMDP testbed and temporal depth ($H > 1$) verification.
+* 🐍 **Executable Python Scripts:** [https://github.com/Thriebl/active-inference-phi-network/tree/main/scripts](https://github.com/Thriebl/active-inference-phi-network/tree/main/scripts)
+  * `expanding_active_inference_phi_network.py` — Standalone headless batch simulation runner for high-throughput HPC clusters.
+
+Researchers and students are encouraged to clone the repository, replicate the figures, run the test suite, and extend the framework to novel neural architectures and psychiatric simulation models:
+
+```bash
+git clone https://github.com/Thriebl/active-inference-phi-network.git
+cd active-inference-phi-network
+pip install -r requirements.txt
+python scripts/expanding_active_inference_phi_network.py
 ```
+
+---
+
+# List of Figures {-}
+
+* **Figure 1.1:** The Historical Evolution of Physicalist Reductionism
+* **Figure 1.2:** The Triad of Anti-Physicalist Impossibility Proofs
+* **Figure 1.3:** Epistemic Asymmetry: Acquaintance vs. Physical Description
+* **Figure 1.4:** The Dual Dead-Ends of Materialist Metaphysics
+* **Figure 1.5:** Historical Evolution of Idealist Monism
+* **Figure 1.6:** Mind-at-Large as the Universal Experiential Substrate and Dissociated Alters
+* **Figure 1.7:** The Markov Blanket Partition and Information Flow
+* **Figure 2.1:** The Thermodynamic Bifurcation of Nature
+* **Figure 2.2:** The Cybernetic Lineage: From Ashby to Friston
+* **Figure 2.3:** The Dual Faces of Variational Free Energy $F$
+* **Figure 2.4:** Nonequilibrium Steady-State (NESS) Flows
+* **Figure 2.5:** The Generative Model Tensors $\mathcal{M} = \{A, B, C, D\}$
+* **Figure 2.6:** The Dual Imperative of Expected Free Energy $\mathbf{G}(\pi)$
+* **Figure 2.7:** Multiscale Active Inference across Biological Systems
+* **Figure 3.1:** The Axiomatic Architecture of IIT 4.0
+* **Figure 3.2:** The Unfolding Theorem: Recurrent Interiority vs. Feedforward Zombie
+* **Figure 3.3:** Calculation of Integrated Information $\Phi$ via Minimum Information Partition
+* **Figure 3.4:** Qualia Space Geometry: From Mechanisms to Phenomenal Polyhedra
+* **Figure 3.5:** The Paradox of Transient Causal Phantoms in Static IIT
+* **Figure 3.6:** The 6th Axiom: The Conative Engine of Mind
+* **Figure 3.7:** Thermodynamic Fate of Integrated Information $\Phi$
+* **Figure 4.1:** The Master Bridging Equivalence: Dual-Aspect Monism
+* **Figure 4.2:** Logical Architecture of the Master Proof
+* **Figure 4.3:** Rate-Distortion Optimization in the Conscious Alter
+* **Figure 4.4:** The Information-Geometric Manifold of Phenomenal States
+* **Figure 4.5:** The Three Dynamical Regimes of Active Inference Networks
+* **Figure 4.6:** The Neuroanatomical Triple-Network Architecture of the Human Alter
+* **Figure 4.7:** The Two-Phase Scaling of Integrated Information $\Phi(N)$
+* **Figure 5.1:** The 6-Layer Composition of the Individual Soul (Indicative Relative Weighting)
+* **Figure 5.2:** The 6-Layer Ontogenetic Hierarchy of the Soul
+* **Figure 5.3:** Clinical Pathologies Mapped to the 6 Layers
+* **Figure 6.1:** Husserl's Tripartite Structure of the Specious Present (~500ms - 3s)
+* **Figure 6.2:** Francisco Varela's Three Scales of Temporal Horizon
+* **Figure 6.3:** Cross-Frequency Phase-Amplitude Coupling: The Brain's Clock
+* **Figure 6.4:** The Spectrum of Temporal Depth in Active Inference
+* **Figure 6.5:** Disruptions of the Predictive Temporal Horizon
+* **Figure 6.6:** The Dual Opposing Vectors of Time in the Cosmos
+* **Figure 7.1:** The 3-Phase Computational Verification Pipeline
+* **Figure 7.2:** Simulation Phase 1 Results: Recurrent Network Self-Organization and Integrated Information Maximization
+* **Figure 7.3:** Phase Space Attractor Geometry and Dynamic Regimes
+* **Figure 7.4:** Simulation Phase 2 Results: Modular Network Expansion and Integrated Information Scaling Curve
+* **Figure 7.5:** The Epistemic Foraging Shield against Existential Traps
+* **Figure 7.6:** The Deceptive Verification Environment Topology
+* **Figure 7.7:** Simulation Phase 3 Results: Deep Temporal Active Inference and Monte Carlo Verification
+* **Figure 8.1:** The Cosmic Dialectic of Mind-at-Large
+* **Figure 8.2:** The Multiscale Nested Hierarchy of Active Inference
+* **Figure 8.3:** The Reverse-Ontogenetic Dissolution at Biological Death
+* **Figure 8.4:** Trauma Resolution via Predictive Precision Re-weighting
+* **Figure 8.5:** The Architectural Divide: Feedforward AI vs. Conscious Alters
+* **Figure 8.6:** The Law of Experiential Conservation in Mind-at-Large
+* **Figure A.1:** Bayesian Generative Graph of Deep Active Inference
+* **Figure B.1:** Algorithmic Workflow for Computing $\Phi_{\max}$ in IIT 4.0
+* **Figure C.1:** Algorithmic Workflow of the MIP Wasserstein Search
+
+---
+
+# List of Statements {-}
+
+* **Statement 1.1:** Definition of the Individual Soul (Conscious Alter)
+* **Statement 3.1:** Axiom 6 (The Will to Exist / Conatus)
+* **Statement 3.2:** Postulate 6 (Autopoietic Causal Persistence)
+* **Statement 4.1:** The Master Bridging Equivalence of Dual-Aspect Monism
+* **Statement 6.1:** Theorem 6.1 — The Temporal Depth Condition for Consciousness (Thomas Riebl)
+* **Statement 7.1:** Theorem 7.1 — Epistemic Shielding of Integrated Information (Thomas Riebl)
+
+---
+
+# List of Tables {-}
+
+* **Table 5.1:** Active Inference Mapping: Uniting Neurobiology with POMDP Tensors across the 6 Layers
+* **Table 7.1:** Monte Carlo Verification: Survival Rates and Integrated Information across Planning Horizons ($N = 30$ Runs)
 
 ---
 

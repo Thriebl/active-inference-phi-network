@@ -23,16 +23,17 @@ flowchart TD
     subgraph THERMODYNAMICS["<b>The Thermodynamic Bifurcation of Nature</b>"]
         direction TB
         
-        INANIMATE["<b>Inanimate Matter (Passive Entropy)</b><br>• Rocks, Stars, Gas Clouds<br>• Monotonic decay to maximum entropy S_max<br>• No boundary maintenance"]
-        
-        LIVING["<b>Living Organisms / Conscious Alters (Active Inference)</b><br>• Nonequilibrium Steady States (NESS)<br>• Active homeostatic phase-space confinement<br>• Statistical Markov Blanket maintenance (FEP)"]
-        
         LAW["<b>The 2nd Law of Thermodynamics</b><br>dS/dt ≥ 0"]
         
-        LAW --> INANIMATE
-        LAW -->|Resisted by Autopoietic Work| LIVING
+        INANIMATE["<b>1. Inanimate Matter (Passive Entropy)</b><br>• Rocks, Stars, Gas Clouds · No boundary maintenance<br>• Monotonic decay to maximum entropy S_max"]
+        
+        LIVING["<b>2. Living Organisms / Conscious Alters (Active Inference)</b><br>• Nonequilibrium Steady States (NESS)<br>• Active homeostatic phase-space confinement · Markov Blanket (FEP)"]
+        
+        LAW -->|"Passive Dissipation"| INANIMATE
+        INANIMATE -.->|"Resisted by Autopoietic Work"| LIVING
     end
 ```
+<p class="figure-caption"><strong>Figure 2.1:</strong> The Thermodynamic Bifurcation of Nature.</p>
 
 How does a living organism—viewed in the CIF as a dissociated conscious alter within Mind-at-Large—achieve this continuous, improbable triumph over entropic dispersion?
 
@@ -44,7 +45,7 @@ The mathematical lineage of Active Inference traces back directly to mid-20th-ce
 > *"Every good regulator of a system must be a model of that system."*
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph GOOD_REGULATOR["<b>The Cybernetic Lineage: From Ashby to Friston</b>"]
         direction TB
         
@@ -55,6 +56,7 @@ flowchart LR
         ASHBY ==>|"Generalization to Active Inference"| FRISTON
     end
 ```
+<p class="figure-caption"><strong>Figure 2.2:</strong> The Cybernetic Lineage: From Ashby to Friston.</p>
 
 Conant and Ashby proved in information-theoretic terms that an agent cannot maintain essential homeostatic variables within viable physiological limits unless its internal state transitions are mathematically isomorphic to the environmental disturbances it encounters. 
 
@@ -108,10 +110,10 @@ flowchart TD
         
         DEC_2["<b>Decomposition 2: Occam's Razor</b><br>F = Complexity - Accuracy<br><i>Minimizing F balances model accuracy with minimal complexity</i>"]
         
-        F_TOP --> DEC_1
-        F_TOP --> DEC_2
+        F_TOP --> DEC_1 --> DEC_2
     end
 ```
+<p class="figure-caption"><strong>Figure 2.3:</strong> The Dual Faces of Variational Free Energy $F$.</p>
 
 ### The Dual Theorems of Active Inference:
 
@@ -161,15 +163,15 @@ Where:
 * **Conservative Solenoidal Flow ($Q \nabla \ln p(x)$):** Circulates along the iso-probability contours of the attractor without altering probability density ($\nabla \cdot (Q \nabla \ln p(x)) = 0$).
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph NESS_FLOWS["<b>Nonequilibrium Steady-State (NESS) Flows</b>"]
         direction TB
         GRAD["<b>1. Dissipative Gradient Flow (-Γ ∇ ln p)</b><br>Steers deviations back toward homeostatic attractors"]
         SOL["<b>2. Solenoidal Flow (Q ∇ ln p)</b><br>Drives biological cycles: Circadian rhythms, heartbeat, neural oscillations"]
+        GRAD <===> SOL
     end
-    
-    GRAD <===> SOL
 ```
+<p class="figure-caption"><strong>Figure 2.4:</strong> Nonequilibrium Steady-State (NESS) Flows.</p>
 
 In biological organisms, solenoidal flows are precisely the autonomous biological cycles that sustain life: circadian rhythms, respiratory cycles, cardiac pacing, and cortical brain waves (theta-gamma phase-amplitude coupling).
 
@@ -200,6 +202,7 @@ flowchart TD
         A_MAT <---> C_MAT
     end
 ```
+<p class="figure-caption"><strong>Figure 2.5:</strong> The Generative Model Tensors $\mathcal{M} = \{A, B, C, D\}$.</p>
 
 ### 1. The Likelihood Mapping Tensor ($A$):
 Maps hidden environmental states $s \in \{1, \dots, N_s\}$ to sensory observations $o \in \{1, \dots, N_o\}$:
@@ -242,14 +245,14 @@ flowchart TD
         
         G_TOTAL["<b>Expected Free Energy G(π)</b><br>Minimization over Planning Horizon H"]
         
-        PRAGMATIC["<b>1. Pragmatic Value (Exploitation)</b><br>• Minimizes divergence from C = ln P(o)<br>• Secures food, safety, and homeostatic boundaries<br>• The Biological Will to Live"]
+        PRAGMATIC["<b>1. Pragmatic Value (Exploitation)</b><br>• Minimizes divergence from C = ln P(o)<br>• Secures food, safety, and homeostatic boundaries"]
         
-        EPISTEMIC["<b>2. Epistemic Value (Exploration / Curiosity)</b><br>• Resolves hidden state ambiguity H[P(o|s)]<br>• Investigates novel, uncertain environments<br>• Maximizes mutual information / epistemic foraging"]
+        EPISTEMIC["<b>2. Epistemic Value (Exploration / Curiosity)</b><br>• Resolves hidden state ambiguity H[P(o|s)]<br>• Investigates novel, uncertain environments"]
         
-        G_TOTAL --> PRAGMATIC
-        G_TOTAL --> EPISTEMIC
+        G_TOTAL --> PRAGMATIC --> EPISTEMIC
     end
 ```
+<p class="figure-caption"><strong>Figure 2.6:</strong> The Dual Imperative of Expected Free Energy $\mathbf{G}(\pi)$.</p>
 
 ### Policy Selection via Softmax Optimization:
 
@@ -281,6 +284,7 @@ flowchart TD
         CELL --> TISSUE --> ORGAN --> COGNITIVE
     end
 ```
+<p class="figure-caption"><strong>Figure 2.7:</strong> Multiscale Active Inference across Biological Systems.</p>
 
 Every living cell, tissue collective, and organism is an active inference engine striving to preserve its Markov blanket. In the human conscious alter, this multiscale architecture reaches its zenith in the cerebral cortex.
 

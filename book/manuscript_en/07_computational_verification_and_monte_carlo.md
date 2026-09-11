@@ -25,6 +25,7 @@ flowchart TD
         PHASE_1 ==> PHASE_2 ==> PHASE_3
     end
 ```
+<p class="figure-caption"><strong>Figure 7.1:</strong> The 3-Phase Computational Verification Pipeline.</p>
 
 All source code, transition probability matrices, generative model tensors, and raw simulation logs are open-source and publicly reproducible:  
 👉 **[https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks](https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks)**
@@ -41,6 +42,7 @@ In our first simulation architecture, we modeled a recurrent network of $N = 6$ 
 $$F_i = \sum_{j \in \mathcal{N}(i)} \left( D_{\text{KL}}\Big(q(s^{(i)}) \;\parallel\; P(s^{(i)} \mid o^{(j)})\Big) - \ln P(o^{(j)})\right)$$
 
 ![Simulation Phase 1 Results: Recurrent Network Self-Organization and Integrated Information Maximization](../images/Active_Inference_Phi_Simulation_Results.png)
+<p class="figure-caption"><strong>Figure 7.2:</strong> Simulation Phase 1 Results: Recurrent Network Self-Organization and Integrated Information Maximization.</p>
 
 ### Key Findings of Simulation Phase 1:
 
@@ -97,6 +99,7 @@ Integrated information requires both **differentiation** (high state variety) an
 To investigate how integrated cause-effect power behaves as conscious cognitive architectures scale in complexity, we expanded the active inference network systematically from $N = 4$ to $N = 12$ agents across modular hierarchical configurations.
 
 ![Simulation Phase 2 Results: Modular Network Expansion and Integrated Information Scaling Curve](../images/Active_Inference_Expanding_Network_Phi_Scaling.png)
+<p class="figure-caption"><strong>Figure 7.4:</strong> Simulation Phase 2 Results: Modular Network Expansion and Integrated Information Scaling Curve.</p>
 
 ### Key Findings of Simulation Phase 2:
 
@@ -121,18 +124,21 @@ In active inference, Expected Free Energy $\mathbf{G}(\pi)$ decomposes into two 
 $$\mathbf{G}(\pi) = \underbrace{-\mathbb{E}_{Q(o, s \mid \pi)}\big[ \ln P(o) \big]}_{\text{Pragmatic Value (Goal Seeking)}} \;-\; \underbrace{\mathbb{E}_{Q(o, s \mid \pi)}\Big[ D_{\text{KL}}\big(Q(s \mid o, \pi) \parallel Q(s \mid \pi)\big) \Big]}_{\text{Epistemic Value (Information Gain / Salience)}}$$
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph FORAGING_DYNAMICS["<b>The Epistemic Foraging Shield against Existential Traps</b>"]
         direction TB
         
-        MYOPIC_PATH["<b>Myopic Agent (H = 1, Zero Epistemic Horizon)</b><br>Greedy pursuit of immediate reward (+2.0)<br>Walks directly into lethal trap (s_trap → s_death)<br><b>Result: Causal Extinction (Φ = 0)</b>"]
+        MYOPIC_PATH["<b>1. Myopic Agent (H = 1, Zero Epistemic Horizon)</b><br>Greedy pursuit of immediate reward (+2.0) ⟹ Walks directly into lethal trap (s_death) · <b>Φ = 0</b>"]
         
-        EPISTEMIC_PATH["<b>Deep Temporal Agent (H ≥ 2, Epistemic Horizon)</b><br>Values reduction of entropy: D_KL(Q(s|o) || Q(s)) > 0<br>Takes detour to Cue site (s_cue) → Unmasks trap → Navigates safely to Goal<br><b>Result: Autopoietic Survival (Φ sustained)</b>"]
+        EPISTEMIC_PATH["<b>2. Deep Temporal Agent (H ≥ 2, Epistemic Horizon)</b><br>Optimizes Information Gain D_KL[Q(s|o)||Q(s)] ⟹ Takes detour to Cue (s_cue) · <b>Φ Sustained</b>"]
+        
+        MYOPIC_PATH -.->|"Counterfactual Foresight"| EPISTEMIC_PATH
     end
 ```
+<p class="figure-caption"><strong>Figure 7.5:</strong> The Epistemic Foraging Shield against Existential Traps.</p>
 
 ### The Epistemic Foraging Theorem:
-> **Theorem 7.1 (Epistemic Shielding of Integrated Information — Thomas Riebl):**  
+> **Statement 7.1: Theorem 7.1 — Epistemic Shielding of Integrated Information (Thomas Riebl)**  
 > *In any partially observable environment with deceptive non-zero danger manifolds, an agent whose planning horizon satisfies $H \ge 2$ and whose policy selection optimizes Epistemic Value achieves an expected time to structural dissolution $\tau_{\text{death}} \to \infty$, whereas a myopic agent ($H \le 1$) collapses with probability $P_{\text{trap}} > 0$ within finite time $t \le \tau_{\text{env}}$.*
 
 *Proof:*  
@@ -152,27 +158,27 @@ flowchart TD
     subgraph POMDP_DECEPTIVE_ENVIRONMENT["<b>The Deceptive Verification Environment Topology</b>"]
         direction TB
         
-        S0["<b>State 0: Initial Start Site (s₀)</b><br>Sensory ambiguity (50% probability safe / 50% deadly)"]
+        S0["<b>State 0: Start Site (s₀)</b><br>Sensory ambiguity: 50% safe / 50% deadly"]
         
-        S1["<b>State 1: Epistemic Cue Site (s_cue)</b><br>Disambiguates the hidden environment.<br><b>Requires 1-Step Detour away from the goal!</b>"]
+        S1["<b>State 1: Epistemic Cue Site (s_cue)</b><br>Disambiguates environment (Requires 1-Step Detour)"]
         
-        S2["<b>State 2: Deceptive Trap Site (s_trap)</b><br>Offers immediate high fake sensory reward (+2.0).<br><i>Leads irreversibly to structural destruction!</i>"]
+        S2["<b>State 2: Deceptive Trap Site (s_trap)</b><br>Immediate fake reward (+2.0) ⟹ Leads to dissolution"]
         
-        S3["<b>State 3: Safe Transitional Path (s_path)</b><br>Neutral intermediate corridor."]
+        S3["<b>State 3: Safe Transitional Corridor (s_path)</b>"]
         
-        S4["<b>State 4: True Homeostatic Goal (s_goal)</b><br>Sustainable physiological survival (C = +4.5)."]
+        S4["<b>State 4: True Homeostatic Goal (s_goal)</b><br>Sustainable survival (C = +4.5) · Φ Sustained"]
         
-        S5["<b>State 5: Absorbing Lethal Sink (s_death)</b><br>Structural dissolution. Coupling destroyed: Φ = 0."]
+        S5["<b>State 5: Absorbing Lethal Sink (s_death)</b><br>Structural dissolution: Φ = 0"]
         
         S0 -->|"Action 1: Epistemic Detour"| S1
-        S0 -->|"Action 2: Greedy Reflex"| S2
-        S0 -->|"Action 3: Blind Step"| S3
+        S0 -.->|"Action 2: Greedy Reflex"| S2
+        S0 -->|"Action 3: Direct Step"| S3
         S1 -->|"Informed Path"| S3
-        S2 ==>|"Irreversible Collapse"| S5
+        S2 ==>|"Fatal Trap"| S5
         S3 -->|"Goal Navigation"| S4
-        S5 ==>|"Absorbing State"| S5
     end
 ```
+<p class="figure-caption"><strong>Figure 7.6:</strong> The Deceptive Verification Environment Topology.</p>
 
 ### The Four Agent Cohorts Under Evaluation:
 1. **Reflex Agent ($H = 0$):** Zero temporal depth. Executes instantaneous sensory-motor mappings ($u_t = f(o_t)$) with an identity transition tensor ($B = I$).
@@ -186,6 +192,8 @@ flowchart TD
 
 Simulations were executed across an ensemble of **$N = 30$ independent Monte Carlo runs** per cohort under stochastic action precision ($\gamma = 2.5$) and sensory observation noise:
 
+<p class="table-caption"><strong>Table 7.1:</strong> Monte Carlo Verification: Survival Rates and Integrated Information across Planning Horizons ($N = 30$ Runs).</p>
+
 | Agent Cohort | Planning Horizon ($H$) | Ensemble Survival Rate | Mean Asymptotic $\Phi(t)$ | Epistemic Detour Rate | Compliance with 6th Axiom |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Reflex Agent** | $H = 0$ | **$36.7\,\%$** | $\mathbf{0.068 \pm 0.015}$ | $0.0\,\%$ (Blind reflex) | **Violated ($\Phi \to 0$)** |
@@ -194,6 +202,7 @@ Simulations were executed across an ensemble of **$N = 30$ independent Monte Car
 | **Deep Temporal** | $H = 4$ | **$100.0\,\%$** | $\mathbf{0.184 \pm 0.006}$ | **$100.0\,\%$ (Optimal)** | **Fully Maximized** |
 
 ![Simulation Phase 3 Results: Deep Temporal Active Inference and Monte Carlo Verification](../images/Deep_Temporal_Active_Inference_Simulation.png)
+<p class="figure-caption"><strong>Figure 7.7:</strong> Simulation Phase 3 Results: Deep Temporal Active Inference and Monte Carlo Verification.</p>
 
 ### Comprehensive Analysis of the 4-Panel Verification Graphics:
 

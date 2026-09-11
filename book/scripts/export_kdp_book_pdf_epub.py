@@ -565,15 +565,40 @@ def make_kdp_html(title_header, body_content):
         
         blockquote {{
             margin: 12pt 0;
-            padding: 8pt 14pt;
+            padding: 9pt 14pt;
             background-color: #f0fdf4;
             border-left: 3.5px solid #16a34a;
             color: #166534;
-            font-size: 11.2pt;
+            font-size: 10.5pt;
             border-radius: 0 4px 4px 0;
             font-style: italic;
             page-break-inside: avoid;
             break-inside: avoid;
+            line-height: 1.5;
+        }}
+        
+        .figure-caption {{
+            font-family: 'EB Garamond', serif;
+            font-size: 9.8pt;
+            font-style: italic;
+            color: #475569;
+            text-align: center;
+            margin-top: -4pt;
+            margin-bottom: 14pt;
+            page-break-before: avoid;
+            break-before: avoid;
+        }}
+        
+        .table-caption {{
+            font-family: 'EB Garamond', serif;
+            font-size: 10.2pt;
+            font-weight: 700;
+            color: #0f172a;
+            text-align: left;
+            margin-top: 14pt;
+            margin-bottom: 4pt;
+            page-break-after: avoid;
+            break-after: avoid;
         }}
         
         .mermaid {{
@@ -600,7 +625,7 @@ def make_kdp_html(title_header, body_content):
         .mermaid svg .nodeLabel,
         .mermaid svg .label {{
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-            font-size: 13px !important;
+            font-size: 13.5px !important;
             font-weight: 500 !important;
             line-height: 1.35 !important;
         }}

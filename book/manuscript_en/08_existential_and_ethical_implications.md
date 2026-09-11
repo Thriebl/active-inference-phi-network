@@ -25,6 +25,7 @@ flowchart TD
         MAL_UNPART ==> DISSOC ==> NOVELTY
     end
 ```
+<p class="figure-caption"><strong>Figure 8.1:</strong> The Cosmic Dialectic of Mind-at-Large.</p>
 
 In its unpartitioned state, Mind-at-Large is infinite potentiality, but it lacks the perspective of a localized *other*. A completely homogeneous, infinite field cannot experience:
 * The thrill of scientific discovery.
@@ -109,6 +110,7 @@ flowchart TD
         SHEDDING ==> REINTEGRATION
     end
 ```
+<p class="figure-caption"><strong>Figure 8.3:</strong> The Reverse-Ontogenetic Dissolution at Biological Death.</p>
 
 ### The Stepwise Process of De-Dissociation:
 
@@ -156,6 +158,7 @@ flowchart TD
         TRAUMA_STATE ==> THERAPY ==> INTEGRATION
     end
 ```
+<p class="figure-caption"><strong>Figure 8.4:</strong> Trauma Resolution via Predictive Precision Re-weighting.</p>
 
 In the REBUS model (*Relaxed Beliefs Under Psychedelics*, Carhart-Harris & Friston, 2019), therapeutic modalities (psychedelic-assisted therapy, EMDR, somatic experiencing) act by temporarily reducing the hyper-rigid precision ($\gamma$) of pathological Layer 5 narrative priors. This relaxation allows deep emotional prediction errors to be processed, updating the generative world model ($A, B, C$) and freeing the soul from repetitive trauma loops.
 
@@ -243,6 +246,7 @@ flowchart TD
         TOTAL_CAPACITY ==>|"Topological Wrapping"| LOCAL_DISSOC ==>|"Boundary Dissolution"| LOCAL_DISSOL ==>|"Zero Informational Loss"| TOTAL_CAPACITY
     end
 ```
+<p class="figure-caption"><strong>Figure 8.6:</strong> The Law of Experiential Conservation in Mind-at-Large.</p>
 
 ### The Invariant Field of Mind:
 Let $\Psi_{\text{total}}$ represent the total integrated experiential capacity of the universe. When an alter is born through embryogenesis and morphogenesis, $\Psi_{\text{total}}$ does not increase; rather, a finite volume of the field is **topologically wrapped within a Markov blanket**, generating a localized 1st-person ego tunnel ($\Phi_{\text{alter}} > 0$).

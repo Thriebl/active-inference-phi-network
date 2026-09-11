@@ -24,6 +24,7 @@ pie title The 6-Layer Composition of the Individual Soul (100%)
     "Layer 5: Biographical Lifelong Learning (Engrams & World-Model)" : 25
     "Layer 6: The Ego Tunnel (Phenomenal Self-Model)" : 10
 ```
+<p class="figure-caption"><strong>Figure 5.1:</strong> The 6-Layer Composition of the Individual Soul (Indicative Relative Weighting).</p>
 
 ---
 
@@ -49,6 +50,7 @@ flowchart TD
         L1 ==> L2 ==> L3 ==> L4 ==> L5 ==> L6
     end
 ```
+<p class="figure-caption"><strong>Figure 5.2:</strong> The 6-Layer Ontogenetic Hierarchy of the Soul.</p>
 
 ---
 
@@ -109,6 +111,8 @@ flowchart TD
 
 In the Conative-Integrative Framework, the six layers of the soul map directly onto the formal parameters of a discrete Partially Observable Markov Decision Process (POMDP):
 
+<p class="table-caption"><strong>Table 5.1:</strong> Active Inference Mapping: Uniting Neurobiology with POMDP Tensors across the 6 Layers.</p>
+
 | Layer | Soul Architectural Dimension | Contribution | POMDP Mathematical Object | Active Inference Role |
 | :--- | :--- | :---: | :--- | :--- |
 | **Layer 1** | **Mind-at-Large** | $25\,\%$ | **State Space ($\mathcal{S}$)** | The universal phase space of all possible experiential configurations |
@@ -134,19 +138,22 @@ flowchart TD
     subgraph PATHOLOGY_MAPPING["<b>Clinical Pathologies Mapped to the 6 Layers</b>"]
         direction TB
         
-        P_SPLIT["<b>Split-Brain Syndrome (Commissurotomy)</b><br>Surgical division of the corpus callosum splits the single macro-blanket into two independent conscious alters, each with distinct Φ > 0 and private visual fields."]
+        P_SPLIT["<b>1. Split-Brain Syndrome (Commissurotomy)</b><br>Surgical division of corpus callosum splits the macro-blanket into two conscious alters (Φ > 0)."]
         
-        P_DID["<b>Dissociative Identity Disorder (DID)</b><br>Severe early relational trauma partitions Layer 5 & 6 into multiple distinct generative models (alters), alternating control over the physical effector channels."]
+        P_DID["<b>2. Dissociative Identity Disorder (DID)</b><br>Severe early relational trauma partitions Layer 5 & 6 into multiple distinct generative models."]
         
-        P_DEP["<b>Depersonalization / Derealization Disorder</b><br>Failure of Layer 6 (PSM opacity): The self-model becomes opaque; patient experiences themselves as an external observer looking at an actor."]
+        P_DEP["<b>3. Depersonalization / Derealization Disorder</b><br>Failure of Layer 6 transparency: Self-model becomes opaque; observer alienates own body."]
         
-        P_PTSD["<b>Post-Traumatic Stress Disorder (PTSD)</b><br>Hyper-precision in Layer 4 (Epigenetics) & Layer 5 (Trauma Engrams): γ is locked at maximum, treating benign ambient cues as lethal existential threats."]
+        P_PTSD["<b>4. Post-Traumatic Stress Disorder (PTSD)</b><br>Hyper-precision in Layers 4 & 5: Precision γ locked at maximum, treating benign cues as lethal."]
         
-        P_SCHIZ["<b>Schizophrenia & Psychosis</b><br>Loss of sensory precision at Layer 6 & aberrant salience: Internal motor intentions are misattributed to external alien agents (Markov blanket blur)."]
+        P_SCHIZ["<b>5. Schizophrenia & Psychosis</b><br>Sensory precision attenuation at Layer 6: Motor intentions misattributed to external agents."]
         
-        P_MYST["<b>Mystical & Psychedelic Dissolution (REBUS)</b><br>Temporary deactivation of Layer 6 (PSM): Ego dissolves into Layer 1 (Mind-at-Large), experiencing oceanic boundless unity."]
+        P_MYST["<b>6. Mystical & Psychedelic Dissolution (REBUS)</b><br>Temporary deactivation of Layer 6 (PSM): Ego dissolves into Layer 1 (Mind-at-Large)."]
+        
+        P_SPLIT --> P_DID --> P_DEP --> P_PTSD --> P_SCHIZ --> P_MYST
     end
 ```
+<p class="figure-caption"><strong>Figure 5.3:</strong> Clinical Pathologies Mapped to the 6 Layers.</p>
 
 ### 1. Split-Brain Syndrome (Gazzaniga & Sperry Commissurotomy):
 When the $\approx 200\text{ million}$ axonal fibers of the corpus callosum are severed to treat intractable epilepsy, the unified thalamocortical complex undergoes a physical Minimum Information Partition. 

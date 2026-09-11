@@ -38,6 +38,7 @@ flowchart TD
         RETENTION ==>|"Continuous Informational Thread"| IMPRESSION ==>|"Forward Generative Leap"| PROTENTION
     end
 ```
+<p class="figure-caption"><strong>Figure 6.1:</strong> Husserl's Tripartite Structure of the Specious Present (~500ms - 3s).</p>
 
 In the Conative-Integrative Framework, we map Husserl’s phenomenological triad directly onto the neurobiology of **Hierarchical Predictive Processing** (Metzinger, 2003, 2009; Wiese, 2018; Friston, 2010; Varela, 1999):
 
@@ -72,6 +73,7 @@ flowchart TD
         SCALE_1 ==> SCALE_2 ==> SCALE_3
     end
 ```
+<p class="figure-caption"><strong>Figure 6.2:</strong> Francisco Varela's Three Scales of Temporal Horizon.</p>
 
 1. **Scale 1 (Elementary Micro-Events, $10\text{--}100\text{ ms}$):** The biological lower bound set by cellular refractory periods and synaptic transmission latencies. These events operate below the threshold of phenomenal awareness.
 2. **Scale 2 (1-Integration / The Specious Present, $0.5\text{--}3.0\text{ s}$):** The dynamic synchronization of widespread neuronal assemblies into a transient attractor state (a "dynamical cell assembly"). This is the conscious present—the minimal duration required to perceive an action, a thought, or an emotion.
@@ -90,16 +92,16 @@ flowchart TD
     subgraph NEURAL_PAC["<b>Cross-Frequency Phase-Amplitude Coupling: The Brain's Clock</b>"]
         direction TB
         
-        THETA["<b>Slow Theta Carrier Rhythm (4 - 8 Hz)</b><br>• Period: 125 - 250 ms · Hippocampus & Medial PFC<br>• Provides the macroscopic temporal window of integration"]
+        THETA["<b>1. Slow Theta Carrier Rhythm (4 - 8 Hz)</b><br>• Period: 125 - 250 ms · Hippocampus & Medial PFC · Macroscopic temporal window"]
         
-        GAMMA["<b>Fast Gamma Oscillations (30 - 80 Hz)</b><br>• Period: 12 - 30 ms · Sensory & Association Neocortex<br>• Individual gamma cycles encode specific sensory prediction errors ε_t"]
+        GAMMA["<b>2. Fast Gamma Oscillations (30 - 80 Hz)</b><br>• Period: 12 - 30 ms · Sensory Neocortex · Encodes prediction errors ε_t"]
         
-        NESTING["<b>Nested Phase-Amplitude Coupling (PAC)</b><br>• 4 to 8 gamma bursts nested within each single theta phase cycle<br>• Stitches discrete sensory snapshots into a continuous specious present (~1 - 3s)"]
+        NESTING["<b>3. Nested Phase-Amplitude Coupling (PAC)</b><br>• 4 to 8 gamma bursts nested in each theta cycle · Synthesizes specious present (~1 - 3s)"]
         
-        THETA --> NESTING
-        GAMMA --> NESTING
+        THETA ==> GAMMA ==> NESTING
     end
 ```
+<p class="figure-caption"><strong>Figure 6.3:</strong> Cross-Frequency Phase-Amplitude Coupling: The Brain's Clock.</p>
 
 ### The Theta-Gamma Nested Buffer:
 1. **The Theta Carrier Wave ($4\text{--}8\text{ Hz}$):** Originating in the hippocampus and medial prefrontal cortex, the slow theta cycle spans $125\text{--}250\text{ ms}$. It acts as an organizing temporal frame, sweeping across cortical assemblies to coordinate long-range communication.
@@ -128,12 +130,13 @@ flowchart TD
         LVL_0 --> LVL_1 --> LVL_2
     end
 ```
+<p class="figure-caption"><strong>Figure 6.4:</strong> The Spectrum of Temporal Depth in Active Inference.</p>
 
 In the Conative-Integrative Framework, we formalize this architectural threshold as an explicit mathematical theorem:
 
 ### The Theorem of Minimum Temporal Depth:
 
-> **Theorem 6.1 (The Temporal Depth Condition for Consciousness — Thomas Riebl):**  
+> **Statement 6.1: Theorem 6.1 — The Temporal Depth Condition for Consciousness (Thomas Riebl)**  
 > *A physical substrate cannot instantiate phenomenal self-consciousness or sustain autopoietic causal persistence ($\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t) > 0$) without an internal generative transition tensor ($B = P(s_{t+1} \mid s_t, u)$) operating over a multi-step counterfactual planning horizon ($H > 1$).* [^1]
 
 ### Proof Sketch & Cybernetic Vulnerability:
@@ -154,15 +157,18 @@ flowchart TD
     subgraph CHRONOPATHOLOGY["<b>Disruptions of the Predictive Temporal Horizon</b>"]
         direction TB
         
-        C_DEP["<b>Major Depressive Disorder: Temporal Dilation / Freezing</b><br>• Protention collapses: Horizon H → 1 · Future is perceived as closed & immutable<br>• Subjective time decelerates agonizingly; the past (Retention) weighs infinitely"]
+        C_DEP["<b>1. Major Depressive Disorder: Temporal Dilation / Freezing</b><br>• Protention collapses: Horizon H → 1 · Future perceived as closed & immutable"]
         
-        C_MAN["<b>Bipolar Mania: Temporal Hyper-Acceleration</b><br>• Protentive overdrive: Horizon H branches explosively into competing futures<br>• Subjective time races; actions outpace sensory verification loops"]
+        C_MAN["<b>2. Bipolar Mania: Temporal Hyper-Acceleration</b><br>• Protentive overdrive: Horizon H branches explosively · Subjective time races"]
         
-        C_SCHIZ["<b>Schizophrenic Chronotaraxis: Temporal De-coupling</b><br>• Breakdown of theta-gamma PAC: Retention detaches from Primal Impression<br>• Present moments feel disjointed, foreign, and haunted by alien causal agency"]
+        C_SCHIZ["<b>3. Schizophrenic Chronotaraxis: Temporal De-coupling</b><br>• Breakdown of theta-gamma PAC: Retention detaches from Primal Impression"]
         
-        C_SAM["<b>Non-Dual Samadhi: Timeless Pure Awareness (Nunc Stans)</b><br>• Conscious cessation of protentive policy rollouts (G(π) → 0)<br>• The ego tunnel opens into the eternal, unmoving presence of Mind-at-Large"]
+        C_SAM["<b>4. Non-Dual Samadhi: Timeless Pure Awareness (Nunc Stans)</b><br>• Cessation of protentive policy rollouts (G(π) → 0) · Return to Mind-at-Large"]
+        
+        C_DEP --> C_MAN --> C_SCHIZ --> C_SAM
     end
 ```
+<p class="figure-caption"><strong>Figure 6.5:</strong> Disruptions of the Predictive Temporal Horizon.</p>
 
 1. **Major Depressive Disorder (The Frozen Future):**  
    In severe depression, dopaminergic SEEKING precision collapses. The generative model can no longer project viable future policies ($H \to 1$). Because future states offer no expected free energy reduction, subjective time dilates and freezes: patients report that "time has stopped" and that they are trapped forever in an unmoving present.
@@ -186,23 +192,18 @@ flowchart TD
         
         subgraph THERMODYNAMIC_ARROW["<b>1. The Inanimate Arrow (Thermodynamic Time)</b>"]
             direction TB
-            T1["<b>Governed by the 2nd Law of Thermodynamics</b>"]
-            T2["dS_universe / dt ≥ 0"]
-            T3["Thermal dissipation · Randomization · Structural decay · Heat death"]
-            T1 --> T2 --> T3
+            T1["<b>Governed by the 2nd Law of Thermodynamics</b><br>dS_universe / dt ≥ 0 · Thermal dissipation & decay"]
         end
         
         subgraph CONATIVE_ARROW["<b>2. The Phenomenal / Autopoietic Arrow (Conative Time)</b>"]
             direction TB
-            C1["<b>Governed by the 6th Axiom of Consciousness (CIF)</b>"]
-            C2["E[ Φ(t+1) | π* ] ≥ Φ(t) > 0   (argmin G(π))"]
-            C3["Autopoietic self-organization · Causal power · Qualia generation · Life"]
-            C1 --> C2 --> C3
+            C1["<b>Governed by the 6th Axiom of Consciousness (CIF)</b><br>E[ Φ(t+1) | π* ] ≥ Φ(t) > 0 · Autopoietic persistence"]
         end
         
-        THERMODYNAMIC_ARROW <===>|"COSMIC STRUGGLE: CONSCIOUSNESS FIGHTS UPSTREAM"| CONATIVE_ARROW
+        THERMODYNAMIC_ARROW ==>|"Cosmic Struggle: Consciousness Fights Upstream"| CONATIVE_ARROW
     end
 ```
+<p class="figure-caption"><strong>Figure 6.6:</strong> The Dual Opposing Vectors of Time in the Cosmos.</p>
 
 1. **The Inanimate Arrow (Thermodynamic Time):**  
    Sir Arthur Eddington (1928) identified the Second Law of Thermodynamics ($\Delta S \ge 0$) as the physical arrow of time. In inanimate nature, time marches forward by destroying order, flattening energy gradients, and transforming complex physical structures into uniform, disordered heat.

@@ -24,13 +24,10 @@ flowchart TD
         
         POST["<b>Mathematical Translation into Physical Postulates</b><br>• Transition Probability Matrix (TPM)<br>• Cause-Effect Structure in Qualia Space<br>• Minimum Information Partition (MIP)<br>• Integrated Information Metric Φ_max > 0"]
         
-        AX1 --> POST
-        AX2 --> POST
-        AX3 --> POST
-        AX4 --> POST
-        AX5 --> POST
+        AX1 --> AX2 --> AX3 --> AX4 --> AX5 ==> POST
     end
 ```
+<p class="figure-caption"><strong>Figure 3.1:</strong> The Axiomatic Architecture of IIT 4.0.</p>
 
 ### The Five Canonical Axioms & Postulates of IIT 4.0:
 
@@ -230,13 +227,14 @@ flowchart TD
         AXIOM_6 ==> POST_6 ==> FORMULA
     end
 ```
+<p class="figure-caption"><strong>Figure 3.6:</strong> The 6th Axiom: The Conative Engine of Mind.</p>
 
 ### Formal Statement of Axiom 6:
-> **Axiom 6 (The Will to Exist / Conatus):**  
+> **Statement 3.1: Axiom 6 (The Will to Exist / Conatus)**  
 > *Subjective consciousness is not a passive, static reflection of information. Every conscious experience is intrinsically temporal and autopoietic; it is experienced as an active, continuous striving of the self to maintain its unified experiential existence against destruction, decay, and entropic dissolution.*
 
 ### Formal Statement of Postulate 6:
-> **Postulate 6 (Autopoietic Causal Persistence):**  
+> **Statement 3.2: Postulate 6 (Autopoietic Causal Persistence)**  
 > *A physical substrate $S$ is a genuine substrate of consciousness if and only if its policy-directed active inference $\pi^*$ actively maintains its integrated cause-effect power ($\Phi$) within a non-equilibrium steady state over successive temporal horizons:*
 
 $$\mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \;\ge\; \Phi(t) \quad \text{with } \Phi(t) > 0$$
@@ -258,15 +256,18 @@ Under this uncompensated degradation, the Minimum Information Partition (MIP) ra
 $$\Phi(t) = \Phi_0 \cdot \exp(-\gamma t) \quad \implies \quad \lim_{t \to \infty} \Phi(t) = 0$$
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph DYNAMICS["<b>Thermodynamic Fate of Integrated Information Φ</b>"]
         direction TB
         
-        PASSIVE["<b>Passive Inanimate System (π = ∅)</b><br>Thermal dissipation & noise<br>dΦ/dt = -γΦ < 0<br><b>Φ(t) → 0 (Causal Extinction)</b>"]
+        PASSIVE["<b>1. Passive Inanimate System (π = ∅)</b><br>Thermal dissipation & noise: dΦ/dt = -γΦ < 0<br><b>Φ(t) → 0 (Causal Extinction)</b>"]
         
-        ACTIVE["<b>Conative Active Inference Agent (π = π*)</b><br>Homeostatic work & policy control<br>dΦ/dt = -γΦ + J_active(π*) ≥ 0<br><b>Φ(t) ≥ Φ_min > 0 (Sustained Selfhood)</b>"]
+        ACTIVE["<b>2. Conative Active Inference Agent (π = π*)</b><br>Homeostatic work & policy control: dΦ/dt = -γΦ + J_active ≥ 0<br><b>Φ(t) ≥ Φ_min > 0 (Sustained Selfhood)</b>"]
+        
+        PASSIVE -.->|"Conative Transition via Active Inference"| ACTIVE
     end
 ```
+<p class="figure-caption"><strong>Figure 3.7:</strong> Thermodynamic Fate of Integrated Information $\Phi$.</p>
 
 ### The Active Conative Counter-Current:
 To prevent causal extinction, a conscious system must generate an active informational flux $J_{\text{active}}(\pi^*)$ that matches or exceeds the natural decay rate:

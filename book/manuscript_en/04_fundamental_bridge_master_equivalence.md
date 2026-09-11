@@ -22,25 +22,20 @@ flowchart TD
         
         subgraph THIRD_PERSON["<b>3rd-Person Cybernetics (Exteriority / Physics)</b>"]
             direction TB
-            TP1["<b>Free Energy Principle & Active Inference</b>"]
-            TP2["• Minimizes Expected Free Energy G(π) over Horizon H"]
-            TP3["• Preserves homeostatic Markov Blanket boundaries (NESS)"]
-            TP1 --> TP2 --> TP3
+            TP1["<b>Free Energy Principle & Active Inference</b><br>• Minimizes Expected Free Energy G(π) over Horizon H<br>• Preserves homeostatic Markov Blanket boundaries (NESS)"]
         end
         
         EQ_CARD["<b>THE ISOMORPHIC MASTER EQUIVALENCE (6TH AXIOM)</b><br>π* = argmin G(π)  ⟺  E[ Φ(t+1) | π* ] ≥ Φ(t) > 0<br><i>Active Free Energy Minimization is Isomorphic to Causal Power Persistence</i>"]
         
         subgraph FIRST_PERSON["<b>1st-Person Phenomenological Ontology (Interiority / Mind)</b>"]
             direction TB
-            FP1["<b>IIT 4.0 & The 6th Axiom (Conatus)</b>"]
-            FP2["• Autopoietic Causal Persistence (The Will to Exist)"]
-            FP3["• Maximizes integrated cause-effect power Φ across time"]
-            FP1 --> FP2 --> FP3
+            FP1["<b>IIT 4.0 & The 6th Axiom (Conatus)</b><br>• Autopoietic Causal Persistence (The Will to Exist)<br>• Maximizes integrated cause-effect power Φ across time"]
         end
         
-        THIRD_PERSON <===> EQ_CARD <===> FIRST_PERSON
+        THIRD_PERSON ==> EQ_CARD ==> FIRST_PERSON
     end
 ```
+<p class="figure-caption"><strong>Figure 4.1:</strong> The Master Bridging Equivalence: Dual-Aspect Monism.</p>
 
 ### The Ontological Symmetry:
 * **The 3rd-Person View (Observed from the Outside):** An external scientist instruments the organism and observes a predictive cybernetic system executing action policies $\pi^*$ that minimize Expected Free Energy $\mathbf{G}$, continuously reducing sensory prediction errors and maintaining physiological homeostasis.
@@ -70,6 +65,7 @@ flowchart TD
         L1 --> L2 --> L3 --> THM
     end
 ```
+<p class="figure-caption"><strong>Figure 4.2:</strong> Logical Architecture of the Master Proof.</p>
 
 ### Lemma 1 (Attractor Invariance under Active Inference):
 Let $\mathcal{X}$ denote the total physiological phase space of an agent, and let $\mathcal{A} \subset \mathcal{X}$ denote the bounded non-equilibrium steady-state (NESS) homeostatic attractor manifold. 
@@ -237,20 +233,20 @@ flowchart TD
     subgraph BRAIN_NETWORKS["<b>The Neuroanatomical Triple-Network Architecture of the Human Alter</b>"]
         direction TB
         
-        DMN["<b>Default Mode Network (DMN)</b><br>• mPFC, Posterior Cingulate Cortex (PCC), Precuneus<br>• <b>Function:</b> Encodes autobiographical self, narrative priors (Layers 4 & 5)<br>• High baseline functional connectivity and causal centrality"]
+        TRN["<b>Thalamocortical Loop & Reticular Nucleus (TRN)</b><br>• Thalamic relay nuclei, Claustrum, Layer 5/6 feedback · The MIP gatekeeper"]
         
-        SN["<b>Salience Network (SN)</b><br>• Anterior Insula (AI), Dorsal Anterior Cingulate (dACC)<br>• <b>Function:</b> Computes precision-weighting of prediction errors & visceral states<br>• Dynamically switches coupling between DMN and CEN"]
+        DMN["<b>1. Default Mode Network (DMN)</b><br>• mPFC, PCC, Precuneus · Encodes autobiographical narrative (Layers 4 & 5)"]
         
-        CEN["<b>Central Executive Network (CEN)</b><br>• Dorsolateral Prefrontal Cortex (dlPFC), Posterior Parietal (PPC)<br>• <b>Function:</b> Deep temporal policy rollout π* over future horizons (H > 1)<br>• Working memory buffers and goal-directed conative action"]
+        SN["<b>2. Salience Network (SN)</b><br>• Anterior Insula (AI), dACC · Computes precision-weighting & switches networks"]
         
-        TRN["<b>Thalamocortical Loop & Reticular Nucleus (TRN)</b><br>• Thalamic relay nuclei, Claustrum, Layer 5/6 pyramidal feedback<br>• <b>Function:</b> The physical Minimum Information Partition (MIP) gatekeeper"]
+        CEN["<b>3. Central Executive Network (CEN)</b><br>• dlPFC, Posterior Parietal · Deep temporal policy rollout π* (H > 1)"]
         
-        DMN <==> SN <==> CEN
-        TRN -.->|Synchronizes & Gates| DMN
-        TRN -.->|Synchronizes & Gates| SN
-        TRN -.->|Synchronizes & Gates| CEN
+        TRN -.->|"Synchronizes & Gates"| DMN
+        DMN <===>|"Dynamic Switching"| SN
+        SN <===>|"Executive Enactment"| CEN
     end
 ```
+<p class="figure-caption"><strong>Figure 4.6:</strong> The Neuroanatomical Triple-Network Architecture of the Human Alter.</p>
 
 ### 1. The Thalamocortical Dynamic Core:
 The anatomical substrate exhibiting the highest $\Phi^{\max}$ in the mammalian nervous system is the **Thalamocortical System** (Edelman & Tononi, 2000). Deep layer 5 and 6 corticothalamic pyramidal neurons send dense recurrent feedback projections to thalamic relay nuclei, wrapped by the inhibitory mesh of the **Thalamic Reticular Nucleus (TRN)**. 
@@ -271,17 +267,18 @@ How does Integrated Information ($\Phi$) behave as the size $N$ of an Active Inf
 Our numerical scaling experiments reveal two distinct phases of network growth:
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph SCALING_PHASES["<b>The Two-Phase Scaling of Integrated Information Φ(N)</b>"]
         direction TB
         
-        PHASE_1["<b>Phase 1: Superlinear Surge (N = 4 → 8)</b><br>Φ(N) ∝ N^(1.4)<br>Recurrent cross-correlations multiply synergy"]
+        PHASE_1["<b>Phase 1: Superlinear Surge (N = 4 → 8)</b><br>Φ(N) ∝ N^(1.4) · Recurrent cross-correlations multiply synergy"]
         
-        PHASE_2["<b>Phase 2: Modular Saturation & Small-World Clustering (N > 8)</b><br>Global Φ plateaus unless hierarchical small-world<br>modularity (Cortex architecture) is introduced"]
+        PHASE_2["<b>Phase 2: Modular Saturation & Small-World Clustering (N > 8)</b><br>Global Φ plateaus unless hierarchical small-world modularity is introduced"]
         
         PHASE_1 ==> PHASE_2
     end
 ```
+<p class="figure-caption"><strong>Figure 4.7:</strong> The Two-Phase Scaling of Integrated Information $\Phi(N)$.</p>
 
 1. **The Superlinear Surge ($N = 4 \to 8$):** In small, densely coupled active inference networks, every added agent or node multiplies the total number of feedback loops. Synergistic mutual information outpaces partition entropy, yielding a superlinear growth curve $\Phi(N) \propto N^{1.4}$.
 2. **Modular Saturation ($N > 8$):** As network size expands further, fully connected architectures suffer from combinatorial interference. Global $\Phi$ saturates unless the network reorganizes into a **hierarchical, small-world modular topology**.

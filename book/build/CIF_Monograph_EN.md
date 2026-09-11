@@ -99,6 +99,7 @@ flowchart TD
         GALILEO --> DESCARTES --> NEWTON --> BEHAVIORISM --> CRISIS
     end
 ```
+<p class="figure-caption"><strong>Figure 1.1:</strong> The Historical Evolution of Physicalist Reductionism.</p>
 
 ### The Galilean Cleaving of Reality:
 In *The Assayer* (1623), Galileo Galilei made a profound methodological move that propelled the scientific revolution: he split nature into two domains:
@@ -140,6 +141,7 @@ flowchart TD
         P1 --> P2 --> P3
     end
 ```
+<p class="figure-caption"><strong>Figure 1.2:</strong> The Triad of Anti-Physicalist Impossibility Proofs.</p>
 
 ---
 
@@ -170,6 +172,7 @@ flowchart TD
         ACQ ==>|"Epistemic Ground"| DESC
     end
 ```
+<p class="figure-caption"><strong>Figure 1.3:</strong> Epistemic Asymmetry: Acquaintance vs. Physical Description.</p>
 
 1. **Propositional Completeness vs. Phenomenal Blindness:**  
    Let $\mathcal{K}_{\text{phys}} = \{p_1, p_2, \dots, p_n\}$ represent the set of all possible third-person physical propositions describing the human visual cortex (rhodopsin photon absorption, parvocellular pathway activations, V4 retinotopic maps). Even if $\mathcal{K}_{\text{phys}}$ is complete, an observer who has never experienced the qualitative sensation of crimson possesses zero acquaintance with the quale of red.
@@ -194,6 +197,7 @@ flowchart TD
         ELIM <===> PAN
     end
 ```
+<p class="figure-caption"><strong>Figure 1.4:</strong> The Dual Dead-Ends of Materialist Metaphysics.</p>
 
 ---
 
@@ -216,6 +220,7 @@ flowchart TD
         SPINOZA --> SCHOPENHAUER --> KASTRUP --> RIEB
     end
 ```
+<p class="figure-caption"><strong>Figure 1.5:</strong> Historical Evolution of Idealist Monism.</p>
 
 1. **Baruch Spinoza (1677):** In his *Ethics*, Spinoza demonstrated that there can exist only one infinite substance. Mind (*Thought*) and Body (*Extension*) are not two distinct causal substances colliding through an anatomical gland; they are the 1st-person interior and 3rd-person exterior expressions of the exact same underlying reality.
 2. **Arthur Schopenhauer (1819):** In *The World as Will and Representation*, Schopenhauer realized that our scientific instruments grant us access to nature only as representation (*Vorstellung*). But from within our own organism, we immediately experience nature as *Will* (*Wille*)—an unyielding, autopoietic striving to exist and maintain form against decay.
@@ -240,25 +245,27 @@ flowchart TD
     subgraph MAL_FIELD["<b>Mind-at-Large (Universal Experiential Substrate)</b>"]
         direction TB
         
+        AMBIENT["<b>Ambient Cosmological Dynamics</b><br>Extrinsic Appearance: Inanimate Physical Universe (Stars, Rocks, Vacuum)"]
+        
         subgraph ALTER_A["<b>Dissociated Conscious Alter A</b>"]
             direction TB
-            MB_A["<b>Markov Blanket A</b><br>(Sensory & Active States)"]
-            INT_A["<b>Internal Experiential Dynamics</b><br>1st-Person Qualia, Memories & PSM"]
+            MB_A["<b>Markov Blanket A</b> (Sensory & Active States)"]
+            INT_A["<b>Internal Experiential Dynamics</b> (1st-Person Qualia & PSM)"]
             MB_A <===> INT_A
         end
         
         subgraph ALTER_B["<b>Dissociated Conscious Alter B</b>"]
             direction TB
-            MB_B["<b>Markov Blanket B</b><br>(Sensory & Active States)"]
-            INT_B["<b>Internal Experiential Dynamics</b><br>1st-Person Qualia, Memories & PSM"]
+            MB_B["<b>Markov Blanket B</b> (Sensory & Active States)"]
+            INT_B["<b>Internal Experiential Dynamics</b> (1st-Person Qualia & PSM)"]
             MB_B <===> INT_B
         end
         
-        AMBIENT["<b>Ambient Cosmological Dynamics</b><br>Extrinsic Appearance: Inanimate Physical Universe (Stars, Rocks, Vacuum)"]
+        ALTER_A <== "Perception / Action" ==> AMBIENT
+        AMBIENT <== "Perception / Action" ==> ALTER_B
     end
-    
-    ALTER_A <=== Perception / Action ===> AMBIENT <=== Perception / Action ===> ALTER_B
 ```
+<p class="figure-caption"><strong>Figure 1.6:</strong> Mind-at-Large as the Universal Experiential Substrate and Dissociated Alters.</p>
 
 ### 1.6.1 Topological Dissociation vs. The Combination Problem:
 Why does the top-down dissociative mechanism succeed where bottom-up panpsychism fatally fails?
@@ -295,28 +302,27 @@ Under this partition, the internal states $\mu$ and external states $\eta$ are *
 $$P(\mu, \eta \mid \mathcal{B}) = P(\mu \mid \mathcal{B}) \cdot P(\eta \mid \mathcal{B}) \quad \Longleftrightarrow \quad \mu \perp\!\!\!\perp \eta \mid \mathcal{B}$$
 
 ```mermaid
-flowchart LR
-    subgraph EXTERNAL["External States (η)"]
+flowchart TD
+    subgraph MARKOV_PARTITION["<b>Statistical Physics of the Markov Blanket</b>"]
         direction TB
-        E_DYN["Environmental Dynamics<br>Mind-at-Large Flux"]
-    end
+        
+        EXTERNAL["<b>External States (η)</b><br>Environmental Dynamics · Ambient Mind-at-Large Flux"]
+        
+        subgraph BLANKET["<b>Markov Blanket (B)</b>"]
+            direction TB
+            S_STATE["<b>Sensory States (s)</b>: Inflow (η → s → μ)"]
+            A_STATE["<b>Active States (a)</b>: Outflow (μ → a → η)"]
+        end
 
-    subgraph BLANKET["Markov Blanket (B)"]
-        direction TB
-        S_STATE["Sensory States (s)<br>Inflow: η → s → μ"]
-        A_STATE["Active States (a)<br>Outflow: μ → a → η"]
-    end
+        INTERNAL["<b>Internal States (μ)</b><br>Neural Representations · Phenomenal Self-Model · Generative Beliefs"]
 
-    subgraph INTERNAL["Internal States (μ)"]
-        direction TB
-        I_DYN["Neural Representations<br>Phenomenal Self-Model<br>Generative Beliefs"]
+        EXTERNAL -->|"Causation"| S_STATE
+        S_STATE -->|"Perceptual Inference"| INTERNAL
+        INTERNAL -->|"Action Selection"| A_STATE
+        A_STATE -->|"Environmental Impact"| EXTERNAL
     end
-
-    EXTERNAL -->|Causation| S_STATE
-    S_STATE -->|Perceptual Inference| INTERNAL
-    INTERNAL -->|Action Selection| A_STATE
-    A_STATE -->|Environmental Impact| EXTERNAL
 ```
+<p class="figure-caption"><strong>Figure 1.7:</strong> The Markov Blanket Partition and Information Flow.</p>
 
 This conditional independence carries profound epistemological and ontological implications:
 1. **The Epistemic Barrier:** Internal states $\mu$ never have unmediated, direct contact with external reality $\eta$. An organism can never directly "touch" the world; it can only infer the hidden causes of its sensory excitations $s$ by projecting predictive generative hypotheses.
@@ -329,7 +335,7 @@ This conditional independence carries profound epistemological and ontological i
 
 Synthesizing analytic idealism with statistical physics, we formulate the foundational definition of individual existence in the Conative-Integrative Framework:
 
-> **Definition 1.1 (The Individual Soul / Conscious Alter):**  
+> **Statement 1.1: Definition of the Individual Soul (Conscious Alter)**  
 > *An individual conscious organism (a soul) is an autopoietic, non-equilibrium informational alter dissociated from Mind-at-Large, demarcated by a statistical Markov Blanket $\mathcal{B} = \{s, a\}$, whose internal dynamics $\mu$ maintain homeostatic self-organization and subjective 1st-person interiority by actively minimizing variational free energy and preserving integrated cause-effect structure across time.*
 
 In Chapter 2, we explore the exact cybernetic engine that enables this dissociated alter to preserve its existence against entropic dissolution: *The Free Energy Principle and Active Inference*.
@@ -359,16 +365,17 @@ flowchart TD
     subgraph THERMODYNAMICS["<b>The Thermodynamic Bifurcation of Nature</b>"]
         direction TB
         
-        INANIMATE["<b>Inanimate Matter (Passive Entropy)</b><br>• Rocks, Stars, Gas Clouds<br>• Monotonic decay to maximum entropy S_max<br>• No boundary maintenance"]
-        
-        LIVING["<b>Living Organisms / Conscious Alters (Active Inference)</b><br>• Nonequilibrium Steady States (NESS)<br>• Active homeostatic phase-space confinement<br>• Statistical Markov Blanket maintenance (FEP)"]
-        
         LAW["<b>The 2nd Law of Thermodynamics</b><br>dS/dt ≥ 0"]
         
-        LAW --> INANIMATE
-        LAW -->|Resisted by Autopoietic Work| LIVING
+        INANIMATE["<b>1. Inanimate Matter (Passive Entropy)</b><br>• Rocks, Stars, Gas Clouds · No boundary maintenance<br>• Monotonic decay to maximum entropy S_max"]
+        
+        LIVING["<b>2. Living Organisms / Conscious Alters (Active Inference)</b><br>• Nonequilibrium Steady States (NESS)<br>• Active homeostatic phase-space confinement · Markov Blanket (FEP)"]
+        
+        LAW -->|"Passive Dissipation"| INANIMATE
+        INANIMATE -.->|"Resisted by Autopoietic Work"| LIVING
     end
 ```
+<p class="figure-caption"><strong>Figure 2.1:</strong> The Thermodynamic Bifurcation of Nature.</p>
 
 How does a living organism—viewed in the CIF as a dissociated conscious alter within Mind-at-Large—achieve this continuous, improbable triumph over entropic dispersion?
 
@@ -380,7 +387,7 @@ The mathematical lineage of Active Inference traces back directly to mid-20th-ce
 > *"Every good regulator of a system must be a model of that system."*
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph GOOD_REGULATOR["<b>The Cybernetic Lineage: From Ashby to Friston</b>"]
         direction TB
         
@@ -391,6 +398,7 @@ flowchart LR
         ASHBY ==>|"Generalization to Active Inference"| FRISTON
     end
 ```
+<p class="figure-caption"><strong>Figure 2.2:</strong> The Cybernetic Lineage: From Ashby to Friston.</p>
 
 Conant and Ashby proved in information-theoretic terms that an agent cannot maintain essential homeostatic variables within viable physiological limits unless its internal state transitions are mathematically isomorphic to the environmental disturbances it encounters. 
 
@@ -444,10 +452,10 @@ flowchart TD
         
         DEC_2["<b>Decomposition 2: Occam's Razor</b><br>F = Complexity - Accuracy<br><i>Minimizing F balances model accuracy with minimal complexity</i>"]
         
-        F_TOP --> DEC_1
-        F_TOP --> DEC_2
+        F_TOP --> DEC_1 --> DEC_2
     end
 ```
+<p class="figure-caption"><strong>Figure 2.3:</strong> The Dual Faces of Variational Free Energy $F$.</p>
 
 ### The Dual Theorems of Active Inference:
 
@@ -497,15 +505,15 @@ Where:
 * **Conservative Solenoidal Flow ($Q \nabla \ln p(x)$):** Circulates along the iso-probability contours of the attractor without altering probability density ($\nabla \cdot (Q \nabla \ln p(x)) = 0$).
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph NESS_FLOWS["<b>Nonequilibrium Steady-State (NESS) Flows</b>"]
         direction TB
         GRAD["<b>1. Dissipative Gradient Flow (-Γ ∇ ln p)</b><br>Steers deviations back toward homeostatic attractors"]
         SOL["<b>2. Solenoidal Flow (Q ∇ ln p)</b><br>Drives biological cycles: Circadian rhythms, heartbeat, neural oscillations"]
+        GRAD <===> SOL
     end
-    
-    GRAD <===> SOL
 ```
+<p class="figure-caption"><strong>Figure 2.4:</strong> Nonequilibrium Steady-State (NESS) Flows.</p>
 
 In biological organisms, solenoidal flows are precisely the autonomous biological cycles that sustain life: circadian rhythms, respiratory cycles, cardiac pacing, and cortical brain waves (theta-gamma phase-amplitude coupling).
 
@@ -536,6 +544,7 @@ flowchart TD
         A_MAT <---> C_MAT
     end
 ```
+<p class="figure-caption"><strong>Figure 2.5:</strong> The Generative Model Tensors $\mathcal{M} = \{A, B, C, D\}$.</p>
 
 ### 1. The Likelihood Mapping Tensor ($A$):
 Maps hidden environmental states $s \in \{1, \dots, N_s\}$ to sensory observations $o \in \{1, \dots, N_o\}$:
@@ -578,14 +587,14 @@ flowchart TD
         
         G_TOTAL["<b>Expected Free Energy G(π)</b><br>Minimization over Planning Horizon H"]
         
-        PRAGMATIC["<b>1. Pragmatic Value (Exploitation)</b><br>• Minimizes divergence from C = ln P(o)<br>• Secures food, safety, and homeostatic boundaries<br>• The Biological Will to Live"]
+        PRAGMATIC["<b>1. Pragmatic Value (Exploitation)</b><br>• Minimizes divergence from C = ln P(o)<br>• Secures food, safety, and homeostatic boundaries"]
         
-        EPISTEMIC["<b>2. Epistemic Value (Exploration / Curiosity)</b><br>• Resolves hidden state ambiguity H[P(o|s)]<br>• Investigates novel, uncertain environments<br>• Maximizes mutual information / epistemic foraging"]
+        EPISTEMIC["<b>2. Epistemic Value (Exploration / Curiosity)</b><br>• Resolves hidden state ambiguity H[P(o|s)]<br>• Investigates novel, uncertain environments"]
         
-        G_TOTAL --> PRAGMATIC
-        G_TOTAL --> EPISTEMIC
+        G_TOTAL --> PRAGMATIC --> EPISTEMIC
     end
 ```
+<p class="figure-caption"><strong>Figure 2.6:</strong> The Dual Imperative of Expected Free Energy $\mathbf{G}(\pi)$.</p>
 
 ### Policy Selection via Softmax Optimization:
 
@@ -617,6 +626,7 @@ flowchart TD
         CELL --> TISSUE --> ORGAN --> COGNITIVE
     end
 ```
+<p class="figure-caption"><strong>Figure 2.7:</strong> Multiscale Active Inference across Biological Systems.</p>
 
 Every living cell, tissue collective, and organism is an active inference engine striving to preserve its Markov blanket. In the human conscious alter, this multiscale architecture reaches its zenith in the cerebral cortex.
 
@@ -657,13 +667,10 @@ flowchart TD
         
         POST["<b>Mathematical Translation into Physical Postulates</b><br>• Transition Probability Matrix (TPM)<br>• Cause-Effect Structure in Qualia Space<br>• Minimum Information Partition (MIP)<br>• Integrated Information Metric Φ_max > 0"]
         
-        AX1 --> POST
-        AX2 --> POST
-        AX3 --> POST
-        AX4 --> POST
-        AX5 --> POST
+        AX1 --> AX2 --> AX3 --> AX4 --> AX5 ==> POST
     end
 ```
+<p class="figure-caption"><strong>Figure 3.1:</strong> The Axiomatic Architecture of IIT 4.0.</p>
 
 ### The Five Canonical Axioms & Postulates of IIT 4.0:
 
@@ -863,13 +870,14 @@ flowchart TD
         AXIOM_6 ==> POST_6 ==> FORMULA
     end
 ```
+<p class="figure-caption"><strong>Figure 3.6:</strong> The 6th Axiom: The Conative Engine of Mind.</p>
 
 ### Formal Statement of Axiom 6:
-> **Axiom 6 (The Will to Exist / Conatus):**  
+> **Statement 3.1: Axiom 6 (The Will to Exist / Conatus)**  
 > *Subjective consciousness is not a passive, static reflection of information. Every conscious experience is intrinsically temporal and autopoietic; it is experienced as an active, continuous striving of the self to maintain its unified experiential existence against destruction, decay, and entropic dissolution.*
 
 ### Formal Statement of Postulate 6:
-> **Postulate 6 (Autopoietic Causal Persistence):**  
+> **Statement 3.2: Postulate 6 (Autopoietic Causal Persistence)**  
 > *A physical substrate $S$ is a genuine substrate of consciousness if and only if its policy-directed active inference $\pi^*$ actively maintains its integrated cause-effect power ($\Phi$) within a non-equilibrium steady state over successive temporal horizons:*
 
 $$\mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \;\ge\; \Phi(t) \quad \text{with } \Phi(t) > 0$$
@@ -891,15 +899,18 @@ Under this uncompensated degradation, the Minimum Information Partition (MIP) ra
 $$\Phi(t) = \Phi_0 \cdot \exp(-\gamma t) \quad \implies \quad \lim_{t \to \infty} \Phi(t) = 0$$
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph DYNAMICS["<b>Thermodynamic Fate of Integrated Information Φ</b>"]
         direction TB
         
-        PASSIVE["<b>Passive Inanimate System (π = ∅)</b><br>Thermal dissipation & noise<br>dΦ/dt = -γΦ < 0<br><b>Φ(t) → 0 (Causal Extinction)</b>"]
+        PASSIVE["<b>1. Passive Inanimate System (π = ∅)</b><br>Thermal dissipation & noise: dΦ/dt = -γΦ < 0<br><b>Φ(t) → 0 (Causal Extinction)</b>"]
         
-        ACTIVE["<b>Conative Active Inference Agent (π = π*)</b><br>Homeostatic work & policy control<br>dΦ/dt = -γΦ + J_active(π*) ≥ 0<br><b>Φ(t) ≥ Φ_min > 0 (Sustained Selfhood)</b>"]
+        ACTIVE["<b>2. Conative Active Inference Agent (π = π*)</b><br>Homeostatic work & policy control: dΦ/dt = -γΦ + J_active ≥ 0<br><b>Φ(t) ≥ Φ_min > 0 (Sustained Selfhood)</b>"]
+        
+        PASSIVE -.->|"Conative Transition via Active Inference"| ACTIVE
     end
 ```
+<p class="figure-caption"><strong>Figure 3.7:</strong> Thermodynamic Fate of Integrated Information $\Phi$.</p>
 
 ### The Active Conative Counter-Current:
 To prevent causal extinction, a conscious system must generate an active informational flux $J_{\text{active}}(\pi^*)$ that matches or exceeds the natural decay rate:
@@ -952,25 +963,20 @@ flowchart TD
         
         subgraph THIRD_PERSON["<b>3rd-Person Cybernetics (Exteriority / Physics)</b>"]
             direction TB
-            TP1["<b>Free Energy Principle & Active Inference</b>"]
-            TP2["• Minimizes Expected Free Energy G(π) over Horizon H"]
-            TP3["• Preserves homeostatic Markov Blanket boundaries (NESS)"]
-            TP1 --> TP2 --> TP3
+            TP1["<b>Free Energy Principle & Active Inference</b><br>• Minimizes Expected Free Energy G(π) over Horizon H<br>• Preserves homeostatic Markov Blanket boundaries (NESS)"]
         end
         
         EQ_CARD["<b>THE ISOMORPHIC MASTER EQUIVALENCE (6TH AXIOM)</b><br>π* = argmin G(π)  ⟺  E[ Φ(t+1) | π* ] ≥ Φ(t) > 0<br><i>Active Free Energy Minimization is Isomorphic to Causal Power Persistence</i>"]
         
         subgraph FIRST_PERSON["<b>1st-Person Phenomenological Ontology (Interiority / Mind)</b>"]
             direction TB
-            FP1["<b>IIT 4.0 & The 6th Axiom (Conatus)</b>"]
-            FP2["• Autopoietic Causal Persistence (The Will to Exist)"]
-            FP3["• Maximizes integrated cause-effect power Φ across time"]
-            FP1 --> FP2 --> FP3
+            FP1["<b>IIT 4.0 & The 6th Axiom (Conatus)</b><br>• Autopoietic Causal Persistence (The Will to Exist)<br>• Maximizes integrated cause-effect power Φ across time"]
         end
         
-        THIRD_PERSON <===> EQ_CARD <===> FIRST_PERSON
+        THIRD_PERSON ==> EQ_CARD ==> FIRST_PERSON
     end
 ```
+<p class="figure-caption"><strong>Figure 4.1:</strong> The Master Bridging Equivalence: Dual-Aspect Monism.</p>
 
 ### The Ontological Symmetry:
 * **The 3rd-Person View (Observed from the Outside):** An external scientist instruments the organism and observes a predictive cybernetic system executing action policies $\pi^*$ that minimize Expected Free Energy $\mathbf{G}$, continuously reducing sensory prediction errors and maintaining physiological homeostasis.
@@ -1000,6 +1006,7 @@ flowchart TD
         L1 --> L2 --> L3 --> THM
     end
 ```
+<p class="figure-caption"><strong>Figure 4.2:</strong> Logical Architecture of the Master Proof.</p>
 
 ### Lemma 1 (Attractor Invariance under Active Inference):
 Let $\mathcal{X}$ denote the total physiological phase space of an agent, and let $\mathcal{A} \subset \mathcal{X}$ denote the bounded non-equilibrium steady-state (NESS) homeostatic attractor manifold. 
@@ -1167,20 +1174,20 @@ flowchart TD
     subgraph BRAIN_NETWORKS["<b>The Neuroanatomical Triple-Network Architecture of the Human Alter</b>"]
         direction TB
         
-        DMN["<b>Default Mode Network (DMN)</b><br>• mPFC, Posterior Cingulate Cortex (PCC), Precuneus<br>• <b>Function:</b> Encodes autobiographical self, narrative priors (Layers 4 & 5)<br>• High baseline functional connectivity and causal centrality"]
+        TRN["<b>Thalamocortical Loop & Reticular Nucleus (TRN)</b><br>• Thalamic relay nuclei, Claustrum, Layer 5/6 feedback · The MIP gatekeeper"]
         
-        SN["<b>Salience Network (SN)</b><br>• Anterior Insula (AI), Dorsal Anterior Cingulate (dACC)<br>• <b>Function:</b> Computes precision-weighting of prediction errors & visceral states<br>• Dynamically switches coupling between DMN and CEN"]
+        DMN["<b>1. Default Mode Network (DMN)</b><br>• mPFC, PCC, Precuneus · Encodes autobiographical narrative (Layers 4 & 5)"]
         
-        CEN["<b>Central Executive Network (CEN)</b><br>• Dorsolateral Prefrontal Cortex (dlPFC), Posterior Parietal (PPC)<br>• <b>Function:</b> Deep temporal policy rollout π* over future horizons (H > 1)<br>• Working memory buffers and goal-directed conative action"]
+        SN["<b>2. Salience Network (SN)</b><br>• Anterior Insula (AI), dACC · Computes precision-weighting & switches networks"]
         
-        TRN["<b>Thalamocortical Loop & Reticular Nucleus (TRN)</b><br>• Thalamic relay nuclei, Claustrum, Layer 5/6 pyramidal feedback<br>• <b>Function:</b> The physical Minimum Information Partition (MIP) gatekeeper"]
+        CEN["<b>3. Central Executive Network (CEN)</b><br>• dlPFC, Posterior Parietal · Deep temporal policy rollout π* (H > 1)"]
         
-        DMN <==> SN <==> CEN
-        TRN -.->|Synchronizes & Gates| DMN
-        TRN -.->|Synchronizes & Gates| SN
-        TRN -.->|Synchronizes & Gates| CEN
+        TRN -.->|"Synchronizes & Gates"| DMN
+        DMN <===>|"Dynamic Switching"| SN
+        SN <===>|"Executive Enactment"| CEN
     end
 ```
+<p class="figure-caption"><strong>Figure 4.6:</strong> The Neuroanatomical Triple-Network Architecture of the Human Alter.</p>
 
 ### 1. The Thalamocortical Dynamic Core:
 The anatomical substrate exhibiting the highest $\Phi^{\max}$ in the mammalian nervous system is the **Thalamocortical System** (Edelman & Tononi, 2000). Deep layer 5 and 6 corticothalamic pyramidal neurons send dense recurrent feedback projections to thalamic relay nuclei, wrapped by the inhibitory mesh of the **Thalamic Reticular Nucleus (TRN)**. 
@@ -1201,17 +1208,18 @@ How does Integrated Information ($\Phi$) behave as the size $N$ of an Active Inf
 Our numerical scaling experiments reveal two distinct phases of network growth:
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph SCALING_PHASES["<b>The Two-Phase Scaling of Integrated Information Φ(N)</b>"]
         direction TB
         
-        PHASE_1["<b>Phase 1: Superlinear Surge (N = 4 → 8)</b><br>Φ(N) ∝ N^(1.4)<br>Recurrent cross-correlations multiply synergy"]
+        PHASE_1["<b>Phase 1: Superlinear Surge (N = 4 → 8)</b><br>Φ(N) ∝ N^(1.4) · Recurrent cross-correlations multiply synergy"]
         
-        PHASE_2["<b>Phase 2: Modular Saturation & Small-World Clustering (N > 8)</b><br>Global Φ plateaus unless hierarchical small-world<br>modularity (Cortex architecture) is introduced"]
+        PHASE_2["<b>Phase 2: Modular Saturation & Small-World Clustering (N > 8)</b><br>Global Φ plateaus unless hierarchical small-world modularity is introduced"]
         
         PHASE_1 ==> PHASE_2
     end
 ```
+<p class="figure-caption"><strong>Figure 4.7:</strong> The Two-Phase Scaling of Integrated Information $\Phi(N)$.</p>
 
 1. **The Superlinear Surge ($N = 4 \to 8$):** In small, densely coupled active inference networks, every added agent or node multiplies the total number of feedback loops. Synergistic mutual information outpaces partition entropy, yielding a superlinear growth curve $\Phi(N) \propto N^{1.4}$.
 2. **Modular Saturation ($N > 8$):** As network size expands further, fully connected architectures suffer from combinatorial interference. Global $\Phi$ saturates unless the network reorganizes into a **hierarchical, small-world modular topology**.
@@ -1246,6 +1254,7 @@ pie title The 6-Layer Composition of the Individual Soul (100%)
     "Layer 5: Biographical Lifelong Learning (Engrams & World-Model)" : 25
     "Layer 6: The Ego Tunnel (Phenomenal Self-Model)" : 10
 ```
+<p class="figure-caption"><strong>Figure 5.1:</strong> The 6-Layer Composition of the Individual Soul (Indicative Relative Weighting).</p>
 
 ---
 
@@ -1271,6 +1280,7 @@ flowchart TD
         L1 ==> L2 ==> L3 ==> L4 ==> L5 ==> L6
     end
 ```
+<p class="figure-caption"><strong>Figure 5.2:</strong> The 6-Layer Ontogenetic Hierarchy of the Soul.</p>
 
 ---
 
@@ -1331,6 +1341,8 @@ flowchart TD
 
 In the Conative-Integrative Framework, the six layers of the soul map directly onto the formal parameters of a discrete Partially Observable Markov Decision Process (POMDP):
 
+<p class="table-caption"><strong>Table 5.1:</strong> Active Inference Mapping: Uniting Neurobiology with POMDP Tensors across the 6 Layers.</p>
+
 | Layer | Soul Architectural Dimension | Contribution | POMDP Mathematical Object | Active Inference Role |
 | :--- | :--- | :---: | :--- | :--- |
 | **Layer 1** | **Mind-at-Large** | $25\,\%$ | **State Space ($\mathcal{S}$)** | The universal phase space of all possible experiential configurations |
@@ -1356,19 +1368,22 @@ flowchart TD
     subgraph PATHOLOGY_MAPPING["<b>Clinical Pathologies Mapped to the 6 Layers</b>"]
         direction TB
         
-        P_SPLIT["<b>Split-Brain Syndrome (Commissurotomy)</b><br>Surgical division of the corpus callosum splits the single macro-blanket into two independent conscious alters, each with distinct Φ > 0 and private visual fields."]
+        P_SPLIT["<b>1. Split-Brain Syndrome (Commissurotomy)</b><br>Surgical division of corpus callosum splits the macro-blanket into two conscious alters (Φ > 0)."]
         
-        P_DID["<b>Dissociative Identity Disorder (DID)</b><br>Severe early relational trauma partitions Layer 5 & 6 into multiple distinct generative models (alters), alternating control over the physical effector channels."]
+        P_DID["<b>2. Dissociative Identity Disorder (DID)</b><br>Severe early relational trauma partitions Layer 5 & 6 into multiple distinct generative models."]
         
-        P_DEP["<b>Depersonalization / Derealization Disorder</b><br>Failure of Layer 6 (PSM opacity): The self-model becomes opaque; patient experiences themselves as an external observer looking at an actor."]
+        P_DEP["<b>3. Depersonalization / Derealization Disorder</b><br>Failure of Layer 6 transparency: Self-model becomes opaque; observer alienates own body."]
         
-        P_PTSD["<b>Post-Traumatic Stress Disorder (PTSD)</b><br>Hyper-precision in Layer 4 (Epigenetics) & Layer 5 (Trauma Engrams): γ is locked at maximum, treating benign ambient cues as lethal existential threats."]
+        P_PTSD["<b>4. Post-Traumatic Stress Disorder (PTSD)</b><br>Hyper-precision in Layers 4 & 5: Precision γ locked at maximum, treating benign cues as lethal."]
         
-        P_SCHIZ["<b>Schizophrenia & Psychosis</b><br>Loss of sensory precision at Layer 6 & aberrant salience: Internal motor intentions are misattributed to external alien agents (Markov blanket blur)."]
+        P_SCHIZ["<b>5. Schizophrenia & Psychosis</b><br>Sensory precision attenuation at Layer 6: Motor intentions misattributed to external agents."]
         
-        P_MYST["<b>Mystical & Psychedelic Dissolution (REBUS)</b><br>Temporary deactivation of Layer 6 (PSM): Ego dissolves into Layer 1 (Mind-at-Large), experiencing oceanic boundless unity."]
+        P_MYST["<b>6. Mystical & Psychedelic Dissolution (REBUS)</b><br>Temporary deactivation of Layer 6 (PSM): Ego dissolves into Layer 1 (Mind-at-Large)."]
+        
+        P_SPLIT --> P_DID --> P_DEP --> P_PTSD --> P_SCHIZ --> P_MYST
     end
 ```
+<p class="figure-caption"><strong>Figure 5.3:</strong> Clinical Pathologies Mapped to the 6 Layers.</p>
 
 ### 1. Split-Brain Syndrome (Gazzaniga & Sperry Commissurotomy):
 When the $\approx 200\text{ million}$ axonal fibers of the corpus callosum are severed to treat intractable epilepsy, the unified thalamocortical complex undergoes a physical Minimum Information Partition. 
@@ -1444,6 +1459,7 @@ flowchart TD
         RETENTION ==>|"Continuous Informational Thread"| IMPRESSION ==>|"Forward Generative Leap"| PROTENTION
     end
 ```
+<p class="figure-caption"><strong>Figure 6.1:</strong> Husserl's Tripartite Structure of the Specious Present (~500ms - 3s).</p>
 
 In the Conative-Integrative Framework, we map Husserl’s phenomenological triad directly onto the neurobiology of **Hierarchical Predictive Processing** (Metzinger, 2003, 2009; Wiese, 2018; Friston, 2010; Varela, 1999):
 
@@ -1478,6 +1494,7 @@ flowchart TD
         SCALE_1 ==> SCALE_2 ==> SCALE_3
     end
 ```
+<p class="figure-caption"><strong>Figure 6.2:</strong> Francisco Varela's Three Scales of Temporal Horizon.</p>
 
 1. **Scale 1 (Elementary Micro-Events, $10\text{--}100\text{ ms}$):** The biological lower bound set by cellular refractory periods and synaptic transmission latencies. These events operate below the threshold of phenomenal awareness.
 2. **Scale 2 (1-Integration / The Specious Present, $0.5\text{--}3.0\text{ s}$):** The dynamic synchronization of widespread neuronal assemblies into a transient attractor state (a "dynamical cell assembly"). This is the conscious present—the minimal duration required to perceive an action, a thought, or an emotion.
@@ -1496,16 +1513,16 @@ flowchart TD
     subgraph NEURAL_PAC["<b>Cross-Frequency Phase-Amplitude Coupling: The Brain's Clock</b>"]
         direction TB
         
-        THETA["<b>Slow Theta Carrier Rhythm (4 - 8 Hz)</b><br>• Period: 125 - 250 ms · Hippocampus & Medial PFC<br>• Provides the macroscopic temporal window of integration"]
+        THETA["<b>1. Slow Theta Carrier Rhythm (4 - 8 Hz)</b><br>• Period: 125 - 250 ms · Hippocampus & Medial PFC · Macroscopic temporal window"]
         
-        GAMMA["<b>Fast Gamma Oscillations (30 - 80 Hz)</b><br>• Period: 12 - 30 ms · Sensory & Association Neocortex<br>• Individual gamma cycles encode specific sensory prediction errors ε_t"]
+        GAMMA["<b>2. Fast Gamma Oscillations (30 - 80 Hz)</b><br>• Period: 12 - 30 ms · Sensory Neocortex · Encodes prediction errors ε_t"]
         
-        NESTING["<b>Nested Phase-Amplitude Coupling (PAC)</b><br>• 4 to 8 gamma bursts nested within each single theta phase cycle<br>• Stitches discrete sensory snapshots into a continuous specious present (~1 - 3s)"]
+        NESTING["<b>3. Nested Phase-Amplitude Coupling (PAC)</b><br>• 4 to 8 gamma bursts nested in each theta cycle · Synthesizes specious present (~1 - 3s)"]
         
-        THETA --> NESTING
-        GAMMA --> NESTING
+        THETA ==> GAMMA ==> NESTING
     end
 ```
+<p class="figure-caption"><strong>Figure 6.3:</strong> Cross-Frequency Phase-Amplitude Coupling: The Brain's Clock.</p>
 
 ### The Theta-Gamma Nested Buffer:
 1. **The Theta Carrier Wave ($4\text{--}8\text{ Hz}$):** Originating in the hippocampus and medial prefrontal cortex, the slow theta cycle spans $125\text{--}250\text{ ms}$. It acts as an organizing temporal frame, sweeping across cortical assemblies to coordinate long-range communication.
@@ -1534,12 +1551,13 @@ flowchart TD
         LVL_0 --> LVL_1 --> LVL_2
     end
 ```
+<p class="figure-caption"><strong>Figure 6.4:</strong> The Spectrum of Temporal Depth in Active Inference.</p>
 
 In the Conative-Integrative Framework, we formalize this architectural threshold as an explicit mathematical theorem:
 
 ### The Theorem of Minimum Temporal Depth:
 
-> **Theorem 6.1 (The Temporal Depth Condition for Consciousness — Thomas Riebl):**  
+> **Statement 6.1: Theorem 6.1 — The Temporal Depth Condition for Consciousness (Thomas Riebl)**  
 > *A physical substrate cannot instantiate phenomenal self-consciousness or sustain autopoietic causal persistence ($\mathbb{E}[\Phi(t+1) \mid \pi^*] \ge \Phi(t) > 0$) without an internal generative transition tensor ($B = P(s_{t+1} \mid s_t, u)$) operating over a multi-step counterfactual planning horizon ($H > 1$).* [^1]
 
 ### Proof Sketch & Cybernetic Vulnerability:
@@ -1560,15 +1578,18 @@ flowchart TD
     subgraph CHRONOPATHOLOGY["<b>Disruptions of the Predictive Temporal Horizon</b>"]
         direction TB
         
-        C_DEP["<b>Major Depressive Disorder: Temporal Dilation / Freezing</b><br>• Protention collapses: Horizon H → 1 · Future is perceived as closed & immutable<br>• Subjective time decelerates agonizingly; the past (Retention) weighs infinitely"]
+        C_DEP["<b>1. Major Depressive Disorder: Temporal Dilation / Freezing</b><br>• Protention collapses: Horizon H → 1 · Future perceived as closed & immutable"]
         
-        C_MAN["<b>Bipolar Mania: Temporal Hyper-Acceleration</b><br>• Protentive overdrive: Horizon H branches explosively into competing futures<br>• Subjective time races; actions outpace sensory verification loops"]
+        C_MAN["<b>2. Bipolar Mania: Temporal Hyper-Acceleration</b><br>• Protentive overdrive: Horizon H branches explosively · Subjective time races"]
         
-        C_SCHIZ["<b>Schizophrenic Chronotaraxis: Temporal De-coupling</b><br>• Breakdown of theta-gamma PAC: Retention detaches from Primal Impression<br>• Present moments feel disjointed, foreign, and haunted by alien causal agency"]
+        C_SCHIZ["<b>3. Schizophrenic Chronotaraxis: Temporal De-coupling</b><br>• Breakdown of theta-gamma PAC: Retention detaches from Primal Impression"]
         
-        C_SAM["<b>Non-Dual Samadhi: Timeless Pure Awareness (Nunc Stans)</b><br>• Conscious cessation of protentive policy rollouts (G(π) → 0)<br>• The ego tunnel opens into the eternal, unmoving presence of Mind-at-Large"]
+        C_SAM["<b>4. Non-Dual Samadhi: Timeless Pure Awareness (Nunc Stans)</b><br>• Cessation of protentive policy rollouts (G(π) → 0) · Return to Mind-at-Large"]
+        
+        C_DEP --> C_MAN --> C_SCHIZ --> C_SAM
     end
 ```
+<p class="figure-caption"><strong>Figure 6.5:</strong> Disruptions of the Predictive Temporal Horizon.</p>
 
 1. **Major Depressive Disorder (The Frozen Future):**  
    In severe depression, dopaminergic SEEKING precision collapses. The generative model can no longer project viable future policies ($H \to 1$). Because future states offer no expected free energy reduction, subjective time dilates and freezes: patients report that "time has stopped" and that they are trapped forever in an unmoving present.
@@ -1592,23 +1613,18 @@ flowchart TD
         
         subgraph THERMODYNAMIC_ARROW["<b>1. The Inanimate Arrow (Thermodynamic Time)</b>"]
             direction TB
-            T1["<b>Governed by the 2nd Law of Thermodynamics</b>"]
-            T2["dS_universe / dt ≥ 0"]
-            T3["Thermal dissipation · Randomization · Structural decay · Heat death"]
-            T1 --> T2 --> T3
+            T1["<b>Governed by the 2nd Law of Thermodynamics</b><br>dS_universe / dt ≥ 0 · Thermal dissipation & decay"]
         end
         
         subgraph CONATIVE_ARROW["<b>2. The Phenomenal / Autopoietic Arrow (Conative Time)</b>"]
             direction TB
-            C1["<b>Governed by the 6th Axiom of Consciousness (CIF)</b>"]
-            C2["E[ Φ(t+1) | π* ] ≥ Φ(t) > 0   (argmin G(π))"]
-            C3["Autopoietic self-organization · Causal power · Qualia generation · Life"]
-            C1 --> C2 --> C3
+            C1["<b>Governed by the 6th Axiom of Consciousness (CIF)</b><br>E[ Φ(t+1) | π* ] ≥ Φ(t) > 0 · Autopoietic persistence"]
         end
         
-        THERMODYNAMIC_ARROW <===>|"COSMIC STRUGGLE: CONSCIOUSNESS FIGHTS UPSTREAM"| CONATIVE_ARROW
+        THERMODYNAMIC_ARROW ==>|"Cosmic Struggle: Consciousness Fights Upstream"| CONATIVE_ARROW
     end
 ```
+<p class="figure-caption"><strong>Figure 6.6:</strong> The Dual Opposing Vectors of Time in the Cosmos.</p>
 
 1. **The Inanimate Arrow (Thermodynamic Time):**  
    Sir Arthur Eddington (1928) identified the Second Law of Thermodynamics ($\Delta S \ge 0$) as the physical arrow of time. In inanimate nature, time marches forward by destroying order, flattening energy gradients, and transforming complex physical structures into uniform, disordered heat.
@@ -1654,6 +1670,7 @@ flowchart TD
         PHASE_1 ==> PHASE_2 ==> PHASE_3
     end
 ```
+<p class="figure-caption"><strong>Figure 7.1:</strong> The 3-Phase Computational Verification Pipeline.</p>
 
 All source code, transition probability matrices, generative model tensors, and raw simulation logs are open-source and publicly reproducible:  
 👉 **[https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks](https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks)**
@@ -1670,6 +1687,7 @@ In our first simulation architecture, we modeled a recurrent network of $N = 6$ 
 $$F_i = \sum_{j \in \mathcal{N}(i)} \left( D_{\text{KL}}\Big(q(s^{(i)}) \;\parallel\; P(s^{(i)} \mid o^{(j)})\Big) - \ln P(o^{(j)})\right)$$
 
 ![Simulation Phase 1 Results: Recurrent Network Self-Organization and Integrated Information Maximization](../images/Active_Inference_Phi_Simulation_Results.png)
+<p class="figure-caption"><strong>Figure 7.2:</strong> Simulation Phase 1 Results: Recurrent Network Self-Organization and Integrated Information Maximization.</p>
 
 ### Key Findings of Simulation Phase 1:
 
@@ -1726,6 +1744,7 @@ Integrated information requires both **differentiation** (high state variety) an
 To investigate how integrated cause-effect power behaves as conscious cognitive architectures scale in complexity, we expanded the active inference network systematically from $N = 4$ to $N = 12$ agents across modular hierarchical configurations.
 
 ![Simulation Phase 2 Results: Modular Network Expansion and Integrated Information Scaling Curve](../images/Active_Inference_Expanding_Network_Phi_Scaling.png)
+<p class="figure-caption"><strong>Figure 7.4:</strong> Simulation Phase 2 Results: Modular Network Expansion and Integrated Information Scaling Curve.</p>
 
 ### Key Findings of Simulation Phase 2:
 
@@ -1750,18 +1769,21 @@ In active inference, Expected Free Energy $\mathbf{G}(\pi)$ decomposes into two 
 $$\mathbf{G}(\pi) = \underbrace{-\mathbb{E}_{Q(o, s \mid \pi)}\big[ \ln P(o) \big]}_{\text{Pragmatic Value (Goal Seeking)}} \;-\; \underbrace{\mathbb{E}_{Q(o, s \mid \pi)}\Big[ D_{\text{KL}}\big(Q(s \mid o, \pi) \parallel Q(s \mid \pi)\big) \Big]}_{\text{Epistemic Value (Information Gain / Salience)}}$$
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph FORAGING_DYNAMICS["<b>The Epistemic Foraging Shield against Existential Traps</b>"]
         direction TB
         
-        MYOPIC_PATH["<b>Myopic Agent (H = 1, Zero Epistemic Horizon)</b><br>Greedy pursuit of immediate reward (+2.0)<br>Walks directly into lethal trap (s_trap → s_death)<br><b>Result: Causal Extinction (Φ = 0)</b>"]
+        MYOPIC_PATH["<b>1. Myopic Agent (H = 1, Zero Epistemic Horizon)</b><br>Greedy pursuit of immediate reward (+2.0) ⟹ Walks directly into lethal trap (s_death) · <b>Φ = 0</b>"]
         
-        EPISTEMIC_PATH["<b>Deep Temporal Agent (H ≥ 2, Epistemic Horizon)</b><br>Values reduction of entropy: D_KL(Q(s|o) || Q(s)) > 0<br>Takes detour to Cue site (s_cue) → Unmasks trap → Navigates safely to Goal<br><b>Result: Autopoietic Survival (Φ sustained)</b>"]
+        EPISTEMIC_PATH["<b>2. Deep Temporal Agent (H ≥ 2, Epistemic Horizon)</b><br>Optimizes Information Gain D_KL[Q(s|o)||Q(s)] ⟹ Takes detour to Cue (s_cue) · <b>Φ Sustained</b>"]
+        
+        MYOPIC_PATH -.->|"Counterfactual Foresight"| EPISTEMIC_PATH
     end
 ```
+<p class="figure-caption"><strong>Figure 7.5:</strong> The Epistemic Foraging Shield against Existential Traps.</p>
 
 ### The Epistemic Foraging Theorem:
-> **Theorem 7.1 (Epistemic Shielding of Integrated Information — Thomas Riebl):**  
+> **Statement 7.1: Theorem 7.1 — Epistemic Shielding of Integrated Information (Thomas Riebl)**  
 > *In any partially observable environment with deceptive non-zero danger manifolds, an agent whose planning horizon satisfies $H \ge 2$ and whose policy selection optimizes Epistemic Value achieves an expected time to structural dissolution $\tau_{\text{death}} \to \infty$, whereas a myopic agent ($H \le 1$) collapses with probability $P_{\text{trap}} > 0$ within finite time $t \le \tau_{\text{env}}$.*
 
 *Proof:*  
@@ -1781,27 +1803,27 @@ flowchart TD
     subgraph POMDP_DECEPTIVE_ENVIRONMENT["<b>The Deceptive Verification Environment Topology</b>"]
         direction TB
         
-        S0["<b>State 0: Initial Start Site (s₀)</b><br>Sensory ambiguity (50% probability safe / 50% deadly)"]
+        S0["<b>State 0: Start Site (s₀)</b><br>Sensory ambiguity: 50% safe / 50% deadly"]
         
-        S1["<b>State 1: Epistemic Cue Site (s_cue)</b><br>Disambiguates the hidden environment.<br><b>Requires 1-Step Detour away from the goal!</b>"]
+        S1["<b>State 1: Epistemic Cue Site (s_cue)</b><br>Disambiguates environment (Requires 1-Step Detour)"]
         
-        S2["<b>State 2: Deceptive Trap Site (s_trap)</b><br>Offers immediate high fake sensory reward (+2.0).<br><i>Leads irreversibly to structural destruction!</i>"]
+        S2["<b>State 2: Deceptive Trap Site (s_trap)</b><br>Immediate fake reward (+2.0) ⟹ Leads to dissolution"]
         
-        S3["<b>State 3: Safe Transitional Path (s_path)</b><br>Neutral intermediate corridor."]
+        S3["<b>State 3: Safe Transitional Corridor (s_path)</b>"]
         
-        S4["<b>State 4: True Homeostatic Goal (s_goal)</b><br>Sustainable physiological survival (C = +4.5)."]
+        S4["<b>State 4: True Homeostatic Goal (s_goal)</b><br>Sustainable survival (C = +4.5) · Φ Sustained"]
         
-        S5["<b>State 5: Absorbing Lethal Sink (s_death)</b><br>Structural dissolution. Coupling destroyed: Φ = 0."]
+        S5["<b>State 5: Absorbing Lethal Sink (s_death)</b><br>Structural dissolution: Φ = 0"]
         
         S0 -->|"Action 1: Epistemic Detour"| S1
-        S0 -->|"Action 2: Greedy Reflex"| S2
-        S0 -->|"Action 3: Blind Step"| S3
+        S0 -.->|"Action 2: Greedy Reflex"| S2
+        S0 -->|"Action 3: Direct Step"| S3
         S1 -->|"Informed Path"| S3
-        S2 ==>|"Irreversible Collapse"| S5
+        S2 ==>|"Fatal Trap"| S5
         S3 -->|"Goal Navigation"| S4
-        S5 ==>|"Absorbing State"| S5
     end
 ```
+<p class="figure-caption"><strong>Figure 7.6:</strong> The Deceptive Verification Environment Topology.</p>
 
 ### The Four Agent Cohorts Under Evaluation:
 1. **Reflex Agent ($H = 0$):** Zero temporal depth. Executes instantaneous sensory-motor mappings ($u_t = f(o_t)$) with an identity transition tensor ($B = I$).
@@ -1815,6 +1837,8 @@ flowchart TD
 
 Simulations were executed across an ensemble of **$N = 30$ independent Monte Carlo runs** per cohort under stochastic action precision ($\gamma = 2.5$) and sensory observation noise:
 
+<p class="table-caption"><strong>Table 7.1:</strong> Monte Carlo Verification: Survival Rates and Integrated Information across Planning Horizons ($N = 30$ Runs).</p>
+
 | Agent Cohort | Planning Horizon ($H$) | Ensemble Survival Rate | Mean Asymptotic $\Phi(t)$ | Epistemic Detour Rate | Compliance with 6th Axiom |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Reflex Agent** | $H = 0$ | **$36.7\,\%$** | $\mathbf{0.068 \pm 0.015}$ | $0.0\,\%$ (Blind reflex) | **Violated ($\Phi \to 0$)** |
@@ -1823,6 +1847,7 @@ Simulations were executed across an ensemble of **$N = 30$ independent Monte Car
 | **Deep Temporal** | $H = 4$ | **$100.0\,\%$** | $\mathbf{0.184 \pm 0.006}$ | **$100.0\,\%$ (Optimal)** | **Fully Maximized** |
 
 ![Simulation Phase 3 Results: Deep Temporal Active Inference and Monte Carlo Verification](../images/Deep_Temporal_Active_Inference_Simulation.png)
+<p class="figure-caption"><strong>Figure 7.7:</strong> Simulation Phase 3 Results: Deep Temporal Active Inference and Monte Carlo Verification.</p>
 
 ### Comprehensive Analysis of the 4-Panel Verification Graphics:
 
@@ -1876,6 +1901,7 @@ flowchart TD
         MAL_UNPART ==> DISSOC ==> NOVELTY
     end
 ```
+<p class="figure-caption"><strong>Figure 8.1:</strong> The Cosmic Dialectic of Mind-at-Large.</p>
 
 In its unpartitioned state, Mind-at-Large is infinite potentiality, but it lacks the perspective of a localized *other*. A completely homogeneous, infinite field cannot experience:
 * The thrill of scientific discovery.
@@ -1960,6 +1986,7 @@ flowchart TD
         SHEDDING ==> REINTEGRATION
     end
 ```
+<p class="figure-caption"><strong>Figure 8.3:</strong> The Reverse-Ontogenetic Dissolution at Biological Death.</p>
 
 ### The Stepwise Process of De-Dissociation:
 
@@ -2007,6 +2034,7 @@ flowchart TD
         TRAUMA_STATE ==> THERAPY ==> INTEGRATION
     end
 ```
+<p class="figure-caption"><strong>Figure 8.4:</strong> Trauma Resolution via Predictive Precision Re-weighting.</p>
 
 In the REBUS model (*Relaxed Beliefs Under Psychedelics*, Carhart-Harris & Friston, 2019), therapeutic modalities (psychedelic-assisted therapy, EMDR, somatic experiencing) act by temporarily reducing the hyper-rigid precision ($\gamma$) of pathological Layer 5 narrative priors. This relaxation allows deep emotional prediction errors to be processed, updating the generative world model ($A, B, C$) and freeing the soul from repetitive trauma loops.
 
@@ -2094,6 +2122,7 @@ flowchart TD
         TOTAL_CAPACITY ==>|"Topological Wrapping"| LOCAL_DISSOC ==>|"Boundary Dissolution"| LOCAL_DISSOL ==>|"Zero Informational Loss"| TOTAL_CAPACITY
     end
 ```
+<p class="figure-caption"><strong>Figure 8.6:</strong> The Law of Experiential Conservation in Mind-at-Large.</p>
 
 ### The Invariant Field of Mind:
 Let $\Psi_{\text{total}}$ represent the total integrated experiential capacity of the universe. When an alter is born through embryogenesis and morphogenesis, $\Psi_{\text{total}}$ does not increase; rather, a finite volume of the field is **topologically wrapped within a Markov blanket**, generating a localized 1st-person ego tunnel ($\Phi_{\text{alter}} > 0$).
@@ -2124,37 +2153,22 @@ flowchart TD
     subgraph POMDP_GRAPH["<b>Bayesian Generative Graph of Deep Active Inference</b>"]
         direction TB
         
-        D_NODE["<b>Prior Vector D = P(s₁)</b>"]
-        PI_NODE["<b>Policy Prior P(π) = σ(-γ G(π))</b>"]
+        PRIORS["<b>Priors: D = P(s₁) · Policy Prior P(π) = σ(-γ G(π)) · Preferences C = ln P(o)</b>"]
         
-        S1["<b>Hidden State s₁</b>"]
-        S2["<b>Hidden State s₂</b>"]
-        ST["<b>Hidden State s_τ</b>"]
+        STEP_1["<b>Time Step τ = 1: Hidden State s₁ ⟹ Observation o₁</b><br>Likelihood mapping: o₁ ~ P(o₁ | s₁) = A"]
         
-        O1["<b>Observation o₁</b>"]
-        O2["<b>Observation o₂</b>"]
-        OT["<b>Observation o_τ</b>"]
+        ACTION_1["<b>Action u₁: Causal Transition Tensor B(u₁)</b>"]
         
-        U1["<b>Action u₁</b>"]
-        U2["<b>Action u₂</b>"]
+        STEP_2["<b>Time Step τ = 2: Hidden State s₂ ⟹ Observation o₂</b><br>Likelihood mapping: o₂ ~ P(o₂ | s₂) = A"]
         
-        C_NODE["<b>Preference Vector C = ln P(o)</b>"]
+        ACTION_2["<b>Action u₂: Causal Transition Tensor B(u₂)</b>"]
         
-        D_NODE --> S1
-        PI_NODE --> U1
-        PI_NODE --> U2
+        STEP_T["<b>Horizon τ = t+H: Hidden State s_τ ⟹ Expected Observation o_τ</b><br>Evaluated by Expected Free Energy G(π)"]
         
-        S1 -->|Likelihood A| O1
-        S1 -->|Transition B(u₁)| S2
-        S2 -->|Likelihood A| O2
-        S2 -->|Transition B(u₂)| ST
-        ST -->|Likelihood A| OT
-        
-        C_NODE -.->|Pragmatic Evaluation| O1
-        C_NODE -.->|Pragmatic Evaluation| O2
-        C_NODE -.->|Pragmatic Evaluation| OT
+        PRIORS --> STEP_1 --> ACTION_1 --> STEP_2 --> ACTION_2 --> STEP_T
     end
 ```
+<p class="figure-caption"><strong>Figure A.1:</strong> Bayesian Generative Graph of Deep Active Inference.</p>
 
 ### 1. The Generative Model Definition:
 The joint probability distribution over observations $\tilde{o} = (o_1, \dots, o_T)$, hidden states $\tilde{s} = (s_1, \dots, s_T)$, and policies $\pi$ is factored as:
@@ -2213,6 +2227,7 @@ flowchart TD
         STEP1 --> STEP2 --> STEP3 --> STEP4
     end
 ```
+<p class="figure-caption"><strong>Figure B.1:</strong> Algorithmic Workflow for Computing $\Phi_{\max}$ in IIT 4.0.</p>
 
 ### 1. Earth Mover's Distance (Wasserstein-1 Metric):
 Given discrete probability distributions $p$ and $q$ over binary state configurations $\{0, 1\}^N$:
@@ -2289,67 +2304,107 @@ flowchart TD
         INPUT --> UNPART --> LOOP --> W1_CALC --> MIN_SELECT
     end
 ```
+<p class="figure-caption"><strong>Figure C.1:</strong> Algorithmic Workflow of the MIP Wasserstein Search.</p>
 
-### Python Implementation of Wasserstein-1 Distance over Discrete States:
+### Open-Source Algorithm Implementation & Software Repository
 
-```python
-import numpy as np
-from scipy.optimize import linprog
+To support reproducibility, open scientific inquiry, and computational validation across independent research laboratories, the complete algorithmic implementation of the Wasserstein Minimum Information Partition (MIP) search, the continuous Gaussian $\Phi$ solvers, and the multiscale active inference simulation suites are released as **open-source software** under the permissive **MIT License**.
 
-def compute_wasserstein_1d(p_unpartitioned, p_partitioned, state_dim):
-    """
-    Computes Earth Mover's Distance (Wasserstein-1) between two discrete
-    probability distributions over binary state vectors of length N.
-    """
-    num_states = 2 ** state_dim
-    states = [np.array([int(b) for b in format(i, f'0{state_dim}b')]) 
-              for i in range(num_states)]
-    
-    # 1. Cost matrix based on Hamming distance between binary states
-    C = np.zeros((num_states, num_states))
-    for i in range(num_states):
-        for j in range(num_states):
-            C[i, j] = np.sum(np.abs(states[i] - states[j]))
-            
-    c_vector = C.flatten()
-    
-    # 2. Linear programming constraints for optimal transport coupling
-    A_eq = np.zeros((2 * num_states, num_states * num_states))
-    for i in range(num_states):
-        A_eq[i, i*num_states:(i+1)*num_states] = 1.0  # Row sums match p
-    for j in range(num_states):
-        A_eq[num_states + j, j::num_states] = 1.0     # Col sums match p_part
-        
-    b_eq = np.concatenate([p_unpartitioned, p_partitioned])
-    
-    res = linprog(c_vector, A_eq_ub=None, b_eq_ub=None,
-                  A_eq=A_eq, b_eq=b_eq, method='highs')
-    
-    return res.fun if res.success else 0.0
+The production codebase provides fully optimized, vectorized routines leveraging NumPy, SciPy (Linear Programming via HiGHS), and JAX for GPU-accelerated tensor operations.
 
-def find_minimum_information_partition(TPM, current_state, N):
-    """
-    Exhaustive search over all 2^(N-1) - 1 bipartitions to find MIP and Phi.
-    """
-    min_w1 = float('inf')
-    optimal_partition = None
-    
-    # Compute full unpartitioned repertoire
-    p_full = TPM[current_state, :]
-    
-    # Generate bipartitions M1, M2
-    for partition_mask in range(1, 2**(N-1)):
-        # Compute tensor product of marginalized partitions
-        p_part = compute_factorized_repertoire(TPM, current_state, partition_mask, N)
-        w1_dist = compute_wasserstein_1d(p_full, p_part, N)
-        
-        if w1_dist < min_w1:
-            min_w1 = w1_dist
-            optimal_partition = partition_mask
-            
-    phi_integrated = min_w1
-    return phi_integrated, optimal_partition
+#### Official GitHub Repository:
+* 🌐 **Repository URL:** [https://github.com/Thriebl/active-inference-phi-network](https://github.com/Thriebl/active-inference-phi-network)
+* 📓 **Interactive Jupyter Notebooks:** [https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks](https://github.com/Thriebl/active-inference-phi-network/tree/main/notebooks)
+  * `Active_Inference_Phi_Maximization_Network.ipynb` — Phase 1 recurrent network self-organization to criticality ($\Phi \approx 3.42\text{ bits}$).
+  * `Active_Inference_Expanding_Network_Phi_Scaling.ipynb` — Phase 2 modular network expansion and $\Phi(N) \propto N^{1.4}$ power-law scaling analysis.
+  * `Deep_Temporal_Active_Inference_Simulation.ipynb` — Phase 3 Monte Carlo deceptive POMDP testbed and temporal depth ($H > 1$) verification.
+* 🐍 **Executable Python Scripts:** [https://github.com/Thriebl/active-inference-phi-network/tree/main/scripts](https://github.com/Thriebl/active-inference-phi-network/tree/main/scripts)
+  * `expanding_active_inference_phi_network.py` — Standalone headless batch simulation runner for high-throughput HPC clusters.
+
+Researchers and students are encouraged to clone the repository, replicate the figures, run the test suite, and extend the framework to novel neural architectures and psychiatric simulation models:
+
+```bash
+git clone https://github.com/Thriebl/active-inference-phi-network.git
+cd active-inference-phi-network
+pip install -r requirements.txt
+python scripts/expanding_active_inference_phi_network.py
 ```
+
+---
+
+# List of Figures {-}
+
+* **Figure 1.1:** The Historical Evolution of Physicalist Reductionism
+* **Figure 1.2:** The Triad of Anti-Physicalist Impossibility Proofs
+* **Figure 1.3:** Epistemic Asymmetry: Acquaintance vs. Physical Description
+* **Figure 1.4:** The Dual Dead-Ends of Materialist Metaphysics
+* **Figure 1.5:** Historical Evolution of Idealist Monism
+* **Figure 1.6:** Mind-at-Large as the Universal Experiential Substrate and Dissociated Alters
+* **Figure 1.7:** The Markov Blanket Partition and Information Flow
+* **Figure 2.1:** The Thermodynamic Bifurcation of Nature
+* **Figure 2.2:** The Cybernetic Lineage: From Ashby to Friston
+* **Figure 2.3:** The Dual Faces of Variational Free Energy $F$
+* **Figure 2.4:** Nonequilibrium Steady-State (NESS) Flows
+* **Figure 2.5:** The Generative Model Tensors $\mathcal{M} = \{A, B, C, D\}$
+* **Figure 2.6:** The Dual Imperative of Expected Free Energy $\mathbf{G}(\pi)$
+* **Figure 2.7:** Multiscale Active Inference across Biological Systems
+* **Figure 3.1:** The Axiomatic Architecture of IIT 4.0
+* **Figure 3.2:** The Unfolding Theorem: Recurrent Interiority vs. Feedforward Zombie
+* **Figure 3.3:** Calculation of Integrated Information $\Phi$ via Minimum Information Partition
+* **Figure 3.4:** Qualia Space Geometry: From Mechanisms to Phenomenal Polyhedra
+* **Figure 3.5:** The Paradox of Transient Causal Phantoms in Static IIT
+* **Figure 3.6:** The 6th Axiom: The Conative Engine of Mind
+* **Figure 3.7:** Thermodynamic Fate of Integrated Information $\Phi$
+* **Figure 4.1:** The Master Bridging Equivalence: Dual-Aspect Monism
+* **Figure 4.2:** Logical Architecture of the Master Proof
+* **Figure 4.3:** Rate-Distortion Optimization in the Conscious Alter
+* **Figure 4.4:** The Information-Geometric Manifold of Phenomenal States
+* **Figure 4.5:** The Three Dynamical Regimes of Active Inference Networks
+* **Figure 4.6:** The Neuroanatomical Triple-Network Architecture of the Human Alter
+* **Figure 4.7:** The Two-Phase Scaling of Integrated Information $\Phi(N)$
+* **Figure 5.1:** The 6-Layer Composition of the Individual Soul (Indicative Relative Weighting)
+* **Figure 5.2:** The 6-Layer Ontogenetic Hierarchy of the Soul
+* **Figure 5.3:** Clinical Pathologies Mapped to the 6 Layers
+* **Figure 6.1:** Husserl's Tripartite Structure of the Specious Present (~500ms - 3s)
+* **Figure 6.2:** Francisco Varela's Three Scales of Temporal Horizon
+* **Figure 6.3:** Cross-Frequency Phase-Amplitude Coupling: The Brain's Clock
+* **Figure 6.4:** The Spectrum of Temporal Depth in Active Inference
+* **Figure 6.5:** Disruptions of the Predictive Temporal Horizon
+* **Figure 6.6:** The Dual Opposing Vectors of Time in the Cosmos
+* **Figure 7.1:** The 3-Phase Computational Verification Pipeline
+* **Figure 7.2:** Simulation Phase 1 Results: Recurrent Network Self-Organization and Integrated Information Maximization
+* **Figure 7.3:** Phase Space Attractor Geometry and Dynamic Regimes
+* **Figure 7.4:** Simulation Phase 2 Results: Modular Network Expansion and Integrated Information Scaling Curve
+* **Figure 7.5:** The Epistemic Foraging Shield against Existential Traps
+* **Figure 7.6:** The Deceptive Verification Environment Topology
+* **Figure 7.7:** Simulation Phase 3 Results: Deep Temporal Active Inference and Monte Carlo Verification
+* **Figure 8.1:** The Cosmic Dialectic of Mind-at-Large
+* **Figure 8.2:** The Multiscale Nested Hierarchy of Active Inference
+* **Figure 8.3:** The Reverse-Ontogenetic Dissolution at Biological Death
+* **Figure 8.4:** Trauma Resolution via Predictive Precision Re-weighting
+* **Figure 8.5:** The Architectural Divide: Feedforward AI vs. Conscious Alters
+* **Figure 8.6:** The Law of Experiential Conservation in Mind-at-Large
+* **Figure A.1:** Bayesian Generative Graph of Deep Active Inference
+* **Figure B.1:** Algorithmic Workflow for Computing $\Phi_{\max}$ in IIT 4.0
+* **Figure C.1:** Algorithmic Workflow of the MIP Wasserstein Search
+
+---
+
+# List of Statements {-}
+
+* **Statement 1.1:** Definition of the Individual Soul (Conscious Alter)
+* **Statement 3.1:** Axiom 6 (The Will to Exist / Conatus)
+* **Statement 3.2:** Postulate 6 (Autopoietic Causal Persistence)
+* **Statement 4.1:** The Master Bridging Equivalence of Dual-Aspect Monism
+* **Statement 6.1:** Theorem 6.1 — The Temporal Depth Condition for Consciousness (Thomas Riebl)
+* **Statement 7.1:** Theorem 7.1 — Epistemic Shielding of Integrated Information (Thomas Riebl)
+
+---
+
+# List of Tables {-}
+
+* **Table 5.1:** Active Inference Mapping: Uniting Neurobiology with POMDP Tensors across the 6 Layers
+* **Table 7.1:** Monte Carlo Verification: Survival Rates and Integrated Information across Planning Horizons ($N = 30$ Runs)
 
 ---
 
