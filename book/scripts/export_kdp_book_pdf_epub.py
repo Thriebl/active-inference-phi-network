@@ -790,29 +790,41 @@ def build_edition(edition_name, md_file, title_header, pdf_out, docx_out):
 
 def main():
     import sys
-    # 1. English Standalone Edition (Primary focus)
-    en_md = os.path.join(BUILD_DIR, "CIF_Monograph_EN.md")
-    merge_chapters(MANUSCRIPT_EN_DIR, en_md)
-    en_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf")
-    en_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.docx")
-    build_edition("EN", en_md, "The Conative-Integrative Framework", en_pdf, en_docx)
+    do_en = "--de-only" not in sys.argv and ("--de" not in sys.argv or "--all" in sys.argv)
+    do_de = "--all" in sys.argv or "--de" in sys.argv or "--de-only" in sys.argv
+
+    if do_en:
+        # 1. English Standalone Edition (Primary focus)
+        en_md = os.path.join(BUILD_DIR, "CIF_Monograph_EN.md")
+        merge_chapters(MANUSCRIPT_EN_DIR, en_md)
+        en_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf")
+        en_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.docx")
+        build_edition("EN", en_md, "The Conative-Integrative Framework", en_pdf, en_docx)
+        
+        # 2. English EPUB Edition
+        try:
+            from export_kdp_book_epub import build_epub
+            build_epub("en")
+        except Exception as e:
+            print(f"  [WARN] English EPUB build encountered an error: {e}")
     
-    # 2. English EPUB Edition
-    try:
-        from export_kdp_book_epub import build_epub
-        build_epub()
-    except Exception as e:
-        print(f"  [WARN] EPUB build encountered an error: {e}")
-    
-    # 3. German Standalone Edition (Optional flag --de or --all)
-    if "--all" in sys.argv or "--de" in sys.argv:
+    if do_de:
+        # 3. German Standalone Edition
         de_md = os.path.join(BUILD_DIR, "CIF_Monograph_DE.md")
         merge_chapters(MANUSCRIPT_DE_DIR, de_md)
         de_pdf = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.pdf")
         de_docx = os.path.join(BUILD_DIR, "The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.docx")
         build_edition("DE", de_md, "Das Konativ-Integrative Framework", de_pdf, de_docx)
+
+        # 4. German EPUB Edition
+        try:
+            from export_kdp_book_epub import build_epub
+            build_epub("de")
+        except Exception as e:
+            print(f"  [WARN] German EPUB build encountered an error: {e}")
     
-    print("\n🎉 STANDALONE ENGLISH MONOGRAPH EDITIONS (PDF, DOCX & EPUB) COMPILED SUCCESSFULLY!")
+    print("\n🎉 MONOGRAPH EDITIONS COMPILED SUCCESSFULLY!")
 
 if __name__ == "__main__":
     main()
+
