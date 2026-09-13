@@ -162,7 +162,7 @@ cover_html = f"""<!DOCTYPE html>
         }}
         
         .formula-card {{
-            width: 94%;
+            width: calc(94% - 6mm);
             background: linear-gradient(135deg, rgba(6, 78, 59, 0.28) 0%, rgba(15, 23, 42, 0.88) 100%);
             border: 1.2px solid #10b981;
             border-radius: 6pt;
@@ -292,7 +292,12 @@ shutil.copy(PDF_COVER_PATH, os.path.join(USER_DOCS_DIR, "The_Conative_Integrativ
 shutil.copy(JPG_COVER_PATH, os.path.join(USER_DOCS_DIR, "The_Conative_Integrative_Framework_Front_Cover.jpg"))
 shutil.copy(PDF_COVER_PATH, os.path.join(DOCS_DIR, "The_Conative_Integrative_Framework_Front_Cover.pdf"))
 shutil.copy(JPG_COVER_PATH, os.path.join(DOCS_DIR, "The_Conative_Integrative_Framework_Front_Cover.jpg"))
+BOOKS_DIR = os.path.join(USER_DOCS_DIR, "01_Books")
+if os.path.exists(BOOKS_DIR):
+    shutil.copy(PDF_COVER_PATH, os.path.join(BOOKS_DIR, "The_Conative_Integrative_Framework_Front_Cover.pdf"))
+    shutil.copy(JPG_COVER_PATH, os.path.join(BOOKS_DIR, "The_Conative_Integrative_Framework_Front_Cover.jpg"))
 
 print("\n🎉 COVER GENERATION COMPLETE!")
 print(f"📄 High-Res JPEG: {os.path.join(USER_DOCS_DIR, 'The_Conative_Integrative_Framework_Front_Cover.jpg')}")
 print(f"📄 Print-Ready PDF: {os.path.join(USER_DOCS_DIR, 'The_Conative_Integrative_Framework_Front_Cover.pdf')}")
+
