@@ -103,4 +103,28 @@ These two extensions would directly empower my upcoming research on the Conative
 1. **Empirical Axiom Testing:** It allows me to automate the verification of the 6th Axiom ($\Delta \Phi \ge 0$) across large-scale Monte Carlo batches entirely within the GNN toolchain.
 2. **Multi-Agent Scaling:** It provides a reproducible, standardized foundation for my upcoming publications on collective consciousness and multi-agent Active Inference networks.
 
-I would be delighted to provide my CIF model specification, simulation traces, and test scripts to support the development and testing of these features whenever the team considers integrating them into the GNN roadmap.
+---
+
+## Model Package, Test Scripts & Supporting Material
+
+To provide a fully reproducible baseline for exploring these ideas, I have published the complete standalone package in a dedicated directory in this repository:
+
+👉 **[Complete CIF GNN Model Package Directory](https://github.com/Thriebl/active-inference-phi-network/tree/main/cif_gnn_model_package)**
+
+### Direct Component Links:
+* **Canonical GNN v1.1 Model Specification:**  
+  [`cif_deep_temporal_agent.gnn.md`](https://github.com/Thriebl/active-inference-phi-network/blob/main/cif_gnn_model_package/cif_deep_temporal_agent.gnn.md)
+* **Empirical Monte Carlo Test Script (PyMDP):**  
+  [`scripts/run_cif_pymdp_agent.py`](https://github.com/Thriebl/active-inference-phi-network/blob/main/cif_gnn_model_package/scripts/run_cif_pymdp_agent.py) *(Runs 20 trials over $H \in \{0, 1, 2, 4\}$ demonstrating the $\Phi$ phase transition)*
+* **GNN Rendered Standalone Runners:**  
+  * PyMDP 1.0 Runner: [`scripts/CIF_Deep_Temporal_Agent_H2_pymdp.py`](https://github.com/Thriebl/active-inference-phi-network/blob/main/cif_gnn_model_package/scripts/CIF_Deep_Temporal_Agent_H2_pymdp.py)  
+  * Julia / RxInfer.jl Runner: [`scripts/CIF_Deep_Temporal_Agent_H2_rxinfer.jl`](https://github.com/Thriebl/active-inference-phi-network/blob/main/cif_gnn_model_package/scripts/CIF_Deep_Temporal_Agent_H2_rxinfer.jl)  
+* **Execution Data & Traces:**  
+  * 25-step execution output: [`results/simulation_results.json`](https://github.com/Thriebl/active-inference-phi-network/blob/main/cif_gnn_model_package/results/simulation_results.json)  
+* **Visual Trajectory & Structural Graphs:**  
+  * Monte Carlo Phase Transition Plot: [`results/pymdp_cif_simulation_run.png`](https://github.com/Thriebl/active-inference-phi-network/blob/main/cif_gnn_model_package/results/pymdp_cif_simulation_run.png)  
+  * Step 8 Matrix Distributions & Heatmaps: [`results/cif_deep_temporal_agent.gnn_combined_analysis.png`](https://github.com/Thriebl/active-inference-phi-network/blob/main/cif_gnn_model_package/results/cif_deep_temporal_agent.gnn_combined_analysis.png)  
+  * Step 16 VFE vs. EFE Trajectory Dynamics: [`results/cif_deep_temporal_agent.gnn_pymdp_vfe_vs_efe.png`](https://github.com/Thriebl/active-inference-phi-network/blob/main/cif_gnn_model_package/results/cif_deep_temporal_agent.gnn_pymdp_vfe_vs_efe.png)  
+  * Interactive Bipartite Network Graph: [`results/cif_deep_temporal_agent.gnn_network_interactive.html`](https://github.com/Thriebl/active-inference-phi-network/blob/main/cif_gnn_model_package/results/cif_deep_temporal_agent.gnn_network_interactive.html)  
+
+I would be delighted to provide any further traces or collaborate on testing if these features align with upcoming GNN roadmap cycles!
