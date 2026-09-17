@@ -100,6 +100,39 @@ flowchart TD
 
 ---
 
+## 📖 The Complete Monograph & Book Manuscript
+
+The complete 10-chapter book manuscript, **"The Conative-Integrative Framework: Active Inference, Integrated Information, and the Autopoietic Arrow of Mind"** (Thomas Riebl, 2026), is fully open-access and published in this repository:
+
+* 📕 **Complete Book PDF (English, 6×9 in, 320+ pages):** [`docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf`](docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf)
+* 📱 **Complete Book ePub (English):** [`docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN.epub`](docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN.epub)
+* 🇩🇪 **Deutsche Gesamtausgabe (PDF 6×9 in & ePub):** [`docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.pdf`](docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.pdf) | [`ePub`](docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE.epub)
+* 📁 **Browse All 10 Chapters (Markdown):** [`book/manuscript_en/`](book/manuscript_en/) | [Book Overview](book/README.md)
+
+| Chapter | Title & Scientific Focus | Markdown Source |
+| :--- | :--- | :--- |
+| **Front Matter** | Title Page, Dedication, Master Equivalence Box & Author's Preface | [Read](book/manuscript_en/00_front_matter.md) |
+| **Chapter 1** | The Crisis of Physicalism & Analytic Idealism (Mind-at-Large) | [Read](book/manuscript_en/01_crisis_of_physicalism_and_mind_at_large.md) |
+| **Chapter 2** | The Cybernetic Engine: Free Energy Principle & Active Inference | [Read](book/manuscript_en/02_cybernetic_engine_free_energy_principle.md) |
+| **Chapter 3** | First-Person Interiority: Integrated Information Theory 4.0 & The 6th Axiom | [Read](book/manuscript_en/03_first_person_interiority_iit4_and_6th_axiom.md) |
+| **Chapter 4** | The Fundamental Bridge: The Master Equivalence Theorem | [Read](book/manuscript_en/04_fundamental_bridge_master_equivalence.md) |
+| **Chapter 5** | The Composition of the Soul: The 6-Layer Ontogenetic Architecture | [Read](book/manuscript_en/05_composition_of_the_soul_6_layers.md) |
+| **Chapter 6** | The Temporal Mechanics of Consciousness & The Specious Present | [Read](book/manuscript_en/06_temporal_mechanics_of_consciousness_and_specious_present.md) |
+| **Chapter 7** | **Computational Verification, Monte Carlo Methodology & The Deep Temporal Active Inference Agent** | [**Read Chapter 7**](book/manuscript_en/07_computational_verification_and_monte_carlo.md) |
+| **Chapter 8** | Existential & Ethical Implications: Mortality, Suffering & The Self | [Read](book/manuscript_en/08_existential_and_ethical_implications.md) |
+| **Chapter 9** | Back Matter, Mathematical Appendices & Comprehensive Bibliography | [Read](book/manuscript_en/09_back_matter_appendices_and_bibliography.md) |
+
+---
+
+## ➰ Standalone GNN Model Package & Methodology Proposals
+
+For researchers in the Active Inference Institute (AII) and Generalized Notation Notation (GNN) ecosystem:
+
+* 📦 **CIF Deep Temporal Agent Model Package:** [`cif_gnn_model_package/`](cif_gnn_model_package/) — Contains canonical GNN v1.1 model specification (`cif_deep_temporal_agent.gnn.md`), standalone executable PyMDP and RxInfer.jl runners, Monte Carlo test script (`run_cif_pymdp_agent.py`), and Step 16 analysis outputs.
+* 📝 **GNN Methodology Memo:** [`docs/gnn_methodology_proposals.md`](docs/gnn_methodology_proposals.md) — Proposals for native causal integration ($\Phi$) metrics in Step 16 and declarative Markov blanket coupling.
+
+---
+
 ## 📓 Interactive Jupyter Notebooks
 
 All simulations are provided as fully documented, interactive Jupyter Notebooks with standardized initial parameter configuration sections:

@@ -8,13 +8,17 @@
 
 ## Overview
 
-This directory contains the self-contained model specification, test scripts, rendered backend runners, and simulation outputs for the **Conative-Integrative Framework (CIF)** deep temporal POMDP agent.
+This directory contains the self-contained model specification, test scripts, rendered backend runners, and simulation outputs for the **Conative-Integrative Framework (CIF)** deep temporal POMDP agent from [**Chapter 7 of the CIF Monograph**](../book/manuscript_en/07_computational_verification_and_monte_carlo.md).
 
 The model formalizes the **Temporal Depth Condition for Consciousness (Theorem 6.1)** and empirically tests the **6th Axiom of Autopoietic Causal Persistence**:
 
 $$\mathbb{E}_{\pi^*}\left[\Phi(t+1)\right] \ge \Phi(t) > 0$$
 
 In this architecture, an agent's policy selection under Expected Free Energy ($\mathbf{G}$) must actively preserve its internal cause-effect power ($\Phi$) to avert cognitive and physical collapse in deceptive environments.
+
+* 📖 **Theoretical Foundation:** [Chapter 7: Computational Verification, Monte Carlo & Deep Temporal Agent](../book/manuscript_en/07_computational_verification_and_monte_carlo.md)
+* 📕 **Complete Monograph (PDF):** [`The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf`](../docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf)
+* 📝 **GNN Methodology Memo:** [`gnn_methodology_proposals.md`](../docs/gnn_methodology_proposals.md)
 
 ---
 
