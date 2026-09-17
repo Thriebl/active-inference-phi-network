@@ -28,6 +28,8 @@ In this architecture, an agent's policy selection under Expected Free Energy ($\
 cif_gnn_model_package/
 ├── README.md                                  # This documentation
 ├── cif_deep_temporal_agent.gnn.md             # Canonical GNN v1.1 model specification
+├── lean/
+│   └── cif_deep_temporal_agent.gnn_lean.lean  # Formal Lean 4 specification (fep_lean v0.5 / FEP.GnnDocument)
 ├── scripts/
 │   ├── run_cif_pymdp_agent.py                 # Empirical Monte Carlo simulation across planning horizons H ∈ {0, 1, 2, 4}
 │   ├── CIF_Deep_Temporal_Agent_H2_pymdp.py    # GNN Step 11 rendered standalone PyMDP runner
@@ -93,6 +95,18 @@ To run the reactive message-passing simulation:
 ```bash
 julia scripts/CIF_Deep_Temporal_Agent_H2_rxinfer.jl
 ```
+
+---
+
+## 4. Formal Mathematical Specification in Lean 4 (`fep_lean`)
+
+In addition to numerical runtime execution (Python/Julia), the GNN compiler automatically transpiles the CIF generative model into formal interactive theorem prover code in **Lean 4** (`lean/cif_deep_temporal_agent.gnn_lean.lean`), targeting the Active Inference Institute's [`fep_lean`](https://github.com/ActiveInferenceInstitute/fep_lean) formal verification catalogue (v0.5):
+
+* **Typed Document Structure:** Conforms to `FEP.GnnDocument` (`import FepSketches.gnn_document`).
+* **Rigorous Dimensional Typing:** Formal state-space bounds for likelihood $A \in \mathbb{R}^{5 \times 6}$, transitions $B \in \mathbb{R}^{6 \times 6 \times 4}$, preferences $C \in \mathbb{R}^{5 \times 1}$, and priors $D \in \mathbb{R}^{6 \times 1}$.
+* **Ontological Invariant Binding:** Formally binds CIF variables to the AII ActInf ontology (`LikelihoodMatrix`, `TransitionMatrix`, `ExpectedFreeEnergy`, `ActionPrecision`, `IntegratedInformation`).
+* **The 6th Axiom in Equations:** Formally specifies the autopoietic persistence constraint:
+  $$\mathbb{E}_{\pi^*}\left[\Phi(t+1)\right] \ge \Phi(t) > 0$$
 
 ---
 
