@@ -1,10 +1,11 @@
+import FepSketches.gnn_document
+
 -- Canonical: FEP.GnnDocument (fep_lean v0.5)
 -- Model: CIF_Deep_Temporal_Agent_H2
 -- The Conative-Integrative Framework (CIF) Deep Temporal Active Inference Agent from Chapter 7.
-Formulates the Temporal Depth Condition for Consciousness (Theorem 6.1) as a discrete Partially Observable Markov Decision Process (POMDP).
-The agent operates in a deceptive environment with a delayed lethal trap (sweet sensory attractor) and an epistemic cue site.
-Multi-step counterfactual planning (H >= 2) is required to resolve ambiguity and avoid collapse, dynamically coupled to Integrated Information Theory (IIT 4.0) through the 6th Axiom of Autopoietic Causal Persistence.
-import FepSketches.gnn_document
+-- Formulates the Temporal Depth Condition for Consciousness (Theorem 6.1) as a discrete Partially Observable Markov Decision Process (POMDP).
+-- The agent operates in a deceptive environment with a delayed lethal trap (sweet sensory attractor) and an epistemic cue site.
+-- Multi-step counterfactual planning (H >= 2) is required to resolve ambiguity and avoid collapse, dynamically coupled to Integrated Information Theory (IIT 4.0) through the 6th Axiom of Autopoietic Causal Persistence.
 
 open FEP.GnnDocument
 
