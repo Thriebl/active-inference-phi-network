@@ -26,7 +26,6 @@ SUITE_DIR = "/home/thr/Documents/02_Academic_Suite"
 
 SIMULATION_IMG = os.path.join(REPO_DIR, "images", "Active_Inference_Phi_Simulation_Results.png")
 COVER_IMG = os.path.join(REPO_DIR, "book", "cover", "The_Conative_Integrative_Framework_Front_Cover.jpg")
-PORTRAIT_IMG = os.path.join(REPO_DIR, "images", "img_9795.jpg")
 
 ARTICLE_1_MD = r"""---
 type: "medium-article"
@@ -218,8 +217,6 @@ True science demands transparency. The complete Python implementation, simulatio
 ---
 
 ## About the Author
-
-![Thomas Riebl](/home/thr/Documents/active-inference-phi-network/images/img_9795.jpg)
 
 **Thomas Riebl** is an independent researcher, systems architect, and author based in Luxembourg. Born in 1960 in Western Germany, he spent over three decades in enterprise information technology as an independent IT consultant, systems architect, and senior IT manager at a premier global banking institution. 
 

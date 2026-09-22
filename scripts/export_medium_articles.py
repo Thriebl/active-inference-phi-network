@@ -210,8 +210,6 @@ True science demands transparency. The complete Python implementation, simulatio
 
 ## About the Author
 
-![Thomas Riebl](/home/thr/Documents/active-inference-phi-network/images/img_9795.jpg)
-
 **Thomas Riebl** is an independent researcher, systems architect, and author based in Luxembourg. Born in 1960 in Western Germany, he spent over three decades in enterprise information technology as an independent IT consultant, systems architect, and senior IT manager at a premier global banking institution. 
 
 Driven by a lifelong passion for foundational physics, cybernetics, and non-dual philosophy, he developed **The Conative-Integrative Framework (CIF)**, formulated the **6th Axiom of Consciousness**, and proved the **Theorem of Minimum Temporal Depth**, providing the first mathematically closed bridge between 3rd-person cybernetic self-organization and 1st-person phenomenal causality.

@@ -230,9 +230,7 @@ cover_html = f"""<!DOCTYPE html>
             <div class="main-subtitle">Active Inference, Integrated Information, and the Autopoietic Arrow of Mind</div>
         </div>
         
-        <div class="portrait-frame">
-            <img src="{IMAGE_PORTRAIT}" alt="Thomas Riebl" class="portrait-img" />
-        </div>
+        {f'<div class="portrait-frame"><img src="{IMAGE_PORTRAIT}" alt="Thomas Riebl" class="portrait-img" /></div>' if os.path.exists(IMAGE_PORTRAIT) else ''}
         
         <div class="formula-card">
             <div class="formula-label">The Fundamental Master Equivalence (6th Axiom)</div>
