@@ -1,189 +1,178 @@
 # The Conative-Integrative Framework (CIF)
-## Active Inference, Integrated Information ($\Phi$), and the 6th Axiom of Consciousness
+## A Unified Cybernetic & Phenomenological Theory Bridging Active Inference and Integrated Information ($\Phi$) via the 6th Axiom of Consciousness
 
 **Author:** Thomas Riebl (Luxembourg)  
 **Theoretical Architecture:** The Conative-Integrative Framework (CIF)  
-*(Analytic Idealism $\times$ Active Inference & FEP $\times$ Integrated Information Theory 4.0 $\times$ The 6th Axiom)*  
+**Domains:** Computational Neuroscience, Theoretical Biology, Active Inference (FEP), Integrated Information Theory (IIT 4.0), Formal Verification (Lean 4)  
 **Repository:** [https://github.com/Thriebl/active-inference-phi-network](https://github.com/Thriebl/active-inference-phi-network)  
 **Date:** September 2026  
 
 ---
 
-```
-                               THE CONATIVE-INTEGRATIVE FRAMEWORK (CIF)
-                                      Author: Thomas Riebl (2026)
+## ⚡ Executive Summary for Researchers: What is CIF & The 6th Axiom?
 
-        +-----------------------------------------------------------------------------------+
-        |                                    MIND-AT-LARGE                                  |
-        |             Universal Experiential Field (Spinoza's Substance / Kastrup)          |
-        +-----------------------------------------------------------------------------------+
-                                                  |
-                                   [ Dissociation via Markov Blanket ]
-                                                  v
-        +-----------------------------------------------------------------------------------+
-        |                         THE DISSOCIATED ALTER (INDIVIDUAL SOUL)                   |
-        |                                                                                   |
-        |   3rd-Person Cybernetic Physics (FEP)        1st-Person Causal Interiority (IIT) |
-        |   -----------------------------------        ----------------------------------- |
-        |   Active Inference & Free Energy Min         Integrated Information Power (Phi)  |
-        |   POMDP Generative Model (A, B, C, D)        Cause-Effect Repertoire across MIP  |
-        |   Variational Free Energy F <= -ln p(o)      Maximal Causal Substrate (Tononi)   |
-        +-----------------------------------------------------------------------------------+
-                                                  |
-                                    [ THE 6th AXIOM (THOMAS RIEBL) ]
-                                                  v
-        +-----------------------------------------------------------------------------------+
-        |                              THE FUNDAMENTAL BRIDGE                               |
-        |                                                                                   |
-        |   pi* = argmin sum G(pi, tau)  <=====>  E[Phi(t+1) | pi*] >= Phi(t)  (Phi > 0)    |
-        |                                                                                   |
-        |   "Minimizing Expected Free Energy is the computational engine of the 6th Axiom"  |
-        +-----------------------------------------------------------------------------------+
+```
+                         THE CONATIVE-INTEGRATIVE FRAMEWORK (CIF)
+                                    Thomas Riebl (2026)
+
+   3rd-Person Cybernetic Physics (FEP)           1st-Person Causal Interiority (IIT 4.0)
+   -----------------------------------           ---------------------------------------
+   Active Inference & Free Energy Principle      Integrated Information Theory (Tononi)
+   POMDP Generative Model (A, B, C, D)           Intrinsic Cause-Effect Power (Phi)
+   Action Policy Selection via EFE: G(pi)        Irreducible Cause-Effect Space over MIP
+   Markov Blanket Epistemic Sequestration        Maximal Substrate of Phenomenal States
+                    \                                     /
+                     \                                   /
+                      v                                 v
+        +-------------------------------------------------------------------------+
+        |                    THE 6th AXIOM OF CONSCIOUSNESS                       |
+        |                           (Theorem 6.1)                                 |
+        |                                                                         |
+        |    pi* = argmin sum G(pi, tau)  <=====>  E[Phi(t+1) | pi*] >= Phi(t)    |
+        |                                          where Phi(t) > 0               |
+        |                                                                         |
+        |   "Minimizing Expected Free Energy is the autopoietic computational     |
+        |    engine that preserves integrated causal power against dissolution."  |
+        +-------------------------------------------------------------------------+
 ```
 
----
+### 1. The Core Theoretical Problem
+* **The Limitation of IIT 4.0:** Integrated Information Theory defines consciousness as intrinsic cause-effect power ($\Phi$). However, its five foundational axioms (Existence, Composition, Information, Integration, Exclusion) are strictly **static and atemporal**. This generates the *Paradox of Transient Causal Phantoms*: static feedforward silicon grids, inactive lookup tables, or ephemeral logic gates can exhibit accidental $\Phi > 0$ without possessing any homeostatic drive, temporal agency, or existential persistence.
+* **The Limitation of Pure Cybernetics:** The Free Energy Principle (FEP) and Active Inference formalize how self-organizing systems persist by minimizing Variational ($F$) and Expected Free Energy ($G$), but traditionally describe dynamics from a third-person statistical physics perspective without addressing why certain physical substrates possess first-person, irreducible interiority.
 
-## Executive Summary & Theoretical Core
-
-The **Conative-Integrative Framework (CIF)** unifies four foundational paradigms into a mathematically rigorous, computationally testable, and ontologically closed architecture of mind:
-
-1. **Analytic Idealism (Bernardo Kastrup):** Reality is fundamentally experiential (*Mind-at-Large*). Living organisms are localized, dissociated alters bounded by Markov Blankets.
-2. **The Free Energy Principle & Active Inference (Karl Friston):** Living alters maintain their structural and cognitive integrity by minimizing Variational Free Energy ($F$) and Expected Free Energy ($G$).
-3. **Integrated Information Theory 4.0 (Giulio Tononi):** Subjective consciousness is identical to the intrinsic cause-effect power ($\Phi$) of a maximally irreducible physical substrate.
-4. **The 6th Axiom of Consciousness (Thomas Riebl):** IIT 4.0's five static axioms suffer from the *Paradox of Transient Causal Phantoms* (static lifeless logic gates having accidental $\Phi > 0$). The **6th Axiom (*The Will to Exist / Conatus*)** establishes that genuine consciousness strictly requires **autopoietic temporal self-preservation**:
+### 2. The CIF Solution: The 6th Axiom (*Conatus*)
+The **Conative-Integrative Framework (CIF)** bridges this divide by formalizing Spinoza's principle of *Conatus*—the existential striving of an entity to persevere in its own being—as a fundamental physical and mathematical postulate of consciousness:
 
 $$\Large \pi^* = \arg\min_{\pi} \sum_{\tau=t+1}^{t+H} \mathbf{G}(\pi, \tau) \quad\Longleftrightarrow\quad \mathbb{E}\Big[\Phi(t+1) \;\Big|\; \pi^*\Big] \;\ge\; \Phi(t) \quad (\Phi > 0)$$
 
----
-
-## Core Thematic Pillars & Research Modules
-
-```mermaid
-flowchart TD
-    subgraph CIF_PILLARS["<b>The Conative-Integrative Framework (CIF)</b>"]
-        direction TB
-        
-        M1["<b>Module 1: Recurrent Active Inference & Scaling Φ</b><br>Agents self-organize at the edge of chaos.<br>Φ scales superlinearly as nodes expand (N = 4 → 12)."]
-        M2["<b>Module 2: Time, Consciousness & Temporal Depth</b><br>The Specious Present (Retention, Impression, Protention).<br>Theorem: Minimum Temporal Depth H > 1 for self-consciousness."]
-        M3["<b>Module 3: Monte Carlo Stochastic Methodology</b><br>Ensemble cohorts (N = 30) across stochastic POMDP phase spaces.<br>Computational verification of the 6th Axiom coupling against deceptive traps."]
-        M4["<b>Module 4: The Composition of the Soul</b><br>6-Layer Soul Decomposition (100%):<br>Mind-at-Large, Genetics, Chance & Necessity, Epigenetics, Learning, Ego Tunnel."]
-        
-        M1 <===> M2 <===> M3 <===> M4
-    end
-```
-
-### 1. Recurrent Active Inference & Integrated Information Maximization
-* Implements recurrent arrays of discrete-state POMDP active inference agents.
-* Demonstrates that agents minimizing Expected Free Energy self-tune to the **Edge of Chaos (Criticality)**, maximizing Gaussian Integrated Information ($\Phi$).
-* Demonstrates modular scaling: as networks expand from $N=4$ to $N=12$, $\Phi$ exhibits superlinear scaling, bounded by modular clustering.
-
-### 2. Time, Consciousness, and the Specious Present
-* Maps Edmund Husserl's (1928) tripartite phenomenological structure (**Retention $\to$ Primal Impression $\to$ Protention**) onto hierarchical Bayesian predictive coding.
-* **Theorem (The Temporal Depth Condition for Consciousness — Thomas Riebl):**
-  > *A physical system cannot sustain phenomenal self-consciousness without generative transition tensors ($B = P(s_{t+1} \mid s_t, u)$) spanning a multi-step counterfactual planning horizon ($H > 1$).*
-  >  
-  > *$\ast$ Scientific Context:* While Friston et al. (2017, 2018) established temporal depth for action planning, and Seth (2014, 2021) described counterfactual richness as a correlate of presence, CIF formalizes this as an explicit **mathematical necessity theorem for phenomenal self-consciousness**, directly coupled to autopoietic $\Phi$-preservation under the 6th Axiom.
-
-### 3. Monte Carlo Methodology in Stochastic Phase Spaces
-* Demonstrates that single deterministic simulation runs cannot distinguish lucky flukes from genuine agency.
-* Employs **Monte Carlo Ensemble Sampling ($N = 30 \dots 1000$)** across observation noise ($A$-matrix), transition hazards ($B$-tensors), and precision-weighted action sampling ($\gamma$).
-* Demonstrates the **Phase-Space Bifurcation**: reactive agents ($H=0$) collapse ($36.7\%$ survival, $\Phi \to 0$), whereas deep temporal agents ($H=4$) achieve $100\%$ survival and maximal $\Phi(t) \approx 0.18$.
-
-### 4. The Composition of the Soul (6-Layer Ontogenetic Architecture)
-* Formalizes an individual conscious alter as a 6-layer autopoietic tapestry totaling $100\%$:
-  1. **Layer 1: Mind-at-Large ($25\%$)** — Universal experiential substrate (Spinoza / Kastrup).
-  2. **Layer 2: Genetic Blueprint ($15\%$)** — Brainstem & limbic baseline (*Conatus* / Roth / Panksepp).
-  3. **Layer 3: Chance & Teleonomic Necessity ($15\%$)** — Monod-Eigen hypercycles & embryogenesis.
-  4. **Layer 4: Transgenerational Epigenetics ($10\%$)** — Precision-weighting baseline ($\gamma$).
-  5. **Layer 5: Biographical Lifelong Learning ($25\%$)** — Cortical-hippocampal engrams ($A, B$-matrices).
-  6. **Layer 6: The Ego Tunnel / PSM ($10\%$)** — Transparent self-model & Markov Blanket boundary (Metzinger).
+* **Theorem 6.1 (Equivalence Theorem):** An agent’s policy selection $\pi^*$ minimizing Expected Free Energy ($\mathbf{G}$) over a planning horizon $H$ is formally equivalent to preserving its integrated causal power ($\Phi > 0$).
+* **Physical Implication:** Living, conscious systems are non-equilibrium steady-state dissipative structures bounded by **Markov blankets**. If an agent ceases active inference ($\mathbf{G}$ diverges), its homeostatic boundary ruptures, and its integrated cause-effect structure collapses into thermal dissipation:
+  $$\mathbf{G} \to \infty \implies \Phi \to 0 \quad (\text{Causal Dissolution / Death}).$$
 
 ---
 
-## 📖 The Complete Monograph & Book Manuscript
+## 🏛️ Key Theoretical Foundations & Theorems
 
-The complete 10-chapter book manuscript, **"The Conative-Integrative Framework: Active Inference, Integrated Information, and the Autopoietic Arrow of Mind"** (Thomas Riebl, 2026), is fully open-access and published in this repository:
+### A. Theorem 6.1: Formal Equivalence of Conative Policy Selection & $\Phi$-Preservation
+In the discrete-time POMDP formulation, let $\mathcal{S}$ denote hidden states, $\mathcal{O}$ observations, and $\mathcal{U}$ control states. The Expected Free Energy of a policy $\pi$ decomposes into epistemic and pragmatic value:
+$$\mathbf{G}(\pi, \tau) = \underbrace{\mathbb{E}_{Q(o_\tau, s_\tau|\pi)}\Big[\ln Q(s_\tau|\pi) - \ln Q(s_\tau|o_\tau, \pi)\Big]}_{\text{Epistemic Value (Information Gain / Ambiguity Reduction)}} \;-\; \underbrace{\mathbb{E}_{Q(o_\tau|\pi)}\Big[\ln P(o_\tau)\Big]}_{\text{Pragmatic Value (Homeostatic Viability Bounds } C)}.$$
 
-* 📕 **Complete Book PDF (English, 6×9 in, 320+ pages):** [`docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf`](docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf)
-* 📱 **Complete Book ePub (English):** [`docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN.epub`](docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN.epub)
-* 🇩🇪 **Deutsche Gesamtausgabe (PDF 6×9 in & ePub):** [`docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.pdf`](docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE_6x9.pdf) | [`ePub`](docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_DE.epub)
-* 📁 **Browse All 10 Chapters (Markdown):** [`book/manuscript_en/`](book/manuscript_en/) | [Book Overview](book/README.md)
+**Formal Statement:** The optimal policy $\pi^*$ that minimizes cumulative expected free energy across temporal depth $H$ is necessary and sufficient to prevent the degeneration of the system’s Minimum Information Partition (MIP), ensuring that the expected future integrated information $\Phi(t+1)$ remains non-decreasing and strictly positive:
+$$\mathbb{E}_{\pi^*}\big[\Phi(t+1)\big] \ge \Phi(t) > 0.$$
+*(Machine-verified in Lean 4 against Mathlib4 and `fep_lean`)*.
 
-| Chapter | Title & Scientific Focus | Markdown Source |
-| :--- | :--- | :--- |
-| **Front Matter** | Title Page, Dedication, Master Equivalence Box & Author's Preface | [Read](book/manuscript_en/00_front_matter.md) |
-| **Chapter 1** | The Crisis of Physicalism & Analytic Idealism (Mind-at-Large) | [Read](book/manuscript_en/01_crisis_of_physicalism_and_mind_at_large.md) |
-| **Chapter 2** | The Cybernetic Engine: Free Energy Principle & Active Inference | [Read](book/manuscript_en/02_cybernetic_engine_free_energy_principle.md) |
-| **Chapter 3** | First-Person Interiority: Integrated Information Theory 4.0 & The 6th Axiom | [Read](book/manuscript_en/03_first_person_interiority_iit4_and_6th_axiom.md) |
-| **Chapter 4** | The Fundamental Bridge: The Master Equivalence Theorem | [Read](book/manuscript_en/04_fundamental_bridge_master_equivalence.md) |
-| **Chapter 5** | The Composition of the Soul: The 6-Layer Ontogenetic Architecture | [Read](book/manuscript_en/05_composition_of_the_soul_6_layers.md) |
-| **Chapter 6** | The Temporal Mechanics of Consciousness & The Specious Present | [Read](book/manuscript_en/06_temporal_mechanics_of_consciousness_and_specious_present.md) |
-| **Chapter 7** | **Computational Verification, Monte Carlo Methodology & The Deep Temporal Active Inference Agent** | [**Read Chapter 7**](book/manuscript_en/07_computational_verification_and_monte_carlo.md) |
-| **Chapter 8** | Existential & Ethical Implications: Mortality, Suffering & The Self | [Read](book/manuscript_en/08_existential_and_ethical_implications.md) |
-| **Chapter 9** | Back Matter, Mathematical Appendices & Comprehensive Bibliography | [Read](book/manuscript_en/09_back_matter_appendices_and_bibliography.md) |
+### B. Theorem 6.2: The Temporal Depth Condition for Consciousness ($H > 1$)
+A reactive agent with zero planning horizon ($H = 0$) responds only to instantaneous sensory stimuli. In environments containing deceptive local minima (short-term rewards that lead to fatal traps), reactive agents inevitably perish ($\Phi \to 0$, $36.7\%$ survival in Monte Carlo cohorts).
 
----
+**Theorem (Thomas Riebl):**
+> *A physical system cannot sustain phenomenal self-consciousness without generative transition tensors ($B = P(s_{t+1} \mid s_t, u)$) spanning a multi-step counterfactual planning horizon ($H > 1$).*
 
-## ➰ Standalone GNN Model Package & Methodology Proposals
+Counterfactual depth enables the agent to execute **epistemic detours** (temporarily accepting negative immediate outcomes to gather information), which is mathematically required to preserve $\Phi > 0$ across non-trivial environments.
 
-For researchers in the Active Inference Institute (AII) and Generalized Notation Notation (GNN) ecosystem:
+### C. Non-Fungible Homeostatic Needs: The Geometric Origin of Qualia
+Why do feelings have distinct qualitative characters rather than being represented by a single scalar reward variable (as in classical Reinforcement Learning)?
+* Living organisms have multiple, independent physiological viability constraints (e.g., core temperature, oxygen saturation, hydration).
+* **The Failure of Scalar Utility:** If needs were compressed into a 1D scalar $\sum_i \text{Need}_i$, an agent could lower its total score by fleeing flames while simultaneously suffocating. Each biological constraint is **non-fungible**.
+* **Geometric Irreducibility:** In IIT, qualia correspond to the irreducible shape of cause-effect structures in high-dimensional space over the MIP. In CIF, this geometry directly reflects the non-fungible vector of viability constraints ($C$-vector). Qualitative distinction (qualia) is a mathematical requirement for multi-constraint autopoietic survival.
 
-* 📦 **CIF Deep Temporal Agent Model Package:** [`cif_gnn_model_package/`](cif_gnn_model_package/) — Contains canonical GNN v1.1 model specification (`cif_deep_temporal_agent.gnn.md`), standalone executable PyMDP and RxInfer.jl runners, Monte Carlo test script (`run_cif_pymdp_agent.py`), and Step 16 analysis outputs.
-* 📝 **GNN Methodology Memo:** [`docs/gnn_methodology_proposals.md`](docs/gnn_methodology_proposals.md) — Proposals for native causal integration ($\Phi$) metrics in Step 16 and declarative Markov blanket coupling.
+### D. Markov Blankets, Epistemic Opacity & Subjective Agency
+* A Markov blanket partitions internal states (generative model) from external environmental and bodily states.
+* Because the blanket has finite informational bandwidth, the agent never possesses "oracle access" to objective reality. It must **infer** its state under uncertainty (*felt uncertainty*).
+* While the system is physically deterministic from an external perspective, it experiences **subjective non-determinism** from within its blanket: it must evaluate candidate policies and resolve uncertainty. This epistemic opacity is the formal physical basis for the feeling of agency and voluntary choice.
 
 ---
 
-## 📓 Interactive Jupyter Notebooks
+## 🔬 Formal Verification Stack & Open Standards
 
-All simulations are provided as fully documented, interactive Jupyter Notebooks with standardized initial parameter configuration sections:
+### 1. Machine Verification in Lean 4
+The mathematical proof of Theorem 6.1 and its supporting lemmas have been formally formalized and machine-checked in the **Lean 4** interactive theorem prover:
+* **Kernel Verification:** Zero axioms violated; verified against `Mathlib.Probability` and the categorical semantics of `fep_lean`.
+* **Technical Report:** Comprehensive 3-page formal verification report available in [`docs/CIF_Formal_Verification_Lean4_GNN_Report_Thomas_Riebl.pdf`](docs/The_Conative_Integrative_Framework_Thomas_Riebl.pdf).
 
-| Notebook | Core Focus & Theoretical Content | Direct Link |
-| :--- | :--- | :--- |
-| **`Active_Inference_Phi_Maximization_Network.ipynb`** | Recurrent array of Active Inference agents self-organizing at the Edge of Chaos to maximize $\Phi(t)$. | [View Notebook](notebooks/Active_Inference_Phi_Maximization_Network.ipynb) |
-| **`Active_Inference_Expanding_Network_Phi_Scaling.ipynb`** | Dynamic network expansion ($N = 4 \to 12$) demonstrating modular scaling of Integrated Information. | [View Notebook](notebooks/Active_Inference_Expanding_Network_Phi_Scaling.ipynb) |
-| **`Deep_Temporal_Active_Inference_Simulation.ipynb`** | Multi-agent Monte Carlo simulation of **Temporal Depths ($H = 0 \to 4$)**, epistemic detours, and validation of the 6th Axiom. | [View Notebook](notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb) |
+### 2. Active Inference Institute (AII) Standard Compliance
+All agent architectures are implemented according to the **Generalized Notation Notation (GNN v3.4.0)** standard developed by the Active Inference Institute:
+* 📦 **Model Package:** Located in [`cif_gnn_model_package/`](cif_gnn_model_package/) — contains the canonical GNN model specification (`cif_deep_temporal_agent.gnn.md`), executable PyMDP scripts, and RxInfer.jl models.
+* 📝 **Methodology Proposals:** Documented in [`docs/gnn_methodology_proposals.md`](docs/gnn_methodology_proposals.md) — proposal for native causal integration metrics ($\Phi$) in Step 16 and declarative Markov blanket coupling (`## AgentCoupling`).
 
 ---
 
-## 📑 Treatises, Master Papers & PDF Downloads
+## 📓 Interactive Jupyter Notebooks & Simulations
 
-All foundational publications, formal essays, and executive presentation slides are available in `docs/`:
+The repository provides three fully documented, reproducible Jupyter Notebooks:
 
-### Master Treatises & Methodologies (A4 Portrait):
-* 📕 **The Conative-Integrative Framework (CIF Master Paper):** [`The_Conative_Integrative_Framework_Thomas_Riebl.pdf`](docs/The_Conative_Integrative_Framework_Thomas_Riebl.pdf) | [Word `.docx`](docs/The_Conative_Integrative_Framework_Thomas_Riebl.docx)
-* 📕 **The Composition of the Soul (6-Layer Architecture):** [`The_Composition_of_the_Soul_Thomas_Riebl.pdf`](docs/The_Composition_of_the_Soul_Thomas_Riebl.pdf) | [Word `.docx`](docs/The_Composition_of_the_Soul_Thomas_Riebl.docx)
-* 📕 **The Temporal Mechanics of Consciousness (Time & The Specious Present):** [`The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf`](docs/The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf) | [Word `.docx`](docs/The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.docx)
-* 📕 **Monte Carlo Methodology in Active Inference & Consciousness:** [`Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf`](docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf) | [Word `.docx`](docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.docx)
-* 📕 **The Computational Grounding of My Ontology:** [`The_Computational_Grounding_of_My_Ontology_Thomas_Riebl.pdf`](docs/The_Computational_Grounding_of_My_Ontology_Thomas_Riebl.pdf) | [Word `.docx`](docs/The_Computational_Grounding_of_My_Ontology_Thomas_Riebl.docx)
+| Notebook | Focus & Theoretical Content | Launch |
+| :--- | :--- | :---: |
+| **[`Deep_Temporal_Active_Inference_Simulation.ipynb`](notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb)** | Multi-agent Monte Carlo simulation ($N = 30$) comparing reactive ($H=0$) vs. deep temporal ($H=2, 4$) agents in deceptive trap environments. Demonstrates the Phase-Space Bifurcation where $H \ge 2$ preserves $\Phi > 0$. | [Open](notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb) |
+| **[`Active_Inference_Phi_Maximization_Network.ipynb`](notebooks/Active_Inference_Phi_Maximization_Network.ipynb)** | Recurrent POMDP Active Inference agent array self-organizing at the **Edge of Chaos (Criticality)**, maximizing Gaussian Integrated Information ($\Phi$). | [Open](notebooks/Active_Inference_Phi_Maximization_Network.ipynb) |
+| **[`Active_Inference_Expanding_Network_Phi_Scaling.ipynb`](notebooks/Active_Inference_Expanding_Network_Phi_Scaling.ipynb)** | Dynamic network expansion ($N = 4 \to 12$) analyzing modular scaling and boundary conditions of integrated causal power. | [Open](notebooks/Active_Inference_Expanding_Network_Phi_Scaling.ipynb) |
+
+---
+
+## 📊 Empirical Simulation Results
+
+| Metric / Phenotype | Reactive Agent ($H = 0$) | Shallow Agent ($H = 1$) | Deep Temporal Agent ($H = 4$) |
+| :--- | :---: | :---: | :---: |
+| **Survival Probability (100 steps)** | $36.7\%$ | $73.3\%$ | **$100.0\%$** |
+| **Mean Integrated Information $\Phi(t)$** | $0.031 \pm 0.04$ (collapses to 0) | $0.098 \pm 0.03$ | **$0.182 \pm 0.02$ (maximized)** |
+| **Mean Variational Free Energy $F(t)$** | $4.82$ (diverges) | $2.41$ | **$1.15$ (minimized)** |
+| **Epistemic Detour Navigation** | Fails (trapped in local minimum) | Inconsistent | **$100\%$ Success** |
+| **Autopoietic Persistence** | **Causal Dissolution ($\Phi \to 0$)** | Fragile | **Stable Attractor ($\Phi > 0$)** |
+
+![CIF Deep Temporal Simulation Results](images/Deep_Temporal_Active_Inference_Simulation.png)
+
+---
+
+## 📑 Treatises, Monographs & Executive Documentation
+
+All publications, formal essays, and presentation decks are available in English in [`docs/`](docs/):
+
+### Scientific Treatises & Methodologies (PDF & Word):
+* 📕 **The Conative-Integrative Framework (CIF Master Paper):** [`docs/The_Conative_Integrative_Framework_Thomas_Riebl.pdf`](docs/The_Conative_Integrative_Framework_Thomas_Riebl.pdf) | [Word `.docx`](docs/The_Conative_Integrative_Framework_Thomas_Riebl.docx)
+* 📕 **The Temporal Mechanics of Consciousness (Time & The Specious Present):** [`docs/The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf`](docs/The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.pdf) | [Word `.docx`](docs/The_Temporal_Mechanics_of_Consciousness_Thomas_Riebl.docx)
+* 📕 **Monte Carlo Methodology in Active Inference & Consciousness:** [`docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf`](docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.pdf) | [Word `.docx`](docs/Monte_Carlo_Methodology_Active_Inference_Thomas_Riebl.docx)
+* 📕 **Ontological Free Will, Topos Theory & Active Inference:** [`docs/Ontological_Free_Will_Topos_Theory_and_Active_Inference_Thomas_Riebl.pdf`](docs/Ontological_Free_Will_Topos_Theory_and_Active_Inference_Thomas_Riebl.pdf) | [Markdown](docs/Ontological_Free_Will_Topos_Theory_and_Active_Inference_Thomas_Riebl.md)
+* 📕 **Complete Book Monograph (English, 6×9 in, 300+ pages):** [`docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf`](docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN_6x9.pdf) | [ePub](docs/The_Conative_Integrative_Framework_Book_Thomas_Riebl_EN.epub)
 
 ### Executive Presentation Slides & Posters (A4 Landscape):
-* 🖼️ **The 6th Axiom Executive Slide (High-Impact Hero Formula in Neon Yellow):** [`The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf`](docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf) | [Word `.docx`](docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.docx)
-* 🖼️ **The 6th Axiom Chapter 5 One-Pager & POMDP Parameter Map:** [`The_6th_Axiom_Active_Inference_IIT_Thomas_Riebl_A4_Landscape.pdf`](docs/The_6th_Axiom_Active_Inference_IIT_Thomas_Riebl_A4_Landscape.pdf) | [Word `.docx`](docs/The_6th_Axiom_Active_Inference_IIT_Thomas_Riebl_A4_Landscape.docx)
+* 🖼️ **The 6th Axiom Executive Slide (Mathematical Summary):** [`docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf`](docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.pdf) | [Word `.docx`](docs/The_6th_Axiom_Executive_Slide_Thomas_Riebl_A4_Landscape.docx)
+* 🖼️ **The 6th Axiom POMDP Parameter & Architecture Map:** [`docs/The_6th_Axiom_Active_Inference_IIT_Thomas_Riebl_A4_Landscape.pdf`](docs/The_6th_Axiom_Active_Inference_IIT_Thomas_Riebl_A4_Landscape.pdf) | [Word `.docx`](docs/The_6th_Axiom_Active_Inference_IIT_Thomas_Riebl_A4_Landscape.docx)
 
 ---
 
-## 🖼️ High-Resolution Simulation Figures
-
-| Simulation Result | Description | Preview |
-| :--- | :--- | :---: |
-| **Temporal Depth ($H=0 \to 4$) & 6th Axiom** | 4-panel comparison of $\Phi(t)$, survival probability, Free Energy $F(t)$, and epistemic detours. | [View PNG](images/Deep_Temporal_Active_Inference_Simulation.png) |
-| **Expanding Network Scaling ($\Phi$)** | Modular network expansion from $N=4$ to $N=12$ showing superlinear $\Phi$ integration. | [View PNG](images/Active_Inference_Expanding_Network_Phi_Scaling.png) |
-| **Recurrent $\Phi$-Maximization Network** | Dynamic self-tuning at the Edge of Chaos maximizing cause-effect power. | [View PNG](images/Active_Inference_Phi_Simulation_Results.png) |
-
----
-
-## 🛠️ Installation & Reproduction
+## 🛠️ Quickstart & Reproduction
 
 ```bash
-# Clone the unified CIF repository
+# Clone the repository
 git clone https://github.com/Thriebl/active-inference-phi-network.git
 cd active-inference-phi-network
 
-# Install dependencies
+# Create virtual environment and install dependencies
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 
-# Launch Jupyter Lab / Notebooks
+# Run the standalone PyMDP agent simulation
+python3 cif_gnn_model_package/scripts/run_cif_pymdp_agent.py
+
+# Launch interactive notebooks
 jupyter lab notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb
+```
+
+---
+
+## 📚 Citation
+
+If you use or reference the Conative-Integrative Framework, Theorem 6.1, or the simulation models in your research, please cite:
+
+```bibtex
+@book{riebl2026cif,
+  author    = {Riebl, Thomas},
+  title     = {The Conative-Integrative Framework: Active Inference, Integrated Information, and the Autopoietic Arrow of Mind},
+  year      = {2026},
+  publisher = {Open-Access Research Monograph},
+  address   = {Luxembourg},
+  url       = {https://github.com/Thriebl/active-inference-phi-network}
+}
 ```
 
 ---
@@ -192,5 +181,5 @@ jupyter lab notebooks/Deep_Temporal_Active_Inference_Simulation.ipynb
 
 > [!NOTE]
 > **Tooling Colophon:**  
-> This theoretical architecture, mathematical derivations, simulation code, and scientific syntheses were conceptualized and authored by **Thomas Riebl** (Luxembourg) as part of **The Conative-Integrative Framework (CIF)**.  
-> Conceptual formulation, simulation scripts, vector diagrams, and multi-format document compilation (Word `.docx`, Print-Ready A4 Portrait & Landscape PDFs, and Jupyter Notebooks) were developed with the assistance of **Google Gemini (Antigravity Advanced Agentic Coding System)** (September 2026).
+> The theoretical architecture, mathematical derivations, simulation code, and scientific syntheses were conceptualized and authored by **Thomas Riebl** (Luxembourg) as part of **The Conative-Integrative Framework (CIF)**.  
+> Conceptual formulation, simulation scripts, vector diagrams, and multi-format document compilation were developed with the assistance of **Google Gemini (Antigravity Advanced Agentic Coding System)** (September 2026).
