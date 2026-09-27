@@ -4,6 +4,7 @@
 **Author:** Thomas Riebl (Luxembourg)  
 **Theoretical Architecture:** The Conative-Integrative Framework (CIF)  
 **Domains:** Computational Neuroscience, Theoretical Biology, Active Inference (FEP), Integrated Information Theory (IIT 4.0), Formal Verification (Lean 4)  
+**Persistent Identifier (DOI):** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22987447.svg)](https://doi.org/10.5281/zenodo.22987447)  
 **Repository:** [https://github.com/Thriebl/active-inference-phi-network](https://github.com/Thriebl/active-inference-phi-network)  
 **Date:** September 2026  
 
