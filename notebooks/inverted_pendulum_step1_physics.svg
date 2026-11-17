@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" width="960" height="500">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#f1f5f9" />
+    </linearGradient>
+    <linearGradient id="cartGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <marker id="arrowDark1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#334155" />
+    </marker>
+    <marker id="arrowRed1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#dc2626" />
+    </marker>
+    <filter id="shadow1" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="500" fill="url(#bgGrad1)" rx="14" />
+  <rect x="2" y="2" width="956" height="496" fill="none" stroke="#cbd5e1" stroke-width="2" rx="12" />
+
+  <!-- Header -->
+  <rect x="24" y="18" width="912" height="64" fill="#ffffff" rx="8" filter="url(#shadow1)" stroke="#e2e8f0" stroke-width="1.5" />
+  <text x="44" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#0f172a">
+    1. PHYSICAL INTUITION: THE PLANAR INVERTED PENDULUM
+  </text>
+  <text x="44" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="500" fill="#64748b">
+    Balancing a rigid rod on a 1D mobile base cart — The Palm-Balancing Principle (Left ↔ Right)
+  </text>
+
+  <!-- Physical Stage Box -->
+  <rect x="24" y="96" width="600" height="380" fill="#ffffff" rx="10" filter="url(#shadow1)" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Ground Rail -->
+  <line x1="50" y1="360" x2="598" y2="360" stroke="#94a3b8" stroke-width="3" stroke-linecap="round" />
+  <!-- Rail Hatching -->
+  <path d="M 60 360 L 50 372 M 100 360 L 90 372 M 140 360 L 130 372 M 180 360 L 170 372 M 220 360 L 210 372 M 260 360 L 250 372 M 300 360 L 290 372 M 340 360 L 330 372 M 380 360 L 370 372 M 420 360 L 410 372 M 460 360 L 450 372 M 500 360 L 490 372 M 540 360 L 530 372 M 580 360 L 570 372" stroke="#cbd5e1" stroke-width="1.5" />
+
+  <!-- Linear Motion Indicator (Below Rail) -->
+  <line x1="200" y1="395" x2="140" y2="395" stroke="#334155" stroke-width="2" marker-end="url(#arrowDark1)" />
+  <line x1="440" y1="395" x2="500" y2="395" stroke="#334155" stroke-width="2" marker-end="url(#arrowDark1)" />
+  <text x="320" y="399" font-family="system-ui, sans-serif" font-size="11.5" font-weight="600" fill="#475569" text-anchor="middle">
+    Horizontal Cart Motion (x-axis: Left ↔ Right)
+  </text>
+
+  <!-- Pivot at (320, 335) -->
+  <!-- Vertical Equilibrium Reference (θ = 0°) -->
+  <line x1="320" y1="335" x2="320" y2="120" stroke="#10b981" stroke-width="2.5" stroke-dasharray="5,4" />
+  <circle cx="320" cy="120" r="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2" />
+  <text x="320" y="105" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#047857" text-anchor="middle">
+    Vertical Balance (θ = 0°)
+  </text>
+
+  <!-- Tilted Rod (θ = +18°, Length = 210px) -> Pivot (320, 335) -> Tip (385, 135) -->
+  <line x1="320" y1="335" x2="385" y2="135" stroke="#2563eb" stroke-width="5" stroke-linecap="round" />
+  <!-- Center of Mass (CoM) Ball -->
+  <circle cx="385" cy="135" r="14" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2.5" />
+  <text x="408" y="132" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e40af">
+    Center of Mass (m)
+  </text>
+  <text x="408" y="148" font-family="system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#64748b">
+    Rod Length L
+  </text>
+
+  <!-- Angular Arc (θ) -->
+  <path d="M 320 220 A 115 115 0 0 1 355 228" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed1)" />
+  <text x="345" y="210" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#dc2626">
+    +θ (Tilt Angle)
+  </text>
+
+  <!-- Cart Body -->
+  <rect x="250" y="320" width="140" height="30" fill="url(#cartGrad1)" rx="6" stroke="#1e40af" stroke-width="2" filter="url(#shadow1)" />
+  <!-- Wheels -->
+  <circle cx="280" cy="355" r="8" fill="#334155" stroke="#0f172a" stroke-width="2" />
+  <circle cx="360" cy="355" r="8" fill="#334155" stroke="#0f172a" stroke-width="2" />
+  <!-- Pivot Bearing -->
+  <circle cx="320" cy="335" r="5" fill="#f8fafc" stroke="#1e3a8a" stroke-width="2.5" />
+  <text x="320" y="340" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">
+    M
+  </text>
+
+  <!-- Right Explanation Cards -->
+  <g transform="translate(644, 96)">
+    <!-- Card 1: Physical Principle -->
+    <rect width="292" height="175" fill="#ffffff" rx="10" filter="url(#shadow1)" stroke="#e2e8f0" stroke-width="1.5" />
+    <rect x="14" y="14" width="264" height="28" fill="#eff6ff" rx="5" />
+    <text x="24" y="33" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#1d4ed8">
+      THE PALM-BALANCING PARADOX
+    </text>
+    <text x="16" y="60" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#0f172a">
+      • Balancing a stick on your open hand:
+    </text>
+    <text x="24" y="78" font-family="system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#475569">
+      When the stick tilts to the RIGHT, moving
+    </text>
+    <text x="24" y="94" font-family="system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#475569">
+      your hand LEFT guarantees collapse.
+    </text>
+    <text x="16" y="120" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#15803d">
+      • Newton-Euler Counter-Steering:
+    </text>
+    <text x="24" y="138" font-family="system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#334155">
+      The cart must accelerate to the RIGHT,
+    </text>
+    <text x="24" y="154" font-family="system-ui, sans-serif" font-size="10.5" font-weight="500" fill="#334155">
+      darting directly under the falling mass!
+    </text>
+
+    <!-- Card 2: 2D Planar Scope -->
+    <rect y="195" width="292" height="185" fill="#ffffff" rx="10" filter="url(#shadow1)" stroke="#e2e8f0" stroke-width="1.5" />
+    <rect x="14" y="209" width="264" height="28" fill="#f8fafc" rx="5" stroke="#cbd5e1" stroke-width="1" />
+    <text x="24" y="228" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#0f172a">
+      PLANAR 2D CONSTRAINTS
+    </text>
+    <text x="16" y="258" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#0f172a">
+      • 1 Horizontal Degree of Freedom:
+    </text>
+    <text x="24" y="276" font-family="system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#475569">
+      Cart motion: x ∈ ℝ (Left ↔ Right).
+    </text>
+    <text x="16" y="302" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#0f172a">
+      • 1 Rotational Degree of Freedom:
+    </text>
+    <text x="24" y="320" font-family="system-ui, sans-serif" font-size="10.5" font-weight="400" fill="#475569">
+      Rod deflection: θ ∈ [-π, +π].
+    </text>
+    <text x="16" y="346" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" fill="#b91c1c">
+      • No Front/Rear:
+    </text>
+    <text x="24" y="362" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#64748b">
+      Out-of-plane axes are mechanically locked.
+    </text>
+  </g>
+</svg>
