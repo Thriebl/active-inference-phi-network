@@ -71,6 +71,35 @@ $$P(s \mid o) = \frac{P(o \mid s) \cdot P(s)}{P(o)} = \frac{P(o \mid s) \cdot P(
 
 ---
 
+#### Anschauliches Alltagsbeispiel: Das Regen-Paradoxon ($s = \text{Regen}$, $o = \text{Straße nass}$)
+
+Um das Zusammenspiel dieser vier Terme und die unverzichtbare Rolle des Nenners $P(o)$ intuitiv zu verstehen:
+
+* **Verborgener Weltzustand $s$ (Das Wetter draußen):**
+  * $s_1 = \text{Es regnet}$ (Vorab-Glaube / Prior: $P(\text{Regen}) = 0{,}20$ bzw. $20\,\%$)
+  * $s_2 = \text{Es ist trocken}$ (Vorab-Glaube / Prior: $P(\text{trocken}) = 0{,}80$ bzw. $80\,\%$)
+* **Sensorische Beobachtung $o$ (Blick aus dem Fenster):**
+  * $o = \text{Die Straße ist nass}$
+
+**Warum kann die Straße nass sein? (Zwei mögliche Kausalpfade):**
+1. **Pfad 1 (Echter Regen):** Wenn es regnet, ist die Straße fast garantiert nass: $P(\text{nass} \mid \text{Regen}) = 0{,}99$ ($99\,\%$).
+2. **Pfad 2 (Sensorrauschen / Falscher Alarm):** Es ist trocken, aber ein Straßenreinigungsfahrzeug fuhr vorbei oder der Rasensprenger des Nachbarn lief: $P(\text{nass} \mid \text{trocken}) = 0{,}05$ ($5\,\%$).
+
+**Berechnung der marginalen Evidenz $P(o)$ (Gesamtwahrscheinlichkeit einer nassen Straße):**
+
+$$P(\text{nass}) = \underbrace{P(\text{nass} \mid \text{Regen}) \cdot P(\text{Regen})}_{\text{Nass durch Regen } (0{,}99 \cdot 0{,}20 = 0{,}198)} + \underbrace{P(\text{nass} \mid \text{trocken}) \cdot P(\text{trocken})}_{\text{Nass durch Rasensprenger } (0{,}05 \cdot 0{,}80 = 0{,}040)} = 0{,}198 + 0{,}040 = \mathbf{0{,}238} \; (23{,}8\,\%)$$
+
+**Anwendung des Bayes-Theorems (Regnet es wirklich da draußen?):**  
+Sobald du aus dem Fenster blickst und siehst, dass die Straße nass ist ($o$), aktualisiert sich dein Glaube:
+
+$$P(\text{Regen} \mid \text{nass}) = \frac{P(\text{nass} \mid \text{Regen}) \cdot P(\text{Regen})}{P(\text{nass})} = \frac{0{,}198}{0{,}238} \approx \mathbf{83{,}2\,\%}$$
+
+* Der Nenner $P(o) = 0{,}238$ normiert das Ergebnis.
+* Die Beobachtung der nassen Straße lässt die Regenwahrscheinlichkeit von zuvor $20\,\%$ auf $83{,}2\,\%$ steigen – aber eben nicht auf $100\,\%$, weil Bayes den alternativen Kausalpfad (Rasensprenger) mathematisch exakt mit einrechnet!
+* In Theons Invertiertem Pendel erfüllt $P(o)$ exakt dieselbe mathematische Funktion: Es gewichtet Vorab-Erwartungen dynamisch gegen verrauschte Sensor-Encoder.
+
+---
+
 ## 3. Abbildung der physikalischen Welt auf Active Inference: Vier intuitive Objekte
 
 Durch die Beschränkung auf die Ebene vereinfacht sich unser generatives Modell auf exakt **5 Zustände** und **2 Aktionen**:

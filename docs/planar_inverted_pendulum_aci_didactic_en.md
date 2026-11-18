@@ -73,6 +73,35 @@ $$P(s \mid o) = \frac{P(o \mid s) \cdot P(s)}{P(o)} = \frac{P(o \mid s) \cdot P(
 
 ---
 
+#### Intuitive Everyday Example: The Wet Street Paradox ($s = \text{Rain}$, $o = \text{Street is Wet}$)
+
+To make the interaction of these four terms and the indispensable role of the denominator $P(o)$ immediately graspable:
+
+* **Hidden World State $s$ (Unobserved weather outside):**
+  * $s_1 = \text{Rain}$ (Prior belief: $P(\text{Rain}) = 0.20$ or $20\%$)
+  * $s_2 = \text{Dry}$ (Prior belief: $P(\text{Dry}) = 0.80$ or $80\%$)
+* **Sensory Observation $o$ (Looking out the window):**
+  * $o = \text{The street is wet}$
+
+**Why could the street be wet? (Two competing causal pathways):**
+1. **Path 1 (True Rain):** If it rains, the street is almost certainly wet: $P(\text{Wet} \mid \text{Rain}) = 0.99$ ($99\%$).
+2. **Path 2 (Sensor Ambiguity / External Factor):** It is completely dry, but a street cleaning truck passed by or a neighbor ran the garden sprinkler: $P(\text{Wet} \mid \text{Dry}) = 0.05$ ($5\%$).
+
+**Calculating Marginal Evidence $P(o)$ (Total Probability of Seeing a Wet Street):**
+
+$$P(\text{Wet}) = \underbrace{P(\text{Wet} \mid \text{Rain}) \cdot P(\text{Rain})}_{\text{Wet via Rain } (0.99 \cdot 0.20 = 0.198)} + \underbrace{P(\text{Wet} \mid \text{Dry}) \cdot P(\text{Dry})}_{\text{Wet via Sprinkler } (0.05 \cdot 0.80 = 0.040)} = 0.198 + 0.040 = \mathbf{0.238} \; (23.8\%)$$
+
+**Applying Bayes' Theorem (Is it really raining?):**  
+When you look out the window and observe that the street is wet ($o$), your updated posterior belief that it is actually raining becomes:
+
+$$P(\text{Rain} \mid \text{Wet}) = \frac{P(\text{Wet} \mid \text{Rain}) \cdot P(\text{Rain})}{P(\text{Wet})} = \frac{0.198}{0.238} \approx \mathbf{83.2\%}$$
+
+* The denominator $P(o) = 0.238$ normalizes the evidence.
+* Seeing the wet street dramatically increases your belief in rain from $20\%$ to $83.2\%$—but not to $100\%$, because Bayes' Theorem fairly accounts for the alternative causal pathway (the garden sprinkler)!
+* In our inverted pendulum, $P(o)$ serves this exact mathematical role: it dynamically balances prior physical momentum against noisy sensor-encoder readings.
+
+---
+
 ## 3. Mapping the Physical World to Active Inference: Four Intuitive Objects
 
 By constraining the system to a single plane (Left/Right), our generative model simplifies down to just **5 states** and **2 actions**:
