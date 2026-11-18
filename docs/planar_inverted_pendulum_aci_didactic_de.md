@@ -43,21 +43,23 @@ Nachdem die Mechanik des Pendels greifbar vor Augen steht, wenden wir uns der St
 
 In klassischen Regelungstheorien wird oft angenommen, dass der exakte Winkel $\theta$ verzögerungsfrei und perfekt messbar sei. In der Realität sind Sensoren verrauscht, Encoder haben Quantisierungsrauschen und Luftzüge stören das System. Der Agent hat niemals direkten, allwissenden Zugriff auf den verborgenen Zustand der Außenwelt; er muss ihn kontinuierlich durch seine sensorische Grenze (das **Markov-Blanket**) hindurch erschließen.
 
-### Grundlegende Notation: $s, o, a, P$
+### Grundlegende Notation: $s, o, a, p, P, q$
 
 * **$s$ (Verborgener Zustand / Hidden State):** Der wahre, unberührbare physikalische Zustand der Welt (z. B. der tatsächliche Kippwinkel $\theta \in \mathcal{S}$).
 * **$o$ (Beobachtung / Observation):** Der verrauschte Messwert, den die Sensoren am Markov-Blanket registrieren ($o \in \mathcal{O}$).
 * **$a$ (Handlung / Action):** Die physikalische Intervention oder der Steuerbefehl an die Motoren (z. B. Wagenbeschleunigung $a \in \mathcal{A}$).
-* **$P$ (Wahrscheinlichkeit):** Der mathematische Wert für den Grad der Gewissheit, des Glaubens oder der Übergangshäufigkeit eines konkreten Ereignisses oder Zustands ($P \in [0, 1]$). *(Hinweis zur mathematischen Konvention: Großes $P$ bezeichnet die konkrete Wahrscheinlichkeit eines Zustands, während kleines $p(s)$ die gesamte Wahrscheinlichkeitsverteilung über alle Zustände und $q(s)$ den internen Glauben des Agenten darstellt.)*
-* **Der Bedingungsstrich ($\mid$):** Gelesen als **„gegeben“**. Beispielsweise liest sich $P(s \mid o)$ als: *„Die Wahrscheinlichkeit des Zustands $s$, **gegeben** die Beobachtung $o$“*.
+* **$p(\cdot)$ (Wahrscheinlichkeitsverteilung):** Die mathematische Funktion oder der Verteilungsvektor über den gesamten Zustands- oder Beobachtungsraum (z. B. Prior-Verteilung $p(s)$, Likelihood-Verteilung $p(o \mid s)$, Dynamiktensor $p(s' \mid s, a)$).
+* **$P(\cdot)$ (Konkrete Wahrscheinlichkeit / Skalar):** Der exakte numerische Wert für die Eintreffwahrscheinlichkeit eines bestimmten Einzelergebnisses, strikt beschränkt auf das Einheitsintervall ($P \in [0, 1]$). Beispielsweise $P(s = 0) = 0{,}92$ oder $P(\text{Regen}) = 0{,}20$.
+* **$q(s)$ (Recognition Density / Interner Glaube):** Die interne Überzeugungsverteilung des Agenten über die Weltzustände $s$, die kontinuierlich optimiert wird, um die Freie Energie $F$ zu minimieren.
+* **Der Bedingungsstrich ($\mid$):** Gelesen als **„gegeben“**. Beispielsweise liest sich $p(s \mid o)$ als: *„Die Wahrscheinlichkeitsverteilung über Zustände $s$, **gegeben** die Beobachtung $o$“*.
 
 ---
 
 ### Bayes' Theorem in der Wahrnehmung
 
-Das Theorem von Bayes liefert das mathematische Gesetz, wie ein interner Glaube unter Einbeziehung neuer sensorischer Evidenz optimal aktualisiert wird:
+Das Theorem von Bayes liefert das mathematische Gesetz, wie eine interne Wahrscheinlichkeitsverteilung unter Einbeziehung neuer sensorischer Evidenz optimal aktualisiert wird:
 
-$$P(s \mid o) = \frac{P(o \mid s) \cdot P(s)}{P(o)} = \frac{P(o \mid s) \cdot P(s)}{\sum_{s'} P(o \mid s') \cdot P(s')}$$
+$$p(s \mid o) = \frac{p(o \mid s) \cdot p(s)}{p(o)} = \frac{p(o \mid s) \cdot p(s)}{\sum_{s'} p(o \mid s') \cdot p(s')}$$
 
 ---
 
@@ -112,18 +114,19 @@ Durch die Beschränkung auf die Ebene vereinfacht sich unser generatives Modell 
 
 Mit den vier intuitiven Objekten ($\mathbf{C}, \mathbf{D}, \mathbf{A}, \mathbf{B}$) und dem Regen-Paradoxon lässt sich nun formal beschreiben, wie Bayes' Theorem im Regler rechnet:
 
-1. **Prior-Glaube $P(s)$ (A-priori-Erwartung vor der Messung $\to \mathbf{D}$):**  
-   Was der Agent über den Zustand glaubt, **bevor** er die neue Messung auswertet. Beim Pendel ist dies entweder der Ausgangsvektor $\mathbf{D} = P(s_0)$ oder die Bewegungsvorhersage:
+1. **Prior-Verteilung $p(s)$ (A-priori-Erwartung vor der Messung $\to \mathbf{D}$):**  
+   Die Wahrscheinlichkeitsverteilung über alle Zustände vor der Messung: $\mathbf{D} = p(s_0)$. Vorhersage über den Übergangstensor:
    $$s_{\text{pred}} = \mathbf{B}(a_{t-1}) \cdot s_{t-1}$$
    *(Im Regen-Beispiel: Vorab-Wahrscheinlichkeit $P(\text{Regen}) = 20\,\%$.)*
-2. **Likelihood $P(o \mid s)$ (Matrix $\mathbf{A}$ — Sensorpräzision):**  
-   Die generative Abbildung: *„Wenn der Stab tatsächlich im Zustand $s$ stünde: Wie wahrscheinlich ist es dann, dass unser Sensor die Beobachtung $o$ meldet?“* (Erfasst Sensorpräzision $\gamma_s$ und Rauschen $\varepsilon$).  
+2. **Likelihood-Verteilung $p(o \mid s)$ (Matrix $\mathbf{A}$ — Sensorpräzision):**  
+   Die generative Abbildung: *„Wenn der Stab tatsächlich im Zustand $s$ stünde: Wie wahrscheinlich ist es dann, dass unser Sensor die Beobachtung $o$ meldet?“*  
+   $$\mathbf{A} = p(o \mid s)$$
    *(Im Regen-Beispiel: $P(\text{nass} \mid \text{Regen}) = 99\,\%$ vs. $P(\text{nass} \mid \text{ohne Regen}) = 5\,\%$.)*
-3. **Posterior-Glaube $P(s \mid o)$ (A-posteriori-Zustand $\to$ Interne Dichte $q(s)$):**  
-   Der aktualisierte, optimale Glaube über den Weltzustand $s$ **nach** Verarbeitung der Beobachtung $o$. Wahrnehmung in Active Inference ist die Minimierung der Diskrepanz (Variational Free Energy $F$) zwischen diesem Posterior und der internen Dichte $q(s)$.  
+3. **Posterior-Verteilung $p(s \mid o)$ (A-posteriori-Zustand $\to$ Interne Dichte $q(s)$):**  
+   Die aktualisierte, optimale Wahrscheinlichkeitsverteilung über den Weltzustand $s$ **nach** Verarbeitung der Beobachtung $o$. Wahrnehmung in Active Inference ist die Minimierung der Diskrepanz (Variational Free Energy $F$) zwischen diesem Posterior $p(s \mid o)$ und der internen Dichte $q(s)$.  
    *(Im Regen-Beispiel: $P(\text{Regen} \mid \text{nass}) = 83{,}2\,\%$.)*
-4. **Marginale Evidenz $P(o)$ (Normierung & Phänotypische Präferenz $\to \mathbf{C}$):**  
-   Die Gesamtwahrscheinlichkeit der Beobachtung $o$, gemittelt über alle denkbaren Zustände. Ihr Logarithmus $\ln P(o)$ bildet den phänotypischen Präferenzvektor $\mathbf{C}$.  
+4. **Marginale Evidenz-Verteilung $p(o)$ (Normierung & Phänotypische Präferenz $\to \mathbf{C}$):**  
+   Die Gesamtwahrscheinlichkeitsverteilung über alle denkbaren Beobachtungen. Ihr Logarithmus $\ln p(o)$ bildet den phänotypischen Präferenzvektor $\mathbf{C}$.  
    *(Im Regen-Beispiel: $P(\text{nass}) = 23{,}8\,\%$.)*
 
 ---
@@ -158,7 +161,7 @@ Zur Konstruktion eines berechenbaren Modells diskretisieren wir den kontinuierli
 
 ### Prior-Vektor $\mathbf{D}$ (Ausgangszustand)
 
-$$\mathbf{D} = P(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \end{pmatrix} \begin{matrix} (0) \\ (l_1) \\ (l_2) \\ (r_1) \\ (r_2) \end{matrix}$$
+$$\mathbf{D} = p(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \end{pmatrix} \begin{matrix} (0) \\ (l_1) \\ (l_2) \\ (r_1) \\ (r_2) \end{matrix}$$
 
 * $P(s = 0) = 0.92$: Hohe Sicherheit für den aufrechten Start.
 * Geringe Restmasse ($0.04$) auf Stufe 1 verhindert numerische Nullfallen.
@@ -168,7 +171,7 @@ $$\mathbf{D} = P(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \en
 
 ### Phänotypischer Präferenzvektor $\mathbf{C}$ (Conatus-Attraktor & Die Log-Softmax-Brücke)
 
-$$\mathbf{C} = \ln P(o) = \begin{pmatrix} 0.0 \\ -1.5 \\ -8.0 \\ -1.5 \\ -8.0 \end{pmatrix} \begin{matrix} (o_0) \\ (o_{l1}) \\ (o_{l2}) \\ (o_{r1}) \\ (o_{r2}) \end{matrix}$$
+$$\mathbf{C} = \ln p(o) = \begin{pmatrix} 0.0 \\ -1.5 \\ -8.0 \\ -1.5 \\ -8.0 \end{pmatrix} \begin{matrix} (o_0) \\ (o_{l1}) \\ (o_{l2}) \\ (o_{r1}) \\ (o_{r2}) \end{matrix}$$
 
 * $\mathbf{C}_0 = 0.0$: Maximale Präferenz (minimale Freie Energie / Null Überraschung in stabiler Balance).
 * $\mathbf{C}_{\text{Stufe 1}} = -1.5$: Leichte Aversion gegen Schräglagen (erzeugt Regelantrieb).
@@ -179,26 +182,26 @@ Eine fundamentale mathematische Unterscheidung, an der viele Ingenieure und Eins
 * **Der Wahrscheinlichkeits-Raum ($\mathbf{A}, \mathbf{B}, \mathbf{D}$):**  
   In der Sensormatrix $\mathbf{A}$, den Übergangstensoren $\mathbf{B}(a)$ und dem Prior-Vektor $\mathbf{D}$ stehen **reine Wahrscheinlichkeiten** ($P \in [0, 1]$). Jeder einzelne Eintrag ist strikt positiv (nicht-negativ) und jede Spalte summiert sich exakt zu **$1{,}0$ ($100\,\%$)**, damit keine Wahrscheinlichkeitsmasse verloren geht (stochastische Spaltennormierung).
 * **Der Log-Präferenz-Raum ($\mathbf{C}$ in Nats):**  
-  Der Vektor $\mathbf{C}$ speichert keine Rohwahrscheinlichkeiten, sondern lebt im **logarithmischen Informationsraum**: $\mathbf{C} = \ln P(o)$.  
+  Der Vektor $\mathbf{C}$ speichert keine Rohwahrscheinlichkeiten, sondern lebt im **logarithmischen Informationsraum**: $\mathbf{C} = \ln p(o)$.  
   Da jede Wahrscheinlichkeit $P \le 1{,}0$ ist, ist ihr natürlicher Logarithmus **immer kleiner oder gleich 0 (also negativ)**:
   $$\ln(1{,}0) = \mathbf{0{,}0} \quad (\text{Maximale Präferenz / Null Überraschung})$$
   $$\ln(0{,}223) \approx \mathbf{-1{,}5} \quad (\text{Leichte Auslenkung})$$
   $$\ln(0{,}00033) \approx \mathbf{-8{,}0} \quad (\text{Existenzielle Bedrohung})$$
 * **Die Softmax-Brücke:**  
-  Wie gelangt man von conativen Bewertungen $\mathbf{C}$ zurück zu einer echten, normierten Wahrscheinlichkeitsverteilung $P(o)$?  
+  Wie gelangt man von conativen Bewertungen $\mathbf{C}$ zurück zu einer echten, normierten Wahrscheinlichkeitsverteilung $p(o)$?  
   Genau über die **Softmax-Funktion** (die Boltzmann-/Gibbs-Verteilung):
-  $$P(o_i) = \sigma(\mathbf{C})_i = \frac{e^{C_i}}{\sum_j e^{C_j}}$$
+  $$p(o_i) = \sigma(\mathbf{C})_i = \frac{e^{C_i}}{\sum_j e^{C_j}}$$
   Die Exponentialfunktion $e^{C_i}$ überführt jede noch so negative Zahl wieder in einen **strikt positiven Wert**, und die Division durch die Summe $\sum e^{C_j}$ stellt sicher, dass sich alle Werte exakt zu **$1{,}0$ ($100\,\%$)** aufsummieren!
 
 ---
 
 ### Beobachtungsmatrix $\mathbf{A}$ (Sensorpräzision)
 
-Die Matrix $\mathbf{A} \in \mathbb{R}^{5 \times 5}$ bildet den Weltzustand $s$ auf die Beobachtungen $o$ ab: $P(o \mid s)$.
+Die Matrix $\mathbf{A} \in \mathbb{R}^{5 \times 5}$ bildet den Weltzustand $s$ auf die Beobachtungen $o$ ab: $p(o \mid s)$.
 
 Bei Sensorschärfe $\gamma_s = 0.92$ und Nachbarstreuung $\varepsilon = 0.04$:
 
-$$\mathbf{A} = P(o \mid s) = \begin{pmatrix}
+$$\mathbf{A} = p(o \mid s) = \begin{pmatrix}
 0.92 & 0.04 & 0.00 & 0.04 & 0.00 \\
 0.04 & 0.92 & 0.04 & 0.00 & 0.00 \\
 0.00 & 0.04 & 0.96 & 0.00 & 0.00 \\
@@ -213,11 +216,11 @@ $$\mathbf{A} = P(o \mid s) = \begin{pmatrix}
 
 ### Übergangstensoren $\mathbf{B}(a)$ (Kausaldynamik)
 
-Für die beiden Aktionen $a \in \{l, r\}$ beschreibt $\mathbf{B}(a) \in \mathbb{R}^{5 \times 5}$ die Übergänge $P(s_{t+1} \mid s_t, a)$.
+Für die beiden Aktionen $a \in \{l, r\}$ beschreibt $\mathbf{B}(a) \in \mathbb{R}^{5 \times 5}$ die Übergänge $p(s_{t+1} \mid s_t, a)$.
 
 #### Aktion $a = r$ (Wagen beschleunigt nach rechts)
 
-$$\mathbf{B}(r) = P(s' \mid s, a = r) = \begin{pmatrix}
+$$\mathbf{B}(r) = p(s' \mid s, a = r) = \begin{pmatrix}
 0.15 & 0.00 & 0.00 & 0.88 & 0.00 \\
 0.85 & 0.10 & 0.00 & 0.02 & 0.00 \\
 0.00 & 0.90 & 1.00 & 0.00 & 0.00 \\
@@ -232,7 +235,7 @@ $$\mathbf{B}(r) = P(s' \mid s, a = r) = \begin{pmatrix}
 
 #### Aktion $a = l$ (Wagen beschleunigt nach links – symmetrisch invertiert)
 
-$$\mathbf{B}(l) = P(s' \mid s, a = l) = \begin{pmatrix}
+$$\mathbf{B}(l) = p(s' \mid s, a = l) = \begin{pmatrix}
 0.15 & 0.88 & 0.00 & 0.00 & 0.00 \\
 0.00 & 0.10 & 0.85 & 0.00 & 0.00 \\
 0.00 & 0.00 & 0.15 & 0.00 & 0.00 \\
@@ -292,7 +295,7 @@ In Active Inference lernt das System physikalische Kausalgesetze so transparent 
    $$\beta_{s', s, a} \leftarrow \beta_{s', s, a} + 1$$
 3. **Von Zählern zu Wahrscheinlichkeiten:**  
    Zur Vorhersage künftiger Übergänge $\mathbf{B}(a)$ berechnet der Agent schlicht den relativen Anteil:
-   $$\mathbf{B}_{s', s, a} = P(s' \mid s, a) = \frac{\text{Beobachtete Häufigkeit von }(s \xrightarrow{a} s')}{\text{Gesamte Erfahrungen in Zustand } s \text{ mit Aktion } a} = \frac{\beta_{s', s, a}}{\sum_{s''} \beta_{s'', s, a}}$$
+   $$\mathbf{B}_{s', s, a} = p(s' \mid s, a) = \frac{\text{Beobachtete Häufigkeit von }(s \xrightarrow{a} s')}{\text{Gesamte Erfahrungen in Zustand } s \text{ mit Aktion } a} = \frac{\beta_{s', s, a}}{\sum_{s''} \beta_{s'', s, a}}$$
 
 #### Industrielle Vorteile für Edge- und Mikrocontroller-Steuerungen:
 * **Sofortiges Lernen in einem Schritt ($O(1)$):** Keine Gradientenabstiegsschleifen oder Backpropagation; sofortige Aktualisierung bei mechanischen Veränderungen.
@@ -315,7 +318,7 @@ Intelligenz ist **aktive Homeostase und vorausschauende Autopoiese unter Rausche
 
 ### FAQ 2: Was lernt der Agent?
 Der Agent lernt die **wahren Kausalgesetze seiner Mechanik und Umwelt**:
-* Er verfeinert den Tensor $\mathbf{B}(s' \mid s, a)$: *„Wenn ich im Zustand $s$ bin und Aktion $a$ ausführe: Mit welcher Wahrscheinlichkeit lande ich in $s'$?“*
+* Er verfeinert den Dynamiktensor $\mathbf{B}(s' \mid s, a) = p(s' \mid s, a)$: *„Wenn ich im Zustand $s$ bin und Aktion $a$ ausführe: Mit welcher Wahrscheinlichkeit lande ich in $s'$?“*
 * Ändert sich die Schienenreibung oder die Stablänge, passt sich das Kausalmodell im Betrieb sofort an.
 
 ---
@@ -331,15 +334,15 @@ Der Agent lernt die **wahren Kausalgesetze seiner Mechanik und Umwelt**:
 ### FAQ 4: Was ist das Weltmodell in diesem Beispiel?
 Das **Weltmodell** ist die generative Repräsentation der Umwelt im Agenten:
 * **Zustandskompass $\mathcal{S}$:** $\{0, l_1, l_2, r_1, r_2\}$ für die wahre Auslenkung.
-* **Sensormodell $\mathbf{A}$:** Abbildung von realem Zustand auf verrauschte Messung.
-* **Kausaldynamik $\mathbf{B}(a)$:** Übergangstensor für die Wirkung der Motorbeschleunigung.
+* **Sensormodell $\mathbf{A}$:** Abbildung von realem Zustand auf verrauschte Messung ($p(o \mid s)$).
+* **Kausaldynamik $\mathbf{B}(a)$:** Übergangstensor für die Wirkung der Motorbeschleunigung ($p(s' \mid s, a)$).
 
 ---
 
 ### FAQ 5: Was ist das Generative Modell in diesem Beispiel?
 Die vollständige Verbundwahrscheinlichkeitsverteilung über Beobachtungen, Zustände, Handlungen und Präferenzen:
-$$P(o, s, a) = P(o \mid s) \cdot P(s \mid s_{t-1}, a) \cdot P(s_0) \cdot P_{\text{prior}}(a)$$
-ergänzt um den conativen Phänotypvektor $\mathbf{C} = \ln P(o)$ und die systemische Vitalität $\Phi(s)$. Es gestattet das geistige Durchspielen alternativer Zukünfte vor dem Auslösen von Motorströmen.
+$$p(o, s, a) = p(o \mid s) \cdot p(s \mid s_{t-1}, a) \cdot p(s_0) \cdot p_{\text{prior}}(a)$$
+ergänzt um den conativen Phänotypvektor $\mathbf{C} = \ln p(o)$ und die systemische Vitalität $\Phi(s)$. Es gestattet das geistige Durchspielen alternativer Zukünfte vor dem Auslösen von Motorströmen.
 
 ---
 
