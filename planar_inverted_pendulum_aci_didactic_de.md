@@ -169,56 +169,57 @@ $$\mathbf{D} = p(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \en
 
 ---
 
-### Phänotypischer Präferenzvektor $\mathbf{C}$ & Zielverteilung $p(o)$ (Die Softmax-Brücke)
+### Präferenzvektor $\mathbf{C}$ & Zielverteilung $p(o)$ (Die 3-Schritte-Herleitung)
 
-In Active Inference wird der Überlebensinstinkt (Conatus) eines Agenten formal über eine bevorzugte Beobachtungsverteilung $p(o)$ definiert. Der Agent strebt danach, sich aufrecht zu beobachten, toleriert minimale Neigungen und vermeidet katastrophale Stürze mit maximaler Aversion.
+In Active Inference werden Handlungsziele nicht als willkürliche Belohnungen formuliert, sondern als **phänotypische Erwartungen**: Der Agent handelt aktiv so, dass er genau das beobachtet, was er zu sehen erwartet, um stabil im Gleichgewicht zu bleiben.
 
-#### 1. Der conative Log-Präferenzvektor $\mathbf{C}$:
-$$\mathbf{C} = \begin{pmatrix} 0{,}0 \\ -1{,}5 \\ -8{,}0 \\ -1{,}5 \\ -8{,}0 \end{pmatrix} \begin{matrix} (o_0: \text{Aufrecht balanciert}) \\ (o_{l1}: \text{Leichte Neigung links}) \\ (o_{l2}: \text{Katastrophaler Sturz links}) \\ (o_{r1}: \text{Leichte Neigung rechts}) \\ (o_{r2}: \text{Katastrophaler Sturz rechts}) \end{matrix}$$
+#### Schritt 1: Definition der Beobachtungswahrscheinlichkeiten $p(o)$
+Wir als Entwickler definieren vorab, welche Winkel das inverse Pendel zu beobachten erwartet:
+* **$P(o_0 : \text{Aufrecht balanciert}, |\theta| \le 3^\circ) \approx 69{,}1\,\%$:** Der gewünschte Idealzustand.
+* **$P(o_{l1}, o_{r1} : \text{Leichte Neigung}, 3^\circ < |\theta| \le 15^\circ) \approx 15{,}4\,\%$ je Seite:** Alltägliche, noch tolerierbare Schwankungen.
+* **$P(o_{l2}, o_{r2} : \text{Katastrophaler Sturz}, |\theta| > 15^\circ) \approx 0{,}023\,\%$ je Seite:** Gefahrenzonen, die das System praktisch niemals zu sehen erwartet.
 
-* $\mathbf{C}_0 = 0{,}0$: Maximale Präferenz (minimale Freie Energie / Null Überraschung in stabiler Balance).
-* $\mathbf{C}_{\text{Stufe 1}} = -1{,}5$: Leichte Aversion gegen Schräglagen (erzeugt Regelantrieb).
-* $\mathbf{C}_{\text{Stufe 2}} = -8{,}0$: Katastrophal negative Bewertung (existenzielle Gefahrenzone / Conatus-Barriere).
-
-#### 2. Die echte Wahrscheinlichkeitsverteilung $p(o) = \operatorname{softmax}(\mathbf{C})$:
-Um die conativen Roh-Nutzenwerte $\mathbf{C}$ in eine mathematisch echte, normierte Wahrscheinlichkeitsverteilung über Beobachtungen zu überführen, wenden wir die **Softmax-Funktion** (Boltzmann-/Gibbs-Verteilung) an:
-
-$$P(o_i) = \sigma(\mathbf{C})_i = \frac{e^{C_i}}{\sum_{j=1}^5 e^{C_j}}$$
-
-Mit der Zustandssumme $Z = \sum_{j=1}^5 e^{C_j} = e^{0{,}0} + 2 e^{-1{,}5} + 2 e^{-8{,}0} = 1{,}0 + 0{,}44626 + 0{,}00067 \approx 1{,}4469$:
-
-$$p(o) = \operatorname{softmax}(\mathbf{C}) = \begin{pmatrix} 
-\frac{1{,}0}{1{,}4469} \\[4pt]
-\frac{0{,}2231}{1{,}4469} \\[4pt]
-\frac{0{,}000335}{1{,}4469} \\[4pt]
-\frac{0{,}2231}{1{,}4469} \\[4pt]
-\frac{0{,}000335}{1{,}4469}
-\end{pmatrix} = \begin{pmatrix} 
-\mathbf{0{,}6911} \\[4pt]
-\mathbf{0{,}1542} \\[4pt]
-\mathbf{0{,}00023} \\[4pt]
-\mathbf{0{,}1542} \\[4pt]
-\mathbf{0{,}00023}
-\end{pmatrix} \begin{matrix} 
-(o_0: \text{Aufrecht } \approx \mathbf{69{,}1\,\%}) \\ 
-(o_{l1}: \text{Leicht links } \approx \mathbf{15{,}4\,\%}) \\ 
-(o_{l2}: \text{Sturz links } \approx \mathbf{0{,}02\,\%}) \\ 
-(o_{r1}: \text{Leicht rechts } \approx \mathbf{15{,}4\,\%}) \\ 
-(o_{r2}: \text{Sturz rechts } \approx \mathbf{0{,}02\,\%}) 
+Als normierter Wahrscheinlichkeitsvektor $p(o) \in [0, 1]^5$:
+$$p(o) = \begin{pmatrix} 
+0{,}6911 \\ 
+0{,}1542 \\ 
+0{,}00023 \\ 
+0{,}1542 \\ 
+0{,}00023 
+\end{pmatrix} 
+\begin{matrix} 
+(o_0: \text{Aufrecht balanciert} \approx \mathbf{69{,}1\,\%}) \\ 
+(o_{l1}: \text{Leichte Neigung links} \approx \mathbf{15{,}4\,\%}) \\ 
+(o_{l2}: \text{Katastrophaler Sturz links} \approx \mathbf{0{,}02\,\%}) \\ 
+(o_{r1}: \text{Leichte Neigung rechts} \approx \mathbf{15{,}4\,\%}) \\ 
+(o_{r2}: \text{Katastrophaler Sturz rechts} \approx \mathbf{0{,}02\,\%}) 
 \end{matrix}$$
 
-* **Strikte Wahrscheinlichkeitserhaltung:** $\sum_{i=1}^5 P(o_i) = 0{,}6911 + 0{,}1542 + 0{,}00023 + 0{,}1542 + 0{,}00023 = \mathbf{1{,}0000}$ ($\mathbf{100\,\%}$).
-* **Der logarithmische Zusammenhang $\mathbf{C} = \ln p(o)$:**  
-  Nimmt man elementweise den natürlichen Logarithmus, erhält man $\ln p(o) = \mathbf{C} - \ln(Z) = \mathbf{C} - 0{,}369$. Da bei der Handlungsplanung (Minimierung von $G^*$) nur die Differenzen zwischen den Zuständen entscheiden und Softmax invariant gegenüber additiven Konstanten ist ($\operatorname{softmax}(\mathbf{C}) = \operatorname{softmax}(\mathbf{C} + c)$), fällt jede additive Verschiebung exakt heraus. Die Definition $\mathbf{C} = \ln p(o)$ mit $\mathbf{C}_0 = 0{,}0$ ist somit die präzise, null-kalibrierte logarithmische Darstellung der phänotypischen Zielverteilung.
+* **Strikte Wahrscheinlichkeitserhaltung:** Alle Werte sind positiv und summieren sich exakt zu $1{,}0$ ($100\,\%$):  
+  $\sum_{i=1}^5 P(o_i) = 0{,}6911 + 0{,}1542 + 0{,}00023 + 0{,}1542 + 0{,}00023 = \mathbf{1{,}0000}$.
 
-#### 💡 Mathematische Fundierung: Warum ist $\mathbf{C}$ negativ, während $\mathbf{A}, \mathbf{B}, \mathbf{D}$ strikt positiv sind?
-Eine fundamentale mathematische Unterscheidung, an der viele Ingenieure und Einsteiger hängenbleiben:
-* **Der Wahrscheinlichkeits-Raum ($\mathbf{A}, \mathbf{B}, \mathbf{D}, p(o)$):**  
-  In der Sensormatrix $\mathbf{A}$, den Übergangstensoren $\mathbf{B}(a)$, dem Prior-Vektor $\mathbf{D}$ und der Zielverteilung $p(o)$ stehen **reine Wahrscheinlichkeiten** ($P \in [0, 1]$). Jeder einzelne Eintrag ist strikt nicht-negativ und jede Spalte summiert sich exakt zu **$1{,}0$ ($100\,\%$)**, damit keine Wahrscheinlichkeitsmasse verloren geht (stochastische Normierung).
-* **Der Log-Präferenz-Raum ($\mathbf{C}$ in Nats):**  
-  Der Vektor $\mathbf{C}$ lebt im **logarithmischen Informationsraum**: $\mathbf{C} = \ln p(o) + \text{const}$. In diesem Raum werden Multiplikationen zu schnellen Additionen, und unwahrscheinliche bzw. gefährliche Zustände besitzen große negative Werte, die in der erwarteten freien Energie $G^*$ als abstoßende Strafkräfte wirken.
-* **Die Softmax-Brücke:**  
-  Der Softmax-Operator ist die exakte mathematische Brücke, die beide Welten eineindeutig verbindet: $p(o) = \operatorname{softmax}(\mathbf{C}) \iff \mathbf{C} \cong \ln p(o)$.
+#### Schritt 2: Ableitung des Präferenzvektors $\mathbf{C} = \ln p(o)$
+Active-Inference-Algorithmen berechnen die erwartete freie Energie im logarithmischen Informationsraum (Nats). Das Ziehen des natürlichen Logarithmus liefert:
+* $\ln(0{,}6911) = \mathbf{-0{,}369}$
+* $\ln(0{,}1542) = \mathbf{-1{,}869} = -0{,}369 - 1{,}5$
+* $\ln(0{,}00023) = \mathbf{-8{,}369} = -0{,}369 - 8{,}0$
+
+Zieht man den Basis-Offset $-0{,}369$ ab (Nullpunkt-Eichung), entsteht der saubere **Präferenzvektor $\mathbf{C}$**:
+$$\mathbf{C} = \ln p(o) - \max(\ln p(o)) = \begin{pmatrix} 0{,}0 \\ -1{,}5 \\ -8{,}0 \\ -1{,}5 \\ -8{,}0 \end{pmatrix} \begin{matrix} (o_0: \text{Aufrecht}) \\ (o_{l1}: \text{Leicht links}) \\ (o_{l2}: \text{Sturz links}) \\ (o_{r1}: \text{Leicht rechts}) \\ (o_{r2}: \text{Sturz rechts}) \end{matrix}$$
+
+* $\mathbf{C}_0 = 0{,}0$: Maximale Präferenz (minimale Freie Energie / Null Überraschung in stabiler Balance).
+* $\mathbf{C}_{\text{Stufe 1}} = -1{,}5$: Leichte Aversion gegen Schräglagen (erzeugt korrigierenden Regelantrieb).
+* $\mathbf{C}_{\text{Stufe 2}} = -8{,}0$: Katastrophal negativer Wert (abstoßendes Strafpotenzial gegen Kippen).
+
+#### Schritt 3: Die Softmax-Brücke im Code ($p(o) = \operatorname{softmax}(\mathbf{C})$)
+In der Implementierung konfigurieren Entwickler direkt den Vektor $\mathbf{C}$. Der **Softmax-Operator** (Boltzmann-/Gibbs-Verteilung) überführt diese Log-Präferenzen wieder exakt in die ursprüngliche Wahrscheinlichkeitsverteilung:
+$$P(o_i) = \sigma(\mathbf{C})_i = \frac{e^{C_i}}{\sum_{j=1}^5 e^{C_j}} \implies p(o) = \operatorname{softmax}(\mathbf{C})$$
+Mit der Zustandssumme $Z = \sum_{j=1}^5 e^{C_j} = e^{0{,}0} + 2 e^{-1{,}5} + 2 e^{-8{,}0} \approx 1{,}4469$ stellt $\operatorname{softmax}(\mathbf{C})$ exakt die Zielverteilung $69{,}1\,\%, 15{,}4\,\%, 0{,}02\,\%$ wieder her!
+
+#### 💡 Zusammenfassung:
+* **Der Wahrscheinlichkeits-Raum ($\mathbf{A}, \mathbf{B}, \mathbf{D}, p(o)$):** Alle Werte sind echte Wahrscheinlichkeiten ($P \in [0, 1]$), strikt positiv, Summe $= 1{,}0$.
+* **Der Log-Präferenz-Raum ($\mathbf{C}$ in Nats):** Arbeitsraum für Freie-Energie-Berechnungen ($\mathbf{C} = \ln p(o)$), in dem gefährliche Zustände große negative Strafwerte besitzen.
+* **Die Softmax-Brücke:** Verbindet beide Welten eineindeutig: $p(o) = \operatorname{softmax}(\mathbf{C}) \iff \mathbf{C} \cong \ln p(o)$.
 
 ---
 

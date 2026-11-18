@@ -169,56 +169,57 @@ $$\mathbf{D} = p(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \en
 
 ---
 
-### Homeostatic Preference Vector $\mathbf{C}$ & Phenotypic Distribution $p(o)$ (The Softmax Bridge)
+### Preference Vector $\mathbf{C}$ & Target Distribution $p(o)$ (The 3-Step Derivation)
 
-In Active Inference, an agent's survival instinct (Conatus) is formally specified by a preferred observation distribution $p(o)$. The agent desires to observe itself upright, tolerates mild deviations, and actively avoids catastrophic tipping.
+In Active Inference, an agent's goals are not framed as arbitrary rewards, but as **phenotypic prior expectations**: the agent actively acts to observe what it expects to see in order to maintain its structural integrity.
 
-#### 1. The Conative Log-Preference Vector $\mathbf{C}$:
-$$\mathbf{C} = \begin{pmatrix} 0.0 \\ -1.5 \\ -8.0 \\ -1.5 \\ -8.0 \end{pmatrix} \begin{matrix} (o_0: \text{Upright balanced}) \\ (o_{l1}: \text{Slight tilt left}) \\ (o_{l2}: \text{Catastrophic fall left}) \\ (o_{r1}: \text{Slight tilt right}) \\ (o_{r2}: \text{Catastrophic fall right}) \end{matrix}$$
+#### Step 1: Definition of the Target Observation Probabilities $p(o)$
+We define what observation angles the inverted pendulum expects to measure:
+* **$P(o_0 : \text{Upright balanced}, |\theta| \le 3^\circ) \approx 69.1\,\%$:** The ideal operational regime.
+* **$P(o_{l1}, o_{r1} : \text{Slight tilt}, 3^\circ < |\theta| \le 15^\circ) \approx 15.4\,\%$ each:** Tolerable everyday perturbations.
+* **$P(o_{l2}, o_{r2} : \text{Catastrophic fall}, |\theta| > 15^\circ) \approx 0.023\,\%$ each:** Dangerous tipping boundaries that the agent expects practically never to observe.
 
-* $\mathbf{C}_0 = 0.0$: Maximal preference (minimum Free Energy in stable equilibrium).
-* $\mathbf{C}_{\text{Level 1}} = -1.5$: Mild aversion against minor tilts (generates corrective action motivation).
-* $\mathbf{C}_{\text{Level 2}} = -8.0$: Catastrophically negative preference (existential hazard / Conatus boundary).
-
-#### 2. The True Probability Distribution $p(o) = \operatorname{softmax}(\mathbf{C})$:
-To convert raw log-preferences $\mathbf{C}$ into a valid, normalized probability distribution over observations, we apply the **Softmax function** (Boltzmann-Gibbs distribution):
-
-$$P(o_i) = \sigma(\mathbf{C})_i = \frac{e^{C_i}}{\sum_{j=1}^5 e^{C_j}}$$
-
-With partition function $Z = \sum_{j=1}^5 e^{C_j} = e^{0.0} + 2 e^{-1.5} + 2 e^{-8.0} = 1.0 + 0.44626 + 0.00067 \approx 1.4469$:
-
-$$p(o) = \operatorname{softmax}(\mathbf{C}) = \begin{pmatrix} 
-\frac{1.0}{1.4469} \\[4pt]
-\frac{0.2231}{1.4469} \\[4pt]
-\frac{0.000335}{1.4469} \\[4pt]
-\frac{0.2231}{1.4469} \\[4pt]
-\frac{0.000335}{1.4469}
-\end{pmatrix} = \begin{pmatrix} 
-\mathbf{0.6911} \\[4pt]
-\mathbf{0.1542} \\[4pt]
-\mathbf{0.00023} \\[4pt]
-\mathbf{0.1542} \\[4pt]
-\mathbf{0.00023}
-\end{pmatrix} \begin{matrix} 
-(o_0: \text{Upright } \approx \mathbf{69.1\,\%}) \\ 
-(o_{l1}: \text{Slight left } \approx \mathbf{15.4\,\%}) \\ 
-(o_{l2}: \text{Fall left } \approx \mathbf{0.02\,\%}) \\ 
-(o_{r1}: \text{Slight right } \approx \mathbf{15.4\,\%}) \\ 
-(o_{r2}: \text{Fall right } \approx \mathbf{0.02\,\%}) 
+As a normalized probability vector $p(o) \in [0, 1]^5$:
+$$p(o) = \begin{pmatrix} 
+0.6911 \\ 
+0.1542 \\ 
+0.00023 \\ 
+0.1542 \\ 
+0.00023 
+\end{pmatrix} 
+\begin{matrix} 
+(o_0: \text{Upright balanced} \approx \mathbf{69.1\,\%}) \\ 
+(o_{l1}: \text{Slight tilt left} \approx \mathbf{15.4\,\%}) \\ 
+(o_{l2}: \text{Catastrophic fall left} \approx \mathbf{0.02\,\%}) \\ 
+(o_{r1}: \text{Slight tilt right} \approx \mathbf{15.4\,\%}) \\ 
+(o_{r2}: \text{Catastrophic fall right} \approx \mathbf{0.02\,\%}) 
 \end{matrix}$$
 
-* **Strict Probability Conservation:** $\sum_{i=1}^5 P(o_i) = 0.6911 + 0.1542 + 0.00023 + 0.1542 + 0.00023 = \mathbf{1.0000}$ ($\mathbf{100\%}$).
-* **The Logarithmic Relation $\mathbf{C} = \ln p(o)$:**  
-  Taking the natural logarithm element-wise yields $\ln p(o) = \mathbf{C} - \ln(Z) = \mathbf{C} - 0.369$. Because policy selection minimizes Expected Free Energy $G^*$ and depends purely on log-odds differences, any constant offset cancels out ($\operatorname{softmax}(\mathbf{C}) = \operatorname{softmax}(\mathbf{C} + c)$). Thus, defining $\mathbf{C} = \ln p(o)$ with $\mathbf{C}_0 = 0.0$ establishes an exact, zero-calibrated logarithmic representation of the phenotypic target distribution.
+* **Strict Probability Conservation:** All entries are strictly positive and sum exactly to $1.0$ ($100\,\%$):  
+  $\sum_{i=1}^5 P(o_i) = 0.6911 + 0.1542 + 0.00023 + 0.1542 + 0.00023 = \mathbf{1.0000}$.
 
-#### 💡 Mathematical Grounding: Why is $\mathbf{C}$ Negative While $\mathbf{A}, \mathbf{B}, \mathbf{D}$ are Strictly Positive?
-A critical mathematical distinction that often puzzles engineers and newcomers:
-* **The Probability Space ($\mathbf{A}, \mathbf{B}, \mathbf{D}, p(o)$):**  
-  In the Likelihood matrix $\mathbf{A}$, the Transition tensors $\mathbf{B}(a)$, the Prior vector $\mathbf{D}$, and the phenotypic target distribution $p(o)$, all values are **true probabilities** ($P \in [0, 1]$). Every entry is strictly non-negative, and every column/vector sums up exactly to $1.0$ ($100\%$) to preserve total probability mass (stochastic normalization).
-* **The Log-Preference Space ($\mathbf{C}$ in Nats):**  
-  Vector $\mathbf{C}$ lives in **logarithmic information space**: $\mathbf{C} = \ln p(o) + \text{const}$. In this space, multiplications become fast additions, and improbable/dangerous states have large negative scores that act as penalizing repulsive forces in Expected Free Energy $G^*$.
-* **The Softmax Bridge:**  
-  The Softmax operator is the exact mathematical bridge linking the two spaces: $p(o) = \operatorname{softmax}(\mathbf{C}) \iff \mathbf{C} \cong \ln p(o)$.
+#### Step 2: Deriving the Preference Vector $\mathbf{C} = \ln p(o)$
+Active Inference algorithms evaluate Expected Free Energy in logarithmic information space (nats). Taking the natural logarithm of the defined probabilities yields:
+* $\ln(0.6911) = \mathbf{-0.369}$
+* $\ln(0.1542) = \mathbf{-1.869} = -0.369 - 1.5$
+* $\ln(0.00023) = \mathbf{-8.369} = -0.369 - 8.0$
+
+Subtracting the baseline offset $-0.369$ (zero-calibration) produces the clean **Preference Vector $\mathbf{C}$**:
+$$\mathbf{C} = \ln p(o) - \max(\ln p(o)) = \begin{pmatrix} 0.0 \\ -1.5 \\ -8.0 \\ -1.5 \\ -8.0 \end{pmatrix} \begin{matrix} (o_0: \text{Upright}) \\ (o_{l1}: \text{Slight left}) \\ (o_{l2}: \text{Fall left}) \\ (o_{r1}: \text{Slight right}) \\ (o_{r2}: \text{Fall right}) \end{matrix}$$
+
+* $\mathbf{C}_0 = 0.0$: Maximum preference (zero surprise / minimum Free Energy in equilibrium).
+* $\mathbf{C}_{\text{Level 1}} = -1.5$: Mild aversion against minor tilts (drives corrective counter-steering).
+* $\mathbf{C}_{\text{Level 2}} = -8.0$: Catastrophically negative score (repulsive potential against tipping).
+
+#### Step 3: The Softmax Bridge in Code ($p(o) = \operatorname{softmax}(\mathbf{C})$)
+In software implementations, engineers directly configure $\mathbf{C}$. The **Softmax operator** (Boltzmann-Gibbs distribution) maps these log-preferences back to the exact physical probability distribution:
+$$P(o_i) = \sigma(\mathbf{C})_i = \frac{e^{C_i}}{\sum_{j=1}^5 e^{C_j}} \implies p(o) = \operatorname{softmax}(\mathbf{C})$$
+With partition sum $Z = \sum_{j=1}^5 e^{C_j} = e^{0.0} + 2 e^{-1.5} + 2 e^{-8.0} \approx 1.4469$, $\operatorname{softmax}(\mathbf{C})$ recovers precisely the $69.1\,\%, 15.4\,\%, 0.02\,\%$ target distribution!
+
+#### 💡 Summary:
+* **The Probability Space ($\mathbf{A}, \mathbf{B}, \mathbf{D}, p(o)$):** All values are true probabilities ($P \in [0, 1]$), strictly positive, summing to $1.0$.
+* **The Log-Preference Space ($\mathbf{C}$ in nats):** Working space for Free Energy calculations ($\mathbf{C} = \ln p(o)$), where improbable events have large negative scores that penalize dangerous actions.
+* **The Softmax Bridge:** Links both spaces: $p(o) = \operatorname{softmax}(\mathbf{C}) \iff \mathbf{C} \cong \ln p(o)$.
 
 ---
 
@@ -369,7 +370,7 @@ The **World Model** is the agent's internal generative representation of the phy
 ### FAQ 5: What is the Generative Model in this example?
 The **Generative Model** is the complete joint probability distribution over observations, states, actions, and preferences:
 $$p(o, s, a) = p(o \mid s) \cdot p(s \mid s_{t-1}, a) \cdot p(s_0) \cdot p_{\text{prior}}(a)$$
-augmented with the conative phenotypic preference vector $\mathbf{C} = \ln p(o)$ and systemic vitality metric $\Phi(s)$. It enables the agent to evaluate the Expected Free Energy $G^*$ of counterfactual futures before committing physical torque.
+augmented with the phenotypic preference vector $\mathbf{C} = \ln p(o)$ and systemic vitality metric $\Phi(s)$. It enables the agent to evaluate the Expected Free Energy $G^*$ of counterfactual futures before committing physical torque.
 
 ---
 
