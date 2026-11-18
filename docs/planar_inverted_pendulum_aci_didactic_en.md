@@ -167,13 +167,29 @@ $$\mathbf{D} = P(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \en
 
 ---
 
-### Homeostatic Preference Vector $\mathbf{C}$ (Conative Attractor)
+### Homeostatic Preference Vector $\mathbf{C}$ (Conative Attractor & The Log-Softmax Bridge)
 
 $$\mathbf{C} = \ln P(o) = \begin{pmatrix} 0.0 \\ -1.5 \\ -8.0 \\ -1.5 \\ -8.0 \end{pmatrix} \begin{matrix} (o_0) \\ (o_{l1}) \\ (o_{l2}) \\ (o_{r1}) \\ (o_{r2}) \end{matrix}$$
 
 * $\mathbf{C}_0 = 0.0$: Maximum preference (zero surprise / minimum Free Energy in stable equilibrium).
 * $\mathbf{C}_{\text{Level 1}} = -1.5$: Mild aversion against minor tilts (generates corrective action motivation).
 * $\mathbf{C}_{\text{Level 2}} = -8.0$: Catastrophically negative preference (tipping boundary / existential hazard to the physical system).
+
+#### 💡 Mathematical Grounding: Why is $\mathbf{C}$ Negative While $\mathbf{A}, \mathbf{B}, \mathbf{D}$ are Strictly Positive?
+A critical mathematical distinction that often puzzles engineers and newcomers:
+* **The Probability Space ($\mathbf{A}, \mathbf{B}, \mathbf{D}$):**  
+  In the Likelihood matrix $\mathbf{A}$, the Transition tensors $\mathbf{B}(a)$, and the Prior vector $\mathbf{D}$, all values are **true probabilities** ($P \in [0, 1]$). Every entry is strictly non-negative, and every column sums up exactly to $1.0$ ($100\%$) to preserve total probability mass (stochastic column-normalization).
+* **The Log-Preference Space ($\mathbf{C}$ in Nats):**  
+  Vector $\mathbf{C}$ does not store raw probabilities; it lives in **logarithmic information space**: $\mathbf{C} = \ln P(o)$.  
+  Since every probability satisfies $P \le 1.0$, its natural logarithm is **always negative or zero**:
+  $$\ln(1.0) = \mathbf{0.0} \quad (\text{Maximal preference / Zero surprise})$$
+  $$\ln(0.223) \approx \mathbf{-1.5} \quad (\text{Mild deviation})$$
+  $$\ln(0.00033) \approx \mathbf{-8.0} \quad (\text{Catastrophic hazard})$$
+* **The Softmax Bridge:**  
+  How do we convert between arbitrary preference scores $\mathbf{C}$ and a valid, normalized probability distribution $P(o)$?  
+  Via the **Softmax function** (the Boltzmann-Gibbs distribution):
+  $$P(o_i) = \sigma(\mathbf{C})_i = \frac{e^{C_i}}{\sum_j e^{C_j}}$$
+  The exponential function $e^{C_i}$ maps every negative log-preference back into a **strictly positive number**, and dividing by the sum $\sum e^{C_j}$ guarantees that the resulting distribution sums precisely to **$1.0$ ($100\%$)**!
 
 ---
 

@@ -166,13 +166,29 @@ $$\mathbf{D} = P(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \en
 
 ---
 
-### Phänotypischer Präferenzvektor $\mathbf{C}$ (Conatus-Attraktor)
+### Phänotypischer Präferenzvektor $\mathbf{C}$ (Conatus-Attraktor & Die Log-Softmax-Brücke)
 
 $$\mathbf{C} = \ln P(o) = \begin{pmatrix} 0.0 \\ -1.5 \\ -8.0 \\ -1.5 \\ -8.0 \end{pmatrix} \begin{matrix} (o_0) \\ (o_{l1}) \\ (o_{l2}) \\ (o_{r1}) \\ (o_{r2}) \end{matrix}$$
 
-* $\mathbf{C}_0 = 0.0$: Maximale Präferenz (minimale Freie Energie in stabiler Balance).
+* $\mathbf{C}_0 = 0.0$: Maximale Präferenz (minimale Freie Energie / Null Überraschung in stabiler Balance).
 * $\mathbf{C}_{\text{Stufe 1}} = -1.5$: Leichte Aversion gegen Schräglagen (erzeugt Regelantrieb).
-* $\mathbf{C}_{\text{Stufe 2}} = -8.0$: Katastrophal negative Bewertung (existenzielle Gefahrenzone).
+* $\mathbf{C}_{\text{Stufe 2}} = -8.0$: Katastrophal negative Bewertung (existenzielle Gefahrenzone / Tipping-Barriere).
+
+#### 💡 Mathematische Fundierung: Warum ist $\mathbf{C}$ negativ, während $\mathbf{A}, \mathbf{B}, \mathbf{D}$ strikt positiv sind?
+Eine fundamentale mathematische Unterscheidung, an der viele Ingenieure und Einsteiger hängenbleiben:
+* **Der Wahrscheinlichkeits-Raum ($\mathbf{A}, \mathbf{B}, \mathbf{D}$):**  
+  In der Sensormatrix $\mathbf{A}$, den Übergangstensoren $\mathbf{B}(a)$ und dem Prior-Vektor $\mathbf{D}$ stehen **reine Wahrscheinlichkeiten** ($P \in [0, 1]$). Jeder einzelne Eintrag ist strikt positiv (nicht-negativ) und jede Spalte summiert sich exakt zu **$1{,}0$ ($100\,\%$)**, damit keine Wahrscheinlichkeitsmasse verloren geht (stochastische Spaltennormierung).
+* **Der Log-Präferenz-Raum ($\mathbf{C}$ in Nats):**  
+  Der Vektor $\mathbf{C}$ speichert keine Rohwahrscheinlichkeiten, sondern lebt im **logarithmischen Informationsraum**: $\mathbf{C} = \ln P(o)$.  
+  Da jede Wahrscheinlichkeit $P \le 1{,}0$ ist, ist ihr natürlicher Logarithmus **immer kleiner oder gleich 0 (also negativ)**:
+  $$\ln(1{,}0) = \mathbf{0{,}0} \quad (\text{Maximale Präferenz / Null Überraschung})$$
+  $$\ln(0{,}223) \approx \mathbf{-1{,}5} \quad (\text{Leichte Auslenkung})$$
+  $$\ln(0{,}00033) \approx \mathbf{-8{,}0} \quad (\text{Existenzielle Bedrohung})$$
+* **Die Softmax-Brücke:**  
+  Wie gelangt man von conativen Bewertungen $\mathbf{C}$ zurück zu einer echten, normierten Wahrscheinlichkeitsverteilung $P(o)$?  
+  Genau über die **Softmax-Funktion** (die Boltzmann-/Gibbs-Verteilung):
+  $$P(o_i) = \sigma(\mathbf{C})_i = \frac{e^{C_i}}{\sum_j e^{C_j}}$$
+  Die Exponentialfunktion $e^{C_i}$ überführt jede noch so negative Zahl wieder in einen **strikt positiven Wert**, und die Division durch die Summe $\sum e^{C_j}$ stellt sicher, dass sich alle Werte exakt zu **$1{,}0$ ($100\,\%$)** aufsummieren!
 
 ---
 
