@@ -48,7 +48,7 @@ In klassischen Regelungstheorien wird oft angenommen, dass der exakte Winkel $\t
 * **$s$ (Verborgener Zustand / Hidden State):** Der wahre, unberührbare physikalische Zustand der Welt (z. B. der tatsächliche Kippwinkel $\theta \in \mathcal{S}$).
 * **$o$ (Beobachtung / Observation):** Der verrauschte Messwert, den die Sensoren am Markov-Blanket registrieren ($o \in \mathcal{O}$).
 * **$a$ (Handlung / Action):** Die physikalische Intervention oder der Steuerbefehl an die Motoren (z. B. Wagenbeschleunigung $a \in \mathcal{A}$).
-* **$P$ (Wahrscheinlichkeitsverteilung):** Das mathematische Maß für Plausibilität, Glauben oder Übergangshäufigkeit ($P \in [0, 1]$).
+* **$P$ (Wahrscheinlichkeit):** Der mathematische Wert für den Grad der Gewissheit, des Glaubens oder der Übergangshäufigkeit eines konkreten Ereignisses oder Zustands ($P \in [0, 1]$). *(Hinweis zur mathematischen Konvention: Großes $P$ bezeichnet die konkrete Wahrscheinlichkeit eines Zustands, während kleines $p(s)$ die gesamte Wahrscheinlichkeitsverteilung über alle Zustände und $q(s)$ den internen Glauben des Agenten darstellt.)*
 * **Der Bedingungsstrich ($\mid$):** Gelesen als **„gegeben“**. Beispielsweise liest sich $P(s \mid o)$ als: *„Die Wahrscheinlichkeit des Zustands $s$, **gegeben** die Beobachtung $o$“*.
 
 ---

@@ -48,7 +48,7 @@ In classical textbook control theory, controllers often assume instantaneous, pe
 * **$s$ (Hidden State):** The true, unobservable physical condition of the external world (e.g., the actual tilt angle of the rod $\theta \in \mathcal{S}$). The agent can never touch $s$ directly.
 * **$o$ (Observation):** The noisy sensory measurement registered by the agent's sensors at the boundary (e.g., optical encoder reading or proprioceptive sensor $o \in \mathcal{O}$).
 * **$a$ (Action):** The physical intervention or motor command emitted by the agent into the environment (e.g., base cart acceleration $a \in \mathcal{A}$).
-* **$P$ (Probability Distribution):** The mathematical assignment of likelihood, belief, or transition frequency across states and observations ($P \in [0, 1]$).
+* **$P$ (Probability):** The mathematical value measuring certainty, belief, or transition frequency of a state or event ($P \in [0, 1]$). *(Note on notation: Uppercase $P$ denotes the specific probability of an outcome, whereas lowercase $p(s)$ refers to the complete probability distribution across state space, and $q(s)$ denotes the agent's internal recognition density.)*
 * **The Conditioning Bar ($\mid$):** Read as **"given"**. For instance, $P(s \mid o)$ is read as *"the probability of hidden state $s$ **given** sensory observation $o$"*.
 
 ---
