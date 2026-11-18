@@ -67,18 +67,18 @@ To make the interaction of these probabilistic terms and the indispensable role 
 
 * **Hidden World State $s$ (Unobserved weather outside):**
   * $s_1 = \text{Rain}$ (Prior belief: $P(\text{Rain}) = 0.20$ or $20\%$)
-  * $s_2 = \text{Dry}$ (Prior belief: $P(\text{Dry}) = 0.80$ or $80\%$)
+  * $s_2 = \text{No Rain}$ (Prior belief: $P(\text{No Rain}) = 0.80$ or $80\%$)
 * **Sensory Observation $o$ (Looking out the window):**
   * $o = \text{The street is wet}$
 
 **Why could the street be wet? (Two competing causal pathways):**
 1. **Path 1 (True Rain):** If it rains, the street is almost certainly wet: $P(\text{Wet} \mid \text{Rain}) = 0.99$ ($99\%$).
-2. **Path 2 (Sensor Ambiguity / External Factor):** It is completely dry, but a street cleaning truck passed by or a neighbor ran the garden sprinkler: $P(\text{Wet} \mid \text{Dry}) = 0.05$ ($5\%$).
+2. **Path 2 (Sensor Ambiguity / External Factor):** There is no rain, but a street cleaning truck passed by or a neighbor ran the garden sprinkler: $P(\text{Wet} \mid \text{No Rain}) = 0.05$ ($5\%$).
 
 **Calculating Marginal Evidence $P(o)$ (Total Probability of Seeing a Wet Street):**
 
 $$\begin{aligned}
-P(\text{Wet}) &= \underbrace{P(\text{Wet} \mid \text{Rain}) \cdot P(\text{Rain})}_{\text{Wet via Rain } (0.99 \cdot 0.20 = 0.198)} + \underbrace{P(\text{Wet} \mid \text{Dry}) \cdot P(\text{Dry})}_{\text{Wet via Sprinkler } (0.05 \cdot 0.80 = 0.040)} \\
+P(\text{Wet}) &= \underbrace{P(\text{Wet} \mid \text{Rain}) \cdot P(\text{Rain})}_{\text{Wet via Rain } (0.99 \cdot 0.20 = 0.198)} + \underbrace{P(\text{Wet} \mid \text{No Rain}) \cdot P(\text{No Rain})}_{\text{Wet via Sprinkler } (0.05 \cdot 0.80 = 0.040)} \\
 &= 0.198 + 0.040 = \mathbf{0.238} \; (23.8\%)
 \end{aligned}$$
 
@@ -119,7 +119,7 @@ With the intuitive objects ($\mathbf{C}, \mathbf{D}, \mathbf{A}, \mathbf{B}$) an
 2. **Likelihood $P(o \mid s)$ (Matrix $\mathbf{A}$ — Sensor Precision):**  
    The generative mapping: *"If the rod were genuinely in physical state $s$, how probable is it that our sensor reports observation $o$?"*  
    This captures the fidelity and precision of the sensory apparatus, including sensor noise $\varepsilon$ and diagonal precision $\gamma_s$.  
-   *(In the rain example: $P(\text{Wet} \mid \text{Rain}) = 99\%$ vs. $P(\text{Wet} \mid \text{Dry}) = 5\%$.)*
+   *(In the rain example: $P(\text{Wet} \mid \text{Rain}) = 99\%$ vs. $P(\text{Wet} \mid \text{No Rain}) = 5\%$.)*
 3. **Posterior Belief $P(s \mid o)$ (Read: "$s$ given $o$" $\to$ Recognition Density $q(s)$):**  
    The updated, optimal belief about the hidden state $s$ **after** assimilating observation $o$. Perception in Active Inference is nothing other than minimizing the discrepancy (Variational Free Energy $F$) between this Bayesian posterior and the agent's internal recognition density $q(s)$.  
    *(In the rain example: $P(\text{Rain} \mid \text{Wet}) = 83.2\%$.)*

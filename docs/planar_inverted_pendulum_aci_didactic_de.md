@@ -66,19 +66,19 @@ $$P(s \mid o) = \frac{P(o \mid s) \cdot P(s)}{P(o)} = \frac{P(o \mid s) \cdot P(
 Um das Zusammenspiel dieser probabilistischen Terme und die unverzichtbare Rolle des Nenners $P(o)$ vorab intuitiv zu begreifen, hilft ein einfaches Alltagsszenario:
 
 * **Verborgener Weltzustand $s$ (Das Wetter draußen):**
-  * $s_1 = \text{Es regnet}$ (Vorab-Glaube / Prior: $P(\text{Regen}) = 0{,}20$ bzw. $20\,\%$)
-  * $s_2 = \text{Es ist trocken}$ (Vorab-Glaube / Prior: $P(\text{trocken}) = 0{,}80$ bzw. $80\,\%$)
+  * $s_1 = \text{Regen}$ (Vorab-Glaube / Prior: $P(\text{Regen}) = 0{,}20$ bzw. $20\,\%$)
+  * $s_2 = \text{Ohne Regen}$ (Vorab-Glaube / Prior: $P(\text{ohne Regen}) = 0{,}80$ bzw. $80\,\%$)
 * **Sensorische Beobachtung $o$ (Blick aus dem Fenster):**
   * $o = \text{Die Straße ist nass}$
 
 **Warum kann die Straße nass sein? (Zwei konkurrierende Kausalpfade):**
 1. **Pfad 1 (Echter Regen):** Wenn es regnet, ist die Straße fast garantiert nass: $P(\text{nass} \mid \text{Regen}) = 0{,}99$ ($99\,\%$).
-2. **Pfad 2 (Sensor-Mehrdeutigkeit / Falscher Alarm):** Es ist trocken, aber ein Straßenreinigungsfahrzeug fuhr vorbei oder der Rasensprenger des Nachbarn lief: $P(\text{nass} \mid \text{trocken}) = 0{,}05$ ($5\,\%$).
+2. **Pfad 2 (Sensor-Mehrdeutigkeit / Falscher Alarm):** Es herrscht kein Regen, aber ein Straßenreinigungsfahrzeug fuhr vorbei oder der Rasensprenger des Nachbarn lief: $P(\text{nass} \mid \text{ohne Regen}) = 0{,}05$ ($5\,\%$).
 
 **Berechnung der marginalen Evidenz $P(o)$ (Gesamtwahrscheinlichkeit einer nassen Straße):**
 
 $$\begin{aligned}
-P(\text{nass}) &= \underbrace{P(\text{nass} \mid \text{Regen}) \cdot P(\text{Regen})}_{\text{Nass durch Regen } (0{,}99 \cdot 0{,}20 = 0{,}198)} + \underbrace{P(\text{nass} \mid \text{trocken}) \cdot P(\text{trocken})}_{\text{Nass durch Rasensprenger } (0{,}05 \cdot 0{,}80 = 0{,}040)} \\
+P(\text{nass}) &= \underbrace{P(\text{nass} \mid \text{Regen}) \cdot P(\text{Regen})}_{\text{Nass durch Regen } (0{,}99 \cdot 0{,}20 = 0{,}198)} + \underbrace{P(\text{nass} \mid \text{ohne Regen}) \cdot P(\text{ohne Regen})}_{\text{Nass durch Rasensprenger } (0{,}05 \cdot 0{,}80 = 0{,}040)} \\
 &= 0{,}198 + 0{,}040 = \mathbf{0{,}238} \; (23{,}8\,\%)
 \end{aligned}$$
 
@@ -118,7 +118,7 @@ Mit den vier intuitiven Objekten ($\mathbf{C}, \mathbf{D}, \mathbf{A}, \mathbf{B
    *(Im Regen-Beispiel: Vorab-Wahrscheinlichkeit $P(\text{Regen}) = 20\,\%$.)*
 2. **Likelihood $P(o \mid s)$ (Matrix $\mathbf{A}$ — Sensorpräzision):**  
    Die generative Abbildung: *„Wenn der Stab tatsächlich im Zustand $s$ stünde: Wie wahrscheinlich ist es dann, dass unser Sensor die Beobachtung $o$ meldet?“* (Erfasst Sensorpräzision $\gamma_s$ und Rauschen $\varepsilon$).  
-   *(Im Regen-Beispiel: $P(\text{nass} \mid \text{Regen}) = 99\,\%$ vs. $P(\text{nass} \mid \text{trocken}) = 5\,\%$.)*
+   *(Im Regen-Beispiel: $P(\text{nass} \mid \text{Regen}) = 99\,\%$ vs. $P(\text{nass} \mid \text{ohne Regen}) = 5\,\%$.)*
 3. **Posterior-Glaube $P(s \mid o)$ (A-posteriori-Zustand $\to$ Interne Dichte $q(s)$):**  
    Der aktualisierte, optimale Glaube über den Weltzustand $s$ **nach** Verarbeitung der Beobachtung $o$. Wahrnehmung in Active Inference ist die Minimierung der Diskrepanz (Variational Free Energy $F$) zwischen diesem Posterior und der internen Dichte $q(s)$.  
    *(Im Regen-Beispiel: $P(\text{Regen} \mid \text{nass}) = 83{,}2\,\%$.)*
