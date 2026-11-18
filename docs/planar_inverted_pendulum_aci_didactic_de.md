@@ -59,21 +59,11 @@ Das Theorem von Bayes liefert das mathematische Gesetz, wie ein interner Glaube 
 
 $$P(s \mid o) = \frac{P(o \mid s) \cdot P(s)}{P(o)} = \frac{P(o \mid s) \cdot P(s)}{\sum_{s'} P(o \mid s') \cdot P(s')}$$
 
-#### Die vier Kernkomponenten:
-1. **Prior-Glaube $P(s)$ (A-priori-Erwartung):**  
-   Was der Agent über den Zustand glaubt, **bevor** er die neue Messung auswertet (Initialzustand $\mathbf{D} = P(s_0)$ oder Vorhersage über den Übergangstensor $s_{\text{pred}} = \mathbf{B}(a_{t-1}) \cdot s_{t-1}$).
-2. **Likelihood $P(o \mid s)$ (Matrix $\mathbf{A}$):**  
-   Die generative Abbildung: *„Wenn der Stab tatsächlich im Zustand $s$ stünde: Wie wahrscheinlich ist es dann, dass unser Sensor die Beobachtung $o$ meldet?“* (Erfasst Sensorpräzision $\gamma_s$ und Rauschen $\varepsilon$).
-3. **Posterior-Glaube $P(s \mid o)$ (A-posteriori-Zustand):**  
-   Der aktualisierte Glaube über den Weltzustand $s$ **nach** Verarbeitung der Beobachtung $o$. Wahrnehmung in Active Inference ist die Minimierung der Diskrepanz (Variational Free Energy $F$) zwischen diesem Posterior und der internen Dichte $q(s)$.
-4. **Marginale Evidenz $P(o)$:**  
-   Die Gesamtwahrscheinlichkeit der Beobachtung $o$, gemittelt über alle Zustände. Ihr Logarithmus $\ln P(o)$ bildet den phänotypischen Präferenzvektor $\mathbf{C}$.
-
 ---
 
 #### Anschauliches Alltagsbeispiel: Das Regen-Paradoxon ($s = \text{Regen}$, $o = \text{Straße nass}$)
 
-Um das Zusammenspiel dieser vier Terme und die unverzichtbare Rolle des Nenners $P(o)$ intuitiv zu verstehen:
+Um das Zusammenspiel dieser probabilistischen Terme und die unverzichtbare Rolle des Nenners $P(o)$ vorab intuitiv zu begreifen, hilft ein einfaches Alltagsszenario:
 
 * **Verborgener Weltzustand $s$ (Das Wetter draußen):**
   * $s_1 = \text{Es regnet}$ (Vorab-Glaube / Prior: $P(\text{Regen}) = 0{,}20$ bzw. $20\,\%$)
@@ -81,9 +71,9 @@ Um das Zusammenspiel dieser vier Terme und die unverzichtbare Rolle des Nenners 
 * **Sensorische Beobachtung $o$ (Blick aus dem Fenster):**
   * $o = \text{Die Straße ist nass}$
 
-**Warum kann die Straße nass sein? (Zwei mögliche Kausalpfade):**
+**Warum kann die Straße nass sein? (Zwei konkurrierende Kausalpfade):**
 1. **Pfad 1 (Echter Regen):** Wenn es regnet, ist die Straße fast garantiert nass: $P(\text{nass} \mid \text{Regen}) = 0{,}99$ ($99\,\%$).
-2. **Pfad 2 (Sensorrauschen / Falscher Alarm):** Es ist trocken, aber ein Straßenreinigungsfahrzeug fuhr vorbei oder der Rasensprenger des Nachbarn lief: $P(\text{nass} \mid \text{trocken}) = 0{,}05$ ($5\,\%$).
+2. **Pfad 2 (Sensor-Mehrdeutigkeit / Falscher Alarm):** Es ist trocken, aber ein Straßenreinigungsfahrzeug fuhr vorbei oder der Rasensprenger des Nachbarn lief: $P(\text{nass} \mid \text{trocken}) = 0{,}05$ ($5\,\%$).
 
 **Berechnung der marginalen Evidenz $P(o)$ (Gesamtwahrscheinlichkeit einer nassen Straße):**
 
@@ -97,6 +87,26 @@ $$P(\text{Regen} \mid \text{nass}) = \frac{P(\text{nass} \mid \text{Regen}) \cdo
 * Der Nenner $P(o) = 0{,}238$ normiert das Ergebnis.
 * Die Beobachtung der nassen Straße lässt die Regenwahrscheinlichkeit von zuvor $20\,\%$ auf $83{,}2\,\%$ steigen – aber eben nicht auf $100\,\%$, weil Bayes den alternativen Kausalpfad (Rasensprenger) mathematisch exakt mit einrechnet!
 * In Theons Invertiertem Pendel erfüllt $P(o)$ exakt dieselbe mathematische Funktion: Es gewichtet Vorab-Erwartungen dynamisch gegen verrauschte Sensor-Encoder.
+
+---
+
+#### Die vier Kernkomponenten von Bayes' Theorem:
+
+Mit diesem intuitiven Verständnis lassen sich die vier mathematischen Terme für unser Pendel präzise definieren:
+
+1. **Prior-Glaube $P(s)$ (A-priori-Erwartung vor der Messung):**  
+   Was der Agent über den Zustand glaubt, **bevor** er die neue Messung auswertet. Beim Pendel ist dies entweder der Ausgangsvektor $\mathbf{D} = P(s_0)$ oder die Bewegungsvorhersage:
+   $$s_{\text{pred}} = \mathbf{B}(a_{t-1}) \cdot s_{t-1}$$
+   *(Im Regen-Beispiel: Vorab-Wahrscheinlichkeit $P(\text{Regen}) = 20\,\%$.)*
+2. **Likelihood $P(o \mid s)$ (Matrix $\mathbf{A}$ — Sensorpräzision):**  
+   Die generative Abbildung: *„Wenn der Stab tatsächlich im Zustand $s$ stünde: Wie wahrscheinlich ist es dann, dass unser Sensor die Beobachtung $o$ meldet?“* (Erfasst Sensorpräzision $\gamma_s$ und Rauschen $\varepsilon$).  
+   *(Im Regen-Beispiel: $P(\text{nass} \mid \text{Regen}) = 99\,\%$ vs. $P(\text{nass} \mid \text{trocken}) = 5\,\%$.)*
+3. **Posterior-Glaube $P(s \mid o)$ (A-posteriori-Zustand — Die aktualisierte Hypothese):**  
+   Der aktualisierte, optimale Glaube über den Weltzustand $s$ **nach** Verarbeitung der Beobachtung $o$. Wahrnehmung in Active Inference ist die Minimierung der Diskrepanz (Variational Free Energy $F$) zwischen diesem Posterior und der internen Dichte $q(s)$.  
+   *(Im Regen-Beispiel: $P(\text{Regen} \mid \text{nass}) = 83{,}2\,\%$.)*
+4. **Marginale Evidenz $P(o)$ (Normierung & Phänotypische Präferenz):**  
+   Die Gesamtwahrscheinlichkeit der Beobachtung $o$, gemittelt über alle denkbaren Zustände. Ihr Logarithmus $\ln P(o)$ bildet den phänotypischen Präferenzvektor $\mathbf{C}$.  
+   *(Im Regen-Beispiel: $P(\text{nass}) = 23{,}8\,\%$.)*
 
 ---
 
