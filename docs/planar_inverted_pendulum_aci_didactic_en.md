@@ -5,7 +5,7 @@
 
 **Author:** Thomas Riebl  
 **Organization:** Conative Systems S.à r.l.  
-**Theoretical Basis:** Active Conative Inference (ACI), Free Energy Principle (FEP), Integrated Information Theory ($\Phi$ / IIT 4.0), Spinozan Conatus, Patent 01 & 11  
+**Theoretical Basis:** Active Conative Inference (ACI), Free Energy Principle (FEP), Integrated Information Theory ($\Phi$ / IIT 4.0, Giulio Tononi), Spinozan Conatus, Patent 01 & 11  
 **Target Architecture:** Freestanding ANSI C99 Edge Microcontrollers (Zero Dynamic Heap)
 
 ---
@@ -133,7 +133,7 @@ With the intuitive objects ($\mathbf{C}, \mathbf{D}, \mathbf{A}, \mathbf{B}$) an
 
 ### 1.2 State Space Architecture (Step 2: Discretization & Conatus Horizons)
 
-To build a computable generative model, we discretize the continuous angle $\theta$ into **5 conative states** ($\mathcal{S}$) and define the **Axiom 6 survival limit**:
+To build a computable generative model, we discretize the continuous angle $\theta$ into **5 conative states** ($\mathcal{S}$) and define the **Conatus survival limit**:
 
 ![2. Discrete State Space & Conatus Survival Barrier](inverted_pendulum_step2_states.svg)
 
@@ -141,7 +141,7 @@ To build a computable generative model, we discretize the continuous angle $\the
 * **State $s_0 = 0$ (Green):** Vertical upright equilibrium stance ($|\theta| \le 3^\circ$). Homeostatic attractor ($C_0 = 0.0$, $\Phi = 1.00$).
 * **States $s_1 = l_1, s_3 = r_1$ (Amber):** Mild tilt left or right ($3^\circ < |\theta| \le 15^\circ$). Easily stabilized with standard counter-steering ($C = -1.5$, $\Phi = 0.70$).
 * **States $s_2 = l_2, s_4 = r_2$ (Red):** Severe tipping left or right ($15^\circ < |\theta| < 35^\circ$). Strong restorative torque needed ($C = -8.0$, $\Phi = 0.15$).
-* **Axiom 6 Conatus VETO Limit (Red Dashed Line at $\pm 35^\circ$):** Point of No Return. Excursions beyond $\pm 35^\circ$ cannot be recovered by motor torque; any policy leading here triggers an emergency hardware veto ($G^* \to +\infty$).
+* **Conatus VETO Limit (Red Dashed Line at $\pm 35^\circ$):** Point of No Return. Excursions beyond $\pm 35^\circ$ cannot be recovered by motor torque; any policy leading here triggers an emergency Conatus-Veto ($G^* \to +\infty$).
 
 ### Discrete State Space ($|\mathcal{S}| = 5$) and Action Space ($|\mathcal{A}| = 2$)
 
@@ -233,11 +233,11 @@ In myopic classical Active Inference ($H = 1$), the agent greedily selects the a
 
 Under Active Conative Inference:
 * **Temporal Horizon $H \ge 2$:** The agent anticipates overshoot. Accelerating too aggressively to the right at $r_1$ induces an uncontrollable $l_2$ at $t + 2$.
-* **Systemic Vitality Monitoring $\Phi(s)$ (IIT 4.0):**
+* **Systemic Vitality Monitoring $\Phi(s)$ (Integrated Information Theory / IIT 4.0, Giulio Tononi):**
   * $\Phi(0) = 1.00\text{ nats}$ (Maximum systemic coherence and autopoietic health)
   * $\Phi(l_1, r_1) = 0.70\text{ nats}$ (Mild perturbation)
   * $\Phi(l_2, r_2) = 0.15\text{ nats}$ (Critical boundary hazard)
-* **Conatus Axiom 6 Hardware VETO:** When projected vitality falls below $\Phi < 0.25\text{ nats}$ or actuator stress poses structural hazards, the hardware veto immediately blocks the destructive trajectory and enforces stabilizing damping.
+* **Conatus-Veto:** When projected vitality falls below $\Phi < 0.25\text{ nats}$ or actuator stress poses structural hazards, the Conatus-Veto immediately blocks the destructive trajectory and enforces stabilizing damping.
 
 ---
 
@@ -258,7 +258,7 @@ $$G^*(a) = G_{\text{pragmatic}}(a) - \lambda_\Phi \cdot \Phi(a, H) \cdot \sqrt{H
 
 * **Pragmatic Term:** $-\mathbb{E}_{q(s_{t+1})}[\mathbf{C}]$ (distance from phenotypic attractor $s_0$).
 * **Conative Vitality Term:** Projected systemic health $\Phi$ weighted by temporal depth $\sqrt{H}$.
-* **Conatus Axiom 6 Hardware Veto:** If projected vitality drops below critical threshold ($\Phi < 0.25\text{ nats}$), $G^* \to +\infty$, triggering an emergency damping policy.
+* **Conatus-Veto:** If projected vitality drops below critical threshold ($\Phi < 0.25\text{ nats}$), $G^* \to +\infty$, triggering an emergency damping policy.
 
 ---
 
@@ -348,7 +348,7 @@ augmented with the conative phenotypic preference vector $\mathbf{C} = \ln P(o)$
 #### 4. Advantages of Active Conative Inference (ACI)
 * **Optimal Kalman-Bayesian Filtering:** Naturally separates sensor noise from physical reality via matrix $\mathbf{A}$.
 * **Deep Horizon Anticipation ($H \ge 2$):** Predicts and prevents overshoots before they physically manifest.
-* **Autonomous Conatus Protection:** Hard hardware veto prevents motor burnout and structural self-destruction.
+* **Autonomous Conatus Protection:** Conatus-Veto prevents motor burnout and structural self-destruction.
 * **Instant Online Adaptation:** Adjusts to changing payload or friction without manual retuning.
 
 #### 5. Trade-Offs / Costs of ACI
@@ -357,23 +357,23 @@ augmented with the conative phenotypic preference vector $\mathbf{C} = \ln P(o)$
 
 ---
 
-### FAQ 7: How Exactly Do Conatus and Axiom 6 Operate in This Inverted Pendulum Scenario?
+### FAQ 7: How Exactly Does the Conatus-Veto Operate in This Inverted Pendulum Scenario?
 
 #### 1. The Physical Problem: Inertia & The Whiplash Trap
 When an inverted pendulum is recovering from an excursion, an aggressive counter-steering action creates enormous kinetic momentum. A myopic controller ($H = 1$) drives the rod back toward vertical ($0^\circ$) at high velocity, resulting in an uncontrollable opposite-side collapse (whiplash effect).
 
 #### 2. The Conative Invariant: Vitality Mapping $\Phi(s)$
 Under Spinoza's Conatus principle, an autopoietic system's primary imperative is the preservation of its organizational and physical integrity.
-We operationalize this through Integrated Information Theory ($\Phi$ / IIT 4.0):
+We operationalize this through Integrated Information Theory ($\Phi$ / IIT 4.0, Giulio Tononi):
 * When upright ($s_0$), the system exhibits maximum structural vitality $\Phi = 1.00\text{ nats}$.
 * At mild tilts ($l_1, r_1$), vitality dips safely to $\Phi = 0.70\text{ nats}$.
 * At severe angles ($l_2, r_2$), vitality drops precipitously to $\Phi = 0.15\text{ nats}$.
 
-#### 3. The Operation of the Axiom 6 Hardware Veto
-Axiom 6 states that the preservation of life and structural integrity supersedes all task performance commands.
+#### 3. The Operation of the Conatus-Veto
+The Conatus principle states that the preservation of life and structural integrity supersedes all task performance commands.
 * Before executing action $a$, the agent computes expected vitality over horizon $H = 2$:
 $$\Phi_{\text{projected}}(a) = \frac{1}{H} \sum_{\tau=1}^H \mathbb{E}_{q(s_\tau \mid a)}[\Phi(s_\tau)]$$
-* If $\Phi_{\text{projected}}(a) < 0.25\text{ nats}$ (indicating that the policy risks driving the rod past $\pm 35^\circ$), the **Conatus Hardware Veto** fires:
+* If $\Phi_{\text{projected}}(a) < 0.25\text{ nats}$ (indicating that the policy risks driving the rod past $\pm 35^\circ$), the **Conatus-Veto** fires:
 $$G^*(a) \to +\infty$$
 * The proposed destructive policy is strictly vetoed. The system immediately substitutes an emergency damping action.
 
@@ -414,7 +414,7 @@ To bridge the gap between high-level theoretical neuro-cybernetics and determini
 #### 2. Formal Verification & Mathematical Integrity Checks
 * **Ergodicity & Reachability Analysis:** Verifies that no absorbing dead-end states trap the agent.
 * **Conservation & Normalization Checks:** Formally guarantees numerical stability and absence of divide-by-zero risks in logarithmic free energy evaluations.
-* **Veto Circuit Validation:** Mathematically verifies that the Conatus Axiom 6 hardware veto triggers reliably under all boundary conditions where $\Phi(s) < \Phi_{\text{crit}}$.
+* **Veto Circuit Validation:** Mathematically verifies that the Conatus-Veto triggers reliably under all boundary conditions where $\Phi(s) < \Phi_{\text{crit}}$.
 
 #### 3. Automated Zero-Allocation C99 Code Generation
 * Compiles verified models into optimized, freestanding C99 (`aci_core.h`, `aci_core.c`) with zero external dependencies.

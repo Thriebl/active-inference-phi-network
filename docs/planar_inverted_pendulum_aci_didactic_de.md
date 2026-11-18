@@ -5,7 +5,7 @@
 
 **Autor:** Thomas Riebl  
 **Organisation:** Conative Systems S.à r.l.  
-**Theoretische Grundlagen:** Active Conative Inference (ACI), Free Energy Principle (FEP), Integrated Information Theory ($\Phi$ / IIT 4.0), Spinozas Conatus, Patent 01 & 11  
+**Theoretische Grundlagen:** Active Conative Inference (ACI), Free Energy Principle (FEP), Integrated Information Theory ($\Phi$ / IIT 4.0, Giulio Tononi), Spinozas Conatus, Patent 01 & 11  
 **Zielarchitektur:** Freistehendes ANSI C99 für Edge-Mikrocontroller (Zero Dynamic Heap)
 
 ---
@@ -132,7 +132,7 @@ Mit den vier intuitiven Objekten ($\mathbf{C}, \mathbf{D}, \mathbf{A}, \mathbf{B
 
 ### 1.2 Architektur des Zustandsraums (Stufe 2: Diskretisierung & Conatus-Grenze)
 
-Zur Konstruktion eines berechenbaren Modells diskretisieren wir den kontinuierlichen Winkel $\theta$ in **5 conative Zustände** ($\mathcal{S}$) und definieren die **Axiom-6-Überlebensgrenze**:
+Zur Konstruktion eines berechenbaren Modells diskretisieren wir den kontinuierlichen Winkel $\theta$ in **5 conative Zustände** ($\mathcal{S}$) und definieren die **Conatus-Überlebensgrenze**:
 
 ![2. Diskreter Zustandsraum & Conatus-Überlebensbarriere](inverted_pendulum_step2_states.svg)
 
@@ -140,7 +140,7 @@ Zur Konstruktion eines berechenbaren Modells diskretisieren wir den kontinuierli
 * **Zustand $s_0 = 0$ (Grün):** Aufrechte Gleichgewichtslage ($|\theta| \le 3^\circ$). Homeostatischer Attraktor ($C_0 = 0.0$, $\Phi = 1.00$).
 * **Zustände $s_1 = l_1, s_3 = r_1$ (Bernstein):** Leichte Neigung links oder rechts ($3^\circ < |\theta| \le 15^\circ$). Mühelos stabilisierbar ($C = -1.5$, $\Phi = 0.70$).
 * **Zustände $s_2 = l_2, s_4 = r_2$ (Rot):** Kritisches Kippen links oder rechts ($15^\circ < |\theta| < 35^\circ$). Starkes Gegensteuern erforderlich ($C = -8.0$, $\Phi = 0.15$).
-* **Axiom 6 Conatus-VETO-Grenze (Rot gestrichelt bei $\pm 35^\circ$):** Point of No Return. Exkursionen über $\pm 35^\circ$ können vom Motor nicht mehr abgefangen werden; jede dahin führende Politik löst ein sofortiges Hardware-Veto aus ($G^* \to +\infty$).
+* **Conatus-VETO-Grenze (Rot gestrichelt bei $\pm 35^\circ$):** Point of No Return. Exkursionen über $\pm 35^\circ$ können vom Motor nicht mehr abgefangen werden; jede dahin führende Politik löst ein sofortiges Conatus-Veto aus ($G^* \to +\infty$).
 
 ### Diskreter Zustandsraum ($|\mathcal{S}| = 5$) und Aktionsraum ($|\mathcal{A}| = 2$)
 
@@ -232,11 +232,11 @@ Klassisches Active Inference ($H = 1$) handelt kurzsichtig und optimiert ledigli
 
 Unter Active Conative Inference gilt:
 * **Temporale Tiefe $H \ge 2$:** Der Agent antizipiert Überschwingen. Zu starkes Gegensteuern bei $r_1$ erzeugt bei $t+2$ einen unkontrollierbaren Gegenschwung nach $l_2$.
-* **Systemische Vitalitätsüberwachung $\Phi(s)$ (IIT 4.0):**
+* **Systemische Vitalitätsüberwachung $\Phi(s)$ (Integrated Information Theory / IIT 4.0, Giulio Tononi):**
   * $\Phi(0) = 1.00\text{ nats}$ (Maximale systemische Kohärenz und autopoietische Gesundheit)
   * $\Phi(l_1, r_1) = 0.70\text{ nats}$ (Leichte Auslenkung)
   * $\Phi(l_2, r_2) = 0.15\text{ nats}$ (Kritische Gefahrenzone)
-* **Conatus Axiom 6 Hardware-VETO:** Fällt die prognostizierte Vitalität unter $\Phi < 0.25\text{ nats}$, sperrt das Hardware-Veto den schädlichen Steuerbefehl sofort und erzwingt stabilisierende Dämpfung.
+* **Conatus-VETO:** Fällt die prognostizierte Vitalität unter $\Phi < 0.25\text{ nats}$, sperrt das Conatus-Veto den schädlichen Steuerbefehl sofort und erzwingt stabilisierende Dämpfung.
 
 ---
 
@@ -257,7 +257,7 @@ $$G^*(a) = G_{\text{pragmatisch}}(a) - \lambda_\Phi \cdot \Phi(a, H) \cdot \sqrt
 
 * **Pragmatischer Term:** $-\mathbb{E}_{q(s_{t+1})}[\mathbf{C}]$ (Abstand zum phänotypischen Attraktor $s_0$).
 * **Conativer Vitalitätsterm:** Prognostizierte Integrität $\Phi$, gewichtet mit Zeittiefe $\sqrt{H}$.
-* **Conatus Axiom 6 Hardware-Veto:** Sinkt die Vitalität unter $\Phi < 0.25\text{ nats}$, springt $G^* \to +\infty$ und blockiert gefährliche Steuerimpulse.
+* **Conatus-Veto:** Sinkt die Vitalität unter $\Phi < 0.25\text{ nats}$, springt $G^* \to +\infty$ und blockiert gefährliche Steuerimpulse.
 
 ---
 
@@ -347,27 +347,27 @@ ergänzt um den conativen Phänotypvektor $\mathbf{C} = \ln P(o)$ und die system
 #### 4. Vorteile von Active Conative Inference (ACI)
 * **Optimales Bayes-Filtern:** Trennt Sensorrauschen von physikalischer Realität über Matrix $\mathbf{A}$.
 * **Vorausschauende Planung ($H \ge 2$):** Verhindert Überschwingen, bevor es entsteht.
-* **Autonomer Conatus-Schutz:** Hardware-Veto verhindert Motorschäden und Getriebebrüche.
+* **Autonomer Conatus-Schutz:** Conatus-Veto verhindert Motorschäden und Getriebebrüche.
 * **Echtzeit-Adaption:** Passt sich veränderten Reibungswerten im Betrieb ohne manuelles Nachtrimmen an.
 
 ---
 
-### FAQ 7: Wie arbeiten Conatus und Axiom 6 am Invertierten Pendel konkret?
+### FAQ 7: Wie arbeitet das Conatus-Veto am Invertierten Pendel konkret?
 
 #### 1. Das Problem: Peitscheneffekt (Whiplash)
 Beim schnellen Aufrichten aus starker Neigung erzeugt die Massenträgheit hohe kinetische Energie. Ein kurzsichtiger Regler ($H = 1$) reißt den Wagen zurück, wodurch der Stab auf die Gegenseite durchschlägt und abstürzt.
 
 #### 2. Die conative Invariante: Vitalitätsabbildung $\Phi(s)$
-Nach Spinozas Conatus-Prinzip strebt jedes autopoietische System nach Selbsterhalt. Über IIT 4.0 wird dies messbar:
+Nach Spinozas Conatus-Prinzip strebt jedes autopoietische System nach Selbsterhalt. Über IIT 4.0 (Giulio Tononi) wird dies messbar:
 * Aufrecht ($s_0$): Maximale Systemvitalität $\Phi = 1.00\text{ nats}$.
 * Leichte Neigung ($l_1, r_1$): Stabiler Vitalitätsbereich $\Phi = 0.70\text{ nats}$.
 * Gefahrenzone ($l_2, r_2$): Starker Vitalitätsabfall auf $\Phi = 0.15\text{ nats}$.
 
-#### 3. Auslösen des Axiom-6-Hardware-Vetos
-Axiom 6 besagt, dass der Schutz des Systems absoluten Vorrang vor Aufgabenanforderungen hat.
+#### 3. Auslösen des Conatus-Vetos
+Das Conatus-Prinzip besagt, dass der Schutz des Systems und der Erhalt der physischen Integrität absoluten Vorrang vor Aufgabenanforderungen haben.
 * Vor jedem Steuerimpuls prüft der Agent die prognostizierte Vitalität über $H = 2$:
 $$\Phi_{\text{prognose}}(a) < 0.25\text{ nats} \implies G^*(a) \to +\infty$$
-* Der zerstörerische Befehl wird hardwarenah verworfen; stattdessen greift eine stabilisierende Notdämpfung.
+* Der zerstörerische Befehl wird verworfen; stattdessen greift eine stabilisierende Notdämpfung.
 
 ---
 
@@ -393,7 +393,7 @@ In der industriellen Robotik (patentiert durch Conative Systems S.à r.l.):
 #### Die Lösung: Die Conative Studio IDE
 Zur Überbrückung der Hürde zwischen theoretischer Neuro-Kybernetik und deterministischem Embedded-Code entwickelte Conative Systems die **Conative Studio IDE**:
 * **Visuelle Modellierung:** Zustandsräume, Beobachtungen und Kausaltensoren werden grafisch definiert.
-* **Formale Verifikation:** Automatische Prüfung auf Ergodizität, Normalisierung und zuverlässiges Greifen des Axiom-6-Vetos vor Code-Generierung.
+* **Formale Verifikation:** Automatische Prüfung auf Ergodizität, Normalisierung und zuverlässiges Greifen des Conatus-Vetos vor Code-Generierung.
 * **1-Klick-C99-Codegenerierung:** Erzeugt optimierte, freistehende Quelldateien (`aci_core.h`, `aci_core.c`) ohne externe Abhängigkeiten.
 * **Hardware-in-the-Loop-Simulation:** Echtzeit-Testlauf gegen digitale Zwillinge vor dem Aufspielen auf die Zielhardware.
 

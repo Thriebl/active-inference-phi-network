@@ -44,7 +44,7 @@
   <path d="M 320 360 L 188 172 A 230 230 0 0 1 260 138 Z" fill="#fee2e2" opacity="0.6" />
   <path d="M 320 360 L 380 138 A 230 230 0 0 1 452 172 Z" fill="#fee2e2" opacity="0.6" />
 
-  <!-- Axiom 6 Conatus VETO Limits at ±35° -->
+  <!-- Conatus VETO Limits at ±35° -->
   <line x1="320" y1="360" x2="188" y2="172" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6,4" />
   <line x1="320" y1="360" x2="452" y2="172" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6,4" />
   <text x="175" y="165" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="end">
@@ -169,7 +169,7 @@
     <!-- Conatus Gate Callout Box -->
     <rect x="15" y="275" width="292" height="135" fill="#fef2f2" rx="8" stroke="#fecaca" stroke-width="1.5" />
     <text x="25" y="298" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#b91c1c">
-      AXIOM 6 HARDWARE VETO LIMIT
+      CONATUS VETO LIMIT
     </text>
     <text x="25" y="320" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#991b1b">
       • Critical Angle Threshold: |θ| ≥ 35°
@@ -184,7 +184,7 @@
       If predicted Φ &lt; 0.25 nats: Expected Free Energy
     </text>
     <text x="25" y="394" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#dc2626">
-      G* → +∞ (Instantaneous Hard Veto)
+      G* → +∞ (Instantaneous Conatus VETO)
     </text>
   </g>
 </svg>
