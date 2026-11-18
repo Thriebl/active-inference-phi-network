@@ -159,13 +159,22 @@ Zur Konstruktion eines berechenbaren Modells diskretisieren wir den kontinuierli
 
 ---
 
-### Prior-Vektor $\mathbf{D}$ (Ausgangszustand)
+### Prior-Vektor $\mathbf{D}$ (Startzustand & Prädiktive Kausalkette)
 
-$$\mathbf{D} = p(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \end{pmatrix} \begin{matrix} (0) \\ (l_1) \\ (l_2) \\ (r_1) \\ (r_2) \end{matrix}$$
+Wie bildet der Agent eine A-priori-Vorhersage $s_{\text{pred}}$ über den verborgenen Weltzustand, bevor er die nächste Sensormessung verarbeitet?
 
-* $P(s = 0) = 0.92$: Hohe Sicherheit für den aufrechten Start.
-* Geringe Restmasse ($0.04$) auf Stufe 1 verhindert numerische Nullfallen.
-* Null Wahrscheinlichkeit ($0.00$) für sofortigen Absturz (Stufe 2).
+1. **Im laufenden Betrieb ($t \ge 1$):**  
+   Sobald das System in Bewegung ist, projiziert der Agent seine Erwartung über den Kausal-Tensor $\mathbf{B}$ und die zuletzt ausgeführte Aktion $a_{t-1}$ voraus:
+   $$s_{\text{pred}}(t) = \mathbf{B}(a_{t-1}) \cdot s_{t-1}$$
+2. **Beim Systemstart ($t = 0$):**  
+   Im allerersten Zeitschritt beim Einschalten existieren noch keine vorherige Aktion $a_{-1}$ und kein Vorzustand $s_{-1}$.  
+   **Der Vektor $\mathbf{D}$ dient als zwingender Startwert für diese prädiktive Kausalkette:**
+   $$s_{\text{pred}}(t=0) = \mathbf{D} = p(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \end{pmatrix} \begin{matrix} (0: \text{Aufrecht balanciert}) \\ (l_1: \text{Leichte Neigung links}) \\ (l_2: \text{Starker Sturz links}) \\ (r_1: \text{Leichte Neigung rechts}) \\ (r_2: \text{Starker Sturz rechts}) \end{matrix}$$
+
+* $P(s_0 = 0) = 0.92$: Das System startet mit hoher A-priori-Gewissheit, dass es aufrecht balanciert steht.
+* $P(s_0 = l_1) = P(s_0 = r_1) = 0.04$: Geringe Restunsicherheit ($4\%$) verhindert numerische Nullfallen und sorgt für sensorische Flexibilität.
+* $P(s_0 = l_2) = P(s_0 = r_2) = 0.00$: Null Wahrscheinlichkeit für einen sofortigen Absturz beim Einschalten.
+* **Strikte Wahrscheinlichkeitserhaltung:** $\sum_{i=0}^4 D_i = 0.92 + 0.04 + 0.00 + 0.04 + 0.00 = \mathbf{1.00}$ ($\mathbf{100\,\%}$).
 
 ---
 

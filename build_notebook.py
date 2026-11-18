@@ -162,13 +162,22 @@ With the intuitive objects ($\mathbf{C}, \mathbf{D}, \mathbf{A}, \mathbf{B}$) an
 
 ---
 
-### Prior Belief Vector $\mathbf{D}$ (Initial State)
+### Prior Belief Vector $\mathbf{D}$ (Initial State Prior & Predictive Recurrence)
 
-$$\mathbf{D} = p(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \end{pmatrix} \begin{matrix} (0) \\ (l_1) \\ (l_2) \\ (r_1) \\ (r_2) \end{matrix}$$
+How does the agent form a prior prediction $s_{\text{pred}}$ about the hidden world state before processing the next sensor observation?
 
-* $P(s = 0) = 0.92$: High initial certainty for the upright stance.
-* Small residual probability mass ($0.04$) on level-1 deviations ensures sensorimotor flexibility and avoids numerical zero-probability traps.
-* Zero initial probability ($0.00$) for catastrophic tipping (level 2).
+1. **Continuous Operation ($t \ge 1$):**  
+   Once in motion, the agent projects its belief forward using the causal transition tensor $\mathbf{B}$ and the last emitted motor action $a_{t-1}$:
+   $$s_{\text{pred}}(t) = \mathbf{B}(a_{t-1}) \cdot s_{t-1}$$
+2. **System Initialization ($t = 0$):**  
+   At the very first time step when the controller powers on, no previous action $a_{-1}$ and no previous state $s_{-1}$ exist.  
+   **Vector $\mathbf{D}$ serves as the essential initial condition for this predictive recurrence:**
+   $$s_{\text{pred}}(t=0) = \mathbf{D} = p(s_0) = \begin{pmatrix} 0.92 \\ 0.04 \\ 0.00 \\ 0.04 \\ 0.00 \end{pmatrix} \begin{matrix} (0: \text{Upright balanced}) \\ (l_1: \text{Slight tilt left}) \\ (l_2: \text{Severe fall left}) \\ (r_1: \text{Slight tilt right}) \\ (r_2: \text{Severe fall right}) \end{matrix}$$
+
+* $P(s_0 = 0) = 0.92$: The agent powers on with high confidence that it starts in the upright balanced stance.
+* $P(s_0 = l_1) = P(s_0 = r_1) = 0.04$: Minor residual uncertainty ($4\%$) ensures perceptual flexibility and avoids numerical zero-probability traps.
+* $P(s_0 = l_2) = P(s_0 = r_2) = 0.00$: Zero initial probability for severe collapse.
+* **Strict Probability Conservation:** $\sum_{i=0}^4 D_i = 0.92 + 0.04 + 0.00 + 0.04 + 0.00 = \mathbf{1.00}$ ($\mathbf{100\%}$).
 
 ---
 
