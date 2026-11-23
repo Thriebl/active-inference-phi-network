@@ -8,6 +8,11 @@
 **Theoretische Grundlagen:** Active Conative Inference (ACI), Free Energy Principle (FEP), Integrated Information Theory ($\Phi$ / IIT 4.0, Giulio Tononi), Spinozas Conatus, Patent 01 & 11  
 **Zielarchitektur:** Freistehendes ANSI C99 für Edge-Mikrocontroller (Zero Dynamic Heap)
 
+> [!IMPORTANT] Pädagogischer Geltungsbereich & Didaktische Zielsetzung
+> **Didaktisches 101-Lehrmodell:** Dieses Dokument und das zugehörige Notebook dienen als induktive, didaktische Einführung in Active Conative Inference (ACI). Um Studenten und Forschern die händische Nachrechnung von Bayes-Inferenz ($F$) und Erwarteter Freier Energie ($G^*$) zu ermöglichen, wurde das System auf einen minimalen 5-Zustands-Winkelkompass ($|\mathcal{S}| = 5, |\mathcal{A}| = 2$) ohne Winkelgeschwindigkeit ($\dot{\theta}$) abstrahiert.
+>
+> **Kontinuierlicher Physik- & Regelungs-Benchmark:** Für den vollständigen kontinuierlichen Benchmark 2. Ordnung mit 4D-Phasenraum $(\theta, \dot{\theta}, x, \dot{x})$, LQR-Vergleich, Windstoß-Störungen und aktivem Conative Veto an den Standard-Gleichungen nach Barto-Sutton siehe das Begleit-Benchmark-Notebook: [`sutton_barto_cartpole_physics_and_control.ipynb`](sutton_barto_cartpole_physics_and_control.ipynb).
+
 ---
 
 ## 1. Physikalische Anschauung: Das Besenstiel-Paradoxon & Planare Architektur
@@ -60,6 +65,12 @@ In klassischen Regelungstheorien wird oft angenommen, dass der exakte Winkel $\t
 Das Theorem von Bayes liefert das mathematische Gesetz, wie eine interne Wahrscheinlichkeitsverteilung unter Einbeziehung neuer sensorischer Evidenz optimal aktualisiert wird:
 
 $$p(s \mid o) = \frac{p(o \mid s) \cdot p(s)}{p(o)} = \frac{p(o \mid s) \cdot p(s)}{\sum_{s'} p(o \mid s') \cdot p(s')}$$
+
+> [!NOTE] Die Auflösung des Bayes-Rätsels: Wo versteckt sich die Freie Energie?
+> Viele Leser fragen: *„Wenn Wahrnehmung schlicht Bayes' Theorem ist – warum heißt das Framework dann Free Energy Principle?“*
+> **Die Antwort:** Bayes' Theorem ist mathematisch exakt das globale Minimum der **Variations-Freien-Energie $F$**!
+> $$F[q] = \underbrace{D_{\text{KL}}\big(q(s) \parallel p(s \mid o)\big)}_{\ge 0\text{ (Divergenz)}} - \ln p(o)$$
+> Wenn der Agent seinen inneren Glauben $q(s)$ optimal anpasst, sinkt die KL-Divergenz auf null. Der Punkt minimaler Freier Energie ($\arg\min_q F$) ist mathematisch **exakt die Bayes'sche Posterior-Verteilung** $q(s) = p(s \mid o)$.
 
 ---
 
@@ -225,11 +236,6 @@ In der Implementierung konfigurieren Entwickler direkt den Vektor $\mathbf{C}$. 
 $$P(o_i) = \sigma(\mathbf{C})_i = \frac{e^{C_i}}{\sum_{j=1}^5 e^{C_j}} \implies p(o) = \operatorname{softmax}(\mathbf{C})$$
 Mit der Zustandssumme $Z = \sum_{j=1}^5 e^{C_j} = e^{0{,}0} + 2 e^{-1{,}5} + 2 e^{-8{,}0} \approx 1{,}4469$ stellt $\operatorname{softmax}(\mathbf{C})$ exakt die Zielverteilung $69{,}1\,\%, 15{,}4\,\%, 0{,}02\,\%$ wieder her!
 
-#### 💡 Zusammenfassung:
-* **Der Wahrscheinlichkeits-Raum ($\mathbf{A}, \mathbf{B}, \mathbf{D}, p(o)$):** Alle Werte sind echte Wahrscheinlichkeiten ($P \in [0, 1]$), strikt positiv, Summe $= 1{,}0$.
-* **Der Log-Präferenz-Raum ($\mathbf{C}$ in Nats):** Arbeitsraum für Freie-Energie-Berechnungen ($\mathbf{C} = \ln p(o)$), in dem gefährliche Zustände große negative Strafwerte besitzen.
-* **Die Softmax-Brücke:** Verbindet beide Welten eineindeutig: $p(o) = \operatorname{softmax}(\mathbf{C}) \iff \mathbf{C} \cong \ln p(o)$.
-
 ---
 
 ### Beobachtungsmatrix $\mathbf{A}$ (Sensorpräzision)
@@ -282,7 +288,7 @@ $$\mathbf{B}(l) = p(s' \mid s, a = l) = \begin{pmatrix}
 
 ---
 
-### 5. Die conative ACI-Differenzierung (Thomas Riebl)
+### 4.6 Die conative ACI-Differenzierung (Thomas Riebl)
 
 Klassisches Active Inference ($H = 1$) handelt kurzsichtig und optimiert lediglich den nächsten Zeitschritt.
 
@@ -298,7 +304,71 @@ Unter Active Conative Inference gilt:
 
 ## 5. Handlungsplanung ($G^*$-Minimierung) & Der Gesamte Regelkreis
 
-### 1.3 Der vollständige geschlossene Regelkreis (Stufe 3: Kräfte, Handlungen & Tensoren)
+### 5.1 Das Doppel-Prinzip: Variations-Freie-Energie $F$ vs. Erwartete Freie Energie $G^*$
+
+In Active Conative Inference wird die Freie Energie an zwei völlig unterschiedlichen Stellen berechnet – mit zwei gegensätzlichen epistemischen Blickrichtungen:
+
+* **Blick in die Gegenwart: Wahrnehmung via $F$ (Variations-Freie-Energie)**
+  * **Ziel:** *„Die eigene Vorstellung an die Welt anpassen.“*
+  * **Problem:** Was ist da draußen gerade wirklich los? Der Winkelsensor liefert verrauschte Messwerte $o_t$.
+  * **Berechnung:** Der Agent minimiert $F$ bezüglich seines inneren Zustandsglaubens $q(s_t)$. Das Minimum eliminiert Sensorrauschen und entspricht exakt dem Bayes-Filter:
+    $$q(s_t) = \arg\min_q F \propto \mathbf{A}(o_t, :) \odot s_{\text{pred}}(t)$$
+* **Blick in die Zukunft: Handlungsplanung via $G^*$ (Erwartete Freie Energie)**
+  * **Ziel:** *„Die Welt an die eigene Vorstellung anpassen.“*
+  * **Problem:** Welche Aktion $a \in \{\text{Links}, \text{Rechts}\}$ verhindert das Umkippen des Pendels in der Zukunft ($H \ge 2$)? Da künftige Messwerte noch gar nicht existieren, kann $F$ nicht berechnet werden.
+  * **Berechnung:** Der Agent simuliert hypothetische Zukunftspfade $\tilde{s}_{t+\tau} = \mathbf{B}(a)^\tau q(s_t)$ und berechnet die *erwartete* freie Energie $G^*(a)$. Er bestraft Abweichungen von der Soll-Präferenz $\mathbf{C} = \ln p(o)$ und schützt die systemische Vitalität $\Phi$:
+    $$G^*(a) = G_{\text{pragmatisch}}(a) - \lambda_\Phi \cdot \Phi(a, H) \cdot \sqrt{H} + \Omega_{\text{conatus\_veto}}$$
+  * **Entscheidung:** Der Agent wählt die Aktion mit der geringsten erwarteten Überraschung: $a_t = \arg\min_a G^*(a)$.
+
+---
+
+### 5.2 Die 6-Schritte-Regelschleife von Active Conative Inference (ACI)
+
+Aus kognitionsmathematischer Sicht bildet diese Regelschleife einen **vollständigen, conativ erweiterten POMDP (Partially Observable Markov Decision Process)**: Das System schätzt verborgene Zustände unter Sensorrauschen ($\mathbf{A}$), plant Handlungen über Kausalübergänge ($\mathbf{B}$), ersetzt jedoch die klassische Belohnungsjagd durch Spinozas Conatus-Prinzip, Systemvitalität $\Phi(s)$ (IIT 4.0) und ein autonomes Veto-Gate.
+
+Der Regelkreis ist dabei keine lose Aneinanderreihung unabhängiger Algorithmen, sondern eine **lückenlose Kausalkette**: Jeder Schritt nimmt exakt das Resultat des vorherigen Taktes als Eingabe, transformiert es und übergibt die Ausgabe an den nächsten Takt:
+
+#### Schritt 1: Beobachtung ($o_t$) — Das Rohsignal von außen
+* **Eingabe:** Ein analoges optisches oder elektrisches Signal des Winkelsensors aus der physischen Umwelt.
+* **Verarbeitung:** Schwellenwert-Diskretisierung in eines der 5 diskreten Beobachtungssymbole.
+* **Ausgabe (an Schritt 2):** Das Beobachtungssymbol $o_t \in \mathcal{O}$ passiert das sensorische Markov-Blanket und erreicht das interne Kognitionssystem.
+
+#### Schritt 2: Wahrnehmung / Inferenz ($q(s_t)$) — Die Rekonstruktion der Gegenwart
+* **Eingabe:** 
+  1. Die frische Beobachtung $o_t$ (aus Schritt 1).
+  2. Die Kausal-Prädiktion $s_{\text{pred}}(t)$ (aus Schritt 6 des vorherigen Zeitschritts bzw. $\mathbf{D}$ bei $t=0$).
+* **Verarbeitung:** **Minimierung der Variations-Freien-Energie $F$ (Bayes-Inferenz).** Da Sensoren rauschen, fusioniert der Agent seine Vorerwartung mit der Messung über die Sensor-Präzisionsmatrix $\mathbf{A} \in \mathbb{R}^{5 \times 5}$.
+* **Ausgabe (an Schritt 3):** Der rekonstruierte Gegenwarts-Glaube $q(s_t) \propto \mathbf{A}(o_t, :) \odot s_{\text{pred}}(t)$ als verlässlicher Ausgangszustand für die Zukunfts-Simulation.
+
+#### Schritt 3: Vorausschau & Handlungsplanung ($G^*(a)$) — Gedankenexperiment Zukunft
+* **Eingabe:** 
+  1. Der aktuelle Zustand $q(s_t)$ (aus Schritt 2).
+  2. Das Kausalmodell $\mathbf{B}(a)$ (*„Wie reagiert die Physik auf Aktionen?“*).
+  3. Der Präferenzvektor $\mathbf{C} = \ln p(o)$ (*„Aufrechte Balance maximieren!“*).
+* **Verarbeitung:** **Minimierung der Erwarteten Freien Energie $G^*$.** Kontrafaktischer Rollout über Zeithorizont $H \ge 2$ für alle Handlungsoptionen ($a = \text{Links}$ und $a = \text{Rechts}$).
+* **Ausgabe (an Schritt 4):** Die simulierten Zukunftstrajektorien $\tilde{s}_{t+\tau} = \mathbf{B}(a)^\tau q(s_t)$ sowie die vorläufigen Aktionskosten $G^*(\text{Links})$ und $G^*(\text{Rechts})$.
+
+#### Schritt 4: Conatus-Veto-Gate (IIT 4.0) — Die autopoietische Notbremse
+* **Eingabe:** Die projizierten Zukunfts-Trajektorien $\tilde{s}$ (aus Schritt 3).
+* **Verarbeitung:** Prüfung der systemischen Vitalität: $\min_\tau \Phi(\tilde{s}_{t+\tau}) < 0{,}25\text{ nats}$? Bei drohendem Absturz ($|\theta| \ge 35^\circ$) sperrt das Veto den Befehl ($G^* \to +\infty$); andernfalls wird die Aktion freigegeben.
+* **Ausgabe (an Schritt 5):** Das verifizierte, conativ abgesicherte Bewertungsprofil $G^*(a)$.
+
+#### Schritt 5: Handlungsausführung ($a_t$) — Physischer Eingriff in die Welt
+* **Eingabe:** Das geprüfte Bewertungsprofil $G^*$ (aus Schritt 4).
+* **Verarbeitung:** Auswahl der optimalen Aktion $a_t = \arg\min_a G^*(a)$.
+* **Ausgabe (an die Umwelt & Schritt 6):** Der physische Steuerimpuls verlässt das motorische Markov-Blanket und erzeugt die Beschleunigungskraft $\vec{F}_{\text{cart}}$ an der Pendelbasis. Gleichzeitig werden $a_t$ und $s_t$ für das Erfahrungslernen registriert.
+
+#### Schritt 6: Kausales Lernen & Kettenschluss ($t \to t+1$) — Das Kausal-Update
+* **Eingabe:** 
+  1. Ausgangszustand $s_t$ (aus Schritt 2).
+  2. Gewählte Aktion $a_t$ (aus Schritt 5).
+  3. Folgezustand $s_{t+1}$ (nach Messung im nächsten Zeitschritt).
+* **Verarbeitung:** Inkrementierung des Kausalzählers $\beta(s_{t+1}, s_t, a_t) \mathrel{+}= 1$ zur $O(1)$-Verfeinerung von $\mathbf{B}(a)$, sowie Berechnung der Prädiktion $s_{\text{pred}}(t+1) = \mathbf{B}(a_t) \cdot q(s_t)$.
+* **Ausgabe (an Schritt 2 des nächsten Taktes):** Die Prädiktion $s_{\text{pred}}(t+1)$ schließt den Regelkreis und dient als Vorerwartung für die nächste Bayes-Fusion.
+
+---
+
+### 5.3 Vollständiger geschlossener Regelkreis: Kinematik, Kräfte & Tensoren (Stufe 3)
 
 Aus der Synthese von Cart-Pole-Mechanik (Stufe 1) und diskretem Zustands-Kompass (Stufe 2) entsteht die vollständige geschlossene Architektur:
 
@@ -343,7 +413,7 @@ In Active Inference lernt das System physikalische Kausalgesetze so transparent 
 
 ---
 
-## 7. Grundsatzfragen & Didaktische FAQ
+## 7. FAQ
 
 ### FAQ 1: Was macht dieses System „intelligent“?
 Intelligenz ist in diesem Framework **weder passive statistische Textvorhersage (LLMs) noch blinde Belohnungsjagd (Reinforcement Learning)**.  
@@ -471,3 +541,33 @@ Active Conative Inference schließt dieses Fehlverhalten kategorisch aus:
 1. **Phänotypische Präferenz ($\mathbf{C}$):** Flach auf dem Boden zu liegen ist mit katastrophaler Aversion belegt ($\mathbf{C} = -8.0$).
 2. **Vitalitätsmaximierung ($\Phi$):** Regungslos am Boden zu liegen bedeutet $\Phi \approx 0.0\text{ nats}$ (Verlust der systemischen Integration).
 3. **Der Conatus-Imperativ:** Das System existiert, um aktiv gegen die Entropie anzukämpfen. Das Aufrechtstehen gegen die Schwerkraft ist der physische Beweis dieser Lebendigkeit.
+
+---
+
+### FAQ 11: Warum benötigt Active Conative Inference zwei verschiedene Freie Energien ($F$ und $G^*$)?
+
+Weil Wahrnehmung und Handlung grundverschiedene epistemische Richtungen besitzen:
+
+* **Variations-Freie-Energie $F$ (Gegenwart / Wahrnehmung):**  
+  Der Agent blickt auf die *Vergangenheit und Gegenwart* ($t$). Die Messdaten $o_t$ liegen bereits vor, sind aber verrauscht. $F$ misst den Fehler zwischen Beobachtung und innerer Hypothese. Das Minimum von $F$ beantwortet die Frage: *„Was nehme ich jetzt wahr?“* (Exakter Bayes'scher Zustandsschätzer).
+* **Erwartete Freie Energie $G^*$ (Zukunft / Handlung):**  
+  Der Agent blickt in die *Zukunft* ($t+1, \dots, t+H$). Da künftige Messungen noch gar nicht existieren, kann $F$ nicht berechnet werden. $G^*$ antizipiert, welche Freie Energie bei verschiedenen Handlungen *zu erwarten* wäre. Das Minimum von $G^*$ beantwortet die Frage: *„Was soll ich tun, um meinen Phänotyp zu bewahren und den Sturz zu vermeiden?“* (Handlungsselektion & Conatus-Schutz).
+
+---
+
+## 8. Literaturverzeichnis & Wissenschaftliche Referenzen
+
+1. **Albantakis, L., Oizumi, M., & Tononi, G. (2014).** *From the phenomenology to the mechanisms of consciousness: Integrated Information Theory 3.0.* PLoS Computational Biology, 10(5), e1003588.
+2. **Barto, A. G., Sutton, R. S., & Anderson, C. W. (1983).** *Neuronlike adaptive elements that can solve difficult learning control problems.* IEEE Transactions on Systems, Man, and Cybernetics, SMC-13(5), 834–846.
+3. **Clark, A. (2013).** *Whatever next? Predictive brains, situated agents, and the future of cognitive science.* Behavioral and Brain Sciences, 36(3), 181–204.
+4. **Da Costa, L., Parr, T., Sajid, N., Veselic, S., Neacsu, V., & Friston, K. (2020).** *Active inference on discrete state-spaces: A synthesis.* Journal of Mathematical Psychology, 99, 102447.
+5. **Friston, K. (2010).** *The free-energy principle: a unified brain theory?* Nature Reviews Neuroscience, 11(2), 127–138.
+6. **Friston, K., FitzGerald, T., Rigoli, F., Schwartenbeck, P., & Pezzulo, G. (2017).** *Active Inference: A Process Theory.* Neural Computation, 29(1), 1–49.
+7. **Friston, K., Thornton, C., & Clark, A. (2012).** *Free-energy minimization and the dark-room problem.* Frontiers in Psychology, 3, 130.
+8. **Maturana, H. R., & Varela, F. J. (1980).** *Autopoiesis and Cognition: The Realization of the Living.* D. Reidel Publishing Company, Dordrecht.
+9. **Parr, T., Pezzulo, G., & Friston, K. J. (2022).** *Active Inference: The Free Energy Principle in Mind, Brain, and Behavior.* MIT Press, Cambridge, MA.
+10. **Riebl, T. (2026).** *The Conative-Integrative Framework (CIF): How Active Inference Networks, Integrated Information ($\Phi$), and the Conative Veto Fit Together.* Master Monograph, Luxemburg.
+11. **Riebl, T. (2026).** *The Composition of the Soul: The 6-Layer Ontogenetic Architecture of the Dissociated Mind.* Luxemburg.
+12. **Spinoza, B. (1677).** *Ethica, ordine geometrico demonstrata.* Posthume Veröffentlichung.
+13. **Tononi, G., Albantakis, L., Boly, M., Massimini, M., & Koch, C. (2023).** *Integrated information theory (IIT) 4.0: Formulating the properties of phenomenal existence in physical terms.* PLOS Computational Biology, 19(10), e1011465.
+

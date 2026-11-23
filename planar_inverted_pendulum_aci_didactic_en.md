@@ -8,6 +8,11 @@
 **Theoretical Basis:** Active Conative Inference (ACI), Free Energy Principle (FEP), Integrated Information Theory ($\Phi$ / IIT 4.0, Giulio Tononi), Spinozan Conatus, Patent 01 & 11  
 **Target Architecture:** Freestanding ANSI C99 Edge Microcontrollers (Zero Dynamic Heap)
 
+> [!IMPORTANT] Pedagogical Scope & Didactic Intent
+> **Didactic 101 Walkthrough:** This notebook and document are specifically designed as an inductive, pedagogical introduction to Active Conative Inference (ACI). To allow students, researchers, and engineers to compute Bayes inference ($F$) and Expected Free Energy ($G^*$) by hand on paper, the physical system is discretized into a minimal 5-state angle compass ($|\mathcal{S}| = 5, |\mathcal{A}| = 2$) abstracted from second-order velocity momentum ($\dot{\theta}$).
+>
+> **Continuous Physics & Control Benchmark:** For the full continuous second-order physical benchmark with 4D phase space $(\theta, \dot{\theta}, x, \dot{x})$, LQR comparisons, external wind shocks, and active Conative Veto validation on the standard Barto-Sutton equations, see the companion benchmark notebook: [`sutton_barto_cartpole_physics_and_control.ipynb`](sutton_barto_cartpole_physics_and_control.ipynb).
+
 ---
 
 ## 1. Physical Intuition: The Palm-Balancing Paradox & Planar Architecture
@@ -60,6 +65,12 @@ In classical textbook control theory, controllers often assume instantaneous, pe
 Bayes' Theorem provides the exact mathematical law for updating an internal distribution in light of incoming noisy sensory evidence:
 
 $$p(s \mid o) = \frac{p(o \mid s) \cdot p(s)}{p(o)} = \frac{p(o \mid s) \cdot p(s)}{\sum_{s'} p(o \mid s') \cdot p(s')}$$
+
+> [!NOTE] Resolution of the Bayes Enigma: Where is the Free Energy?
+> Readers often ask: *“If perception is simply Bayes' Theorem, why is the framework named the Free Energy Principle?”*
+> **The answer:** Bayes' Theorem is mathematically the exact global minimum of **Variational Free Energy $F$**!
+> $$F[q] = \underbrace{D_{\text{KL}}\big(q(s) \parallel p(s \mid o)\big)}_{\ge 0\text{ (Divergence)}} - \ln p(o)$$
+> When the agent optimizes its internal belief distribution $q(s)$, the KL-divergence vanishes. The point of minimal Free Energy ($\arg\min_q F$) is identical to the exact **Bayesian posterior distribution** $q(s) = p(s \mid o)$.
 
 ---
 
@@ -225,11 +236,6 @@ In software implementations, engineers directly configure $\mathbf{C}$. The **So
 $$P(o_i) = \sigma(\mathbf{C})_i = \frac{e^{C_i}}{\sum_{j=1}^5 e^{C_j}} \implies p(o) = \operatorname{softmax}(\mathbf{C})$$
 With partition sum $Z = \sum_{j=1}^5 e^{C_j} = e^{0.0} + 2 e^{-1.5} + 2 e^{-8.0} \approx 1.4469$, $\operatorname{softmax}(\mathbf{C})$ recovers precisely the $69.1\,\%, 15.4\,\%, 0.02\,\%$ target distribution!
 
-#### 💡 Summary:
-* **The Probability Space ($\mathbf{A}, \mathbf{B}, \mathbf{D}, p(o)$):** All values are true probabilities ($P \in [0, 1]$), strictly positive, summing to $1.0$.
-* **The Log-Preference Space ($\mathbf{C}$ in nats):** Working space for Free Energy calculations ($\mathbf{C} = \ln p(o)$), where improbable events have large negative scores that penalize dangerous actions.
-* **The Softmax Bridge:** Links both spaces: $p(o) = \operatorname{softmax}(\mathbf{C}) \iff \mathbf{C} \cong \ln p(o)$.
-
 ---
 
 ### Likelihood Matrix $\mathbf{A}$ (Sensor Precision)
@@ -280,9 +286,14 @@ $$\mathbf{B}(l) = p(s' \mid s, a = l) = \begin{pmatrix}
 0.00 & 0.00 & 0.00 & 0.90 & 1.00
 \end{pmatrix}$$
 
+* From $s = l_1$ (slight left tilt): Leftward jerk $\to$ restores balance to $0$ with $P = 0.88$, lingers in $l_1$ with $P = 0.10$, overshoots to $r_1$ with $P = 0.02$.
+* From $s = l_2$ (severe left tilt): Rescues the system from $l_2$ back to $l_1$ with $P = 0.85$.
+* From $s = 0$ (balanced): Unnecessary leftward jerk tilts the pendulum rightward ($r_1$) with $P = 0.85$.
+* From $s = r_1$ (already tilted right): Leftward jerk accelerates collapse to the right ($r_2$) with $P = 0.90$.
+
 ---
 
-### 5. The Conative ACI Distinction (Thomas Riebl)
+### 4.6 The Conative ACI Differentiation (Thomas Riebl)
 
 In myopic classical Active Inference ($H = 1$), the agent greedily selects the action that maximizes $\mathbf{C}$ at the immediate next step.
 
@@ -296,9 +307,73 @@ Under Active Conative Inference:
 
 ---
 
-## 5. Action Planning ($G^*$-Minimization) & Complete Closed-Loop System
+## 5. Action Planning ($G^*$-Minimization) & The Complete Closed Loop
 
-### 1.3 Complete Closed-Loop System (Step 3: Torques, Actions & Generative Matrices)
+### 5.1 The Dual Principle: Variational Free Energy $F$ vs. Expected Free Energy $G^*$
+
+In Active Conative Inference, Free Energy is calculated at two fundamentally distinct junctures with opposing temporal perspectives:
+
+* **Looking at the Present: Perception via $F$ (Variational Free Energy)**
+  * **Objective:** *“Adapting one's own representation to the world.”*
+  * **Challenge:** What is truly happening outside right now? Sensor readings $o_t$ are corrupted by noise.
+  * **Computation:** The agent minimizes $F$ with respect to its internal belief $q(s_t)$. This minimum filters sensor noise and recovers exact Bayesian state estimation:
+    $$q(s_t) = \arg\min_q F \propto \mathbf{A}(o_t, :) \odot s_{\text{pred}}(t)$$
+* **Looking into the Future: Action Planning via $G^*$ (Expected Free Energy)**
+  * **Objective:** *“Adapting the world to one's own representation.”*
+  * **Challenge:** Which motor action $a \in \{\text{Left}, \text{Right}\}$ prevents the rod from collapsing in the future ($H \ge 2$)? Because future sensory readings do not exist yet, $F$ cannot be computed.
+  * **Computation:** The agent simulates counterfactual rollout trajectories $\tilde{s}_{t+\tau} = \mathbf{B}(a)^\tau q(s_t)$ and computes the *expected* free energy $G^*(a)$. It penalizes deviation from phenotypic preference $\mathbf{C} = \ln p(o)$ and guards systemic vitality $\Phi$:
+    $$G^*(a) = G_{\text{pragmatic}}(a) - \lambda_\Phi \cdot \Phi(a, H) \cdot \sqrt{H} + \Omega_{\text{conatus\_veto}}$$
+  * **Decision:** The agent selects the policy that minimizes anticipated surprise: $a_t = \arg\min_a G^*(a)$.
+
+---
+
+### 5.2 The 6-Step Control Loop of Active Conative Inference (ACI)
+
+From a mathematical cognitive perspective, this control loop constitutes a **complete, conatively extended POMDP (Partially Observable Markov Decision Process)**: The system infers hidden states under sensory noise ($\mathbf{A}$), plans actions over causal state transitions ($\mathbf{B}$), but replaces classical reward-hunting with Spinoza's Conatus principle, systemic vitality $\Phi(s)$ (IIT 4.0), and an autonomous veto gate.
+
+The control loop is not a disjoint collection of independent algorithms, but an **unbroken causal chain**: Each step takes the exact result of the preceding cycle as its input, transforms it, and hands the output over to the subsequent step:
+
+#### Step 1: Observation ($o_t$) — Raw External Sensory Signal
+* **Input:** An analog optical or electrical angle sensor signal from the physical environment.
+* **Processing:** Threshold quantization into one of the 5 discrete observation symbols.
+* **Output (to Step 2):** Observation symbol $o_t \in \mathcal{O}$ crosses the sensory Markov blanket into the internal cognitive architecture.
+
+#### Step 2: Perception / Inference ($q(s_t)$) — Reconstructing the Present
+* **Input:** 
+  1. Fresh observation $o_t$ (from Step 1).
+  2. Causal prediction $s_{\text{pred}}(t)$ (from Step 6 of the previous cycle, or $\mathbf{D}$ at $t=0$).
+* **Processing:** **Minimization of Variational Free Energy $F$ (Bayes Inference).** Accounting for sensor noise, the agent fuses prior prediction with sensory likelihood via precision matrix $\mathbf{A} \in \mathbb{R}^{5 \times 5}$.
+* **Output (to Step 3):** Reconstructed belief $q(s_t) \propto \mathbf{A}(o_t, :) \odot s_{\text{pred}}(t)$ serving as the grounded starting state for forward simulation.
+
+#### Step 3: Foresight & Action Planning ($G^*(a)$) — Mental Experiment of the Future
+* **Input:** 
+  1. Current state belief $q(s_t)$ (from Step 2).
+  2. Causal world model $\mathbf{B}(a)$ (*"How does physical reality react to actions?"*).
+  3. Phenotypic preference vector $\mathbf{C} = \ln p(o)$ (*"Maximize upright balance!"*).
+* **Processing:** **Minimization of Expected Free Energy $G^*$.** Counterfactual rollout over temporal horizon $H \ge 2$ across all candidate motor choices ($a = \text{Left}$ and $a = \text{Right}$).
+* **Output (to Step 4):** Simulated counterfactual trajectories $\tilde{s}_{t+\tau} = \mathbf{B}(a)^\tau q(s_t)$ alongside preliminary action evaluations $G^*(\text{Left})$ and $G^*(\text{Right})$.
+
+#### Step 4: Conatus-Veto Gate (IIT 4.0) — The Autopoietic Emergency Brake
+* **Input:** Projected future trajectories $\tilde{s}$ (from Step 3).
+* **Processing:** Verification of systemic vitality: $\min_\tau \Phi(\tilde{s}_{t+\tau}) < 0.25\text{ nats}$? If excessive counter-torque risks structural whiplash or collapse ($|\theta| \ge 35^\circ$), the veto locks the command ($G^* \to +\infty$); otherwise the policy is cleared.
+* **Output (to Step 5):** Verified, conatively secured evaluation profile $G^*(a)$.
+
+#### Step 5: Action Execution ($a_t$) — Physical Intervention in the World
+* **Input:** Verified evaluation profile $G^*$ (from Step 4).
+* **Processing:** Selection of the minimal expected free energy action: $a_t = \arg\min_a G^*(a)$.
+* **Output (to Environment & Step 6):** An electrical motor command crosses the active Markov blanket boundary, driving base cart acceleration $\vec{F}_{\text{cart}}$. Concurrently, $a_t$ and $s_t$ are logged for empirical learning.
+
+#### Step 6: Causal Learning & Loop Closure ($t \to t+1$) — The Causal Memory Update
+* **Input:** 
+  1. Starting state $s_t$ (from Step 2).
+  2. Executed action $a_t$ (from Step 5).
+  3. Resulting successor state $s_{t+1}$ (inferred upon observation in the next cycle).
+* **Processing:** In-place increment of the empirical transition counter $\beta(s_{t+1}, s_t, a_t) \mathrel{+}= 1$ for instantaneous $O(1)$ refinement of $\mathbf{B}(a)$, and forward prediction $s_{\text{pred}}(t+1) = \mathbf{B}(a_t) \cdot q(s_t)$.
+* **Output (to Step 2 of Next Cycle):** Prediction $s_{\text{pred}}(t+1)$ closes the loop and serves as the prior expectation for the next Bayesian belief update.
+
+---
+
+### 5.3 Complete Closed-Loop System: Kinematics, Forces & Generative Matrices (Step 3)
 
 Having established the physical cart-pole (Step 1) and the discrete state compass (Step 2), we now integrate the active forces, corrective motor policies, and the complete $5 \times 5$ generative model:
 
@@ -343,7 +418,7 @@ In Active Inference, learning how the physical world behaves is as transparent a
 
 ---
 
-## 7. Foundational Inquiries & Didactic FAQ
+## 7. FAQ
 
 ### FAQ 1: What makes this system "Intelligent"?
 Intelligence in this framework is **neither passive statistical pattern matching (LLMs) nor ungrounded reward hunting (Reinforcement Learning)**.  
@@ -507,3 +582,33 @@ Active Conative Inference completely eradicates the Dark Room Problem through tw
    Because the action selection objective $G^*$ actively rewards higher vitality ($-\lambda_\Phi \Phi \sqrt{H}$), the agent is biologically compelled to keep the rod upright.
 3. **The Conatus Imperative (Spinoza):**  
    An autopoietic agent's very existence is defined by its continual struggle against thermodynamic entropy. Standing upright against gravity is the ultimate mechanical expression of this living struggle.
+
+---
+
+### FAQ 11: Why Does Active Conative Inference Require Two Distinct Free Energies ($F$ and $G^*$)?
+
+Because perception and action face opposite epistemic directions across the Markov blanket:
+
+* **Variational Free Energy $F$ (Present / Perception):**  
+  The agent looks backward and inward at the *present* ($t$). Sensory measurement $o_t$ has already arrived, but is corrupted by noise. $F$ measures the discrepancy between sensory reality and internal prediction. Minimizing $F$ answers the question: *“What am I perceiving right now?”* (Exact Bayesian state estimation).
+* **Expected Free Energy $G^*$ (Future / Action):**  
+  The agent looks forward into the *future* ($t+1, \dots, t+H$). Because future observations do not yet exist, $F$ cannot be evaluated. $G^*$ anticipates what free energy would be experienced under candidate actions. Minimizing $G^*$ answers the question: *“What must I do next to preserve my phenotype and prevent collapse?”* (Action selection & Conatus defense).
+
+---
+
+## 8. Literature References & Scientific Bibliography
+
+1. **Albantakis, L., Oizumi, M., & Tononi, G. (2014).** *From the phenomenology to the mechanisms of consciousness: Integrated Information Theory 3.0.* PLoS Computational Biology, 10(5), e1003588.
+2. **Barto, A. G., Sutton, R. S., & Anderson, C. W. (1983).** *Neuronlike adaptive elements that can solve difficult learning control problems.* IEEE Transactions on Systems, Man, and Cybernetics, SMC-13(5), 834–846.
+3. **Clark, A. (2013).** *Whatever next? Predictive brains, situated agents, and the future of cognitive science.* Behavioral and Brain Sciences, 36(3), 181–204.
+4. **Da Costa, L., Parr, T., Sajid, N., Veselic, S., Neacsu, V., & Friston, K. (2020).** *Active inference on discrete state-spaces: A synthesis.* Journal of Mathematical Psychology, 99, 102447.
+5. **Friston, K. (2010).** *The free-energy principle: a unified brain theory?* Nature Reviews Neuroscience, 11(2), 127–138.
+6. **Friston, K., FitzGerald, T., Rigoli, F., Schwartenbeck, P., & Pezzulo, G. (2017).** *Active Inference: A Process Theory.* Neural Computation, 29(1), 1–49.
+7. **Friston, K., Thornton, C., & Clark, A. (2012).** *Free-energy minimization and the dark-room problem.* Frontiers in Psychology, 3, 130.
+8. **Maturana, H. R., & Varela, F. J. (1980).** *Autopoiesis and Cognition: The Realization of the Living.* D. Reidel Publishing Company, Dordrecht.
+9. **Parr, T., Pezzulo, G., & Friston, K. J. (2022).** *Active Inference: The Free Energy Principle in Mind, Brain, and Behavior.* MIT Press, Cambridge, MA.
+10. **Riebl, T. (2026).** *The Conative-Integrative Framework (CIF): How Active Inference Networks, Integrated Information ($\Phi$), and the Conative Veto Fit Together.* Master Monograph, Luxembourg.
+11. **Riebl, T. (2026).** *The Composition of the Soul: The 6-Layer Ontogenetic Architecture of the Dissociated Mind.* Luxembourg.
+12. **Spinoza, B. (1677).** *Ethica, ordine geometrico demonstrata.* Posthumous Publication.
+13. **Tononi, G., Albantakis, L., Boly, M., Massimini, M., & Koch, C. (2023).** *Integrated information theory (IIT) 4.0: Formulating the properties of phenomenal existence in physical terms.* PLOS Computational Biology, 19(10), e1011465.
+
